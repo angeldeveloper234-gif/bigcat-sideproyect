@@ -1,0 +1,105 @@
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, ShieldCheck, PlayCircle, Phone, CheckCircle, Award, Target } from 'lucide-react';
+import LocationModal from './LocationModal';
+import { CONTACT_INFO, BRANCHES } from '../constants';
+
+const Hero: React.FC = () => {
+  return (
+    <section id="hero" className="relative h-screen min-h-[800px] flex items-center overflow-hidden bg-white pt-32 lg:pt-0">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/images/hero.jpg" 
+          alt="Home Pest Control" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+        <div className="max-w-3xl">
+          
+          {/* Content */}
+          <div className="w-full space-y-8">
+            <motion.div 
+               initial={{ opacity: 0, x: -20 }}
+               animate={{ opacity: 1, x: 0 }}
+               className="inline-flex items-center gap-2 bg-brand-red/10 px-4 py-2 rounded-full border border-brand-red/20"
+            >
+              <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-brand-red">
+                <span>Protección Residencial Profesional</span>
+              </div>
+            </motion.div>
+            
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl lg:text-7xl xl:text-7xl font-black leading-[1.1] tracking-tighter text-brand-dark"
+            >
+              Dile Adiós a las <br />
+              <span className="text-brand-red">Plagas</span> en Casa.
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl md:text-3xl text-gray-600 max-w-2xl leading-tight font-medium"
+            >
+              Control experto y <span className="text-brand-dark font-black underline decoration-brand-red/30">100% seguro para tu familia</span>. Erradicación total con tecnología de vanguardia y atención inmediata nacional.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap gap-4 pt-4"
+            >
+              <a 
+                href="#cotizacion"
+                className="bg-brand-red text-white px-10 py-6 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-brand-dark transition-all duration-500 shadow-2xl shadow-brand-red/20 flex items-center gap-3 group"
+              >
+                Cotizar Mi Hogar
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a 
+                href="#servicios"
+                className="bg-white text-brand-dark border border-gray-200 px-10 py-6 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-gray-50 transition-all duration-500 flex items-center gap-3"
+              >
+                Ver Servicios
+              </a>
+            </motion.div>
+
+            {/* Trust Badges Simplified */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 pb-20 lg:pb-0"
+            >
+              {[
+                { icon: ShieldCheck, label: "Efectividad", sub: "Profesional" },
+                { icon: Award, label: "Sabor", sub: "Inodoro" },
+                { icon: Target, label: "Respuesta", sub: "Inmediata" },
+                { icon: ArrowRight, label: "Presencia", sub: "Nacional" }
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-white/80 backdrop-blur-sm rounded-xl flex items-center justify-center border border-gray-200 shadow-sm">
+                    <item.icon className="text-brand-red w-5 h-5" />
+                  </div>
+                  <span className="text-[10px] font-black uppercase tracking-widest leading-tight text-brand-dark">{item.label} <br/>{item.sub}</span>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
