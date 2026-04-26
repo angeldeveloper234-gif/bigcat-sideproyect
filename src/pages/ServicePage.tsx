@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { PESTS_LIST } from '../../constants';
 import { CheckCircle2, AlertCircle, ShieldCheck, Microscope } from 'lucide-react';
@@ -13,6 +14,16 @@ const ServicePage: React.FC = () => {
 
     return (
         <div className="pt-20 bg-white min-h-screen">
+            <Helmet>
+                <title>{service.name} | Big Cat Fumigaciones</title>
+                <meta name="description" content={service.description} />
+                <link rel="canonical" href={`https://bigcat.mx/servicios/${service.slug}`} />
+                <meta property="og:title" content={`${service.name} | Control de Plagas`} />
+                <meta property="og:description" content={service.description} />
+                <meta property="og:type" content="article" />
+                <meta property="og:url" content={`https://bigcat.mx/servicios/${service.slug}`} />
+                <meta property="og:image" content={service.image} />
+            </Helmet>
             {/* Hero Section */}
             <header className="relative h-[60vh] flex items-center overflow-hidden">
                 <img 

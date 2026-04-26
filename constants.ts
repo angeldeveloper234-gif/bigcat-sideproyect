@@ -20,100 +20,145 @@ export const COLORS = {
 };
 
 export const CONTACT_INFO = {
-  phone: "55 1234 5678",
-  whatsapp: "55 1234 5678",
-  email: "contacto@nombrenegocio.com",
-  address: "Dirección del Negocio #123, Ciudad, País",
-  schedule: "Servicio Profesional de Fumigación | Nombre Negocio"
+  name: "Big Cat - Control de Plagas",
+  motherCompany: "PCP Internacional",
+  since: 1995,
+  experience: "29+",
+  phone: "81 11150958",
+  whatsapp: "81 11150958",
+  email: "contacto@bigcat.mx",
+  address: "Rio Mississippi 44-I, Del Valle, 66220 San Pedro Garza García, N.L.",
+  schedule: "Servicio Profesional de Fumigación | Big Cat Fumigaciones",
+  description: "Somos una familia de empresas que prioriza un servicio amigable, rápido y efectivo, e invertimos en el crecimiento y bienestar de nuestro equipo.",
+  facebook: "https://web.facebook.com/profile.php?id=61561957291508",
+  instagram: "https://www.instagram.com/bigcat.mx/"
 };
 
-export const LOGO_LIGHT = "Insertar Logo";
-export const LOGO_DARK = "Insertar Logo";
+export const LOGO_LIGHT = "/logo/BIG CAT - Control de plagas.png";
+export const LOGO_DARK = "/logo/BIG CAT - Control de plagas.png";
 
-export const BRANCHES = [
+export interface Branch {
+  id: string;
+  name: string;
+  phone: string;
+  address: string;
+  coords: [number, number];
+  range?: string;
+  zipCodes?: string[];
+}
+
+export const BRANCHES: Branch[] = [
   {
     id: 'guadalajara',
     name: "Guadalajara, Jal.",
-    phone: "3312345678",
-    coords: [-103.4147, 20.7326] as [number, number]
+    phone: "81 11150958",
+    address: "C. Miguel Lerdo de Tejada 2379",
+    coords: [-103.4147, 20.7326],
+    range: "44100 - 45200"
   },
   {
     id: 'leon',
     name: "León, Gto.",
-    phone: "3312345678",
-    coords: [-101.68, 21.12] as [number, number]
+    phone: "81 11150958",
+    address: "Blvd. Campestre 1511",
+    coords: [-101.68, 21.12],
+    range: "37000 - 37999"
   },
   {
     id: 'queretaro',
     name: "Querétaro, Qro.",
-    phone: "3312345678",
-    coords: [-100.39, 20.59] as [number, number]
+    phone: "81 11150958",
+    address: "And. 5 de Mayo 39",
+    coords: [-100.39, 20.59],
+    range: "76000 - 76299"
   },
   {
     id: 'cdmx',
     name: "Ciudad de México",
-    phone: "3312345678",
-    coords: [-99.13, 19.43] as [number, number]
+    phone: "81 11150958",
+    address: "Tennyson 133, Polanco",
+    coords: [-99.13, 19.43],
+    range: "01000 - 16999"
   },
   {
     id: 'monterrey',
     name: "Monterrey, N.L.",
-    phone: "3312345678",
-    coords: [-100.31, 25.68] as [number, number]
+    phone: "81 11150958",
+    address: "Rio Mississippi 44-I, Del Valle",
+    coords: [-100.31, 25.68],
+    range: "64000 - 66299"
   },
   {
     id: 'puebla',
     name: "Puebla, Pue.",
-    phone: "3312345678",
-    coords: [-98.20, 19.04] as [number, number]
+    phone: "81 11150958",
+    address: "Av. Juárez 2902",
+    coords: [-98.20, 19.04],
+    range: "72000 - 72999"
   },
   {
     id: 'tijuana',
     name: "Tijuana, B.C.",
-    phone: "3312345678",
-    coords: [-117.03, 32.51] as [number, number]
+    phone: "81 11150958",
+    address: "Blvd. Agua Caliente 10440",
+    coords: [-117.03, 32.51],
+    range: "22000 - 22999"
   },
   {
     id: 'merida',
     name: "Mérida, Yuc.",
-    phone: "3312345678",
-    coords: [-89.62, 20.96] as [number, number]
+    phone: "81 11150958",
+    address: "Calle 60 491",
+    coords: [-89.62, 20.96],
+    range: "97000 - 97314"
   },
   {
     id: 'sanluis',
     name: "San Luis Potosí",
-    phone: "3312345678",
-    coords: [-100.97, 22.15] as [number, number]
+    phone: "81 11150958",
+    address: "Av. Venustiano Carranza 1000",
+    coords: [-100.97, 22.15],
+    range: "78000 - 78499"
   },
   {
     id: 'aguascalientes',
     name: "Aguascalientes",
-    phone: "3312345678",
-    coords: [-102.29, 21.88] as [number, number]
+    phone: "81 11150958",
+    address: "Av. Universidad 1001",
+    coords: [-102.29, 21.88],
+    range: "20000 - 20999"
   },
   {
     id: 'hermosillo',
     name: "Hermosillo, Son.",
-    phone: "3312345678",
-    coords: [-110.96, 29.07] as [number, number]
+    phone: "81 11150958",
+    address: "Blvd. Eusebio Kino 300",
+    coords: [-110.96, 29.07],
+    range: "83000 - 83299"
   },
   {
     id: 'mexicali',
     name: "Mexicali, B.C.",
-    phone: "3312345678",
-    coords: [-115.45, 32.62] as [number, number]
+    phone: "81 11150958",
+    address: "Av. Madero 100",
+    coords: [-115.45, 32.62],
+    range: "21000 - 21399"
   },
   {
     id: 'culiacan',
     name: "Culiacán, Sin.",
-    phone: "3312345678",
-    coords: [-107.39, 24.80] as [number, number]
+    phone: "81 11150958",
+    address: "Blvd. Pedro Infante 2500",
+    coords: [-107.39, 24.80],
+    range: "80000 - 80299"
   },
   {
     id: 'juarez',
     name: "Cd. Juárez, Chih.",
-    phone: "3312345678",
-    coords: [-106.48, 31.73] as [number, number]
+    phone: "81 11150958",
+    address: "Av. Lincoln 1000",
+    coords: [-106.48, 31.73],
+    range: "32000 - 32699"
   }
 ];
 
@@ -121,30 +166,29 @@ export const BRANCHES = [
 export const NAV_LINKS: NavLink[] = [
   { label: 'Inicio', href: '/' },
   { label: 'Nosotros', href: '/nosotros' },
-  { 
-    label: 'Servicios', 
+  {
+    label: 'Servicios',
     href: '/#servicios',
     children: [
-      { label: 'Control General', href: '/servicios/control-de-plagas-comercial' },
-      { label: 'Hormigas', href: '/servicios/control-de-hormigas' },
+      { label: 'Control Comercial', href: '/servicios/control-de-plagas-comercial' },
       { label: 'Cucarachas', href: '/servicios/eliminacion-de-cucarachas' },
+      { label: 'Hormigas', href: '/servicios/control-de-hormigas' },
       { label: 'Termitas', href: '/servicios/control-de-termitas' },
-      { label: 'Arañas', href: '/servicios/control-de-aranas' },
-      { label: 'Roedores (Ratas y Ratones)', href: '/servicios/control-de-roedores' },
-      { label: 'Pescaditos de Plata', href: '/servicios/control-de-pescaditos' },
-      { label: 'Avispas', href: '/servicios/control-de-avispas' },
+      { label: 'Chinches', href: '/servicios/control-de-chinches' },
+      { label: 'Roedores', href: '/servicios/control-de-roedores' },
       { label: 'Pulgas', href: '/servicios/control-de-pulgas' },
+      { label: 'Avispas', href: '/servicios/control-de-avispas' },
       { label: 'Garrapatas', href: '/servicios/control-de-garrapatas' },
       { label: 'Mosquitos', href: '/servicios/control-de-mosquitos' },
-      { label: 'Chinches de Cama', href: '/servicios/control-de-chinches' }
+      { label: 'Alacranes', href: '/servicios/control-de-alacranes' }
     ]
   },
-  { 
-    label: 'Ubicaciones', 
+  {
+    label: 'Ubicaciones',
     href: '/#mapa',
     children: BRANCHES.map(branch => ({
       label: branch.name,
-      href: `/#mapa` // Or potentially a specific link if the map supports passing an ID
+      href: `/#mapa`
     }))
   },
   { label: 'Contacto', href: '/#contacto' },
@@ -156,79 +200,79 @@ export const PESTS_LIST = [
     id: 'control-comercial',
     slug: 'control-de-plagas-comercial',
     name: "Control de Plagas Comercial",
-    description: "Soluciones de alto nivel para restaurantes, hoteles e industrias alimentarias.",
-    fullDescription: "Nuestro programa de Manejo Integrado de Plagas (MIP) está diseñado para cumplir con las normativas más estrictas de salud y seguridad en México (COFEPRIS). Cumplimos con estándares de fumigación profesionales y entregamos hojas de seguridad (MSDS) de todos nuestros materiales.",
+    description: "Soluciones de alto nivel para Restaurantes, Industrias, Comercios y Supermercados.",
+    fullDescription: "Nuestro programa de Manejo Integrado de Plagas (MIP) está diseñado para cumplir con las normativas más estrictas de salud y seguridad en México (COFEPRIS). Ofrecemos soluciones eficaces con atención personalizada para el sector comercial a nivel nacional.",
     risks: "Sanciones sanitarias, pérdida de reputación, contaminación de alimentos y riesgos estructurales.",
     process: "Inspección detallada, diagnóstico de vulnerabilidades, implementación de barreras físicas y químicas, y monitoreo continuo.",
     prevention: "Manejo adecuado de residuos, sellado de grietas y capacitación del personal sobre higiene.",
     icon: CommercialPestIcon,
     image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800",
-    features: ["Normativa COFEPRIS", "Hojas de Seguridad", "Atención DISCRETA", "Planes de Mantenimiento"]
+    features: ["Normativa COFEPRIS", "Sectores Diversos", "Atención DISCRETA", "PCP Internacional"]
   },
   {
     id: 'cucarachas',
     slug: 'eliminacion-de-cucarachas',
     name: "Cucarachas",
     description: "Eliminación garantizada de Blatella germánica y americana en áreas críticas.",
-    fullDescription: "Usamos geles activos inodoros y aspersión residual de última generación que no mancha ni requiere evacuar el área por tiempos prolongados.",
+    fullDescription: "Usamos geles activos inodoros y aspersión residual de última generación que no mancha ni requiere evacuar el área por tiempos prolongados. Productos 100% seguros.",
     risks: "Transmisión de enfermedades como salmonelosis, asma y alergias severas.",
     process: "Identificación de nidos, aplicación de cebo en puntos estratégicos y barreras perimetrales.",
     prevention: "Eliminación de fuentes de agua (humedad) y restos de comida en cocinas.",
     icon: CockroachIcon,
-    image: "https://gleba.com.ar/wp-content/uploads/2021/12/Cucaracha-americana-Gleba.jpg",
-    features: ["Gel sin olor", "Sin manchas", "Efecto dominó", "Respaldo Profesional"]
+    image: "/services/cucaracha.webp",
+    features: ["Gel sin olor", "Seguro para mascotas", "Efecto dominó", "29+ Años Exp."]
   },
   {
     id: 'termitas',
     slug: 'control-de-termitas',
     name: "Termitas",
     description: "Protección estructural con barreras antitermita de larga duración.",
-    fullDescription: "Tratamientos preventivos en pre-construcción y correctivos en estructuras ya dañadas usando termonebulización y perforación controlada.",
+    fullDescription: "Tratamientos preventivos en pre-construcción y correctivos en estructuras ya dañadas usando termonebulización y perforación controlada. Respaldo de PCP Internacional.",
     risks: "Daños irreversibles en muebles de madera y cimientos de la propiedad.",
     process: "Detección de túneles de avance, inyección de termiticida y sellado protector.",
     prevention: "Control de humedad en cimientos y evitar contacto de madera con suelo directo.",
     icon: WoodwormIcon,
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq4LejNIfaT_kr_scpPV9lVoCfEDMffAgL_g&s",
-    features: ["Protección 5+ años", "Barreras químicas", "Inyección profunda", "Inspección térmica"]
+    image: "/services/termitas.webp",
+    features: ["Garantía Extendida", "Barreras químicas", "Inyección profunda", "Protección Total"]
   },
   {
     id: 'roedores',
     slug: 'control-de-roedores',
-    name: "Control de Roedores",
+    name: "Roedores / Ratones",
     description: "Sistemas de cebado y trampeo profesional para ratas y ratones.",
-    fullDescription: "Instalación de estaciones de cebado de seguridad inviolables, ideales para áreas con niños o mascotas.",
+    fullDescription: "Instalación de estaciones de cebado de seguridad inviolables, ideales para áreas con niños o mascotas. Eliminación total garantizada.",
     risks: "Incendios por cables roídos, transmisión de leptospirosis y hantavirus.",
     process: "Mapeo de zonas de paso, colocación de estaciones de monitoreo y exclusión de accesos.",
     prevention: "Sellado de entradas mayores a 1cm y gestión de contenedores de basura.",
     icon: MouseTrapIcon,
-    image: "https://images.unsplash.com/photo-1452195100486-94291c66c271?auto=format&fit=crop&q=80&w=800",
-    features: ["Estaciones de seguridad", "Trampeo incruento", "Eliminación de nidos", "Exclusión física"]
+    image: "/services/roedores.webp",
+    features: ["Estaciones seguras", "Atención inmediata", "Eliminación de nidos", "Nivel Nacional"]
   },
   {
     id: 'chinches',
     slug: 'control-de-chinches',
-    name: "Eliminación de Chinches",
-    description: "Tratamiento de choque para chinches de cama en residencias.",
-    fullDescription: "Utilizamos métodos combinados de calor y nebulización para eliminar huevos y adultos de forma inmediata. Seguridad total para tu familia y mascotas.",
+    name: "Chinches de Cama",
+    description: "Tratamiento de choque para chinches de cama en residencias y hoteles.",
+    fullDescription: "Utilizamos métodos combinados de calor y nebulización para eliminar huevos y adultos de forma inmediata. Productos 100% seguros para personas y mascotas.",
     risks: "Picaduras nocturnas, insomnio y estrés familiar.",
     process: "Desarmado de mobiliario, nebulización dirigida y sellado de grietas.",
     prevention: "Inspección de equipaje tras viajes y fundas protectoras certificadas.",
     icon: BedBugHotelIcon,
-    image: "https://images.unsplash.com/photo-1615560151624-a78b3036e520?auto=format&fit=crop&q=80&w=800",
-    features: ["Eliminación inmediata", "Segura para colchones", "Sin residuos tóxicos", "Respaldo Residencial"]
+    image: "/images/chinches_bedroom_1776661359500.png",
+    features: ["Eliminación inmediata", "Sin residuos tóxicos", "Atención nacional", "Seguro para familias"]
   },
   {
-    id: 'mosquitos',
-    slug: 'control-de-mosquitos',
-    name: "Mosquitos y Jardín",
-    description: "Protección perimetral para que disfrutes de tu patio sin riesgos.",
-    fullDescription: "Tratamientos de nebulización y control de larvas en reservorios de agua para prevenir Dengue, Zika y Chikungunya.",
-    risks: "Transmisión de enfermedades virales y molestias constantes.",
-    process: "Identificación de criaderos y barrera química perimetral.",
-    prevention: "Eliminar agua estancada y control de vegetación.",
+    id: 'alacranes',
+    slug: 'control-de-alacranes',
+    name: "Alacranes",
+    description: "Barrera impenetrable contra alacranes en regiones cálidas y zonas de riesgo.",
+    fullDescription: "Implementamos barreras químicas residuales de alta adherencia en perímetros y puntos de acceso para evitar el ingreso de arácnidos peligrosos a tu hogar.",
+    risks: "Picaduras venenosas peligrosas para niños y adultos mayores.",
+    process: "Aplicación perimetral, tratamiento de grietas y eliminación de refugios.",
+    prevention: "Mantener limpios los patios y evitar cúmulos de escombros.",
     icon: ShieldPestIcon,
-    image: "https://images.unsplash.com/photo-1590644365607-1c5a519a7a37?auto=format&fit=crop&q=80&w=800",
-    features: ["Barrera perimetral", "Seguro para plantas", "Control de larvas", "Efecto prolongado"]
+    image: "/services/alacranes.webp",
+    features: ["Barrera Residual", "Eficacia Probada", "Seguro para Mascotas", "Control Total"]
   }
 ];
 
@@ -236,71 +280,71 @@ export const RESIDENTIAL_PESTS = [
   {
     name: "Cucarachas",
     environment: "Alacenas y Baños",
-    description: "Las cucarachas son maestras del escondite y buscan refugio, agua y comida en tu hogar. Al ser nocturnas, una infestación puede salirse de control antes de que notes su presencia. Nuestro tratamiento las elimina de inmediato.",
+    description: "Eliminación garantizada de Blatella germánica y americana en áreas críticas.",
     image: "/services/cucaracha.webp",
     icon: CockroachIcon
   },
   {
     name: "Hormigas",
     environment: "Cocinas y Patios",
-    description: "Las hormigas son plagas altamente sociales; ver una sola suele significar que hay cientos más cerca. Aplicar soluciones caseras no eliminará el hormiguero. Nosotros localizamos y erradicamos la colonia de raíz.",
+    description: "Localización y erradicación de colonias de raíz, evitando que regresen a tu hogar.",
     image: "/services/hormigas.jpg",
+    icon: SprayCanIcon
+  },
+  {
+    name: "Termitas",
+    environment: "Estructuras de Madera",
+    description: "Protección estructural con barreras antitermita de larga duración y tratamiento profundo.",
+    image: "/services/termitas.webp",
+    icon: TermiteIcon
+  },
+  {
+    name: "Chinches",
+    environment: "Recámaras y Colchones",
+    description: "Protocolo de choque inmediato con vapor y nebulización residual para erradicar chinches.",
+    image: "/images/chinches_bedroom_1776661359500.png",
+    icon: BedBugHotelIcon
+  },
+  {
+    name: "Roedores / Ratones",
+    environment: "Áticos y Perímetros",
+    description: "Sistemas de cebado y trampeo profesional para ratas y ratones con estaciones de seguridad.",
+    image: "/services/roedores.webp",
+    icon: MouseTrapIcon
+  },
+  {
+    name: "Pulgas",
+    environment: "Alfombras y Mascotas",
+    description: "Protección integral para tu hogar y mascotas, rompiendo el ciclo de reproducción.",
+    image: "/services/pulgas.webp",
     icon: SprayCanIcon
   },
   {
     name: "Avispas",
     environment: "Techos y Jardines",
-    description: "La presencia de avispas cerca de casa puede arruinar tus actividades al aire libre. Aunque rara vez atacan sin motivo, se vuelven agresivas si se sienten amenazadas. Retiramos panales de forma segura y profesional.",
+    description: "Retirada segura de panales y control preventivo para tus áreas exteriores.",
     image: "/services/Avispa_-_Wikipedia,_la_enciclopedia_libre_es.jpg",
     icon: ShieldPestIcon
   },
   {
-    name: "Arañas",
-    environment: "Rincones y Garajes",
-    description: "Las arañas son depredadores eficaces, pero ver sus telarañas en casa es inquietante. Aunque la mayoría son inofensivas, algunas como la viuda negra o violinista requieren control experto para la seguridad de tu familia.",
-    image: "/services/arañas.jpg",
+    name: "Garrapatas",
+    environment: "Jardines y Mascotas",
+    description: "Desinfección total de áreas críticas para proteger a tu familia y animales de compañía.",
+    image: "/services/garrapatas y acaros.webp",
     icon: ShieldPestIcon
   },
   {
-    name: "Termitas",
-    environment: "Estructuras de Madera",
-    description: "Tratamiento profundo para proteger cimientos y mobiliario de daños irreparables. Detectamos túneles y eliminamos colonias subterráneas antes de que comprometetan tu inversión.",
-    image: "/services/termitas.webp",
-    icon: TermiteIcon
-  },
-  {
-    name: "Roedores",
-    environment: "Áticos y Perímetros",
-    description: "Ratas y ratones invaden tu hogar buscando comida y refugio, pero son mucho más que una molestia. Representan una amenaza seria para tu propiedad y la salud de tus seres queridos. Implementamos control total.",
-    image: "/services/roedores.webp",
-    icon: MouseTrapIcon
-  },
-  {
-    name: "Control de Mosquitos",
+    name: "Mosquitos",
     environment: "Exteriores y Terrazas",
-    description: "Nebulización perimetral y tratamiento de criaderos para que disfrutes de tu patio sin riesgos de Dengue o Zika. Una barrera invisible que protege a tu familia día y noche.",
+    description: "Nebulización perimetral y tratamiento de criaderos para disfrutar de tu patio sin riesgos.",
     image: "/services/mosquitos.webp",
     icon: ShieldPestIcon
   },
   {
-    name: "Fumigación de Chinches",
-    environment: "Recámaras y Colchones",
-    description: "Protocolo de choque inmediato con vapor y nebulización residual para erradicar chinches de cama. Recupera el sueño tranquilo con nuestra eliminación efectiva.",
-    image: "/images/chinches_bedroom_1776661359500.png",
-    icon: BedBugHotelIcon
-  },
-  {
-    name: "Pulgas",
-    environment: "Alfombras y Mascotas",
-    description: "Las pulgas suelen alimentarse y desovar mientras tus mascotas descansan, convirtiendo sus camas y alfombras en focos de infestación. Protegemos tanto el interior de tu hogar como el jardín para romper el ciclo.",
-    image: "/services/pulgas.webp",
-    icon: SprayCanIcon
-  },
-  {
-    name: "Garrapatas y Ácaros",
-    environment: "Áreas Comunes",
-    description: "Protegemos a tu familia y mascotas de plagas transmisoras de enfermedades como Lyme o Rickettsia. Desinfección total de áreas críticas.",
-    image: "/services/garrapatas y acaros.webp",
+    name: "Alacranes",
+    environment: "Patios y Esquinas",
+    description: "Barrera impenetrable contra alacranes en regiones cálidas y zonas de riesgo.",
+    image: "/services/alacranes.webp",
     icon: ShieldPestIcon
   }
 ];
@@ -334,51 +378,27 @@ export const METHODS: MethodItem[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
-    name: "Jess Dector",
-    subtitle: "Local Guide · 182 opiniones · 98 fotos",
+    name: "Sebastián Allende",
+    subtitle: "Director General, Only Tea",
     rating: 5,
-    text: "La atención es muy profesional y puntual, en ningún momento me hicieron esperar y siempre se mantuvieron comunicados. En mi caso solicité revisar el servicio y respondieron rápido y de manera eficiente.",
-    image: "https://lh3.googleusercontent.com/a-/ALV-UjXbJsHQcVV-GQ894pSfjDETlLG70eygiJO9UWAVxN9iSjJebftjBQ=w32-h32-p-rp-mo-ba4-br100"
+    text: "Durante más de 10 años hemos trabajado con PCP en nuestro negocio de bebidas. Gracias a PCP Internacional podemos decir que estamos muy contentos con su trabajo.",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100"
   },
   {
     id: 2,
-    name: "Martha Alicia Medina McCormick",
-    subtitle: "10 opiniones · 1 foto",
+    name: "Claudia Mendoza",
+    subtitle: "Desarrollo de Negocios y Restaurantes",
     rating: 5,
-    text: "Muy profesionales y razonables, excelente servicio al cliente",
-    image: "https://lh3.googleusercontent.com/a/ACg8ocKSLQrcFUMHbXoaNQyu1Vx4zvufMuSqHsCkVpa6AYB4RxvPYQ=w32-h32-p-rp-mo-br100"
+    text: "Puntuales, atentos y extraordinariamente profesionales. Con PCP Internacional puedo dormir tranquila.",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100"
   },
   {
     id: 3,
-    name: "Jenny Luna",
-    subtitle: "8 opiniones · 1 foto",
+    name: "Oralia Orduña",
+    subtitle: "Auxiliar Administrativo, Little Caesars Pizza",
     rating: 5,
-    text: "Súper profesional, me resolvieron mi problema, me gustó mucho como me explicaron los procesos, me quitaron toda mi plaga con respaldo total",
-    image: "https://lh3.googleusercontent.com/a-/ALV-UjX_71YYWnUbT2-LJle8gQ4SWuV6JkUPkQhNE0SLJeZToG6_RtQ=w32-h32-p-rp-mo-br100"
-  },
-  {
-    id: 4,
-    name: "JuanPablo Salcedo",
-    subtitle: "1 opinión",
-    rating: 5,
-    text: "Es un buen servicio, profesional.",
-    image: "https://lh3.googleusercontent.com/a/ACg8ocIyS0lKe3xp7Fz_-rPMghN_4rf-F6hoKoRqFZ1X5Zg0_E6_dg=w32-h32-p-rp-mo-br100"
-  },
-  {
-    id: 5,
-    name: "Peter Neri",
-    subtitle: "Local Guide · 74 opiniones · 14 fotos",
-    rating: 5,
-    text: "Muy bien servicio, rápido, eficaz y buen precio",
-    image: "https://lh3.googleusercontent.com/a-/ALV-UjVPTe9lZuk7YMHSIDz_FLzWM1nimFycgu5EuDN38XylOlxjs7_k=w32-h32-p-rp-mo-ba4-br100"
-  },
-  {
-    id: 6,
-    name: "Oscar Ruiz Zea",
-    subtitle: "Local Guide · 21 opiniones · 4 fotos",
-    rating: 5,
-    text: "Excelente servicio y atención a los detalles, lo recomiendo",
-    image: "https://lh3.googleusercontent.com/a-/ALV-UjXd-9Uwm_E4SoFpl2--usZTmOhnDYWvBQ9opjo9gxSz6pWHg4Ah=w32-h32-p-rp-mo-ba2-br100"
+    text: "Cuentan con un equipo muy profesional y tienen un alto conocimiento en el control de plagas. Hemos notado una gran mejoría con sus servicios.",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100"
   }
 ];
 

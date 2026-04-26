@@ -14,8 +14,16 @@ const QuoteSection: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Hola Nombre Negocio, mi nombre es ${formData.nombre}. Me interesa una cotización para ${formData.ciudad}. ${formData.mensaje}`;
-    window.open(`https://wa.me/52${CONTACT_INFO.phone.replace(/\s+/g, '')}?text=${encodeURIComponent(text)}`, '_blank');
+    
+    const whatsappNumber = CONTACT_INFO.whatsapp.replace(/\s+/g, '');
+    const message = `*Nueva Solicitud de Cotización - Big Cat*%0A%0A` +
+      `*Nombre:* ${formData.nombre}%0A` +
+      `*Teléfono:* ${formData.telefono}%0A` +
+      `*Email:* ${formData.email}%0A` +
+      `*Ciudad:* ${formData.ciudad}%0A` +
+      `*Mensaje:* ${formData.mensaje}`;
+
+    window.open(`https://wa.me/52${whatsappNumber}?text=${message}`, '_blank');
   };
 
   return (

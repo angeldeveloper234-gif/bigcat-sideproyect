@@ -12,7 +12,7 @@ const GoogleIcon = ({ className }: { className?: string }) => (
     </svg>
 );
 
-const TestimonialCard = ({ review }: { review: any }) => (
+const TestimonialCard: React.FC<{ review: any }> = ({ review }) => (
     <div className="w-[320px] sm:w-[350px] flex-shrink-0 bg-white border border-gray-100 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300">
         <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">

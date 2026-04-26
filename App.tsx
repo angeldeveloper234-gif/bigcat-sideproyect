@@ -11,6 +11,9 @@ import FAQPage from './src/pages/FAQPage';
 import ServicePage from './src/pages/ServicePage';
 import LocationPage from './src/pages/LocationPage';
 
+import BlogArchivePage from './src/pages/BlogArchivePage';
+import BlogPostPage from './src/pages/BlogPostPage';
+
 const App: React.FC = () => {
   return (
     <HelmetProvider>
@@ -25,6 +28,8 @@ const App: React.FC = () => {
               <Route path="/servicios/:slug" element={<ServicePage />} />
               <Route path="/sedes/:city" element={<LocationPage />} />
               <Route path="/reseñas" element={<Reviews />} />
+              <Route path="/blog" element={<BlogArchivePage />} />
+              <Route path="/blog/:slug" element={<BlogPostPage />} />
             </Routes>
           </main>
           <Footer />
@@ -35,4 +40,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default App;

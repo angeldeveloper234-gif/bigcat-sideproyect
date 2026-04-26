@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { X, MapPin, MessageCircle, ChevronRight } from 'lucide-react';
-import { BRANCHES } from '../constants';
+import { BRANCHES, CONTACT_INFO } from '../constants';
 import { supabase } from '../src/lib/supabase';
 
 interface LocationModalProps {
@@ -25,8 +25,10 @@ const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose }) => {
   if (!isVisible && !isOpen) return null;
 
   const handleBranchClick = async (branch: typeof BRANCHES[0]) => {
-    // 1. Open WhatsApp immediately (Fire and forget from user perspective)
-    const whatsappUrl = `https://wa.me/5493873534037?text=Hola!%20Vengo%20a%20probar%20la%20demo%20de%20WhatsApp%20para%20Nombre%20Negocio%20Fumigación`;
+    // 1. Open WhatsApp immediately
+    const whatsappNumber = CONTACT_INFO.whatsapp.replace(/\s+/g, '');
+    const message = encodeURIComponent(`Hola! Vengo de la web de ${CONTACT_INFO.name}. Me interesa el servicio en la zona de ${branch.name}`);
+    const whatsappUrl = `https://wa.me/52${whatsappNumber}?text=${message}`;
     window.open(whatsappUrl, '_blank');
 
     // 2. Log attempt to Supabase transparently
@@ -105,7 +107,7 @@ const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose }) => {
 
         {/* Footer */}
         <div className="bg-gray-50 px-6 py-3 text-center border-t border-gray-100 shrink-0">
-          <p className="text-[10px] text-gray-400 font-medium tracking-wide uppercase">Nombre Negocio Fumigación</p>
+          <p className="text-[10px] text-gray-400 font-medium tracking-wide uppercase">{CONTACT_INFO.name}</p>
         </div>
       </div>
     </div>

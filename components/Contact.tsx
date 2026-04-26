@@ -27,17 +27,15 @@ const Contact: React.FC = () => {
         e.preventDefault();
         setFormStatus('submitting');
 
-        // Construct email body
-        const subject = encodeURIComponent("Nueva Solicitud de Cotización - Sitio Web");
-        const body = encodeURIComponent(
-            `Nombre: ${formData.name}\n` +
-            `Teléfono: ${formData.phone}\n` +
-            `Servicio de interés: ${formData.service}\n` +
-            `Detalles adicionales: ${formData.message}`
-        );
+        const whatsappNumber = CONTACT_INFO.whatsapp.replace(/\s+/g, '');
+        const message = `*Nueva Solicitud de Diagnóstico - Big Cat*%0A%0A` +
+            `*Nombre:* ${formData.name}%0A` +
+            `*Teléfono:* ${formData.phone}%0A` +
+            `*Servicio:* ${formData.service}%0A` +
+            `*Detalles:* ${formData.message}`;
 
-        // Open email client
-        window.location.href = `mailto:${CONTACT_INFO.email}?subject=${subject}&body=${body}`;
+        // Open WhatsApp
+        window.open(`https://wa.me/52${whatsappNumber}?text=${message}`, '_blank');
 
         // Show success message
         setTimeout(() => {
@@ -58,9 +56,9 @@ const Contact: React.FC = () => {
             {/* Info Column */}
             <div className="lg:col-span-5 space-y-12">
                 <div>
-                    <h2 className="text-4xl lg:text-5xl font-bold text-brand-dark mb-6 tracking-tight">¿Listo para blindar tu negocio contra plagas?</h2>
+                    <h2 className="text-4xl lg:text-5xl font-bold text-brand-dark mb-6 tracking-tight">¿Listo para blindar su negocio contra las plagas?</h2>
                     <p className="text-xl text-gray-500 font-light leading-relaxed">
-                        Escríbenos y un experto te asesorará de inmediato para encontrar la solución ideal para tus instalaciones.
+                        Escríbanos y un experto le asesorará de inmediato para encontrar la solución ideal para sus instalaciones.
                     </p>
                 </div>
 
@@ -101,7 +99,7 @@ const Contact: React.FC = () => {
                                 <Send size={32} />
                             </div>
                             <p className="font-bold text-2xl text-brand-dark mb-2">¡Solicitud Generada!</p>
-                            <p className="text-gray-500 mb-6">Se ha abierto tu cliente de correo para enviar la información.</p>
+                            <p className="text-gray-500 mb-6">Se ha abierto WhatsApp para enviar la información.</p>
                             <button 
                                 onClick={() => setFormStatus('idle')}
                                 className="text-brand-red font-bold hover:underline"

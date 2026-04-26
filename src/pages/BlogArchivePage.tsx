@@ -1,52 +1,61 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar, User } from 'lucide-react';
+import { ArrowRight, Calendar, User, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { BLOG_POSTS } from '../src/data/blogPosts';
+import { BLOG_POSTS } from '../data/blogPosts';
 
-const Blog: React.FC = () => {
+const BlogArchivePage: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <section id="blog" className="py-24 bg-white relative overflow-hidden">
+    <main className="relative pt-32 pb-24 bg-white min-h-screen">
+      <Helmet>
+        <title>Blog de Fumigación y Control de Plagas | Big Cat</title>
+        <meta name="description" content="Descubre consejos expertos, noticias y guías sobre el control de plagas. Mantén tu hogar libre de insectos y roedores con la información de Big Cat Fumigaciones." />
+        <meta name="keywords" content="blog control de plagas, fumigacion tips, prevenir plagas, blog big cat" />
+        <meta property="og:title" content="Blog de Fumigación y Control de Plagas | Big Cat" />
+        <meta property="og:description" content="Descubre consejos expertos, noticias y guías sobre el control de plagas." />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
+        {/* Breadcrumb */}
+        <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-400 mb-8">
+          <Link to="/" className="hover:text-brand-red transition-colors">Inicio</Link>
+          <ChevronRight size={12} />
+          <span className="text-brand-red">Blog</span>
+        </div>
+
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, x: 0 }}
             className="max-w-2xl"
           >
             <span className="inline-flex items-center gap-2 bg-brand-red/10 border border-brand-red/20 px-4 py-1.5 rounded-full text-brand-red text-[10px] font-black uppercase tracking-[0.2em] mb-6">
               Educación y Prevención
             </span>
-            <h2 className="text-4xl lg:text-6xl font-black text-brand-dark tracking-tighter leading-none mb-6">
+            <h1 className="text-4xl lg:text-6xl font-black text-brand-dark tracking-tighter leading-none mb-6">
               Nuestros <span className="text-brand-red italic">Tips y Trucos</span>
-            </h2>
+            </h1>
             <p className="text-xl text-gray-500 font-medium leading-relaxed">
               Descubre consejos expertos para mantener tu hogar libre de plagas y proteger a tu familia con la última tecnología en fumigación.
             </p>
           </motion.div>
-          
-          <Link to="/blog">
-            <motion.button
-               whileHover={{ x: 5 }}
-               className="flex items-center gap-2 text-brand-dark font-black uppercase tracking-widest text-xs group"
-            >
-               Ver Todo el Blog
-               <ArrowRight size={16} className="text-brand-red group-hover:translate-x-1 transition-transform" />
-            </motion.button>
-          </Link>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {BLOG_POSTS.map((post, idx) => (
             <motion.article
               key={post.id}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
-              className="group cursor-pointer"
+              className="group"
             >
               <Link to={`/blog/${post.slug}`} className="block">
                 <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden mb-6 shadow-lg shadow-black/5">
@@ -74,9 +83,9 @@ const Blog: React.FC = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-black text-brand-dark leading-snug group-hover:text-brand-red transition-colors line-clamp-2">
+                  <h2 className="text-xl font-black text-brand-dark leading-snug group-hover:text-brand-red transition-colors line-clamp-2">
                     {post.title}
-                  </h3>
+                  </h2>
                   
                   <p className="text-sm text-gray-500 font-medium leading-relaxed line-clamp-3">
                     {post.excerpt}
@@ -91,22 +100,9 @@ const Blog: React.FC = () => {
             </motion.article>
           ))}
         </div>
-
-        {/* Pagination Simplified to Page 1 */}
-        <div className="mt-20 pt-10 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8 text-center">
-           <div className="flex items-center gap-2 mx-auto md:mx-0">
-              <Link to="/blog" className="w-12 h-12 flex items-center justify-center rounded-2xl bg-brand-red text-white shadow-lg shadow-brand-red/20 font-black text-sm hover:bg-brand-dark transition-colors">
-                1
-              </Link>
-           </div>
-
-           <div className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">
-             Página 1 de 1 — Mostrando {BLOG_POSTS.length} artículos
-           </div>
-        </div>
       </div>
-    </section>
+    </main>
   );
 };
 
-export default Blog;
+export default BlogArchivePage;

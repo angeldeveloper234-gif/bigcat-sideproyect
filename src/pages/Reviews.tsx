@@ -7,7 +7,7 @@ const Reviews: React.FC = () => {
     const [hoveredRating, setHoveredRating] = useState<number>(0);
     const [formSubmitted, setFormSubmitted] = useState(false);
 
-    const googleMapsLink = "https://www.google.com/maps/search/Nombre+Negocio+Fumigacion";
+    const googleMapsLink = "https://www.google.com.mx/maps/place/PCP+Internacional/@25.6601429,-100.3547842,17z/data=!4m8!3m7!1s0x8662bd936a29e79f:0x5e08b1f5e8281313!8m2!3d25.6601381!4d-100.3522093!9m1!1b1!16s%2Fg%2F1tcwn7z_?entry=ttu";
 
     const handleStarClick = (selectedRating: number) => {
         setRating(selectedRating);
@@ -31,7 +31,7 @@ const Reviews: React.FC = () => {
             `Mensaje: ${message}`
         );
 
-        window.location.href = `mailto:contacto@nombrenegocio.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:contacto@bigcat.mx?subject=${subject}&body=${body}`;
 
         setFormSubmitted(true);
     };

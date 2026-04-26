@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { BRANCHES, CONTACT_INFO } from '../../constants';
 import { MapPin, Phone, ShieldCheck, Clock, Award } from 'lucide-react';
@@ -15,6 +16,14 @@ const LocationPage: React.FC = () => {
 
     return (
         <div className="pt-20 bg-white min-h-screen">
+            <Helmet>
+                <title>Control de Plagas en {branch.name} | Big Cat Fumigaciones</title>
+                <meta name="description" content={`Servicios profesionales de fumigación y control de plagas en ${branch.name}. Atención inmediata, técnicos certificados y resultados garantizados.`} />
+                <link rel="canonical" href={`https://bigcat.mx/sedes/${branch.id}`} />
+                <meta property="og:title" content={`Control de Plagas en ${branch.name} | Big Cat`} />
+                <meta property="og:description" content={`Soluciones profesionales de fumigación en ${branch.name}. 29+ años de experiencia.`} />
+                <meta property="og:url" content={`https://bigcat.mx/sedes/${branch.id}`} />
+            </Helmet>
             <header className="bg-brand-dark py-24 text-white relative overflow-hidden">
                 {/* Abstract Pattern Background */}
                 <div className="absolute inset-0 opacity-10">
@@ -82,7 +91,7 @@ const LocationPage: React.FC = () => {
                                     </div>
                                     <div>
                                         <p className="text-gray-400 text-sm font-bold uppercase tracking-widest mb-1">Línea Directa</p>
-                                        <a href={`tel:${branch.phone}`} className="text-2xl font-black hover:text-brand-primary transition-colors">{branch.phone}</a>
+                                        <a href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, '')}`} className="text-2xl font-black hover:text-brand-primary transition-colors">{CONTACT_INFO.phone}</a>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-6">

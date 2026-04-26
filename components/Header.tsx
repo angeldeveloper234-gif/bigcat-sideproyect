@@ -22,27 +22,27 @@ const Header: React.FC = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-          scrolled || !isHome 
-            ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' 
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled || !isHome
+            ? 'bg-white/95 backdrop-blur-md shadow-lg py-3'
             : 'bg-white/40 backdrop-blur-md shadow-sm py-5 border-b border-gray-100/20'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0 flex items-center gap-2 group">
-              <div className="relative">
-                <div className="flex items-center px-4 h-10 border-2 border-dashed border-brand-red/30 rounded-lg">
-                  <span className="text-[10px] font-black text-brand-dark/50 tracking-widest uppercase">Insertar Logo</span>
-                </div>
+              <div className="relative h-14 lg:h-16 flex items-center">
+                <img
+                  src={LOGO_DARK}
+                  alt="Big Cat Logo"
+                  className="h-full w-auto object-contain transition-transform group-hover:scale-105"
+                />
               </div>
             </Link>
 
             {/* Desktop Nav */}
-            <nav className={`hidden lg:flex items-center gap-1 p-1 rounded-full transition-all duration-500 ${
-              scrolled || !isHome ? 'bg-gray-100/50' : 'bg-gray-200/30'
-            }`}>
+            <nav className={`hidden lg:flex items-center gap-1 p-1 rounded-full transition-all duration-500 ${scrolled || !isHome ? 'bg-gray-100/50' : 'bg-gray-200/30'
+              }`}>
               {NAV_LINKS.map((link) => (
                 link.children ? (
                   <div key={link.label} className="relative group">
@@ -81,12 +81,12 @@ const Header: React.FC = () => {
 
             {/* CTAs */}
             <div className="hidden md:flex items-center gap-4">
-              <a 
+              <a
                 href={`tel:${CONTACT_INFO.phone}`}
                 className={`flex items-center gap-2 font-black text-sm transition-colors text-brand-dark hover:text-brand-red`}
               >
                 <div className="w-8 h-8 rounded-full bg-brand-red/10 flex items-center justify-center">
-                   <Phone size={14} className="text-brand-red" />
+                  <Phone size={14} className="text-brand-red" />
                 </div>
                 {CONTACT_INFO.phone}
               </a>
@@ -110,9 +110,8 @@ const Header: React.FC = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`lg:hidden fixed inset-x-0 top-[calc(100%-1px)] bg-white shadow-2xl transition-all duration-500 origin-top overflow-y-auto max-h-[85vh] ${
-          isOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'
-        }`}>
+        <div className={`lg:hidden fixed inset-x-0 top-[calc(100%-1px)] bg-white shadow-2xl transition-all duration-500 origin-top overflow-y-auto max-h-[85vh] ${isOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'
+          }`}>
           <div className="p-6 space-y-3">
             {NAV_LINKS.map((link) => (
               <div key={link.label}>
@@ -129,16 +128,16 @@ const Header: React.FC = () => {
                       <ChevronDown size={18} className="text-gray-400" />
                     </button>
                     <div className="hidden pl-6 pb-2 pr-4 space-y-1">
-                       {link.children.map(child => (
-                          <Link
-                            key={child.label}
-                            to={child.href}
-                            onClick={() => setIsOpen(false)}
-                            className="block p-3 rounded-xl text-sm font-bold text-gray-500 hover:bg-brand-red/5 hover:text-brand-red transition-all"
-                          >
-                            {child.label}
-                          </Link>
-                       ))}
+                      {link.children.map(child => (
+                        <Link
+                          key={child.label}
+                          to={child.href}
+                          onClick={() => setIsOpen(false)}
+                          className="block p-3 rounded-xl text-sm font-bold text-gray-500 hover:bg-brand-red/5 hover:text-brand-red transition-all"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 ) : (
@@ -153,7 +152,7 @@ const Header: React.FC = () => {
               </div>
             ))}
             <div className="pt-6 border-t border-gray-100 space-y-4">
-              <a 
+              <a
                 href={`tel:${CONTACT_INFO.phone}`}
                 className="flex items-center justify-center gap-3 p-4 rounded-2xl bg-gray-50 text-brand-dark font-black"
               >
@@ -179,4 +178,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default Header;

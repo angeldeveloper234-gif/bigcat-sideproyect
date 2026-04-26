@@ -1,18 +1,90 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, ShieldCheck, ArrowRight } from 'lucide-react';
-import { GOOGLE_REVIEWS_MOCK } from '../src/data/googleReviewsMock';
+import { Star, ShieldCheck, Calendar, Quote } from 'lucide-react';
+import { CONTACT_INFO } from '../constants';
 
-const GoogleIcon = ({ className }: { className?: string }) => (
-    <svg viewBox="0 0 24 24" className={className} xmlns="http://www.w3.org/2000/svg">
-        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-    </svg>
+const QuoteIcon = ({ className }: { className?: string }) => (
+    <div className={`w-4 h-4 bg-brand-red rounded-full flex items-center justify-center ${className}`}>
+        <Quote className="w-2 h-2 text-white" />
+    </div>
 );
 
-const TestimonialCard = ({ review }: { review: any }) => (
+const MIXED_REVIEWS = [
+    {
+        id: "magdalena-gamez",
+        author_name: "Magdalena Gamez",
+        rating: 5,
+        text: "Puntuales, atentos y extraordinariamente profesionales. Con el respaldo de PCP Internacional en el control de plagas, puedo dormir tranquila.",
+        profile_photo_url: "/testimonios/magdalenaGamez.png",
+        time: "Cliente Residencial",
+        isGoogle: false
+    },
+    {
+        id: "katia-lucio",
+        author_name: "Katia Lucio",
+        rating: 5,
+        text: "Excelente servicio, puntualidad y trato con el cliente. Destaco su capacidad de respuesta, la calidad y el profesionalismo en todo momento.",
+        profile_photo_url: "/testimonios/katia-lucio.png",
+        time: "En Google",
+        isGoogle: true
+    },
+    {
+        id: "blanca-rodriguez",
+        author_name: "Blanca Rodriguez",
+        rating: 5,
+        text: "Recomiendo tener total confianza en sus servicios. Cuentan con un equipo de alto conocimiento técnico y operan bajo estándares internacionales y certificaciones de calidad (BBB). Hacen un gran trabajo.",
+        profile_photo_url: "/testimonios/blanca-rodriguez.png",
+        time: "En Google",
+        isGoogle: true
+    },
+    {
+        id: "andres-gomez",
+        author_name: "Andrés Gómez",
+        rating: 5,
+        text: "Cuentan con un equipo muy profesional y tienen un altísimo conocimiento en los protocolos de control de plagas. Hemos notado una solución real y definitiva con sus servicios.",
+        profile_photo_url: "/testimonios/andres-gomez.png",
+        time: "Cliente Residencial",
+        isGoogle: false
+    },
+    {
+        id: "a-ramos",
+        author_name: "A ramos",
+        rating: 5,
+        text: "La atención es muy profesional y puntual, en ningún momento me hicieron esperar y siempre se mantuvieron comunicados. Estoy totalmente satisfecho.",
+        profile_photo_url: "/testimonios/A ramos.png",
+        time: "En Google",
+        isGoogle: true
+    },
+    {
+        id: "ernesto-hinojosa",
+        author_name: "Ernesto Hinojosa Rdz",
+        rating: 5,
+        text: "Muy buen servicio, rápido, eficaz y a un excelente precio. Me explicaron los procesos a detalle, lo recomiendo ampliamente.",
+        profile_photo_url: "/testimonios/erneso-hinojosardz.png",
+        time: "En Google",
+        isGoogle: true
+    },
+    {
+        id: "jose-roberto",
+        author_name: "José Roberto Moyeda Afanador",
+        rating: 5,
+        text: "Excelente servicio y atención a los detalles, me resolvieron el problema por completo con una gran atención.",
+        profile_photo_url: "/testimonios/joserobertomoyedaafanador.png",
+        time: "En Google",
+        isGoogle: true
+    },
+    {
+        id: "juan-pablo",
+        author_name: "Juan Pablo Tobada",
+        rating: 5,
+        text: "Súper profesionales, me gustó mucho cómo me explicaron los procesos, me quitaron toda mi plaga con resultados garantizados.",
+        profile_photo_url: "/testimonios/juan-pablo-tobada.png",
+        time: "En Google",
+        isGoogle: true
+    }
+];
+
+const TestimonialCard: React.FC<{ review: any }> = ({ review }) => (
     <div className="w-[320px] sm:w-[350px] flex-shrink-0 bg-white border border-gray-100 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300">
         <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
@@ -26,7 +98,7 @@ const TestimonialCard = ({ review }: { review: any }) => (
                         }}
                     />
                     <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-0.5 shadow-sm">
-                        <GoogleIcon className="w-3 h-3" />
+                        <QuoteIcon />
                     </div>
                 </div>
                 <div>
@@ -38,14 +110,14 @@ const TestimonialCard = ({ review }: { review: any }) => (
                     </div>
                 </div>
             </div>
-            <span className="text-[9px] text-gray-400 font-bold uppercase tracking-widest">{review.time.includes('Hace') ? review.time.split('·').pop() : 'Reciente'}</span>
+            <span className="text-[9px] text-gray-400 font-bold uppercase tracking-widest">{review.time}</span>
         </div>
-        <p className="text-gray-600 text-xs leading-relaxed italic line-clamp-3">"{review.text}"</p>
+        <p className="text-gray-600 text-xs leading-relaxed italic line-clamp-4">"{review.text}"</p>
     </div>
 );
 
 const Ticker = ({ reviews, speed = 40, reverse = false }: { reviews: any[], speed?: number, reverse?: boolean }) => (
-    <div className="flex overflow-hidden relative py-4 mask-fade h-[140px]">
+    <div className="flex overflow-hidden relative py-4 mask-fade h-[150px]">
         <motion.div
             animate={{ x: reverse ? [-1000, 0] : [0, -1000] }}
             transition={{ duration: speed, repeat: Infinity, ease: "linear" }}
@@ -59,9 +131,9 @@ const Ticker = ({ reviews, speed = 40, reverse = false }: { reviews: any[], spee
 );
 
 const Testimonials: React.FC = () => {
-    const row1 = GOOGLE_REVIEWS_MOCK.slice(0, 3);
-    const row2 = GOOGLE_REVIEWS_MOCK.slice(3, 6);
-    const row3 = [GOOGLE_REVIEWS_MOCK[6], ...GOOGLE_REVIEWS_MOCK.slice(0, 2)];
+    const row1 = MIXED_REVIEWS.slice(0, 4);
+    const row2 = MIXED_REVIEWS.slice(4, 8);
+    const row3 = [...MIXED_REVIEWS.slice(2, 6)];
 
     return (
         <section id="testimonios" className="py-32 bg-white overflow-hidden">
@@ -69,13 +141,16 @@ const Testimonials: React.FC = () => {
                 <div className="grid lg:grid-cols-2 gap-20 xl:gap-32 items-center">
                     
                     {/* Tickers Column (Left) */}
-                    <div className="relative order-last lg:order-first h-[480px] flex flex-col justify-center">
+                    <div className="relative order-last lg:order-first h-[500px] flex flex-col justify-center">
                         <div className="absolute inset-0 z-10 pointer-events-none">
                             <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-white to-transparent" />
                             <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-white to-transparent" />
                         </div>
                         
-                        <div className="space-y-4">
+                        <div className="space-y-2">
+                            <p className="text-center text-xs font-bold text-gray-400 italic mb-4">
+                                "Experiencias reales de clientes que confían en el respaldo del Grupo PCP"
+                            </p>
                             <Ticker reviews={row1} speed={50} />
                             <Ticker reviews={row2} speed={60} reverse />
                             <Ticker reviews={row3} speed={55} />
@@ -91,44 +166,44 @@ const Testimonials: React.FC = () => {
                                 className="flex items-center gap-3 text-brand-red font-black uppercase tracking-[0.2em] text-[10px]"
                             >
                                 <span className="w-8 h-px bg-brand-red"></span>
-                                Listos para resolver tus problemas de plagas
+                                ESPECIALISTAS EN BLINDAJE SANITARIO RESIDENCIAL
                             </motion.div>
                             
-                            <h2 className="text-6xl lg:text-8xl font-black text-brand-dark leading-[0.85] tracking-tighter">
-                                ¿POR QUÉ <br />
-                                <span className="text-brand-red">NOMBRE NEGOCIO?</span>
+                            <h2 className="text-6xl lg:text-7xl font-black text-brand-dark leading-[0.85] tracking-tighter">
+                                ¿POR QUÉ ELEGIR <br />
+                                <span className="text-brand-red">BIG CAT?</span>
                             </h2>
                             
                             <p className="text-xl text-gray-500 font-medium leading-relaxed max-w-xl">
-                                Ser una empresa con operación nacional nos permite adaptar nuestros tratamientos a las necesidades específicas de tu hogar y vecindario. Con más de <span className="text-brand-dark font-bold underline decoration-brand-red/30">12 años de experiencia</span> técnica, sabemos exactamente a qué te enfrentas.
+                                Ser la división residencial exclusiva de <span className="font-bold text-brand-dark">PCP Internacional</span> nos permite llevar protocolos de sanidad de nivel corporativo directamente a la puerta de tu hogar. Con más de <span className="font-bold text-brand-dark underline decoration-brand-red/40">29 años de experiencia</span> técnica respaldando a nuestro grupo, sabemos exactamente a qué te enfrentás y cómo proteger a tu familia de manera definitiva.
                             </p>
                         </div>
 
-                        {/* Stats Grid - Inspired by the red card but modernized */}
+                        {/* Stats Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                             <div className="flex flex-col items-start gap-2">
-                                <div className="flex text-brand-yellow">
-                                    {[1,2,3,4,5].map(i => <Star key={i} size={14} className="fill-current" />)}
+                                <div className="flex text-[#FBBC05]">
+                                    {[1,2,3,4,5].map(i => <Star key={i} size={16} className="fill-current" />)}
                                 </div>
-                                <p className="text-xl font-black text-brand-dark tracking-tighter">4.9 ESTRELLAS</p>
-                                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Calificación Media</p>
-                            </div>
-                            <div className="flex flex-col items-start gap-2 border-l border-gray-100 sm:pl-6">
-                                <GoogleIcon className="w-5 h-5" />
-                                <p className="text-xl font-black text-brand-dark tracking-tighter">+300 RESEÑAS</p>
-                                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">En Google Maps</p>
+                                <p className="text-lg font-black text-brand-dark tracking-tighter leading-none">CALIDAD GARANTIZADA</p>
+                                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest leading-tight">ESTÁNDARES INTERNACIONALES</p>
                             </div>
                             <div className="flex flex-col items-start gap-2 border-l border-gray-100 sm:pl-6">
                                 <ShieldCheck className="text-brand-red w-5 h-5" />
-                                <p className="text-xl font-black text-brand-dark tracking-tighter">FAVORITO 2024</p>
-                                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Voto Residencial</p>
+                                <p className="text-lg font-black text-brand-dark tracking-tighter leading-none">RESPALDO PCP</p>
+                                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest leading-tight">DIVISIÓN RESIDENCIAL EXCLUSIVA</p>
+                            </div>
+                            <div className="flex flex-col items-start gap-2 border-l border-gray-100 sm:pl-6">
+                                <Calendar className="text-brand-red w-5 h-5" />
+                                <p className="text-lg font-black text-brand-dark tracking-tighter leading-none">29+ AÑOS</p>
+                                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest leading-tight">DE EXPERIENCIA TÉCNICA REAL</p>
                             </div>
                         </div>
 
                         <div className="pt-4">
                             <a 
-                                href="https://wa.me/3312345678"
-                                className="inline-flex items-center justify-center px-10 py-5 bg-brand-red text-white font-black uppercase tracking-widest text-xs rounded-xl hover:bg-brand-dark transition-all duration-500 shadow-xl shadow-brand-red/20 transform hover:-translate-y-1"
+                                href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/\s/g, '')}`}
+                                className="inline-flex items-center justify-center px-10 py-5 bg-brand-red text-white font-black uppercase tracking-widest text-xs rounded-xl hover:bg-brand-dark transition-all duration-500 shadow-xl shadow-brand-red/30 transform hover:-translate-y-1"
                             >
                                 SABER MÁS
                             </a>

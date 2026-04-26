@@ -6,7 +6,7 @@ import { CONTACT_INFO, BRANCHES } from '../constants';
 
 const Hero: React.FC = () => {
   return (
-    <section id="hero" className="relative h-screen min-h-[800px] flex items-center overflow-hidden bg-white pt-32 lg:pt-0">
+    <section id="hero" className="relative h-screen min-h-[800px] flex items-center overflow-hidden bg-white pt-40 lg:pt-24">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -39,8 +39,8 @@ const Hero: React.FC = () => {
               transition={{ delay: 0.1 }}
               className="text-5xl lg:text-7xl xl:text-7xl font-black leading-[1.1] tracking-tighter text-brand-dark"
             >
-              Dile Adiós a las <br />
-              <span className="text-brand-red">Plagas</span> en Casa.
+              Control Total de <br />
+              <span className="text-brand-red">Plagas</span> Nacional.
             </motion.h1>
             
             <motion.p 
@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
               transition={{ delay: 0.2 }}
               className="text-xl md:text-3xl text-gray-600 max-w-2xl leading-tight font-medium"
             >
-              Control experto y <span className="text-brand-dark font-black underline decoration-brand-red/30">100% seguro para tu familia</span>. Erradicación total con tecnología de vanguardia y atención inmediata nacional.
+              Soluciones eficaces y <span className="text-brand-dark font-black underline decoration-brand-red/30">100% seguras para su familia y negocio</span>. Más de 29 años de experiencia con el respaldo de PCP Internacional.
             </motion.p>
 
             {/* CTAs */}
@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
                 href="#cotizacion"
                 className="bg-brand-red text-white px-10 py-6 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-brand-dark transition-all duration-500 shadow-2xl shadow-brand-red/20 flex items-center gap-3 group"
               >
-                Cotizar Mi Hogar
+                Cotizar Servicio
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </a>
               <a 
@@ -82,10 +82,10 @@ const Hero: React.FC = () => {
               className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 pb-20 lg:pb-0"
             >
               {[
-                { icon: ShieldCheck, label: "Efectividad", sub: "Profesional" },
-                { icon: Award, label: "Sabor", sub: "Inodoro" },
-                { icon: Target, label: "Respuesta", sub: "Inmediata" },
-                { icon: ArrowRight, label: "Presencia", sub: "Nacional" }
+                { icon: ShieldCheck, label: "Seguridad", sub: "100% Familiar" },
+                { icon: Award, label: "Experiencia", sub: "29+ Años" },
+                { icon: Target, label: "Cobertura", sub: "Nacional" },
+                { icon: CheckCircle, label: "Certificación", sub: "COFEPRIS" }
               ].map((item, idx) => (
                 <div key={idx} className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-white/80 backdrop-blur-sm rounded-xl flex items-center justify-center border border-gray-200 shadow-sm">
