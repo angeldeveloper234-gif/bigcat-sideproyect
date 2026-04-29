@@ -86,9 +86,9 @@ const Coverage: React.FC = () => {
                     .setLngLat(branch.coords as [number, number])
                     .setPopup(new mapboxgl.Popup({ offset: 20 }).setHTML(`
                         <div class="p-4 min-w-[180px]">
-                            <p class="text-[10px] font-black text-brand-red uppercase tracking-widest mb-1">Sede Operativa Principal</p>
-                            <h4 class="text-xl font-black text-brand-dark leading-tight mb-2">${branch.name}</h4>
-                            <div class="flex items-center gap-2 text-[9px] font-bold text-gray-500 uppercase">
+                            <p class="text-[10px] font-normal text-brand-red uppercase tracking-widest mb-1">Sede Operativa Principal</p>
+                            <h4 class="text-xl font-normal text-brand-dark leading-tight mb-2">${branch.name}</h4>
+                            <div class="flex items-center gap-2 text-[9px] font-normal text-gray-500 uppercase">
                                 <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                                 Centro de Logística Avanzada 24/7
                             </div>
@@ -108,8 +108,8 @@ const Coverage: React.FC = () => {
                         .setLngLat(rest.coords as [number, number])
                         .setPopup(new mapboxgl.Popup({ offset: 10 }).setHTML(`
                             <div class="px-3 py-2">
-                                <p class="text-[8px] font-black text-brand-red uppercase tracking-tighter mb-0.5">Cliente Protegido</p>
-                                <h5 class="text-xs font-black text-brand-dark">${rest.name}</h5>
+                                <p class="text-[8px] font-normal text-brand-red uppercase tracking-tighter mb-0.5">Cliente Protegido</p>
+                                <h5 class="text-xs font-normal text-brand-dark">${rest.name}</h5>
                             </div>
                         `))
                         .addTo(map.current!);
@@ -193,29 +193,29 @@ const Coverage: React.FC = () => {
                                     <Navigation size={32} className="text-white" />
                                 </div>
                                 <div>
-                                    <p className="text-4xl font-black tracking-tighter">50+</p>
-                                    <p className="text-gray-400 text-[10px] font-black uppercase tracking-[0.2em] mt-1">Unidades <br /> Estratégicas</p>
+                                    <p className="text-4xl font-normal tracking-tighter">50+</p>
+                                    <p className="text-gray-400 text-[10px] font-normal uppercase tracking-[0.2em] mt-1">Unidades <br /> Estratégicas</p>
                                 </div>
                             </div>
                         </motion.div>
 
                         <div className="absolute top-12 right-12 bg-white/80 backdrop-blur-xl border border-white px-6 py-3 rounded-full shadow-xl flex items-center gap-3">
                             <Shield size={18} className="text-brand-red" />
-                            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-dark">Protección Federal Certificada</span>
+                            <span className="text-[10px] font-normal uppercase tracking-[0.2em] text-brand-dark">Protección Federal Certificada</span>
                         </div>
                     </div>
 
                     {/* Content Area */}
                     <div className="w-full lg:w-2/5 space-y-12">
                         <div className="space-y-6">
-                            <span className="inline-flex items-center gap-2 bg-brand-red/10 text-brand-red px-5 py-2 rounded-full font-black tracking-widest uppercase text-[10px] border border-brand-red/20 shadow-sm">
+                            <span className="inline-flex items-center gap-2 bg-brand-red/10 text-brand-red px-5 py-2 rounded-full font-normal tracking-widest uppercase text-[10px] border border-brand-red/20 shadow-sm">
                                 <MapIcon size={14} /> Red Operativa Nacional
                             </span>
-                            <h2 className="text-4xl lg:text-6xl font-black text-brand-dark leading-[0.85] tracking-tighter">
+                            <h2 className="text-4xl lg:text-6xl font-normal text-brand-dark leading-[0.85] tracking-tighter">
                                 Presencia Real. <br />
                                 <span className="text-brand-red italic truncate">Impacto Local.</span>
                             </h2>
-                            <p className="text-xl text-gray-500 font-medium leading-relaxed">
+                            <p className="text-xl text-gray-500 font-normal leading-relaxed">
                                 Nuestra infraestructura logística nos permite garantizar tiempos de respuesta récord. Seleccione una sede para visualizar su radio de acción.
                             </p>
                         </div>
@@ -235,8 +235,8 @@ const Coverage: React.FC = () => {
                                             <MapPin size={24} className="text-brand-red group-hover:text-white transition-colors" />
                                         </div>
                                         <div>
-                                            <span className="block font-black text-brand-dark text-xl tracking-tight group-hover:translate-x-1 transition-transform">{branch.name}</span>
-                                            <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Centro de despacho Activo</span>
+                                            <span className="block font-normal text-brand-dark text-xl tracking-tight group-hover:translate-x-1 transition-transform">{branch.name}</span>
+                                            <span className="text-[9px] font-normal text-gray-400 uppercase tracking-widest">Centro de despacho Activo</span>
                                         </div>
                                     </div>
                                     <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-brand-red/10 group-hover:text-brand-red transition-colors">
@@ -247,7 +247,7 @@ const Coverage: React.FC = () => {
                         </div>
 
                         <div className="pt-8 border-t border-gray-100">
-                            <button className="flex items-center gap-4 text-brand-dark font-black uppercase tracking-widest hover:text-brand-red transition-all group group-hover:translate-x-2">
+                            <button className="flex items-center gap-4 text-brand-dark font-normal uppercase tracking-widest hover:text-brand-red transition-all group group-hover:translate-x-2">
                                 <span className="text-xs">Ver todas las subestaciones</span>
                                 <div className="w-12 h-[2px] bg-brand-red origin-left scale-x-75 group-hover:scale-x-125 transition-all"></div>
                             </button>
@@ -327,3 +327,4 @@ const Coverage: React.FC = () => {
 };
 
 export default Coverage;
+

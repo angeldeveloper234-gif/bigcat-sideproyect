@@ -110,7 +110,7 @@ const MapCoverage: React.FC<MapCoverageProps> = ({ center, cityId }) => {
         .setLngLat([lng, lat])
         .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(`
             <div class="p-2">
-                <h4 class="font-black text-brand-dark uppercase text-xs">Sede Operativa</h4>
+                <h4 class="font-normal text-brand-dark uppercase text-xs">Sede Operativa</h4>
                 <p class="text-[10px] text-gray-400">Punto de Despegue Logístico</p>
             </div>
         `))
@@ -128,8 +128,8 @@ const MapCoverage: React.FC<MapCoverageProps> = ({ center, cityId }) => {
           .setLngLat(rest.coords as [number, number])
           .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(`
             <div class="p-3">
-              <strong class="block text-brand-dark font-black text-sm mb-1">${rest.name}</strong>
-              <span class="text-[10px] text-brand-red font-bold uppercase tracking-widest">Establecimiento Protegido</span>
+              <strong class="block text-brand-dark font-normal text-sm mb-1">${rest.name}</strong>
+              <span class="text-[10px] text-brand-red font-normal uppercase tracking-widest">Establecimiento Protegido</span>
             </div>
           `))
           .addTo(map.current!);
@@ -171,29 +171,29 @@ const MapCoverage: React.FC<MapCoverageProps> = ({ center, cityId }) => {
         >
           <div className="flex items-center gap-3 mb-6">
             <ShieldCheck size={28} className="text-brand-red" />
-            <h3 className="text-xl font-black text-white uppercase tracking-tighter leading-none">Radio de <br /> Respuesta</h3>
+            <h3 className="text-xl font-normal text-white uppercase tracking-tighter leading-none">Radio de <br /> Respuesta</h3>
           </div>
           <div className="space-y-4">
             <div className="flex items-center justify-between group">
               <div className="flex items-center gap-3">
                 <div className="w-3 h-3 rounded-full bg-[#6abf40] shadow-[0_0_10px_rgba(106,191,64,0.4)]" />
-                <span className="text-gray-300 text-[10px] font-black uppercase tracking-widest">10 min</span>
+                <span className="text-gray-300 text-[10px] font-normal uppercase tracking-widest">10 min</span>
               </div>
-              <span className="text-white text-[10px] font-bold opacity-40 group-hover:opacity-100 transition-opacity">CRÍTICO</span>
+              <span className="text-white text-[10px] font-normal opacity-40 group-hover:opacity-100 transition-opacity">CRÍTICO</span>
             </div>
             <div className="flex items-center justify-between group">
               <div className="flex items-center gap-3">
                 <div className="w-3 h-3 rounded-full bg-[#bfaa40] shadow-[0_0_10px_rgba(191,170,64,0.4)]" />
-                <span className="text-gray-300 text-[10px] font-black uppercase tracking-widest">20 min</span>
+                <span className="text-gray-300 text-[10px] font-normal uppercase tracking-widest">20 min</span>
               </div>
-              <span className="text-white text-[10px] font-bold opacity-40 group-hover:opacity-100 transition-opacity">PRIORIDAD</span>
+              <span className="text-white text-[10px] font-normal opacity-40 group-hover:opacity-100 transition-opacity">PRIORIDAD</span>
             </div>
             <div className="flex items-center justify-between group">
               <div className="flex items-center gap-3">
                 <div className="w-3 h-3 rounded-full bg-[#bf4040] shadow-[0_0_10px_rgba(191,64,64,0.4)]" />
-                <span className="text-gray-300 text-[10px] font-black uppercase tracking-widest">30 min</span>
+                <span className="text-gray-300 text-[10px] font-normal uppercase tracking-widest">30 min</span>
               </div>
-              <span className="text-white text-[10px] font-bold opacity-40 group-hover:opacity-100 transition-opacity">NORMAL</span>
+              <span className="text-white text-[10px] font-normal opacity-40 group-hover:opacity-100 transition-opacity">NORMAL</span>
             </div>
           </div>
         </motion.div>
@@ -205,7 +205,7 @@ const MapCoverage: React.FC<MapCoverageProps> = ({ center, cityId }) => {
           className="inline-flex items-center gap-4 bg-brand-red text-white px-6 py-4 rounded-3xl shadow-2xl border-l-4 border-white/30"
         >
           <Zap size={20} className="animate-pulse" />
-          <span className="text-xs font-black uppercase tracking-widest italic">Fast-Track™ Certificado</span>
+          <span className="text-xs font-normal uppercase tracking-widest italic">Fast-Track™ Certificado</span>
         </motion.div>
       </div>
 
@@ -215,8 +215,8 @@ const MapCoverage: React.FC<MapCoverageProps> = ({ center, cityId }) => {
             <Clock size={24} />
           </div>
           <div>
-            <span className="block font-black text-sm uppercase tracking-tighter">Última Actualización</span>
-            <span className="text-[10px] font-bold text-brand-red uppercase tracking-widest">Tiempo Real: Sincronizado</span>
+            <span className="block font-normal text-sm uppercase tracking-tighter">Última Actualización</span>
+            <span className="text-[10px] font-normal text-brand-red uppercase tracking-widest">Tiempo Real: Sincronizado</span>
           </div>
         </div>
       </div>
@@ -263,3 +263,4 @@ const MapCoverage: React.FC<MapCoverageProps> = ({ center, cityId }) => {
 };
 
 export default MapCoverage;
+

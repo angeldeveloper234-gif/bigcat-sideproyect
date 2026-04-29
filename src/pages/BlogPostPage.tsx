@@ -46,7 +46,7 @@ const BlogPostPage: React.FC = () => {
 
       <article className="max-w-4xl mx-auto px-6 relative z-10">
         {/* Breadcrumb */}
-        <div className="flex flex-wrap items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-400 mb-8">
+        <div className="flex flex-wrap items-center gap-2 text-[10px] font-normal uppercase tracking-widest text-gray-400 mb-8">
           <Link to="/" className="hover:text-brand-red transition-colors">Inicio</Link>
           <ChevronRight size={12} />
           <Link to="/blog" className="hover:text-brand-red transition-colors">Blog</Link>
@@ -54,7 +54,7 @@ const BlogPostPage: React.FC = () => {
           <span className="text-brand-red truncate max-w-[200px] md:max-w-xs">{post.title}</span>
         </div>
 
-        <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-widest text-gray-400 hover:text-brand-red transition-colors mb-8 group">
+        <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-normal uppercase tracking-widest text-gray-400 hover:text-brand-red transition-colors mb-8 group">
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
           Volver al Blog
         </Link>
@@ -65,21 +65,21 @@ const BlogPostPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <span className="inline-flex items-center gap-2 bg-brand-red/10 border border-brand-red/20 px-4 py-1.5 rounded-full text-brand-red text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+            <span className="inline-flex items-center gap-2 bg-brand-red/10 border border-brand-red/20 px-4 py-1.5 rounded-full text-brand-red text-[10px] font-normal uppercase tracking-[0.2em] mb-6">
               {post.category}
             </span>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-brand-dark tracking-tighter leading-tight mb-8">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-normal text-brand-dark tracking-tighter leading-tight mb-8">
               {post.title}
             </h1>
 
             <div className="flex flex-wrap items-center gap-6 text-gray-500 border-b border-gray-100 pb-8">
               <div className="flex items-center gap-2">
                 <Calendar size={18} className="text-brand-red" />
-                <span className="text-xs font-bold uppercase tracking-wider">{post.date}</span>
+                <span className="text-xs font-normal uppercase tracking-wider">{post.date}</span>
               </div>
               <div className="flex items-center gap-2">
                 <User size={18} className="text-brand-red" />
-                <span className="text-xs font-bold uppercase tracking-wider">{post.author}</span>
+                <span className="text-xs font-normal uppercase tracking-wider">{post.author}</span>
               </div>
             </div>
           </motion.div>
@@ -118,9 +118,9 @@ const BlogPostPage: React.FC = () => {
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/20 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2" />
           <div className="relative z-10">
-            <h3 className="text-2xl md:text-3xl font-black mb-4">¿Tienes un problema de plagas?</h3>
+            <h3 className="text-2xl md:text-3xl font-normal mb-4">¿Tienes un problema de plagas?</h3>
             <p className="text-gray-400 mb-8 max-w-xl mx-auto">No dejes que se convierta en una infestación grave. Contáctanos hoy para una inspección profesional y protege tu hogar.</p>
-            <Link to="/#cotizacion" className="inline-block bg-brand-red text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-white hover:text-brand-dark transition-all duration-300">
+            <Link to="/#cotizacion" className="inline-block bg-brand-red text-white px-8 py-4 rounded-xl font-normal uppercase tracking-widest hover:bg-white hover:text-brand-dark transition-all duration-300">
               Cotizar Servicio
             </Link>
           </div>
@@ -131,3 +131,4 @@ const BlogPostPage: React.FC = () => {
 };
 
 export default BlogPostPage;
+

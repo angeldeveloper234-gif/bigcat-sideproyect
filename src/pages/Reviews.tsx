@@ -40,7 +40,7 @@ const Reviews: React.FC = () => {
         <div className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-full mx-auto overflow-hidden">
             {/* SECTION 1: FUNNEL */}
             <div className="text-center mb-24 max-w-2xl mx-auto px-4">
-                <h1 className="text-4xl font-bold text-brand-dark mb-6">Déjanos tu Calificación</h1>
+                <h1 className="text-4xl font-normal text-brand-dark mb-6">Déjanos tu Calificación</h1>
                 <p className="text-gray-600 mb-8 text-lg">Tu opinión es vital para nosotros. Por favor, califica tu experiencia.</p>
 
                 <div className="flex justify-center gap-4 mb-12">
@@ -66,13 +66,13 @@ const Reviews: React.FC = () => {
                 {/* LOGIC: 4-5 STARS */}
                 {rating >= 4 && (
                     <div className="animate-fade-in bg-green-50 p-8 rounded-2xl border border-green-100">
-                        <h3 className="text-2xl font-bold text-green-800 mb-4">¡Muchas Gracias! nos alegra oír eso</h3>
+                        <h3 className="text-2xl font-normal text-green-800 mb-4">¡Muchas Gracias! nos alegra oír eso</h3>
                         <p className="text-green-700 mb-6">Nos ayudarías mucho si compartes tu experiencia en Google.</p>
                         <a
                             href={googleMapsLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 bg-brand-red text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:bg-brand-darkRed transition-all hover:scale-105"
+                            className="inline-flex items-center gap-2 bg-brand-red text-white font-normal py-4 px-8 rounded-xl shadow-lg hover:bg-brand-darkRed transition-all hover:scale-105"
                         >
                             <Star fill="currentColor" />
                             ¡Genial! Compártelo en Google
@@ -83,19 +83,19 @@ const Reviews: React.FC = () => {
                 {/* LOGIC: 1-3 STARS */}
                 {rating > 0 && rating <= 3 && !formSubmitted && (
                     <div className="animate-fade-in bg-orange-50 p-8 rounded-2xl border border-orange-100">
-                        <h3 className="text-2xl font-bold text-orange-800 mb-2">Lamentamos esto</h3>
+                        <h3 className="text-2xl font-normal text-orange-800 mb-2">Lamentamos esto</h3>
                         <p className="text-orange-700 mb-6">Cuéntanos qué pasó para solucionarlo inmediatamente.</p>
 
                         <form onSubmit={handleFormSubmit} className="text-left space-y-4">
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Tu Nombre</label>
+                                <label className="block text-sm font-normal text-gray-700 mb-1">Tu Nombre</label>
                                 <input required type="text" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-red focus:border-transparent outline-none" placeholder="Juan Pérez" />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">¿Qué sucedió?</label>
+                                <label className="block text-sm font-normal text-gray-700 mb-1">¿Qué sucedió?</label>
                                 <textarea required rows={4} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-red focus:border-transparent outline-none" placeholder="Detalles de tu experiencia..." />
                             </div>
-                            <button type="submit" className="w-full bg-brand-dark text-white font-bold py-3 rounded-lg hover:bg-black transition-colors flex justify-center items-center gap-2">
+                            <button type="submit" className="w-full bg-brand-dark text-white font-normal py-3 rounded-lg hover:bg-black transition-colors flex justify-center items-center gap-2">
                                 <Send size={18} />
                                 Enviar Mensaje al Equipo
                             </button>
@@ -105,7 +105,7 @@ const Reviews: React.FC = () => {
 
                 {rating > 0 && rating <= 3 && formSubmitted && (
                     <div className="animate-fade-in bg-green-50 p-8 rounded-2xl border border-green-100">
-                        <h3 className="text-xl font-bold text-green-800">Mensaje Enviado</h3>
+                        <h3 className="text-xl font-normal text-green-800">Mensaje Enviado</h3>
                         <p className="text-green-700">Gracias por darnos la oportunidad de mejorar. Te contactaremos pronto.</p>
                     </div>
                 )}
@@ -120,3 +120,4 @@ const Reviews: React.FC = () => {
 };
 
 export default Reviews;
+

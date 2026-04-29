@@ -398,3 +398,4 @@ export const BedBugHotelIcon: React.FC<IconProps> = ({ size = 32, className = ''
     <path d="M25.5 10 L29 11" />
   </svg>
 );
+

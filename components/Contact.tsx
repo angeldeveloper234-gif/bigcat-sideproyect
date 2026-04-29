@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
             {/* Info Column */}
             <div className="lg:col-span-5 space-y-12">
                 <div>
-                    <h2 className="text-4xl lg:text-5xl font-bold text-brand-dark mb-6 tracking-tight">¿Listo para blindar su negocio contra las plagas?</h2>
+                    <h2 className="text-4xl lg:text-5xl font-semibold text-brand-dark mb-6 tracking-tight">¿Listo para blindar su negocio contra las plagas?</h2>
                     <p className="text-xl text-gray-500 font-light leading-relaxed">
                         Escríbanos y un experto le asesorará de inmediato para encontrar la solución ideal para sus instalaciones.
                     </p>
@@ -91,18 +91,18 @@ const Contact: React.FC = () => {
             {/* Form Column */}
             <div className="lg:col-span-7">
                 <div className="bg-brand-gray rounded-[2.5rem] p-8 md:p-12 shadow-sm">
-                    <h3 className="text-2xl font-bold text-brand-dark mb-8">Solicitar Diagnóstico</h3>
+                    <h3 className="text-2xl font-semibold text-brand-dark mb-8">Solicitar Diagnóstico</h3>
                     
                     {formStatus === 'success' ? (
                         <div className="bg-white p-8 rounded-3xl text-center shadow-sm py-16">
                             <div className="w-16 h-16 bg-red-100 text-brand-red rounded-full flex items-center justify-center mx-auto mb-4">
                                 <Send size={32} />
                             </div>
-                            <p className="font-bold text-2xl text-brand-dark mb-2">¡Solicitud Generada!</p>
+                            <p className="font-semibold text-2xl text-brand-dark mb-2">¡Solicitud Generada!</p>
                             <p className="text-gray-500 mb-6">Se ha abierto WhatsApp para enviar la información.</p>
                             <button 
                                 onClick={() => setFormStatus('idle')}
-                                className="text-brand-red font-bold hover:underline"
+                                className="text-brand-red font-medium hover:underline"
                             >
                                 Enviar nueva solicitud
                             </button>
@@ -129,7 +129,7 @@ const Contact: React.FC = () => {
                             </div>
 
                             <div>
-                                <label htmlFor="service" className="block text-sm font-bold text-brand-dark mb-2 ml-2">Servicio Requerido</label>
+                                <label htmlFor="service" className="block text-sm font-medium text-brand-dark mb-2 ml-2">Servicio Requerido</label>
                                 <div className="relative">
                                     <select 
                                         id="service" 
@@ -153,7 +153,7 @@ const Contact: React.FC = () => {
                             </div>
 
                             <div>
-                                <label htmlFor="message" className="block text-sm font-bold text-brand-dark mb-2 ml-2">Detalles</label>
+                                <label htmlFor="message" className="block text-sm font-medium text-brand-dark mb-2 ml-2">Detalles</label>
                                 <textarea 
                                     id="message" 
                                     value={formData.message}
@@ -166,7 +166,7 @@ const Contact: React.FC = () => {
 
                             <button 
                                 type="submit" 
-                                className="w-full bg-brand-dark text-white font-bold py-5 rounded-2xl hover:bg-brand-red transition-all duration-300 flex items-center justify-center gap-3 text-lg shadow-lg hover:shadow-red-900/20 transform hover:-translate-y-1"
+                                className="w-full bg-brand-dark text-white font-semibold py-5 rounded-2xl hover:bg-brand-red transition-all duration-300 flex items-center justify-center gap-3 text-lg shadow-lg hover:shadow-red-900/20 transform hover:-translate-y-1"
                             >
                                 Hablar con un especialista <ArrowRight size={20} />
                             </button>
@@ -197,7 +197,7 @@ const ContactItem: React.FC<ContactItemProps> = ({ icon: Icon, title, content, h
             <Icon size={24} />
         </div>
         <div className="pt-1">
-            <h4 className="font-bold text-brand-dark text-lg">{title}</h4>
+            <h4 className="font-semibold text-brand-dark text-lg">{title}</h4>
             {onClick ? (
                  <button onClick={onClick} className="text-gray-500 hover:text-brand-red transition-colors font-medium text-left">
                     {content}
@@ -222,7 +222,7 @@ interface InputGroupProps {
 
 const InputGroup: React.FC<InputGroupProps> = ({ label, id, placeholder, type, value, onChange }) => (
     <div>
-        <label htmlFor={id} className="block text-sm font-bold text-brand-dark mb-2 ml-2">{label}</label>
+        <label htmlFor={id} className="block text-sm font-medium text-brand-dark mb-2 ml-2">{label}</label>
         <input 
             type={type} 
             id={id} 

@@ -16,7 +16,7 @@ const StickyCTA: React.FC = () => {
                     className="flex-1 flex flex-col items-center justify-center p-3 rounded-2xl bg-white/5 text-white hover:bg-white/10 transition-all border border-white/5"
                 >
                     <Phone size={18} className="text-brand-primary mb-1" />
-                    <span className="text-[10px] font-black uppercase tracking-widest">Llamar</span>
+                    <span className="text-[10px] font-normal uppercase tracking-widest">Llamar</span>
                 </a>
 
                 <a 
@@ -24,7 +24,7 @@ const StickyCTA: React.FC = () => {
                     className="flex-[1.5] flex items-center justify-center gap-2 p-4 rounded-2xl bg-brand-primary text-white mx-2 shadow-lg shadow-brand-primary/20"
                 >
                     <MessageCircle size={20} className="animate-bounce" />
-                    <span className="text-sm font-black uppercase tracking-tighter">Cotizar Ahora</span>
+                    <span className="text-sm font-normal uppercase tracking-tighter">Cotizar Ahora</span>
                 </a>
 
                 <a 
@@ -34,7 +34,7 @@ const StickyCTA: React.FC = () => {
                     className="flex-1 flex flex-col items-center justify-center p-3 rounded-2xl bg-white/5 text-white border border-white/5 hover:bg-white/10 transition-all text-center"
                 >
                     <Calendar size={18} className="text-brand-primary mb-1" />
-                    <span className="text-[10px] font-black uppercase tracking-widest leading-none">Agendar</span>
+                    <span className="text-[10px] font-normal uppercase tracking-widest leading-none">Agendar</span>
                 </a>
             </motion.div>
         </div>
@@ -42,3 +42,4 @@ const StickyCTA: React.FC = () => {
 };
 
 export default StickyCTA;
+

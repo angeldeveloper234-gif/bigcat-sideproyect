@@ -28,13 +28,13 @@ const CostCalculator: React.FC = () => {
         <section className="py-24 bg-white border-y border-gray-100">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-12">
-                     <span className="inline-block py-1.5 px-4 rounded-full bg-brand-red/10 text-brand-red font-black tracking-widest uppercase text-[10px] mb-6 border border-brand-red/20">
+                     <span className="inline-block py-1.5 px-4 rounded-full bg-brand-red/10 text-brand-red font-normal tracking-widest uppercase text-[10px] mb-6 border border-brand-red/20">
                         Presupuesto Inmediato
                     </span>
-                    <h2 className="text-4xl lg:text-6xl font-black text-brand-dark tracking-tighter leading-[0.8] mb-6">
+                    <h2 className="text-4xl lg:text-6xl font-normal text-brand-dark tracking-tighter leading-[0.8] mb-6">
                         Calcula tu inversión en <span className="text-brand-red">10 segundos</span>.
                     </h2>
-                    <p className="text-xl text-gray-400 font-medium max-w-2xl mx-auto">
+                    <p className="text-xl text-gray-400 font-normal max-w-2xl mx-auto">
                         Transparencia total. Sin costos ocultos. Obtén un estimado rápido y agenda tu servicio hoy mismo.
                     </p>
                 </div>
@@ -43,19 +43,19 @@ const CostCalculator: React.FC = () => {
                     <div className="p-8 lg:p-14 space-y-8">
                         <div className="space-y-6">
                             <div>
-                                <label className="block text-sm font-black uppercase text-gray-500 mb-2">Tamaño de la Propiedad (Metros Cuadrados)</label>
+                                <label className="block text-sm font-normal uppercase text-gray-500 mb-2">Tamaño de la Propiedad (Metros Cuadrados)</label>
                                 <input 
                                     type="number" 
                                     placeholder="Ej. 120"
-                                    className="w-full bg-white border-2 border-gray-200 p-5 rounded-2xl focus:border-brand-red focus:ring-4 focus:ring-brand-red/10 outline-none font-bold text-xl transition-all shadow-sm"
+                                    className="w-full bg-white border-2 border-gray-200 p-5 rounded-2xl focus:border-brand-red focus:ring-4 focus:ring-brand-red/10 outline-none font-normal text-xl transition-all shadow-sm"
                                     onChange={(e) => setSqm(Number(e.target.value))}
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-black uppercase text-gray-500 mb-2">Plaga a Erradicar</label>
+                                <label className="block text-sm font-normal uppercase text-gray-500 mb-2">Plaga a Erradicar</label>
                                 <select 
-                                    className="w-full bg-white border-2 border-gray-200 p-5 rounded-2xl focus:border-brand-red focus:ring-4 focus:ring-brand-red/10 outline-none font-bold text-xl appearance-none transition-all shadow-sm"
+                                    className="w-full bg-white border-2 border-gray-200 p-5 rounded-2xl focus:border-brand-red focus:ring-4 focus:ring-brand-red/10 outline-none font-normal text-xl appearance-none transition-all shadow-sm"
                                     onChange={(e) => setPestType(e.target.value)}
                                     value={pestType}
                                 >
@@ -75,16 +75,16 @@ const CostCalculator: React.FC = () => {
                         <div>
                             <div className="flex items-center gap-3 text-brand-red mb-8">
                                 <Calculator />
-                                <span className="font-black uppercase tracking-widest text-sm">Tu Cotización</span>
+                                <span className="font-normal uppercase tracking-widest text-sm">Tu Cotización</span>
                             </div>
                             
                             <div className="space-y-2">
-                                <span className="text-6xl md:text-8xl font-black text-white leading-none tracking-tighter">
+                                <span className="text-6xl md:text-8xl font-normal text-white leading-none tracking-tighter">
                                     ${estimate > 0 ? estimate.toLocaleString() : '0'}
                                 </span>
-                                <span className="text-xl text-gray-400 font-bold ml-2">MXN</span>
+                                <span className="text-xl text-gray-400 font-normal ml-2">MXN</span>
                             </div>
-                            <p className="text-gray-400 mt-4 text-sm font-medium leading-relaxed">
+                            <p className="text-gray-400 mt-4 text-sm font-normal leading-relaxed">
                                 *Valor aproximado sugerido. El precio final se confirmará mediante WhatsApp o llamada con nuestros expertos.
                             </p>
                         </div>
@@ -92,13 +92,13 @@ const CostCalculator: React.FC = () => {
                         <div className="pt-12 space-y-6">
                             <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/5 mb-4">
                                 <Zap className="text-brand-red shrink-0" size={24} />
-                                <span className="text-sm font-bold text-gray-300">Técnicos listos en tu zona para atención inmediata.</span>
+                                <span className="text-sm font-normal text-gray-300">Técnicos listos en tu zona para atención inmediata.</span>
                             </div>
                             <a 
                                 href={generateWhatsAppLink()}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-full relative group bg-brand-red hover:bg-red-600 py-6 rounded-2xl font-black text-xl transition-all shadow-2xl shadow-brand-red/30 flex items-center justify-center gap-3 overflow-hidden"
+                                className="w-full relative group bg-brand-red hover:bg-red-600 py-6 rounded-2xl font-normal text-xl transition-all shadow-2xl shadow-brand-red/30 flex items-center justify-center gap-3 overflow-hidden"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                                 Congelar Precio por WhatsApp
@@ -113,3 +113,4 @@ const CostCalculator: React.FC = () => {
 };
 
 export default CostCalculator;
+

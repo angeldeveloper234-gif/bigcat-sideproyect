@@ -17,7 +17,7 @@ const TrustBar: React.FC = () => {
                             <CheckCircle size={28} />
                         </div>
                         <div>
-                            <p className="text-sm font-black text-white uppercase tracking-[0.1em]">Google Guaranteed</p>
+                            <p className="text-sm font-normal text-white uppercase tracking-[0.1em]">Google Guaranteed</p>
                             <div className="flex text-brand-red mt-1">
                                 {[...Array(5)].map((_, i) => (
                                     <Star key={i} size={14} fill="currentColor" />
@@ -32,8 +32,8 @@ const TrustBar: React.FC = () => {
                             <ShieldCheck size={28} />
                         </div>
                         <div>
-                            <p className="text-sm font-black text-white uppercase tracking-[0.1em]">Licencia Federal</p>
-                            <p className="text-[10px] text-gray-400 font-black uppercase tracking-widest mt-1">COFEPRIS 2024-V2</p>
+                            <p className="text-sm font-normal text-white uppercase tracking-[0.1em]">Licencia Federal</p>
+                            <p className="text-[10px] text-gray-400 font-normal uppercase tracking-widest mt-1">COFEPRIS 2024-V2</p>
                         </div>
                     </div>
 
@@ -43,8 +43,8 @@ const TrustBar: React.FC = () => {
                             <Award size={28} />
                         </div>
                         <div>
-                            <p className="text-sm font-black text-white uppercase tracking-[0.1em]">29+ Años de Éxito</p>
-                            <p className="text-[10px] text-gray-400 font-black uppercase tracking-widest mt-1">Soberanía Sanitaria</p>
+                            <p className="text-sm font-normal text-white uppercase tracking-[0.1em]">29+ Años de Éxito</p>
+                            <p className="text-[10px] text-gray-400 font-normal uppercase tracking-widest mt-1">Soberanía Sanitaria</p>
                         </div>
                     </div>
 
@@ -54,8 +54,8 @@ const TrustBar: React.FC = () => {
                             <Star size={28} />
                         </div>
                         <div>
-                            <p className="text-sm font-black text-white uppercase tracking-[0.1em]">Calidad Garantizada</p>
-                            <p className="text-[10px] text-gray-400 font-black uppercase tracking-widest mt-1">Servicio de Excelencia</p>
+                            <p className="text-sm font-normal text-white uppercase tracking-[0.1em]">Calidad Garantizada</p>
+                            <p className="text-[10px] text-gray-400 font-normal uppercase tracking-widest mt-1">Servicio de Excelencia</p>
                         </div>
                     </div>
 
@@ -66,3 +66,4 @@ const TrustBar: React.FC = () => {
 };
 
 export default TrustBar;
+

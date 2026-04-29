@@ -11,17 +11,17 @@ const Methods: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="mb-24 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
           <div className="max-w-3xl">
-            <span className="text-brand-red font-black tracking-widest uppercase text-xs mb-4 block">Manejo Integrado de Plagas (MIP)</span>
-            <h2 className="text-4xl lg:text-6xl font-black tracking-tighter leading-none mb-6">
+            <span className="text-brand-red font-normal tracking-widest uppercase text-xs mb-4 block">Manejo Integrado de Plagas (MIP)</span>
+            <h2 className="text-4xl lg:text-6xl font-normal tracking-tighter leading-none mb-6">
                 Ingeniería en <span className="text-brand-red">Bioseguridad</span>
             </h2>
-            <p className="text-gray-400 text-xl font-medium leading-relaxed">
+            <p className="text-gray-400 text-xl font-normal leading-relaxed">
                 No fumigamos al azar. Aplicamos protocolos científicos basados en la biología de la plaga y el entorno específico de su negocio.
             </p>
           </div>
           <div className="bg-white/5 border border-white/10 p-6 rounded-3xl backdrop-blur-xl">
-             <p className="text-xs font-black uppercase tracking-widest text-brand-red mb-2">Certificación</p>
-             <p className="text-sm font-bold leading-tight">Cumple con normativas COFEPRIS y Estándares HACCP</p>
+             <p className="text-xs font-normal uppercase tracking-widest text-brand-red mb-2">Certificación</p>
+             <p className="text-sm font-normal leading-tight">Cumple con normativas COFEPRIS y Estándares HACCP</p>
           </div>
         </div>
 
@@ -34,8 +34,8 @@ const Methods: React.FC = () => {
                 </div>
               </div>
               <div className="space-y-3">
-                <h3 className="text-2xl font-black tracking-tight group-hover:text-brand-red transition-colors">{method.title}</h3>
-                <p className="text-gray-400 leading-relaxed font-medium">
+                <h3 className="text-2xl font-normal tracking-tight group-hover:text-brand-red transition-colors">{method.title}</h3>
+                <p className="text-gray-400 leading-relaxed font-normal">
                   {method.description}
                 </p>
               </div>
@@ -48,3 +48,4 @@ const Methods: React.FC = () => {
 };
 
 export default Methods;
+

@@ -10,12 +10,12 @@ const Hero: React.FC = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/images/hero.jpg" 
+          src="/images/hero.png" 
           alt="Home Pest Control" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
+        <div className="absolute inset-0 bg-white/20 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
                animate={{ opacity: 1, x: 0 }}
                className="inline-flex items-center gap-2 bg-brand-red/10 px-4 py-2 rounded-full border border-brand-red/20"
             >
-              <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-brand-red">
+              <div className="flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.2em] text-brand-red">
                 <span>Protección Residencial Profesional</span>
               </div>
             </motion.div>
@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-5xl lg:text-7xl xl:text-7xl font-black leading-[1.1] tracking-tighter text-brand-dark"
+              className="text-5xl lg:text-7xl xl:text-7xl font-semibold leading-[1.1] tracking-tighter text-brand-dark"
             >
               Control Total de <br />
               <span className="text-brand-red">Plagas</span> Nacional.
@@ -47,9 +47,9 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-xl md:text-3xl text-gray-600 max-w-2xl leading-tight font-medium"
+              className="text-xl md:text-3xl text-gray-600 max-w-2xl leading-tight font-normal"
             >
-              Soluciones eficaces y <span className="text-brand-dark font-black underline decoration-brand-red/30">100% seguras para su familia y negocio</span>. Más de 29 años de experiencia con el respaldo de PCP Internacional.
+              Soluciones eficaces y <span className="text-brand-dark font-medium underline decoration-brand-red/30">100% seguras para su familia y negocio</span>. Más de 29 años de experiencia con el respaldo de PCP Internacional.
             </motion.p>
 
             {/* CTAs */}
@@ -60,15 +60,15 @@ const Hero: React.FC = () => {
               className="flex flex-wrap gap-4 pt-4"
             >
               <a 
-                href="#cotizacion"
-                className="bg-brand-red text-white px-10 py-6 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-brand-dark transition-all duration-500 shadow-2xl shadow-brand-red/20 flex items-center gap-3 group"
+                href="#contacto"
+                className="bg-brand-red text-white px-10 py-6 rounded-2xl font-semibold text-lg uppercase tracking-widest hover:bg-brand-dark transition-all duration-500 shadow-2xl shadow-brand-red/20 flex items-center gap-3 group"
               >
                 Cotizar Servicio
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </a>
               <a 
                 href="#servicios"
-                className="bg-white text-brand-dark border border-gray-200 px-10 py-6 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-gray-50 transition-all duration-500 flex items-center gap-3"
+                className="bg-white text-brand-dark border border-gray-200 px-10 py-6 rounded-2xl font-semibold text-lg uppercase tracking-widest hover:bg-gray-50 transition-all duration-500 flex items-center gap-3"
               >
                 Ver Servicios
               </a>
@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
                   <div className="w-10 h-10 bg-white/80 backdrop-blur-sm rounded-xl flex items-center justify-center border border-gray-200 shadow-sm">
                     <item.icon className="text-brand-red w-5 h-5" />
                   </div>
-                  <span className="text-[10px] font-black uppercase tracking-widest leading-tight text-brand-dark">{item.label} <br/>{item.sub}</span>
+                  <span className="text-[10px] font-medium uppercase tracking-widest leading-tight text-brand-dark">{item.label} <br/>{item.sub}</span>
                 </div>
               ))}
             </motion.div>

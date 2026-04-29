@@ -102,7 +102,7 @@ const TestimonialCard: React.FC<{ review: any }> = ({ review }) => (
                     </div>
                 </div>
                 <div>
-                    <h5 className="font-bold text-gray-900 text-[12px] tracking-tight truncate max-w-[120px]">{review.author_name}</h5>
+                    <h5 className="font-normal text-gray-900 text-[12px] tracking-tight truncate max-w-[120px]">{review.author_name}</h5>
                     <div className="flex">
                         {[...Array(5)].map((_, i) => (
                             <Star key={i} size={10} className={i < review.rating ? 'fill-[#FBBC05] text-[#FBBC05]' : 'text-gray-200'} />
@@ -110,7 +110,7 @@ const TestimonialCard: React.FC<{ review: any }> = ({ review }) => (
                     </div>
                 </div>
             </div>
-            <span className="text-[9px] text-gray-400 font-bold uppercase tracking-widest">{review.time}</span>
+            <span className="text-[9px] text-gray-400 font-normal uppercase tracking-widest">{review.time}</span>
         </div>
         <p className="text-gray-600 text-xs leading-relaxed italic line-clamp-4">"{review.text}"</p>
     </div>
@@ -148,7 +148,7 @@ const Testimonials: React.FC = () => {
                         </div>
                         
                         <div className="space-y-2">
-                            <p className="text-center text-xs font-bold text-gray-400 italic mb-4">
+                            <p className="text-center text-xs font-normal text-gray-400 italic mb-4">
                                 "Experiencias reales de clientes que confían en el respaldo del Grupo PCP"
                             </p>
                             <Ticker reviews={row1} speed={50} />
@@ -163,19 +163,19 @@ const Testimonials: React.FC = () => {
                             <motion.div 
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                className="flex items-center gap-3 text-brand-red font-black uppercase tracking-[0.2em] text-[10px]"
+                                className="flex items-center gap-3 text-brand-red font-normal uppercase tracking-[0.2em] text-[10px]"
                             >
                                 <span className="w-8 h-px bg-brand-red"></span>
                                 ESPECIALISTAS EN BLINDAJE SANITARIO RESIDENCIAL
                             </motion.div>
                             
-                            <h2 className="text-6xl lg:text-7xl font-black text-brand-dark leading-[0.85] tracking-tighter">
+                            <h2 className="text-6xl lg:text-7xl font-normal text-brand-dark leading-[0.85] tracking-tighter">
                                 ¿POR QUÉ ELEGIR <br />
                                 <span className="text-brand-red">BIG CAT?</span>
                             </h2>
                             
-                            <p className="text-xl text-gray-500 font-medium leading-relaxed max-w-xl">
-                                Ser la división residencial exclusiva de <span className="font-bold text-brand-dark">PCP Internacional</span> nos permite llevar protocolos de sanidad de nivel corporativo directamente a la puerta de tu hogar. Con más de <span className="font-bold text-brand-dark underline decoration-brand-red/40">29 años de experiencia</span> técnica respaldando a nuestro grupo, sabemos exactamente a qué te enfrentás y cómo proteger a tu familia de manera definitiva.
+                            <p className="text-xl text-gray-500 font-normal leading-relaxed max-w-xl">
+                                Ser la división residencial exclusiva de <span className="font-normal text-brand-dark">PCP Internacional</span> nos permite llevar protocolos de sanidad de nivel corporativo directamente a la puerta de tu hogar. Con más de <span className="font-normal text-brand-dark underline decoration-brand-red/40">29 años de experiencia</span> técnica respaldando a nuestro grupo, sabemos exactamente a qué te enfrentás y cómo proteger a tu familia de manera definitiva.
                             </p>
                         </div>
 
@@ -185,25 +185,25 @@ const Testimonials: React.FC = () => {
                                 <div className="flex text-[#FBBC05]">
                                     {[1,2,3,4,5].map(i => <Star key={i} size={16} className="fill-current" />)}
                                 </div>
-                                <p className="text-lg font-black text-brand-dark tracking-tighter leading-none">CALIDAD GARANTIZADA</p>
-                                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest leading-tight">ESTÁNDARES INTERNACIONALES</p>
+                                <p className="text-lg font-normal text-brand-dark tracking-tighter leading-none">CALIDAD GARANTIZADA</p>
+                                <p className="text-[9px] font-normal text-gray-400 uppercase tracking-widest leading-tight">ESTÁNDARES INTERNACIONALES</p>
                             </div>
                             <div className="flex flex-col items-start gap-2 border-l border-gray-100 sm:pl-6">
                                 <ShieldCheck className="text-brand-red w-5 h-5" />
-                                <p className="text-lg font-black text-brand-dark tracking-tighter leading-none">RESPALDO PCP</p>
-                                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest leading-tight">DIVISIÓN RESIDENCIAL EXCLUSIVA</p>
+                                <p className="text-lg font-normal text-brand-dark tracking-tighter leading-none">RESPALDO PCP</p>
+                                <p className="text-[9px] font-normal text-gray-400 uppercase tracking-widest leading-tight">DIVISIÓN RESIDENCIAL EXCLUSIVA</p>
                             </div>
                             <div className="flex flex-col items-start gap-2 border-l border-gray-100 sm:pl-6">
                                 <Calendar className="text-brand-red w-5 h-5" />
-                                <p className="text-lg font-black text-brand-dark tracking-tighter leading-none">29+ AÑOS</p>
-                                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest leading-tight">DE EXPERIENCIA TÉCNICA REAL</p>
+                                <p className="text-lg font-normal text-brand-dark tracking-tighter leading-none">29+ AÑOS</p>
+                                <p className="text-[9px] font-normal text-gray-400 uppercase tracking-widest leading-tight">DE EXPERIENCIA TÉCNICA REAL</p>
                             </div>
                         </div>
 
                         <div className="pt-4">
                             <a 
                                 href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/\s/g, '')}`}
-                                className="inline-flex items-center justify-center px-10 py-5 bg-brand-red text-white font-black uppercase tracking-widest text-xs rounded-xl hover:bg-brand-dark transition-all duration-500 shadow-xl shadow-brand-red/30 transform hover:-translate-y-1"
+                                className="inline-flex items-center justify-center px-10 py-5 bg-brand-red text-white font-normal uppercase tracking-widest text-xs rounded-xl hover:bg-brand-dark transition-all duration-500 shadow-xl shadow-brand-red/30 transform hover:-translate-y-1"
                             >
                                 SABER MÁS
                             </a>

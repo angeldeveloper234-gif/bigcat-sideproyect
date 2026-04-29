@@ -91,3 +91,4 @@ export const GOOGLE_REVIEWS_MOCK: GoogleReview[] = [
         time: "Local Guide · 30 opiniones · Hace 5 años"
     }
 ];
+

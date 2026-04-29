@@ -68,11 +68,11 @@ const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose }) => {
         {/* Header */}
         <div className="bg-brand-dark px-6 py-6 border-b border-white/10 flex justify-between items-center shrink-0">
           <div>
-            <h3 className="font-bold text-xl text-white flex items-center gap-2">
+            <h3 className="font-semibold text-xl text-white flex items-center gap-2">
               <MessageCircle className="text-brand-red fill-brand-red/20" />
               ¡Selecciona tu localidad!
             </h3>
-            <p className="text-xs text-brand-red font-bold mt-1 ml-8">Te atenderá un especialista local</p>
+            <p className="text-xs text-brand-red font-medium mt-1 ml-8">Te atenderá un especialista local</p>
           </div>
           <button
             onClick={onClose}
@@ -96,7 +96,7 @@ const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose }) => {
                   <MapPin size={22} />
                 </div>
                 <div>
-                  <span className="block font-bold text-brand-dark text-lg group-hover:text-brand-red transition-colors">{branch.name}</span>
+                  <span className="block font-medium text-brand-dark text-lg group-hover:text-brand-red transition-colors">{branch.name}</span>
                   <span className="text-xs text-brand-red font-medium bg-red-50 px-2 py-0.5 rounded-full group-hover:bg-brand-red group-hover:text-white transition-colors">Disponible Ahora</span>
                 </div>
               </div>

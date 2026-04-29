@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -14,10 +14,28 @@ import LocationPage from './src/pages/LocationPage';
 import BlogArchivePage from './src/pages/BlogArchivePage';
 import BlogPostPage from './src/pages/BlogPostPage';
 
+const ScrollToHash: React.FC = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const element = document.getElementById(hash.replace('#', ''));
+      if (element) {
+        const yOffset = -100; // Offset for fixed header
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+  }, [hash]);
+
+  return null;
+};
+
 const App: React.FC = () => {
   return (
     <HelmetProvider>
       <Router>
+        <ScrollToHash />
         <div className="min-h-screen bg-white font-sans text-brand-dark overflow-x-hidden">
           <Header />
           <main>
@@ -41,3 +59,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+

@@ -23,15 +23,15 @@ const Header: React.FC = () => {
     <>
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled || !isHome
-            ? 'bg-white/95 backdrop-blur-md shadow-lg py-3'
-            : 'bg-white/40 backdrop-blur-md shadow-sm py-5 border-b border-gray-100/20'
+          ? 'bg-white/95 backdrop-blur-md shadow-lg py-2'
+          : 'bg-white/40 backdrop-blur-md shadow-sm py-2.5 border-b border-gray-100/20'
           }`}
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0 flex items-center gap-2 group">
-              <div className="relative h-14 lg:h-16 flex items-center">
+              <div className="relative h-[80px] lg:h-[104px] flex items-center">
                 <img
                   src={LOGO_DARK}
                   alt="Big Cat Logo"
@@ -47,7 +47,7 @@ const Header: React.FC = () => {
                 link.children ? (
                   <div key={link.label} className="relative group">
                     <button
-                      className={`flex items-center gap-1 text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 text-gray-700 hover:text-brand-red hover:bg-white`}
+                      className={`flex items-center gap-1 text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-300 text-gray-700 hover:text-brand-red hover:bg-white`}
                     >
                       {link.label}
                       <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
@@ -59,7 +59,7 @@ const Header: React.FC = () => {
                           <Link
                             key={child.label}
                             to={child.href}
-                            className="block px-4 py-2.5 text-sm font-bold text-gray-700 hover:bg-brand-red/5 hover:text-brand-red transition-colors"
+                            className="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-brand-red/5 hover:text-brand-red transition-colors"
                           >
                             {child.label}
                           </Link>
@@ -71,7 +71,7 @@ const Header: React.FC = () => {
                   <Link
                     key={link.label}
                     to={link.href}
-                    className={`text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 text-gray-700 hover:text-brand-red hover:bg-white`}
+                    className={`text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-300 text-gray-700 hover:text-brand-red hover:bg-white`}
                   >
                     {link.label}
                   </Link>
@@ -83,7 +83,7 @@ const Header: React.FC = () => {
             <div className="hidden md:flex items-center gap-4">
               <a
                 href={`tel:${CONTACT_INFO.phone}`}
-                className={`flex items-center gap-2 font-black text-sm transition-colors text-brand-dark hover:text-brand-red`}
+                className={`flex items-center gap-2 font-semibold text-sm transition-colors text-brand-dark hover:text-brand-red`}
               >
                 <div className="w-8 h-8 rounded-full bg-brand-red/10 flex items-center justify-center">
                   <Phone size={14} className="text-brand-red" />
@@ -92,7 +92,7 @@ const Header: React.FC = () => {
               </a>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-brand-red hover:bg-brand-dark text-white px-6 py-3 rounded-xl font-black text-sm transition-all transform hover:scale-105 shadow-xl shadow-brand-red/20 flex items-center gap-2"
+                className="bg-brand-red hover:bg-brand-dark text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all transform hover:scale-105 shadow-xl shadow-brand-red/20 flex items-center gap-2"
               >
                 <MessageCircle size={18} />
                 Agendar ahora
@@ -118,7 +118,7 @@ const Header: React.FC = () => {
                 {link.children ? (
                   <div className="group/mobile">
                     <button
-                      className="w-full p-4 rounded-2xl text-lg font-bold text-gray-800 hover:bg-gray-50 hover:text-brand-red transition-all flex items-center justify-between"
+                      className="w-full p-4 rounded-2xl text-lg font-semibold text-gray-800 hover:bg-gray-50 hover:text-brand-red transition-all flex items-center justify-between"
                       onClick={(e) => {
                         const next = e.currentTarget.nextElementSibling;
                         if (next) next.classList.toggle('hidden');
@@ -133,7 +133,7 @@ const Header: React.FC = () => {
                           key={child.label}
                           to={child.href}
                           onClick={() => setIsOpen(false)}
-                          className="block p-3 rounded-xl text-sm font-bold text-gray-500 hover:bg-brand-red/5 hover:text-brand-red transition-all"
+                          className="block p-3 rounded-xl text-sm font-medium text-gray-500 hover:bg-brand-red/5 hover:text-brand-red transition-all"
                         >
                           {child.label}
                         </Link>
@@ -144,7 +144,7 @@ const Header: React.FC = () => {
                   <Link
                     to={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="block p-4 rounded-2xl text-lg font-bold text-gray-800 hover:bg-gray-50 hover:text-brand-red transition-all"
+                    className="block p-4 rounded-2xl text-lg font-semibold text-gray-800 hover:bg-gray-50 hover:text-brand-red transition-all"
                   >
                     {link.label}
                   </Link>
@@ -154,7 +154,7 @@ const Header: React.FC = () => {
             <div className="pt-6 border-t border-gray-100 space-y-4">
               <a
                 href={`tel:${CONTACT_INFO.phone}`}
-                className="flex items-center justify-center gap-3 p-4 rounded-2xl bg-gray-50 text-brand-dark font-black"
+                className="flex items-center justify-center gap-3 p-4 rounded-2xl bg-gray-50 text-brand-dark font-semibold"
               >
                 <Phone size={20} className="text-brand-red" />
                 {CONTACT_INFO.phone}
@@ -164,7 +164,7 @@ const Header: React.FC = () => {
                   setIsOpen(false);
                   setIsModalOpen(true);
                 }}
-                className="w-full bg-brand-red text-white p-5 rounded-2xl font-black text-lg shadow-lg shadow-brand-red/30"
+                className="w-full bg-brand-red text-white p-5 rounded-2xl font-semibold text-lg shadow-lg shadow-brand-red/30"
               >
                 Sucursales WhatsApp
               </button>
@@ -179,3 +179,4 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+

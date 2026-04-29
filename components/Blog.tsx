@@ -16,13 +16,13 @@ const Blog: React.FC = () => {
             viewport={{ once: true }}
             className="max-w-2xl"
           >
-            <span className="inline-flex items-center gap-2 bg-brand-red/10 border border-brand-red/20 px-4 py-1.5 rounded-full text-brand-red text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+            <span className="inline-flex items-center gap-2 bg-brand-red/10 border border-brand-red/20 px-4 py-1.5 rounded-full text-brand-red text-[10px] font-normal uppercase tracking-[0.2em] mb-6">
               Educación y Prevención
             </span>
-            <h2 className="text-4xl lg:text-6xl font-black text-brand-dark tracking-tighter leading-none mb-6">
+            <h2 className="text-4xl lg:text-6xl font-normal text-brand-dark tracking-tighter leading-none mb-6">
               Nuestros <span className="text-brand-red italic">Tips y Trucos</span>
             </h2>
-            <p className="text-xl text-gray-500 font-medium leading-relaxed">
+            <p className="text-xl text-gray-500 font-normal leading-relaxed">
               Descubre consejos expertos para mantener tu hogar libre de plagas y proteger a tu familia con la última tecnología en fumigación.
             </p>
           </motion.div>
@@ -30,7 +30,7 @@ const Blog: React.FC = () => {
           <Link to="/blog">
             <motion.button
                whileHover={{ x: 5 }}
-               className="flex items-center gap-2 text-brand-dark font-black uppercase tracking-widest text-xs group"
+               className="flex items-center gap-2 text-brand-dark font-normal uppercase tracking-widest text-xs group"
             >
                Ver Todo el Blog
                <ArrowRight size={16} className="text-brand-red group-hover:translate-x-1 transition-transform" />
@@ -56,7 +56,7 @@ const Blog: React.FC = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-brand-dark">
+                    <span className="bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-[10px] font-normal uppercase tracking-widest text-brand-dark">
                       {post.category}
                     </span>
                   </div>
@@ -66,23 +66,23 @@ const Blog: React.FC = () => {
                   <div className="flex items-center gap-4 text-gray-400">
                     <div className="flex items-center gap-1.5">
                       <Calendar size={14} className="text-brand-red" />
-                      <span className="text-[10px] font-bold uppercase">{post.date}</span>
+                      <span className="text-[10px] font-normal uppercase">{post.date}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <User size={14} className="text-brand-red" />
-                      <span className="text-[10px] font-bold uppercase">{post.author}</span>
+                      <span className="text-[10px] font-normal uppercase">{post.author}</span>
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-black text-brand-dark leading-snug group-hover:text-brand-red transition-colors line-clamp-2">
+                  <h3 className="text-xl font-normal text-brand-dark leading-snug group-hover:text-brand-red transition-colors line-clamp-2">
                     {post.title}
                   </h3>
                   
-                  <p className="text-sm text-gray-500 font-medium leading-relaxed line-clamp-3">
+                  <p className="text-sm text-gray-500 font-normal leading-relaxed line-clamp-3">
                     {post.excerpt}
                   </p>
 
-                  <div className="flex items-center gap-2 text-[10px] font-black text-brand-red uppercase tracking-[0.2em] pt-2">
+                  <div className="flex items-center gap-2 text-[10px] font-normal text-brand-red uppercase tracking-[0.2em] pt-2">
                     Continuar Leyendo
                     <div className="w-6 h-[1px] bg-brand-red/30 group-hover:w-10 transition-all" />
                   </div>
@@ -95,12 +95,12 @@ const Blog: React.FC = () => {
         {/* Pagination Simplified to Page 1 */}
         <div className="mt-20 pt-10 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8 text-center">
            <div className="flex items-center gap-2 mx-auto md:mx-0">
-              <Link to="/blog" className="w-12 h-12 flex items-center justify-center rounded-2xl bg-brand-red text-white shadow-lg shadow-brand-red/20 font-black text-sm hover:bg-brand-dark transition-colors">
+              <Link to="/blog" className="w-12 h-12 flex items-center justify-center rounded-2xl bg-brand-red text-white shadow-lg shadow-brand-red/20 font-normal text-sm hover:bg-brand-dark transition-colors">
                 1
               </Link>
            </div>
 
-           <div className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">
+           <div className="text-[10px] font-normal text-gray-400 uppercase tracking-[0.2em]">
              Página 1 de 1 — Mostrando {BLOG_POSTS.length} artículos
            </div>
         </div>
@@ -110,3 +110,4 @@ const Blog: React.FC = () => {
 };
 
 export default Blog;
+

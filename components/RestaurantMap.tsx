@@ -275,7 +275,7 @@ const RestaurantMap: React.FC = () => {
 
                 new mapboxgl.Marker({ element: el })
                     .setLngLat(branch.coords as [number, number])
-                    .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(`<h3 class="font-bold">${branch.name}</h3><p class="text-xs">${branch.address}</p>`))
+                    .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(`<h3 class="font-normal">${branch.name}</h3><p class="text-xs">${branch.address}</p>`))
                     .addTo(mapRef.current!);
             });
 
@@ -314,15 +314,15 @@ const RestaurantMap: React.FC = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8 }}
                             >
-                                <span className="inline-flex items-center gap-2 bg-brand-red/10 border border-brand-red/20 px-4 py-1.5 rounded-full text-brand-red text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+                                <span className="inline-flex items-center gap-2 bg-brand-red/10 border border-brand-red/20 px-4 py-1.5 rounded-full text-brand-red text-[10px] font-medium uppercase tracking-[0.2em] mb-6">
                                     <Target size={14} /> Red Nacional de Control de Plagas
                                 </span>
-                                <h2 className="text-4xl lg:text-7xl font-black text-brand-dark tracking-tighter leading-[0.85] mb-8">
+                                <h2 className="text-4xl lg:text-7xl font-semibold text-brand-dark tracking-tighter leading-[0.85] mb-8">
                                     Cobertura <br />
                                     <span className="text-brand-red italic">Total.</span>
                                 </h2>
-                                <p className="text-xl text-gray-500 font-medium max-w-4xl leading-relaxed">
-                                    Explore nuestra red de servicio técnico. Las <span className="text-brand-dark font-black underline decoration-brand-red/30">franjas horizontales</span> representan nuestras zonas de atención prioritaria de 30 minutos.
+                                <p className="text-xl text-gray-500 font-normal max-w-4xl leading-relaxed">
+                                    Explore nuestra red de servicio técnico. Las <span className="text-brand-dark font-medium underline decoration-brand-red/30">franjas horizontales</span> representan nuestras zonas de atención prioritaria de 30 minutos.
                                 </p>
                             </motion.div>
                         </div>
@@ -334,22 +334,22 @@ const RestaurantMap: React.FC = () => {
                             {/* Zip Search */}
                             <div className="bg-brand-dark text-white rounded-[2.5rem] p-8 shadow-2xl relative overflow-hidden group shrink-0">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-red/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-brand-red/20 transition-colors" />
-                                <h4 className="font-black text-[10px] uppercase tracking-[0.3em] mb-6 text-brand-red relative z-10">Verificar por C.P.</h4>
+                                <h4 className="font-semibold text-[10px] uppercase tracking-[0.3em] mb-6 text-brand-red relative z-10">Verificar por C.P.</h4>
                                 <form onSubmit={handleZipSearch} className="relative z-10">
                                     <input
                                         type="text"
                                         placeholder="Ej. 66220"
                                         value={searchZip}
                                         onChange={(e) => setSearchZip(e.target.value)}
-                                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-lg font-black focus:outline-none focus:border-brand-red focus:bg-white/10 transition-all placeholder:text-white/20"
+                                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-lg font-medium focus:outline-none focus:border-brand-red focus:bg-white/10 transition-all placeholder:text-white/20"
                                     />
                                     <button type="submit" className="absolute right-2 top-1/2 -translate-y-1/2 bg-brand-red p-3 rounded-xl hover:scale-105 active:scale-95 transition-all shadow-lg shadow-brand-red/20">
                                         <ChevronRight size={20} />
                                     </button>
                                 </form>
-                                <p className="text-[9px] text-white/40 mt-4 font-bold uppercase tracking-wider">Ingrese su código postal para validación instantánea</p>
+                                <p className="text-[9px] text-white/40 mt-4 font-medium uppercase tracking-wider">Ingrese su código postal para validación instantánea</p>
                                 <div className="mt-4 pt-4 border-t border-white/5">
-                                    <p className="text-[8px] text-brand-red font-black uppercase tracking-[0.2em] leading-relaxed opacity-60">
+                                    <p className="text-[8px] text-brand-red font-medium uppercase tracking-[0.2em] leading-relaxed opacity-60">
                                         Nota: Las zonas con franjas indican cobertura probable sujeta a validación técnica final.
                                     </p>
                                 </div>
@@ -358,13 +358,13 @@ const RestaurantMap: React.FC = () => {
                             {/* City List */}
                             <div className="bg-gray-50 border border-gray-100 p-3 rounded-[3rem] flex flex-col gap-1 overflow-y-auto custom-scrollbar relative z-10 flex-grow">
                                 <div className="px-6 py-4 mb-2">
-                                    <h4 className="font-black text-brand-dark text-[10px] uppercase tracking-[0.2em]">Sedes Disponibles</h4>
+                                    <h4 className="font-semibold text-brand-dark text-[10px] uppercase tracking-[0.2em]">Sedes Disponibles</h4>
                                 </div>
                                 {BRANCHES.map((city) => (
                                     <button
                                         key={city.id}
                                         onClick={() => handleCityChange(city)}
-                                        className={`flex items-center justify-between px-6 py-5 rounded-[2rem] font-black text-[11px] uppercase tracking-widest transition-all duration-500 ${activeCity.id === city.id
+                                        className={`flex items-center justify-between px-6 py-5 rounded-[2rem] font-semibold text-[11px] uppercase tracking-widest transition-all duration-500 ${activeCity.id === city.id
                                             ? 'bg-white text-brand-red shadow-xl shadow-gray-200/50 scale-[1.02] border border-gray-100'
                                             : 'text-gray-400 hover:text-brand-dark hover:bg-white/50'
                                             }`}
@@ -389,7 +389,7 @@ const RestaurantMap: React.FC = () => {
                                             transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
                                             className="w-20 h-20 border-2 border-brand-red/30 border-t-brand-red rounded-full"
                                         />
-                                        <p className="text-white/30 font-black text-[10px] uppercase tracking-[0.4em] animate-pulse">Iniciando Red Nacional</p>
+                                        <p className="text-white/30 font-normal text-[10px] uppercase tracking-[0.4em] animate-pulse">Iniciando Red Nacional</p>
                                     </div>
                                 </div>
                             )}
@@ -406,8 +406,8 @@ const RestaurantMap: React.FC = () => {
                                         <MapPin size={20} className="text-white" />
                                     </div>
                                     <div>
-                                        <p className="text-xl font-black leading-none tracking-tighter uppercase">{activeCity.name}</p>
-                                        <p className="text-[9px] font-black uppercase tracking-[0.2em] text-brand-red mt-1 opacity-60">{activeCity.address}</p>
+                                        <p className="text-xl font-semibold leading-none tracking-tighter uppercase">{activeCity.name}</p>
+                                        <p className="text-[9px] font-medium uppercase tracking-[0.2em] text-brand-red mt-1 opacity-60">{activeCity.address}</p>
                                     </div>
                                 </motion.div>
                             </div>
@@ -419,7 +419,7 @@ const RestaurantMap: React.FC = () => {
                                     whileTap={{ scale: 0.95 }}
                                     onClick={handleGetUserLocation}
                                     disabled={isLocating}
-                                    className="pointer-events-auto bg-brand-dark text-white p-4 lg:px-8 lg:py-5 rounded-full lg:rounded-3xl font-black text-[10px] lg:text-xs uppercase tracking-[0.2em] shadow-2xl flex items-center gap-3 border border-white/10"
+                                    className="pointer-events-auto bg-brand-dark text-white p-4 lg:px-8 lg:py-5 rounded-full lg:rounded-3xl font-semibold text-[10px] lg:text-xs uppercase tracking-[0.2em] shadow-2xl flex items-center gap-3 border border-white/10"
                                 >
                                     {isLocating ? (
                                         <div className="w-4 h-4 border-2 border-brand-red border-t-transparent rounded-full animate-spin" />
@@ -446,10 +446,10 @@ const RestaurantMap: React.FC = () => {
                                                     {coverageStatus === 'in' ? <ShieldCheck size={20} /> : <Zap size={20} />}
                                                 </div>
                                                 <div className="flex-grow">
-                                                    <p className="font-black uppercase tracking-tight text-xs">
+                                                    <p className="font-semibold uppercase tracking-tight text-xs">
                                                         {coverageStatus === 'in' ? 'Cobertura Confirmada' : 'Fuera de Rango'}
                                                     </p>
-                                                    <p className="text-[9px] font-bold text-gray-500 uppercase">
+                                                    <p className="text-[9px] font-medium text-gray-500 uppercase">
                                                         {coverageStatus === 'in' ? 'Llegamos en < 60 min' : 'Sujeto a disponibilidad'}
                                                     </p>
                                                 </div>
@@ -523,3 +523,4 @@ const RestaurantMap: React.FC = () => {
 };
 
 export default RestaurantMap;
+

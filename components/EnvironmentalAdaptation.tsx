@@ -15,13 +15,13 @@ const EnvironmentalAdaptation: React.FC = () => {
     <section id="servicios" className="py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="inline-block py-1.5 px-4 rounded-full bg-brand-red/10 text-brand-red font-black tracking-widest uppercase text-[10px] mb-6 border border-brand-red/20">
+          <span className="inline-block py-1.5 px-4 rounded-full bg-brand-red/10 text-brand-red font-normal tracking-widest uppercase text-[10px] mb-6 border border-brand-red/20">
             Especialistas en el Hogar
           </span>
-          <h2 className="text-4xl lg:text-7xl font-black text-brand-dark tracking-tighter leading-[0.8] mb-8">
+          <h2 className="text-4xl lg:text-7xl font-semibold text-brand-dark tracking-tighter leading-[0.8] mb-8">
             Protección de <span className="text-brand-red">Entornos</span> <br /> Residenciales
           </h2>
-          <p className="text-xl text-gray-500 font-medium max-w-2xl mx-auto">
+          <p className="text-xl text-gray-500 font-normal max-w-2xl mx-auto">
             Adaptamos nuestro despliegue táctico a cada área de tu propiedad, asegurando la eliminación total con tecnología avanzada.
           </p>
         </div>
@@ -75,7 +75,7 @@ const EnvironmentalAdaptation: React.FC = () => {
                       
                       {/* Floating Environment Tag */}
                       <div className="absolute top-6 left-6 z-20">
-                        <span className="inline-flex py-1.5 px-3 rounded-full bg-white/20 backdrop-blur-md text-white font-black uppercase tracking-widest text-[9px] border border-white/20">
+                        <span className="inline-flex py-1.5 px-3 rounded-full bg-white/20 backdrop-blur-md text-white font-medium uppercase tracking-widest text-[9px] border border-white/20">
                           {pest.environment}
                         </span>
                       </div>
@@ -91,10 +91,10 @@ const EnvironmentalAdaptation: React.FC = () => {
                     {/* Content Area */}
                     <div className="p-8 flex-grow flex flex-col justify-between bg-white relative z-20">
                       <div className="mb-6">
-                        <h3 className="text-2xl font-black text-brand-dark leading-tight mb-3 group-hover:text-brand-red transition-colors">
+                        <h3 className="text-2xl font-semibold text-brand-dark leading-tight mb-3 group-hover:text-brand-red transition-colors">
                           {pest.name}
                         </h3>
-                        <p className="text-sm text-gray-400 font-medium leading-relaxed">
+                        <p className="text-sm text-gray-400 font-normal leading-relaxed">
                           {pest.description}
                         </p>
                       </div>
@@ -103,7 +103,7 @@ const EnvironmentalAdaptation: React.FC = () => {
                         href={`https://wa.me/52${CONTACT_INFO.phone.replace(/\s+/g, '')}?text=Hola,%20me%20interesa%20una%20cotizaci%C3%B3n%20para%20${encodeURIComponent(pest.name)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex w-max items-center gap-2 text-[11px] font-black uppercase tracking-widest text-brand-red bg-brand-red/5 px-5 py-3 rounded-full hover:bg-brand-red hover:text-white transition-all duration-300"
+                        className="inline-flex w-max items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-brand-red bg-brand-red/5 px-5 py-3 rounded-full hover:bg-brand-red hover:text-white transition-all duration-300"
                       >
                         Cotizar Ahora <ArrowRight size={14} />
                       </a>
@@ -124,9 +124,9 @@ const EnvironmentalAdaptation: React.FC = () => {
             <Info size={40} className="text-brand-red" />
           </div>
           <div className="flex-grow">
-            <p className="text-2xl font-black text-brand-dark mb-2">Cobertura Residencial Directa</p>
-            <p className="text-gray-500 font-bold leading-relaxed max-w-3xl">
-              Operamos con equipos tácticos distribuidos en las <span className="text-brand-red">15 ciudades clave de México</span>. Sanidad domiciliaria especializada con los más altos estándares de seguridad para tu familia.
+            <p className="text-2xl font-semibold text-brand-dark mb-2">Cobertura Residencial Directa</p>
+            <p className="text-gray-500 font-normal leading-relaxed max-w-3xl">
+              Operamos con equipos tácticos distribuidos en las <span className="text-brand-red font-medium">15 ciudades clave de México</span>. Sanidad domiciliaria especializada con los más altos estándares de seguridad para tu familia.
             </p>
           </div>
         </div>
@@ -158,3 +158,4 @@ const EnvironmentalAdaptation: React.FC = () => {
 };
 
 export default EnvironmentalAdaptation;
+

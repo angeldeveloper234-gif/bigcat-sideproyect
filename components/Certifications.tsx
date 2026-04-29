@@ -9,14 +9,14 @@ const Certifications: React.FC = () => {
           
           <div className="w-full lg:w-1/2 space-y-10">
             <div>
-              <span className="inline-block bg-brand-red/10 text-brand-red px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-6 border border-brand-red/20">
+              <span className="inline-block bg-brand-red/10 text-brand-red px-4 py-1.5 rounded-full text-[10px] font-normal uppercase tracking-widest mb-6 border border-brand-red/20">
                  Validación Oficial COFEPRIS
               </span>
-              <h2 className="text-4xl lg:text-6xl font-black text-brand-dark tracking-tighter leading-none mb-8">
+              <h2 className="text-4xl lg:text-6xl font-normal text-brand-dark tracking-tighter leading-none mb-8">
                 Autoridad en <br />
                 <span className="text-brand-red">Bioseguridad</span>
               </h2>
-              <p className="text-xl text-gray-500 font-medium leading-relaxed">
+              <p className="text-xl text-gray-500 font-normal leading-relaxed">
                 Operamos bajo los marcos legales más exigentes. Entregamos carpetas técnicas completas digitales y físicas para auditorías de salubridad inmediata.
               </p>
             </div>
@@ -27,8 +27,8 @@ const Certifications: React.FC = () => {
                   <FileCheck size={28} />
                 </div>
                 <div>
-                  <h4 className="font-black text-brand-dark text-lg">Licencia Federal</h4>
-                  <p className="text-sm text-gray-500 font-medium mt-1">SISP-04-26-MX Vigilancia permanente.</p>
+                  <h4 className="font-normal text-brand-dark text-lg">Licencia Federal</h4>
+                  <p className="text-sm text-gray-500 font-normal mt-1">SISP-04-26-MX Vigilancia permanente.</p>
                 </div>
               </div>
               
@@ -37,8 +37,8 @@ const Certifications: React.FC = () => {
                   <Droplets size={28} />
                 </div>
                 <div>
-                  <h4 className="font-black text-brand-dark text-lg">Químicos EPA</h4>
-                  <p className="text-sm text-gray-500 font-medium mt-1">Sustentables y Grado Alimenticio.</p>
+                  <h4 className="font-normal text-brand-dark text-lg">Químicos EPA</h4>
+                  <p className="text-sm text-gray-500 font-normal mt-1">Sustentables y Grado Alimenticio.</p>
                 </div>
               </div>
             </div>
@@ -52,13 +52,13 @@ const Certifications: React.FC = () => {
                      <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-white/10 group-hover:scale-110 transition-transform duration-500">
                          <Award size={48} className="text-brand-red" />
                      </div>
-                     <h3 className="text-4xl font-black text-white leading-tight">Garantía por Escrito <br /> FE™ Protection</h3>
-                     <p className="text-gray-400 text-lg font-medium max-w-xs mx-auto">
+                     <h3 className="text-4xl font-normal text-white leading-tight">Garantía por Escrito <br /> FE™ Protection</h3>
+                     <p className="text-gray-400 text-lg font-normal max-w-xs mx-auto">
                          Si detectas una sola plaga después del servicio, regresamos sin costo en menos de 24h.
                      </p>
                      <div className="flex justify-center gap-2 pt-6">
                          <BadgeCheck className="text-brand-red" size={24} />
-                         <span className="font-black text-white uppercase tracking-widest text-xs">Póliza de Calidad 100%</span>
+                         <span className="font-normal text-white uppercase tracking-widest text-xs">Póliza de Calidad 100%</span>
                      </div>
                   </div>
                </div>
@@ -70,8 +70,8 @@ const Certifications: React.FC = () => {
                          <ShieldCheck size={32} />
                      </div>
                      <div>
-                         <p className="text-3xl font-black text-brand-dark leading-none">Zero</p>
-                         <p className="text-xs text-gray-400 font-bold uppercase tracking-widest">Incidentes Sanitarios</p>
+                         <p className="text-3xl font-normal text-brand-dark leading-none">Zero</p>
+                         <p className="text-xs text-gray-400 font-normal uppercase tracking-widest">Incidentes Sanitarios</p>
                      </div>
                   </div>
                </div>
@@ -84,3 +84,4 @@ const Certifications: React.FC = () => {
 };
 
 export default Certifications;
+

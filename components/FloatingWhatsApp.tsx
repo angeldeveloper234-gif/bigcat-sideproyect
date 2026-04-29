@@ -20,7 +20,7 @@ const FloatingWhatsApp: React.FC = () => {
         >
           <MessageCircle size={28} className="relative z-10" />
           
-          <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-in-out whitespace-nowrap font-semibold text-sm pl-0 group-hover:pl-2">
+          <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-in-out whitespace-nowrap font-normal text-sm pl-0 group-hover:pl-2">
             WhatsApp Inmediato
           </span>
         </button>

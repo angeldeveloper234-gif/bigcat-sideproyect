@@ -90,7 +90,7 @@ const DangerMeter: React.FC<{ level: number }> = ({ level }) => (
         }`}
       />
     ))}
-    <span className="text-[10px] font-black text-gray-400 ml-1 uppercase tracking-wider">
+    <span className="text-[10px] font-normal text-gray-400 ml-1 uppercase tracking-wider">
       {level}/5
     </span>
   </div>
@@ -113,10 +113,10 @@ const InteractiveDiagnostic: React.FC = () => {
           {/* ── Text Area ── */}
           <div className="space-y-8 lg:sticky lg:top-32">
             <div>
-              <span className="inline-block py-1 px-3 rounded-full bg-brand-yellow/20 text-brand-yellow font-black tracking-widest uppercase text-xs mb-4">
+              <span className="inline-block py-1 px-3 rounded-full bg-brand-yellow/20 text-brand-yellow font-normal tracking-widest uppercase text-xs mb-4">
                 Inteligencia Preventiva
               </span>
-              <h2 className="text-3xl lg:text-5xl font-black text-white leading-tight">
+              <h2 className="text-3xl lg:text-5xl font-normal text-white leading-tight">
                 Identifica tu Plaga <br />
                 <span className="text-brand-red">con IA FE™</span>
               </h2>
@@ -124,7 +124,7 @@ const InteractiveDiagnostic: React.FC = () => {
 
             <p className="text-gray-400 text-lg leading-relaxed">
               No todas las plagas se tratan igual. Usa nuestro diagnosticador para entender el nivel de riesgo y obtener una{' '}
-              <span className="text-white font-bold">cotización instantánea</span> basada en el tipo de intruso.
+              <span className="text-white font-normal">cotización instantánea</span> basada en el tipo de intruso.
             </p>
 
             <div className="space-y-4">
@@ -143,7 +143,7 @@ const InteractiveDiagnostic: React.FC = () => {
                 <div className="bg-brand-red p-3 rounded-2xl flex-shrink-0">
                   <Camera className="text-white" size={24} />
                 </div>
-                <p className="text-white font-bold">
+                <p className="text-white font-normal">
                   ¿Tienes una foto?{' '}
                   <span className="text-gray-400 font-normal">
                     Envíala por WhatsApp para identificación humana experta.
@@ -160,10 +160,10 @@ const InteractiveDiagnostic: React.FC = () => {
             {step === 1 && (
               <div className="space-y-8">
                 <div className="space-y-2">
-                  <p className="text-brand-red font-black text-xs uppercase tracking-widest text-center">
+                  <p className="text-brand-red font-normal text-xs uppercase tracking-widest text-center">
                     Paso 1 de 2
                   </p>
-                  <h3 className="text-2xl font-black text-brand-dark text-center">
+                  <h3 className="text-2xl font-normal text-brand-dark text-center">
                     ¿Qué has visto?
                   </h3>
                   <p className="text-center text-gray-400 text-sm">
@@ -189,7 +189,7 @@ const InteractiveDiagnostic: React.FC = () => {
                           className="text-gray-300 group-hover:text-brand-red transition-all group-hover:scale-110"
                           strokeWidth={1.3}
                         />
-                        <span className="font-bold text-brand-dark text-sm text-center leading-tight">
+                        <span className="font-normal text-brand-dark text-sm text-center leading-tight">
                           {pest.name}
                         </span>
                       </button>
@@ -208,10 +208,10 @@ const InteractiveDiagnostic: React.FC = () => {
               <div className="space-y-6">
                 {/* Header */}
                 <div>
-                  <p className="text-brand-red font-black text-xs uppercase tracking-widest text-center mb-1">
+                  <p className="text-brand-red font-normal text-xs uppercase tracking-widest text-center mb-1">
                     Resultado del Diagnóstico IA FE™
                   </p>
-                  <h3 className="text-2xl font-black text-brand-dark text-center">
+                  <h3 className="text-2xl font-normal text-brand-dark text-center">
                     {selected.name} Detectada
                   </h3>
                 </div>
@@ -222,10 +222,10 @@ const InteractiveDiagnostic: React.FC = () => {
                     <selected.Icon size={40} className="text-brand-red" strokeWidth={1.3} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs font-black uppercase tracking-widest text-gray-400 mb-1">
+                    <p className="text-xs font-normal uppercase tracking-widest text-gray-400 mb-1">
                       Nivel de Riesgo Sanitario
                     </p>
-                    <p className={`font-black text-lg ${selected.riskColor}`}>
+                    <p className={`font-normal text-lg ${selected.riskColor}`}>
                       {selected.risk}
                     </p>
                     <DangerMeter level={selected.dangerLevel} />
@@ -236,7 +236,7 @@ const InteractiveDiagnostic: React.FC = () => {
                 <div className="bg-amber-50 border border-amber-200 p-4 rounded-2xl relative">
                   <AlertCircle className="text-amber-500 absolute -top-3 -right-3 bg-white rounded-full" size={22} />
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    <span className="font-black text-brand-dark">Análisis: </span>
+                    <span className="font-normal text-brand-dark">Análisis: </span>
                     {selected.description}
                   </p>
                 </div>
@@ -245,12 +245,12 @@ const InteractiveDiagnostic: React.FC = () => {
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
                     <Shield size={16} className="text-brand-red flex-shrink-0" />
-                    <p className="text-xs font-black uppercase tracking-widest text-gray-500">
+                    <p className="text-xs font-normal uppercase tracking-widest text-gray-500">
                       Tratamiento Recomendado
                     </p>
                   </div>
                   <div className="bg-brand-dark text-white rounded-2xl p-4 space-y-2">
-                    <p className="font-black text-brand-red text-sm">{selected.treatment}</p>
+                    <p className="font-normal text-brand-red text-sm">{selected.treatment}</p>
                     <p className="text-gray-300 text-sm leading-relaxed">{selected.treatmentDetail}</p>
                   </div>
                 </div>
@@ -259,20 +259,20 @@ const InteractiveDiagnostic: React.FC = () => {
                 <div className="grid grid-cols-2 gap-3">
                   <div className="bg-red-50 border border-red-100 rounded-xl p-3 text-center">
                     <Zap size={16} className="text-brand-red mx-auto mb-1" />
-                    <p className="text-[10px] font-black uppercase tracking-wider text-gray-400 mb-0.5">Urgencia</p>
-                    <p className="text-xs font-bold text-brand-dark leading-tight">{selected.urgency}</p>
+                    <p className="text-[10px] font-normal uppercase tracking-wider text-gray-400 mb-0.5">Urgencia</p>
+                    <p className="text-xs font-normal text-brand-dark leading-tight">{selected.urgency}</p>
                   </div>
                   <div className="bg-green-50 border border-green-100 rounded-xl p-3 text-center">
                     <ThumbsUp size={16} className="text-green-600 mx-auto mb-1" />
-                    <p className="text-[10px] font-black uppercase tracking-wider text-gray-400 mb-0.5">Duración</p>
-                    <p className="text-xs font-bold text-brand-dark leading-tight">{selected.estimatedTime}</p>
+                    <p className="text-[10px] font-normal uppercase tracking-wider text-gray-400 mb-0.5">Duración</p>
+                    <p className="text-xs font-normal text-brand-dark leading-tight">{selected.estimatedTime}</p>
                   </div>
                 </div>
 
                 {/* CTA */}
                 <a
                   href="#contacto"
-                  className="w-full py-4 bg-brand-red text-white rounded-2xl font-black flex items-center justify-center gap-3 text-base hover:bg-brand-dark transition-all shadow-xl shadow-brand-red/20"
+                  className="w-full py-4 bg-brand-red text-white rounded-2xl font-normal flex items-center justify-center gap-3 text-base hover:bg-brand-dark transition-all shadow-xl shadow-brand-red/20"
                 >
                   Obtener Cotización Ahora
                   <ArrowRight size={18} />
@@ -280,7 +280,7 @@ const InteractiveDiagnostic: React.FC = () => {
 
                 <button
                   onClick={() => setStep(1)}
-                  className="w-full py-3 text-gray-400 font-bold hover:text-brand-dark transition-colors text-sm"
+                  className="w-full py-3 text-gray-400 font-normal hover:text-brand-dark transition-colors text-sm"
                 >
                   ← Elegir otro tipo de plaga
                 </button>
@@ -299,4 +299,5 @@ const InteractiveDiagnostic: React.FC = () => {
 };
 
 export default InteractiveDiagnostic;
+
 

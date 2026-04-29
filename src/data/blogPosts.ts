@@ -12,8 +12,8 @@ export const BLOG_POSTS = [
       Un control de plagas profesional en invierno se enfoca en sellar puntos de entrada, inspeccionar áreas vulnerables como sótanos y áticos, y eliminar cualquier plaga que ya haya logrado ingresar. No esperes a la primavera para actuar, la prevención invernal te ahorrará problemas y dinero.
     `,
     image: "/articulos/articulo1.jpg",
-    date: "20 Abr, 2024",
-    author: "Ing. Rodrigo Silva",
+    date: "27 Abr, 2026",
+    author: "Alexander",
     category: "Tips y Trucos",
     seoDescription: "Descubre por qué el control de plagas en invierno es esencial para proteger tu hogar de roedores e insectos que buscan calor y refugio.",
     seoKeywords: "control de plagas invierno, fumigacion invierno, evitar roedores, plagas en casa"
@@ -31,8 +31,8 @@ export const BLOG_POSTS = [
       Para erradicar realmente una infestación de hormigas, es necesario identificar la especie y utilizar cebos específicos que las obreras lleven de regreso a la reina. Nuestro equipo en Big Cat Fumigaciones utiliza tratamientos profesionales que atacan la raíz del problema, garantizando que las hormigas no regresen.
     `,
     image: "/articulos/articulo2.jpg",
-    date: "18 Abr, 2024",
-    author: "Ing. Rodrigo Silva",
+    date: "27 Abr, 2026",
+    author: "Alexander",
     category: "Guía de Especies",
     seoDescription: "Aprende por qué las hormigas son tan difíciles de eliminar y descubre el método profesional definitivo para acabar con ellas en tu hogar.",
     seoKeywords: "eliminar hormigas, plaga de hormigas, fumigacion hormigas, nido de hormigas"
@@ -50,8 +50,8 @@ export const BLOG_POSTS = [
       La mejor defensa contra las cucarachas en otoño es mantener una limpieza rigurosa, reparar cualquier fuga de agua y contar con un servicio de fumigación preventiva. En Big Cat aplicamos barreras perimetrales y tratamientos seguros para tu familia que mantienen a estas invasoras fuera de tu hogar todo el año.
     `,
     image: "/articulos/articulo3.jpg",
-    date: "15 Abr, 2024",
-    author: "Mantenimiento Preventivo",
+    date: "27 Abr, 2026",
+    author: "Alexander",
     category: "Prevención",
     seoDescription: "Conoce por qué las cucarachas invaden las casas durante el otoño y cómo nuestros servicios de fumigación pueden proteger a tu familia.",
     seoKeywords: "cucarachas en otoño, fumigar cucarachas, prevención de cucarachas, control de plagas"
@@ -69,10 +69,11 @@ export const BLOG_POSTS = [
       La prevención continua es clave. Un plan de control de plagas anual garantiza que tu propiedad esté protegida sin importar la temporada. En Big Cat Fumigaciones, adaptamos nuestros tratamientos al clima y comportamiento específico de las plagas en cada época del año, asegurando un entorno limpio y seguro.
     `,
     image: "/articulos/articulo4.jpg",
-    date: "12 Abr, 2024",
-    author: "Equipo Técnico",
+    date: "27 Abr, 2026",
+    author: "Alexander",
     category: "Noticias",
     seoDescription: "Descubre cuáles son las plagas más comunes en México durante todo el año y cómo mantener tu hogar protegido en cada estación.",
     seoKeywords: "plagas comunes en méxico, insectos méxico, control de plagas anual, fumigacion"
   }
 ];
+

@@ -30,7 +30,7 @@ const TestimonialCard: React.FC<{ review: any }> = ({ review }) => (
                     </div>
                 </div>
                 <div>
-                    <h5 className="font-bold text-gray-900 text-[12px] tracking-tight truncate max-w-[120px]">{review.author_name}</h5>
+                    <h5 className="font-normal text-gray-900 text-[12px] tracking-tight truncate max-w-[120px]">{review.author_name}</h5>
                     <div className="flex">
                         {[...Array(5)].map((_, i) => (
                             <Star key={i} size={10} className={i < review.rating ? 'fill-[#FBBC05] text-[#FBBC05]' : 'text-gray-200'} />
@@ -38,7 +38,7 @@ const TestimonialCard: React.FC<{ review: any }> = ({ review }) => (
                     </div>
                 </div>
             </div>
-            <span className="text-[9px] text-gray-400 font-bold uppercase tracking-widest truncate max-w-[60px]">{review.time.split('·').pop()}</span>
+            <span className="text-[9px] text-gray-400 font-normal uppercase tracking-widest truncate max-w-[60px]">{review.time.split('·').pop()}</span>
         </div>
         <p className="text-gray-600 text-xs leading-relaxed italic line-clamp-3">"{review.text}"</p>
     </div>
@@ -66,3 +66,4 @@ const InfiniteReviewsTicker: React.FC = () => {
 };
 
 export default InfiniteReviewsTicker;
+

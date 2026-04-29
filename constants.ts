@@ -165,7 +165,7 @@ export const BRANCHES: Branch[] = [
 
 export const NAV_LINKS: NavLink[] = [
   { label: 'Inicio', href: '/' },
-  { label: 'Nosotros', href: '/nosotros' },
+  { label: 'Nosotros', href: '/#nosotros' },
   {
     label: 'Servicios',
     href: '/#servicios',

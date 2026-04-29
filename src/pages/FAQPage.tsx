@@ -31,7 +31,7 @@ const FAQPage: React.FC = () => {
             <div className="container mx-auto px-6">
                 <div className="max-w-3xl mx-auto">
                     <div className="text-center mb-16">
-                        <h1 className="text-3xl lg:text-5xl font-black text-brand-dark mb-4">Preguntas Frecuentes</h1>
+                        <h1 className="text-3xl lg:text-5xl font-normal text-brand-dark mb-4">Preguntas Frecuentes</h1>
                         <p className="text-xl text-gray-600">Resolvemos tus dudas sobre seguridad, tiempos y normativas.</p>
                     </div>
 
@@ -49,7 +49,7 @@ const FAQPage: React.FC = () => {
                                         <faq.icon className="text-brand-primary w-6 h-6" />
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-bold text-brand-dark mb-3">{faq.question}</h3>
+                                        <h3 className="text-xl font-normal text-brand-dark mb-3">{faq.question}</h3>
                                         <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                                     </div>
                                 </div>
@@ -58,11 +58,11 @@ const FAQPage: React.FC = () => {
                     </div>
 
                     <div className="mt-16 bg-brand-dark rounded-3xl p-12 text-center text-white">
-                        <h2 className="text-3xl font-bold mb-6">¿Aún tienes dudas?</h2>
+                        <h2 className="text-3xl font-normal mb-6">¿Aún tienes dudas?</h2>
                         <p className="text-gray-400 mb-8 text-lg">Chatea con un experto ahora mismo y recibe asesoría personalizada.</p>
                         <a 
                             href="https://wa.me/3312345678" 
-                            className="inline-block bg-brand-primary hover:bg-red-600 text-white font-bold py-4 px-10 rounded-full transition-all transform hover:scale-105"
+                            className="inline-block bg-brand-primary hover:bg-red-600 text-white font-normal py-4 px-10 rounded-full transition-all transform hover:scale-105"
                         >
                             Contactar por WhatsApp
                         </a>
@@ -74,4 +74,5 @@ const FAQPage: React.FC = () => {
 };
 
 export default FAQPage;
+
 

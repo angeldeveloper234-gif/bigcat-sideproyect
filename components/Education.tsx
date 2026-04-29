@@ -15,14 +15,14 @@ const Education: React.FC = () => {
                     {/* Editorial Alerts */}
                     <div className="lg:w-2/3 space-y-16">
                         <div>
-                            <span className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-brand-red/10 text-brand-red font-black tracking-[0.2em] uppercase text-[10px] mb-8 border border-brand-red/20">
+                            <span className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-brand-red/10 text-brand-red font-normal tracking-[0.2em] uppercase text-[10px] mb-8 border border-brand-red/20">
                                 <Bug size={14} /> Biosecurity Intelligence
                             </span>
-                            <h2 className="text-5xl lg:text-8xl font-black text-brand-dark leading-[0.85] tracking-tighter mb-10">
+                            <h2 className="text-5xl lg:text-8xl font-normal text-brand-dark leading-[0.85] tracking-tighter mb-10">
                                 Centro de <br />
                                 <span className="text-brand-red">Vigilancia Biológica.</span>
                             </h2>
-                            <p className="text-2xl text-gray-500 font-medium max-w-2xl leading-relaxed italic">
+                            <p className="text-2xl text-gray-500 font-normal max-w-2xl leading-relaxed italic">
                                 Pronósticos estacionales y protocolos de mitigación para la industria alimentaria en México.
                             </p>
                         </div>
@@ -37,14 +37,14 @@ const Education: React.FC = () => {
                                         <Thermometer size={32} />
                                     </div>
                                     <div>
-                                        <h3 className="text-3xl font-black text-brand-dark leading-tight mb-4">Estrés Térmico: <br/>Blattella Germanica</h3>
-                                        <p className="text-gray-500 font-bold leading-relaxed">
+                                        <h3 className="text-3xl font-normal text-brand-dark leading-tight mb-4">Estrés Térmico: <br/>Blattella Germanica</h3>
+                                        <p className="text-gray-500 font-normal leading-relaxed">
                                             Las temperaturas &gt;28°C reducen el tiempo de incubación de ootecas. Implementamos <span className="text-brand-red underline decoration-2">bloqueo hormonal (IGR)</span> preventivo.
                                         </p>
                                     </div>
                                     <div className="pt-6 border-t border-gray-200">
                                         <div className="flex items-center justify-between">
-                                            <span className="text-[10px] font-black uppercase tracking-widest text-brand-red">Prioridad: Máxima</span>
+                                            <span className="text-[10px] font-normal uppercase tracking-widest text-brand-red">Prioridad: Máxima</span>
                                             <ArrowRight className="text-brand-red opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" size={20} />
                                         </div>
                                     </div>
@@ -60,14 +60,14 @@ const Education: React.FC = () => {
                                         <Calendar size={32} />
                                     </div>
                                     <div>
-                                        <h3 className="text-3xl font-black text-brand-dark leading-tight mb-4">Migración Subterránea: <br/>Rhodotermes</h3>
-                                        <p className="text-gray-500 font-bold leading-relaxed">
+                                        <h3 className="text-3xl font-normal text-brand-dark leading-tight mb-4">Migración Subterránea: <br/>Rhodotermes</h3>
+                                        <p className="text-gray-500 font-normal leading-relaxed">
                                             Actualización de barreras químicas ante sismos de baja intensidad y cambios freáticos. Monitoreo acústico incluido.
                                         </p>
                                     </div>
                                     <div className="pt-6 border-t border-gray-200">
                                         <div className="flex items-center justify-between">
-                                            <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">Próxima Revisión: Mayo</span>
+                                            <span className="text-[10px] font-normal uppercase tracking-widest text-gray-400">Próxima Revisión: Mayo</span>
                                             <ArrowRight className="text-brand-red opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" size={20} />
                                         </div>
                                     </div>
@@ -86,8 +86,8 @@ const Education: React.FC = () => {
                                     <div className="w-20 h-20 bg-brand-red/20 rounded-3xl flex items-center justify-center text-brand-red mb-10 border border-brand-red/30">
                                         <HelpCircle size={40} />
                                     </div>
-                                    <h3 className="text-4xl font-black leading-[1.1] tracking-tighter">Bio-Soporte <br /> Especializado</h3>
-                                    <p className="text-gray-400 mt-6 text-lg font-bold leading-relaxed italic">
+                                    <h3 className="text-4xl font-normal leading-[1.1] tracking-tighter">Bio-Soporte <br /> Especializado</h3>
+                                    <p className="text-gray-400 mt-6 text-lg font-normal leading-relaxed italic">
                                         Documentación técnica para auditorías de Sanidad e Higiene.
                                     </p>
                                 </div>
@@ -98,7 +98,7 @@ const Education: React.FC = () => {
                                         { t: "Normativa Distintivo H", c: "gray-400" },
                                         { t: "Certificados de Bioseguridad", c: "gray-400" }
                                     ].map((item, i) => (
-                                        <div key={i} className="flex items-center gap-4 text-sm font-black uppercase tracking-widest border-b border-white/5 pb-6 last:border-0">
+                                        <div key={i} className="flex items-center gap-4 text-sm font-normal uppercase tracking-widest border-b border-white/5 pb-6 last:border-0">
                                             <div className={`w-2 h-2 rounded-full bg-${item.c}`} />
                                             {item.t}
                                         </div>
@@ -108,7 +108,7 @@ const Education: React.FC = () => {
                                 <div className="pt-8">
                                     <Link 
                                         to="/faq"
-                                        className="w-full bg-brand-red text-white py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-xs flex items-center justify-center gap-4 hover:bg-white hover:text-brand-dark transition-all shadow-2xl shadow-brand-red/20"
+                                        className="w-full bg-brand-red text-white py-6 rounded-2xl font-normal uppercase tracking-[0.2em] text-xs flex items-center justify-center gap-4 hover:bg-white hover:text-brand-dark transition-all shadow-2xl shadow-brand-red/20"
                                     >
                                         Centro de Ayuda <ArrowRight size={20} />
                                     </Link>
@@ -124,3 +124,4 @@ const Education: React.FC = () => {
 };
 
 export default Education;
+
