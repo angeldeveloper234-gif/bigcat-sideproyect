@@ -31,7 +31,7 @@ const Header: React.FC = () => {
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0 flex items-center gap-2 group">
-              <div className="relative h-[80px] lg:h-[104px] flex items-center">
+              <div className="relative h-[88px] lg:h-[114px] flex items-center">
                 <img
                   src={LOGO_DARK}
                   alt="Big Cat Logo"
