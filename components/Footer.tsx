@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
           <div className="space-y-10">
             {/* Logo Empresa */}
             <a href="/" className="flex flex-col items-start select-none cursor-pointer">
-              <div className="h-16 flex items-center mb-6">
+              <div className="h-[50px] flex items-center mb-6">
                 <img
                   src={LOGO_DARK}
                   alt="Big Cat Logo"
