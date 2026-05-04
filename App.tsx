@@ -32,6 +32,28 @@ const ScrollToHash: React.FC = () => {
 };
 
 const App: React.FC = () => {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "PestControlService"],
+    "name": "Big Cat - Control de Plagas",
+    "url": "https://bigcat.mx/",
+    "telephone": "+528111150958",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rio Mississippi 44-I, Del Valle",
+      "addressLocality": "San Pedro Garza García",
+      "addressRegion": "N.L.",
+      "postalCode": "66220",
+      "addressCountry": "MX"
+    },
+    "areaServed": [
+      "Guadalajara", "León", "Querétaro", "Ciudad de México", "Monterrey", "Puebla", "Tijuana", "Mérida", "San Luis Potosí", "Aguascalientes", "Hermosillo", "Mexicali", "Culiacán", "Cd. Juárez"
+    ],
+    "openingHours": "Mo-Su 08:00-20:00",
+    "image": "https://bigcat.mx/logo/BIG CAT - Control de plagas.png",
+    "priceRange": "$$"
+  };
+
   return (
     <HelmetProvider>
       <Router>
@@ -53,6 +75,9 @@ const App: React.FC = () => {
           <Footer />
           <FloatingWhatsApp />
         </div>
+        <script type="application/ld+json">
+          {JSON.stringify(schemaData)}
+        </script>
       </Router>
     </HelmetProvider>
   );

@@ -8,22 +8,29 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-05BP9YM1KM"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-05BP9YM1KM');
   </script>
-  <title>Big Cat Fumigaciones | Control de Plagas</title>
+  <title>Big Cat - Control de Plagas | Fumigaciones en México</title>
+  <meta name="description" content="Servicios profesionales de control de plagas y fumigación en México. Más de 29 años de experiencia protegiendo hogares y negocios con resultados garantizados." />
   <link rel="icon" type="image/png" href="/logo/BIG CAT - Control de plagas.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" as="style">
+  <link rel="preload" href="/images/hero.png" as="image">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
+          screens: {
+            'xs': '430px',
+          },
           colors: {
             brand: {
               red: '#E53935',
@@ -36,8 +43,8 @@
             }
           },
           fontFamily: {
-             sans: ['Montserrat', 'sans-serif'],
-             display: ['Outfit', 'Montserrat', 'sans-serif'],
+            sans: ['Montserrat', 'sans-serif'],
+            display: ['Outfit', 'Montserrat', 'sans-serif'],
           },
           animation: {
             'shimmer': 'shimmer 2s linear infinite',
@@ -71,10 +78,47 @@
       background: #B71C1C;
     }
 
+    /* Small Mobile Optimizations (< 430px) */
+    @media (max-width: 430px) {
+      h1 {
+        font-size: 2.75rem !important;
+        line-height: 1.1 !important;
+      }
+
+      h2 {
+        font-size: 2.25rem !important;
+        line-height: 1.1 !important;
+      }
+
+      /* Scale down general buttons */
+      a[class*="px-10"],
+      button[class*="px-10"],
+      a[class*="py-6"],
+      button[class*="py-6"],
+      a[class*="py-5"],
+      button[class*="py-5"] {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+        font-size: 0.9rem !important;
+      }
+
+      /* Adjust text size in buttons specifically as requested */
+      .btn-mobile-small,
+      a[class*="text-lg"],
+      button[class*="text-lg"] {
+        font-size: 0.875rem !important;
+      }
+    }
+
     @keyframes float {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0);
       }
+
       50% {
         transform: translateY(-10px);
       }

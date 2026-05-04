@@ -1,21 +1,100 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, User, ChevronRight, ArrowLeft } from 'lucide-react';
-import { BLOG_POSTS } from '../data/blogPosts';
+import { Calendar, User, ChevronRight, ArrowLeft, Loader2 } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+import { BlogPost } from '../../types';
 
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const post = BLOG_POSTS.find(p => p.slug === slug);
+  const [post, setPost] = useState<BlogPost | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    fetchPost();
   }, [slug]);
+
+  const fetchPost = async () => {
+    if (!slug) return;
+    setLoading(true);
+    try {
+      const { data, error } = await supabase
+        .from('posts')
+        .select('*')
+        .eq('slug', slug)
+        .single();
+
+      if (error) throw error;
+      setPost(data);
+    } catch (error) {
+      console.error('Error fetching post:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-white">
+        <Loader2 size={48} className="animate-spin mb-4 text-brand-red" />
+        <p className="text-[10px] font-normal uppercase tracking-widest text-gray-400">Cargando artículo...</p>
+      </div>
+    );
+  }
 
   if (!post) {
     return <Navigate to="/blog" replace />;
   }
+
+  // Schema.org Structured Data (Article)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.meta_description,
+    "author": {
+      "@type": "Person",
+      "name": post.author
+    },
+    "datePublished": post.published_at,
+    "image": post.featured_image,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Big Cat - Control de Plagas",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bigcat.mx/logo.png" // Replace with actual logo URL
+      }
+    }
+  };
+
+  // Schema.org BreadcrumbList
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://bigcat.mx/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://bigcat.mx/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.title,
+        "item": `https://bigcat.mx/blog/${post.slug}`
+      }
+    ]
+  };
 
   // Format content to render paragraphs properly
   const formattedContent = post.content.split('\n').filter(p => p.trim() !== '').map((paragraph, idx) => (
@@ -27,21 +106,33 @@ const BlogPostPage: React.FC = () => {
   return (
     <main className="relative pt-32 pb-24 bg-white min-h-screen">
       <Helmet>
-        <title>{post.title} | Big Cat Fumigaciones</title>
-        <meta name="description" content={post.seoDescription} />
-        <meta name="keywords" content={post.seoKeywords} />
+        <title>{post.title} | Big Cat - Control de Plagas</title>
+        <meta name="description" content={post.meta_description} />
+        <meta name="keywords" content={post.keywords.join(',')} />
+        <link rel="canonical" href={`https://bigcat.mx/blog/${post.slug}`} />
         
         {/* OpenGraph / Social Media */}
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.seoDescription} />
-        <meta property="og:image" content={post.image} />
+        <meta property="og:title" content={`${post.title} | Big Cat - Control de Plagas`} />
+        <meta property="og:description" content={post.meta_description} />
+        <meta property="og:image" content={post.featured_image} />
         <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://bigcat.mx/blog/${post.slug}`} />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.seoDescription} />
-        <meta name="twitter:image" content={post.image} />
+        <meta name="twitter:title" content={`${post.title} | Big Cat - Control de Plagas`} />
+        <meta name="twitter:description" content={post.meta_description} />
+        <meta name="twitter:image" content={post.featured_image} />
+
+        {/* JSON-LD Article */}
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
+
+        {/* JSON-LD Breadcrumbs */}
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbLd)}
+        </script>
       </Helmet>
 
       <article className="max-w-4xl mx-auto px-6 relative z-10">
@@ -75,7 +166,13 @@ const BlogPostPage: React.FC = () => {
             <div className="flex flex-wrap items-center gap-6 text-gray-500 border-b border-gray-100 pb-8">
               <div className="flex items-center gap-2">
                 <Calendar size={18} className="text-brand-red" />
-                <span className="text-xs font-normal uppercase tracking-wider">{post.date}</span>
+                <span className="text-xs font-normal uppercase tracking-wider">
+                  {new Date(post.published_at).toLocaleDateString('es-MX', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                  })}
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <User size={18} className="text-brand-red" />
@@ -93,7 +190,7 @@ const BlogPostPage: React.FC = () => {
           className="relative aspect-video rounded-[2.5rem] overflow-hidden mb-16 shadow-2xl shadow-black/10"
         >
           <img 
-            src={post.image} 
+            src={post.featured_image} 
             alt={post.title} 
             className="w-full h-full object-cover"
           />

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Star, Send } from 'lucide-react';
 import InfiniteReviewsTicker from '../../components/InfiniteReviewsTicker';
 
@@ -38,6 +39,15 @@ const Reviews: React.FC = () => {
 
     return (
         <div className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-full mx-auto overflow-hidden">
+            <Helmet>
+                <title>Reseñas y Opiniones | Big Cat - Control de Plagas</title>
+                <meta name="description" content="Lee las opiniones de nuestros clientes satisfechos. Descubre por qué somos la mejor opción para el control de plagas en México con resultados garantizados." />
+                <link rel="canonical" href="https://bigcat.mx/reseñas" />
+                <meta property="og:title" content="Reseñas y Opiniones | Big Cat - Control de Plagas" />
+                <meta property="og:description" content="Conoce la experiencia de nuestros clientes con nuestros servicios de fumigación." />
+                <meta property="og:url" content="https://bigcat.mx/reseñas" />
+                <meta name="twitter:card" content="summary" />
+            </Helmet>
             {/* SECTION 1: FUNNEL */}
             <div className="text-center mb-24 max-w-2xl mx-auto px-4">
                 <h1 className="text-4xl font-normal text-brand-dark mb-6">Déjanos tu Calificación</h1>

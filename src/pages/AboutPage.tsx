@@ -7,12 +7,14 @@ const AboutPage: React.FC = () => {
     return (
         <div className="pt-24 pb-16 bg-white min-h-screen">
             <Helmet>
-                <title>Sobre Nosotros | Big Cat Fumigaciones</title>
-                <meta name="description" content="Conoce la historia de Big Cat Fumigaciones, parte de PCP Internacional. 29+ años protegiendo hogares y negocios en todo México con soluciones seguras y profesionales." />
+                <title>Nosotros | Big Cat - Control de Plagas</title>
+                <meta name="description" content="Conoce la historia de Big Cat - Control de Plagas, parte de PCP Internacional. 29+ años protegiendo hogares y negocios en México con soluciones seguras." />
                 <link rel="canonical" href="https://bigcat.mx/nosotros" />
-                <meta property="og:title" content="Sobre Nosotros | Big Cat Fumigaciones" />
-                <meta property="og:description" content="29+ años de experiencia en control de plagas profesional y seguro." />
+                <meta property="og:title" content="Nosotros | Big Cat - Control de Plagas" />
+                <meta property="og:description" content="29+ años de experiencia en control de plagas profesional y seguro en todo México." />
                 <meta property="og:url" content="https://bigcat.mx/nosotros" />
+                <meta property="og:image" content="https://bigcat.mx/logo/BIG CAT - Control de plagas.png" />
+                <meta name="twitter:card" content="summary" />
             </Helmet>
             <div className="container mx-auto px-6">
                 <motion.div

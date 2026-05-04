@@ -18,14 +18,17 @@ const Home: React.FC = () => {
     return (
         <main className="relative">
             <Helmet>
-                <title>Big Cat Fumigaciones | Control de Plagas Profesional en México</title>
-                <meta name="description" content="Servicios de control de plagas con 29+ años de experiencia. Productos 100% seguros para tu familia y mascotas. Cobertura nacional con servicio local. Certificados por COFEPRIS." />
+                <title>Big Cat - Control de Plagas | Expertos en Fumigación en México</title>
+                <meta name="description" content="Servicios profesionales de control de plagas y fumigación en México. 29+ años de experiencia eliminando cucarachas, termitas y más. ¡Cotiza hoy mismo!" />
                 <link rel="canonical" href="https://bigcat.mx/" />
-                <meta property="og:title" content="Big Cat Fumigaciones | Control de Plagas Profesional" />
-                <meta property="og:description" content="Protege tu hogar y negocio con los expertos en control de plagas. Soluciones eficaces y seguras en todo México." />
+                <meta property="og:title" content="Big Cat - Control de Plagas | Expertos en Fumigación" />
+                <meta property="og:description" content="Protege tu hogar y negocio con Big Cat. Servicios certificados por COFEPRIS con resultados garantizados." />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://bigcat.mx/" />
                 <meta property="og:image" content="https://bigcat.mx/logo/BIG CAT - Control de plagas.png" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Big Cat - Control de Plagas | Expertos en Fumigación" />
+                <meta name="twitter:description" content="Protege tu hogar y negocio con Big Cat. Resultados garantizados en todo México." />
             </Helmet>
             {/* 1. Attention & CTA */}
             <Hero />

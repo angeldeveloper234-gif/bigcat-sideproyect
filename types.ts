@@ -40,3 +40,18 @@ export interface MethodItem {
   icon: AnyIcon;
   isEco?: boolean;
 }
+
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  featured_image: string;
+  published_at: string;
+  author: string;
+  category: string;
+  meta_description: string;
+  keywords: string[];
+}
+

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { HelpCircle, ShieldCheck, Clock, Zap } from 'lucide-react';
 
@@ -28,6 +29,15 @@ const faqs = [
 const FAQPage: React.FC = () => {
     return (
         <div className="pt-24 pb-16 bg-gray-50 min-h-screen">
+            <Helmet>
+                <title>Preguntas Frecuentes | Big Cat - Control de Plagas</title>
+                <meta name="description" content="¿Tienes dudas sobre fumigación? Consulta nuestras preguntas frecuentes sobre seguridad para mascotas, certificados COFEPRIS y efectividad de tratamientos." />
+                <link rel="canonical" href="https://bigcat.mx/faq" />
+                <meta property="og:title" content="Preguntas Frecuentes | Big Cat - Control de Plagas" />
+                <meta property="og:description" content="Resolvemos tus dudas sobre seguridad y efectividad en control de plagas." />
+                <meta property="og:url" content="https://bigcat.mx/faq" />
+                <meta name="twitter:card" content="summary" />
+            </Helmet>
             <div className="container mx-auto px-6">
                 <div className="max-w-3xl mx-auto">
                     <div className="text-center mb-16">
@@ -45,8 +55,8 @@ const FAQPage: React.FC = () => {
                                 className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100"
                             >
                                 <div className="flex items-start gap-4">
-                                    <div className="bg-brand-primary/10 p-3 rounded-xl">
-                                        <faq.icon className="text-brand-primary w-6 h-6" />
+                                    <div className="bg-brand-red/10 p-3 rounded-xl">
+                                        <faq.icon className="text-brand-red w-6 h-6" />
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-normal text-brand-dark mb-3">{faq.question}</h3>
@@ -61,8 +71,8 @@ const FAQPage: React.FC = () => {
                         <h2 className="text-3xl font-normal mb-6">¿Aún tienes dudas?</h2>
                         <p className="text-gray-400 mb-8 text-lg">Chatea con un experto ahora mismo y recibe asesoría personalizada.</p>
                         <a 
-                            href="https://wa.me/3312345678" 
-                            className="inline-block bg-brand-primary hover:bg-red-600 text-white font-normal py-4 px-10 rounded-full transition-all transform hover:scale-105"
+                            href="https://wa.me/528111150958" 
+                            className="inline-block bg-brand-red hover:bg-red-600 text-white font-normal py-4 px-10 rounded-full transition-all transform hover:scale-105"
                         >
                             Contactar por WhatsApp
                         </a>
@@ -74,5 +84,3 @@ const FAQPage: React.FC = () => {
 };
 
 export default FAQPage;
-
-

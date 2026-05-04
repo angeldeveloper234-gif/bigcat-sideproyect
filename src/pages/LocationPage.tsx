@@ -17,12 +17,15 @@ const LocationPage: React.FC = () => {
     return (
         <div className="pt-20 bg-white min-h-screen">
             <Helmet>
-                <title>Control de Plagas en {branch.name} | Big Cat Fumigaciones</title>
+                <title>Control de Plagas en {branch.name} | Big Cat - Control de Plagas</title>
                 <meta name="description" content={`Servicios profesionales de fumigación y control de plagas en ${branch.name}. Atención inmediata, técnicos certificados y resultados garantizados.`} />
                 <link rel="canonical" href={`https://bigcat.mx/sedes/${branch.id}`} />
-                <meta property="og:title" content={`Control de Plagas en ${branch.name} | Big Cat`} />
-                <meta property="og:description" content={`Soluciones profesionales de fumigación en ${branch.name}. 29+ años de experiencia.`} />
+                <meta property="og:title" content={`Control de Plagas en ${branch.name} | Big Cat - Control de Plagas`} />
+                <meta property="og:description" content={`Soluciones profesionales de fumigación en ${branch.name}. 29+ años de experiencia. Técnicos certificados y atención 24/7.`} />
                 <meta property="og:url" content={`https://bigcat.mx/sedes/${branch.id}`} />
+                <meta property="og:type" content="website" />
+                <meta property="og:image" content="https://bigcat.mx/og-image.jpg" />
+                <meta name="twitter:card" content="summary_large_image" />
             </Helmet>
             <header className="bg-brand-dark py-24 text-white relative overflow-hidden">
                 {/* Abstract Pattern Background */}

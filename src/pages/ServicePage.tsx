@@ -15,14 +15,15 @@ const ServicePage: React.FC = () => {
     return (
         <div className="pt-20 bg-white min-h-screen">
             <Helmet>
-                <title>{service.name} | Big Cat Fumigaciones</title>
-                <meta name="description" content={service.description} />
+                <title>{service.name} | Big Cat - Control de Plagas</title>
+                <meta name="description" content={`Eliminación experta de ${service.name}. ${service.description} Productos 100% seguros y resultados garantizados.`} />
                 <link rel="canonical" href={`https://bigcat.mx/servicios/${service.slug}`} />
-                <meta property="og:title" content={`${service.name} | Control de Plagas`} />
+                <meta property="og:title" content={`${service.name} | Big Cat - Control de Plagas`} />
                 <meta property="og:description" content={service.description} />
                 <meta property="og:type" content="article" />
                 <meta property="og:url" content={`https://bigcat.mx/servicios/${service.slug}`} />
-                <meta property="og:image" content={service.image} />
+                <meta property="og:image" content={`https://bigcat.mx${service.image}`} />
+                <meta name="twitter:card" content="summary_large_image" />
             </Helmet>
             {/* Hero Section */}
             <header className="relative h-[60vh] flex items-center overflow-hidden">
