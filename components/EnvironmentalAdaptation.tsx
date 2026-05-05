@@ -99,14 +99,16 @@ const EnvironmentalAdaptation: React.FC = () => {
                         </p>
                       </div>
                       
-                      <a 
-                        href={`https://wa.me/52${CONTACT_INFO.phone.replace(/\s+/g, '')}?text=Hola,%20me%20interesa%20una%20cotizaci%C3%B3n%20para%20${encodeURIComponent(pest.name)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex w-max items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-brand-red bg-brand-red/5 px-5 py-3 rounded-full hover:bg-brand-red hover:text-white transition-all duration-300"
-                      >
-                        Cotizar Ahora <ArrowRight size={14} />
-                      </a>
+                      <div className="flex flex-wrap gap-3">
+                        <a 
+                          href={`https://wa.me/52${CONTACT_INFO.phone.replace(/\s+/g, '')}?text=Hola,%20me%20interesa%20una%20cotizaci%C3%B3n%20para%20${encodeURIComponent(pest.name)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-brand-red bg-brand-red/5 px-4 py-2.5 rounded-full hover:bg-brand-red hover:text-white transition-all duration-300 border border-brand-red/10"
+                        >
+                          Cotizar Ahora <ArrowRight size={12} />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </SwiperSlide>

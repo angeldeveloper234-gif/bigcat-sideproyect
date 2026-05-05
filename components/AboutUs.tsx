@@ -15,7 +15,7 @@ const AboutUs: React.FC = () => {
                     <div className="w-full lg:w-1/2 relative">
                         <div className="relative rounded-[3rem] overflow-hidden shadow-3xl group">
                             <img 
-                                src="/images/cocina.jpg" 
+                                src="/images/cocina.webp" 
                                 alt="Cocina protegida y limpia" 
                                 className="w-full h-[600px] object-cover transition-transform duration-1000 group-hover:scale-105"
                             />
@@ -28,7 +28,7 @@ const AboutUs: React.FC = () => {
                                     </p>
                                     <div className="mt-4 flex items-center gap-2">
                                         <div className="h-1 w-12 bg-white/30 rounded-full" />
-                                        <span className="text-white/70 text-[10px] font-medium uppercase tracking-widest">Big Cat Fumigaciones™ Protection Guarantee</span>
+                                        <span className="text-white/70 text-[10px] font-medium uppercase tracking-widest">Big Cat - Control de Plagas™ Protection Guarantee</span>
                                     </div>
                                 </div>
                             </div>

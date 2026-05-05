@@ -28,7 +28,7 @@ export const BLOG_POSTS = [
       
       Usar repelentes comerciales a menudo solo dispersa a la colonia, provocando que se dividan en múltiples nidos (un proceso llamado gemación). Esto empeora el problema a largo plazo.
       
-      Para erradicar realmente una infestación de hormigas, es necesario identificar la especie y utilizar cebos específicos que las obreras lleven de regreso a la reina. Nuestro equipo en Big Cat Fumigaciones utiliza tratamientos profesionales que atacan la raíz del problema, garantizando que las hormigas no regresen.
+      Para erradicar realmente una infestación de hormigas, es necesario identificar la especie y utilizar cebos específicos que las obreras lleven de regreso a la reina. Nuestro equipo en Big Cat - Control de Plagas utiliza tratamientos profesionales que atacan la raíz del problema, garantizando que las hormigas no regresen.
     `,
     image: "/articulos/articulo2.jpg",
     date: "27 Abr, 2026",
@@ -66,7 +66,7 @@ export const BLOG_POSTS = [
       
       En primavera y verano, los mosquitos, moscas, garrapatas y hormigas alcanzan su punto máximo. Durante el otoño y el invierno, los roedores, cucarachas y arañas buscan refugio en interiores. 
       
-      La prevención continua es clave. Un plan de control de plagas anual garantiza que tu propiedad esté protegida sin importar la temporada. En Big Cat Fumigaciones, adaptamos nuestros tratamientos al clima y comportamiento específico de las plagas en cada época del año, asegurando un entorno limpio y seguro.
+      La prevención continua es clave. Un plan de control de plagas anual garantiza que tu propiedad esté protegida sin importar la temporada. En Big Cat - Control de Plagas, adaptamos nuestros tratamientos al clima y comportamiento específico de las plagas en cada época del año, asegurando un entorno limpio y seguro.
     `,
     image: "/articulos/articulo4.jpg",
     date: "27 Abr, 2026",

@@ -399,3 +399,167 @@ export const BedBugHotelIcon: React.FC<IconProps> = ({ size = 32, className = ''
   </svg>
 );
 
+export const WaspIcon: React.FC<IconProps> = ({ size = 32, className = '', strokeWidth = 1.5 }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 32 32"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={strokeWidth}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    aria-label="Avispa"
+  >
+    {/* Body - segmented */}
+    <ellipse cx="16" cy="18" rx="3.5" ry="6" />
+    <ellipse cx="16" cy="11" rx="3" ry="3.5" />
+    <circle cx="16" cy="6" r="2.5" />
+    {/* Wings */}
+    <path d="M13 11 C8 5 4 8 4 12" />
+    <path d="M19 11 C24 5 28 8 28 12" />
+    {/* Stinger */}
+    <path d="M16 24 L16 27" />
+    {/* Legs */}
+    <path d="M13 14 L8 16" />
+    <path d="M19 14 L24 16" />
+    {/* Stripes on abdomen */}
+    <path d="M13 18 H19" strokeWidth={strokeWidth * 1.2} />
+    <path d="M13.5 21 H18.5" strokeWidth={strokeWidth * 1.2} />
+  </svg>
+);
+
+export const TickIcon: React.FC<IconProps> = ({ size = 32, className = '', strokeWidth = 1.5 }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 32 32"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={strokeWidth}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    aria-label="Garrapata"
+  >
+    {/* Large round body */}
+    <circle cx="16" cy="18" r="8" />
+    {/* Small head */}
+    <circle cx="16" cy="9" r="2" />
+    {/* Mouth parts */}
+    <path d="M15 7.5 L14 5" />
+    <path d="M17 7.5 L18 5" />
+    {/* Legs (8 legs for arachnid) */}
+    <path d="M9 13 L4 10" />
+    <path d="M9 17 L4 17" />
+    <path d="M9 21 L4 24" />
+    <path d="M10 25 L7 28" />
+    <path d="M23 13 L28 10" />
+    <path d="M23 17 L28 17" />
+    <path d="M23 21 L28 24" />
+    <path d="M22 25 L25 28" />
+  </svg>
+);
+
+export const MosquitoIcon: React.FC<IconProps> = ({ size = 32, className = '', strokeWidth = 1.5 }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 32 32"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={strokeWidth}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    aria-label="Mosquito"
+  >
+    {/* Thin body */}
+    <path d="M16 10 L16 26" strokeWidth={strokeWidth * 1.2} />
+    {/* Wings - large and thin */}
+    <path d="M16 14 C22 10 28 12 26 18 C25 21 20 20 16 16" />
+    <path d="M16 14 C10 10 4 12 6 18 C7 21 12 20 16 16" />
+    {/* Head and Proboscis */}
+    <circle cx="16" cy="8" r="2" />
+    <path d="M16 6 L16 2" />
+    {/* Long thin legs */}
+    <path d="M14 18 L8 26" />
+    <path d="M18 18 L24 26" />
+    <path d="M14 22 L10 30" />
+    <path d="M18 22 L22 30" />
+  </svg>
+);
+
+export const FleaIcon: React.FC<IconProps> = ({ size = 32, className = '', strokeWidth = 1.5 }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 32 32"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={strokeWidth}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    aria-label="Pulga"
+  >
+    {/* Compressed body */}
+    <path d="M12 12 C14 8 18 8 20 12 C22 16 20 24 16 26 C12 24 10 16 12 12" />
+    {/* Head */}
+    <path d="M14 10 L12 7" />
+    <circle cx="13" cy="8" r="1.5" />
+    {/* Jumping legs */}
+    <path d="M18 20 L24 28" />
+    <path d="M18 22 L22 30" />
+    {/* Front legs */}
+    <path d="M12 16 L8 18" />
+    <path d="M12 18 L8 22" />
+  </svg>
+);
+
+export const SpiderIcon: React.FC<IconProps> = ({ size = 32, className = '', strokeWidth = 1.5 }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 32 32"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={strokeWidth}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    aria-label="Araña"
+  >
+    <circle cx="16" cy="18" r="4" />
+    <circle cx="16" cy="12" r="2.5" />
+    <path d="M12 18 L4 14" />
+    <path d="M12 20 L4 22" />
+    <path d="M12 22 L6 28" />
+    <path d="M13 16 L8 10" />
+    <path d="M20 18 L28 14" />
+    <path d="M20 20 L28 22" />
+    <path d="M20 22 L26 28" />
+    <path d="M19 16 L24 10" />
+  </svg>
+);
+
+export const BirdIcon: React.FC<IconProps> = ({ size = 32, className = '', strokeWidth = 1.5 }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 32 32"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={strokeWidth}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    aria-label="Aves / Palomas"
+  >
+    <path d="M12 20 C10 24 14 28 18 24 C22 20 26 16 28 12 C26 10 22 10 18 12 C14 14 12 18 12 20 Z" />
+    <circle cx="24" cy="14" r="1" fill="currentColor" stroke="none" />
+    <path d="M12 20 L4 24 L8 28" />
+    <path d="M18 24 L16 30" />
+  </svg>
+);

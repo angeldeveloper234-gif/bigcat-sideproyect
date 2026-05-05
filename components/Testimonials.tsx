@@ -202,7 +202,7 @@ const Testimonials: React.FC = () => {
 
                         <div className="pt-4">
                             <a 
-                                href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/\s/g, '')}`}
+                                href={`https://wa.me/52${CONTACT_INFO.whatsapp.replace(/\s/g, '')}`}
                                 className="inline-flex items-center justify-center px-10 py-5 bg-brand-red text-white font-normal uppercase tracking-widest text-xs rounded-xl hover:bg-brand-dark transition-all duration-500 shadow-xl shadow-brand-red/30 transform hover:-translate-y-1"
                             >
                                 SABER MÁS

@@ -36,6 +36,7 @@ const App: React.FC = () => {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "PestControlService"],
     "name": "Big Cat - Control de Plagas",
+    "alternateName": "Bigcat",
     "url": "https://bigcat.mx/",
     "telephone": "+528111150958",
     "address": {

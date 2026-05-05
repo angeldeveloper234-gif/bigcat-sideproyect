@@ -15,14 +15,14 @@ const Footer: React.FC = () => {
               <div className="h-[120px] flex items-center mb-6">
                 <img
                   src={LOGO_DARK}
-                  alt="Big Cat Logo"
+                  alt="Big Cat - Control de Plagas Logo"
                   className="h-full w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
                 />
               </div>
               <p className="text-gray-500 text-lg font-normal leading-relaxed max-w-md italic">
-                Somos una familia de empresas que prioriza un servicio amigable, rápido y efectivo, e invertimos en el crecimiento y bienestar de nuestro equipo.
+                En Big Cat priorizamos un servicio amigable, rápido y efectivo. Somos expertos en el control de plagas en México con el respaldo de PCP Internacional.
               </p>
-              <span className="text-brand-dark/70 text-[10px] font-medium uppercase tracking-widest mt-4">PCP Internacional & Big Cat Fumigaciones™</span>
+              <span className="text-brand-dark/70 text-[10px] font-medium uppercase tracking-widest mt-4">PCP Internacional & Big Cat - Control de Plagas™</span>
             </a>
 
             <div className="flex gap-10 text-[10px] font-medium uppercase tracking-[0.3em]">
@@ -54,12 +54,15 @@ const Footer: React.FC = () => {
               </nav>
             </div>
             <div className="space-y-6">
-              <h4 className="text-brand-red font-semibold uppercase tracking-[0.2em] text-[10px]">Sectores</h4>
-              <div className="flex flex-col gap-4 text-sm font-medium text-gray-500">
-                <span className="hover:text-brand-red cursor-help transition-colors">Hogares y Residencias</span>
-                <span className="hover:text-brand-red cursor-help transition-colors">Restaurantes y Comedores</span>
-                <span className="hover:text-brand-red cursor-help transition-colors">Industria y Almacenes</span>
-                <span className="hover:text-brand-red cursor-help transition-colors">Supermercados y Comercios</span>
+              <h4 className="text-brand-red font-semibold uppercase tracking-[0.2em] text-[10px]">Nuestros Servicios</h4>
+              <div className="flex flex-col gap-3 text-sm font-medium text-gray-500">
+                <a href="/servicios/control-de-plagas-comercial" className="hover:text-brand-red transition-colors">Control Comercial</a>
+                <a href="/servicios/eliminacion-de-cucarachas" className="hover:text-brand-red transition-colors">Cucarachas</a>
+                <a href="/servicios/control-de-hormigas" className="hover:text-brand-red transition-colors">Hormigas</a>
+                <a href="/servicios/control-de-termitas" className="hover:text-brand-red transition-colors">Termitas</a>
+                <a href="/servicios/control-de-chinches" className="hover:text-brand-red transition-colors">Chinches</a>
+                <a href="/servicios/control-de-roedores" className="hover:text-brand-red transition-colors">Roedores</a>
+                <a href="/servicios/control-de-alacranes" className="hover:text-brand-red transition-colors">Alacranes</a>
               </div>
             </div>
           </div>
@@ -67,13 +70,9 @@ const Footer: React.FC = () => {
 
         <div className="pt-12 pb-12 flex flex-col md:flex-row justify-between items-center gap-8 border-b border-gray-50">
           <p className="text-[10px] text-brand-dark/30 font-medium uppercase tracking-widest text-center md:text-left">
-            &copy; {new Date().getFullYear()} Big Cat Fumigaciones (PCP Internacional). <br />
-            Seguridad Sanitaria Profesional
+            &copy; {new Date().getFullYear()} Big Cat - Control de Plagas (PCP Internacional). <br />
+            Fumigaciones y Seguridad Sanitaria Profesional
           </p>
-          <div className="flex gap-8 text-[10px] font-medium uppercase tracking-widest text-brand-dark/30">
-            <button className="hover:text-brand-red transition-colors font-semibold">Aviso de Privacidad</button>
-            <button className="hover:text-brand-red transition-colors font-semibold">Términos del Servicio</button>
-          </div>
         </div>
 
         <div className="pt-12 pb-24 text-center">

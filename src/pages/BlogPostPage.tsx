@@ -6,6 +6,8 @@ import { Calendar, User, ChevronRight, ArrowLeft, Loader2 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { BlogPost } from '../../types';
 
+import { BLOG_POSTS } from '../../constants';
+
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<BlogPost | null>(null);
@@ -13,27 +15,10 @@ const BlogPostPage: React.FC = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchPost();
+    const foundPost = BLOG_POSTS.find(p => p.slug === slug);
+    setPost(foundPost || null);
+    setLoading(false);
   }, [slug]);
-
-  const fetchPost = async () => {
-    if (!slug) return;
-    setLoading(true);
-    try {
-      const { data, error } = await supabase
-        .from('posts')
-        .select('*')
-        .eq('slug', slug)
-        .single();
-
-      if (error) throw error;
-      setPost(data);
-    } catch (error) {
-      console.error('Error fetching post:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   if (loading) {
     return (
@@ -96,12 +81,6 @@ const BlogPostPage: React.FC = () => {
     ]
   };
 
-  // Format content to render paragraphs properly
-  const formattedContent = post.content.split('\n').filter(p => p.trim() !== '').map((paragraph, idx) => (
-    <p key={idx} className="mb-6 text-lg text-gray-600 leading-relaxed">
-      {paragraph.trim()}
-    </p>
-  ));
 
   return (
     <main className="relative pt-32 pb-24 bg-white min-h-screen">
@@ -202,9 +181,8 @@ const BlogPostPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
           className="prose prose-lg prose-red max-w-none"
-        >
-          {formattedContent}
-        </motion.div>
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
         
         {/* CTA */}
         <motion.div 

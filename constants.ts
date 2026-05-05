@@ -10,6 +10,13 @@ import {
   ShieldPestIcon,
   WoodwormIcon,
   MouseTrapIcon,
+  AntIcon,
+  WaspIcon,
+  TickIcon,
+  MosquitoIcon,
+  FleaIcon,
+  SpiderIcon,
+  BirdIcon,
 } from './components/PestIcons';
 
 export const COLORS = {
@@ -28,7 +35,7 @@ export const CONTACT_INFO = {
   whatsapp: "81 11150958",
   email: "contacto@bigcat.mx",
   address: "Rio Mississippi 44-I, Del Valle, 66220 San Pedro Garza García, N.L.",
-  schedule: "Servicio Profesional de Fumigación | Big Cat Fumigaciones",
+  schedule: "Servicio Profesional de Control de Plagas | Big Cat",
   description: "Somos una familia de empresas que prioriza un servicio amigable, rápido y efectivo, e invertimos en el crecimiento y bienestar de nuestro equipo.",
   facebook: "https://web.facebook.com/profile.php?id=61561957291508",
   instagram: "https://www.instagram.com/bigcat.mx/"
@@ -180,7 +187,9 @@ export const NAV_LINKS: NavLink[] = [
       { label: 'Avispas', href: '/servicios/control-de-avispas' },
       { label: 'Garrapatas', href: '/servicios/control-de-garrapatas' },
       { label: 'Mosquitos', href: '/servicios/control-de-mosquitos' },
-      { label: 'Alacranes', href: '/servicios/control-de-alacranes' }
+      { label: 'Alacranes', href: '/servicios/control-de-alacranes' },
+      { label: 'Arañas', href: '/servicios/control-de-aranas' },
+      { label: 'Aves y Palomas', href: '/servicios/control-de-aves-y-palomas' }
     ]
   },
   {
@@ -273,12 +282,104 @@ export const PESTS_LIST = [
     icon: ShieldPestIcon,
     image: "/services/alacranes.webp",
     features: ["Barrera Residual", "Eficacia Probada", "Seguro para Mascotas", "Control Total"]
+  },
+  {
+    id: 'hormigas',
+    slug: 'control-de-hormigas',
+    name: "Hormigas",
+    description: "Localización y erradicación de colonias de raíz, evitando que regresen a tu hogar.",
+    fullDescription: "Nuestro tratamiento contra hormigas no solo elimina a las que ves, sino que ataca el corazón de la colonia. Utilizamos cebos específicos que las hormigas llevan al nido, logrando una eliminación total.",
+    risks: "Contaminación de alimentos, daños en estructuras eléctricas y molestias constantes en cocinas y despensas.",
+    process: "Inspección de senderos, aplicación de cebos de transferencia y sellado de puntos de entrada.",
+    prevention: "Limpieza profunda de residuos dulces, sellado de grietas en muros y manejo de basura.",
+    icon: AntIcon,
+    image: "/services/hormigas.jpg",
+    features: ["Eliminación de Reina", "Cebos no tóxicos", "Sin olor", "Garantía de Satisfacción"]
+  },
+  {
+    id: 'pulgas',
+    slug: 'control-de-pulgas',
+    name: "Pulgas",
+    description: "Protección integral para tu hogar y mascotas, rompiendo el ciclo de reproducción.",
+    fullDescription: "Las pulgas pueden ser una pesadilla para tus mascotas y tu familia. Nuestro protocolo de tres etapas elimina adultos, larvas y huevos, asegurando que la infestación no resurja semanas después.",
+    risks: "Dermatitis por picadura, transmisión de parásitos internos y molestias severas para las mascotas.",
+    process: "Nebulización profunda de alfombras y grietas, aplicación de reguladores de crecimiento (IGR) y barreras residuales.",
+    prevention: "Tratamiento preventivo en mascotas y aspirado frecuente de áreas de descanso de animales.",
+    icon: FleaIcon,
+    image: "/services/pulgas.webp",
+    features: ["Corta el ciclo vital", "Seguro para mascotas", "Resultados rápidos", "Atención nacional"]
+  },
+  {
+    id: 'avispas',
+    slug: 'control-de-avispas',
+    name: "Avispas",
+    description: "Retirada segura de panales y control preventivo para tus áreas exteriores.",
+    fullDescription: "Eliminar un avispero puede ser peligroso. Nuestros técnicos cuentan con el equipo de protección y los productos específicos para neutralizar el panal de forma segura, protegiendo a tu familia de picaduras.",
+    risks: "Picaduras dolorosas, reacciones alérgicas severas (shock anafiláctico) y riesgos en áreas de juego.",
+    process: "Localización de nidos, aplicación dirigida de espuma o polvo y retiro físico del panal.",
+    prevention: "Sellado de cavidades en paredes y revisión periódica de aleros y techos.",
+    icon: WaspIcon,
+    image: "/services/Avispa_-_Wikipedia,_la_enciclopedia_libre_es.jpg",
+    features: ["Retiro Seguro", "Equipo Especializado", "Sin Riesgos", "Atención Urgente"]
+  },
+  {
+    id: 'garrapatas',
+    slug: 'control-de-garrapatas',
+    name: "Garrapatas",
+    description: "Desinfección total de áreas críticas para proteger a tu familia y animales de compañía.",
+    fullDescription: "Las garrapatas son portadoras de enfermedades graves. Nuestro tratamiento se enfoca en jardines, paredes y áreas de descanso de mascotas, utilizando productos de alta residualidad que eliminan a estos parásitos al contacto.",
+    risks: "Transmisión de Enfermedad de Lyme, Rickettsia y anemia en mascotas.",
+    process: "Aspersión perimetral de alta presión, tratamiento de vegetación y grietas en muros exteriores.",
+    prevention: "Mantener el césped corto, evitar maleza alta y revisar a las mascotas tras paseos.",
+    icon: TickIcon,
+    image: "/services/garrapatas y acaros.webp",
+    features: ["Protección Familiar", "Alta Residualidad", "Control Exterior", "Expertos en Rickettsia"]
+  },
+  {
+    id: 'mosquitos',
+    slug: 'control-de-mosquitos',
+    name: "Mosquitos",
+    description: "Nebulización perimetral y tratamiento de criaderos para disfrutar de tu patio sin riesgos.",
+    fullDescription: "Protege a tu familia del Dengue, Zika y Chikungunya. Implementamos sistemas de nebulización ULV y control larvario en puntos de acumulación de agua, reduciendo drásticamente la población de mosquitos.",
+    risks: "Transmisión de enfermedades virales graves y picaduras molestas constantes.",
+    process: "Termonebulización de áreas verdes, aplicación de larvicidas en depósitos de agua y barreras repelentes.",
+    prevention: "Eliminar recipientes con agua estancada y uso de mallas mosquiteras.",
+    icon: MosquitoIcon,
+    image: "/services/mosquitos.webp",
+    features: ["Control Larvario", "Nebulización ULV", "Protección contra Dengue", "Verano sin Plagas"]
+  },
+  {
+    id: 'aranas',
+    slug: 'control-de-aranas',
+    name: "Arañas",
+    description: "Eliminación de arañas venenosas y limpieza de telarañas en áreas de difícil acceso.",
+    fullDescription: "Aunque la mayoría son inofensivas, algunas como la Viuda Negra o la Violinista representan un riesgo serio en México. Nuestro tratamiento elimina colonias y previene su reaparición con barreras residuales.",
+    risks: "Picaduras venenosas con riesgo de necrosis o reacciones sistémicas graves.",
+    process: "Identificación de especies, aspirado de telarañas y sacos de huevos, y aplicación residual dirigida.",
+    prevention: "Eliminación de escombros, sellado de grietas y control de otros insectos que sirven de alimento.",
+    icon: SpiderIcon,
+    image: "https://images.unsplash.com/photo-1533658925330-333061328905?auto=format&fit=crop&q=80&w=800",
+    features: ["Control de Violinista", "Barrera Residual", "Limpieza de Nidos", "Seguridad Total"]
+  },
+  {
+    id: 'aves',
+    slug: 'control-de-aves-y-palomas',
+    name: "Control de Aves / Palomas",
+    description: "Sistemas de disuasión no letales para proteger fachadas y techos de suciedad y enfermedades.",
+    fullDescription: "Las palomas y otras aves pueden causar daños estructurales y transmitir enfermedades. Instalamos sistemas de púas, redes y geles repelentes que las alejan sin lastimarlas, manteniendo tu propiedad impecable.",
+    risks: "Corrosión por excrementos, transmisión de histoplasmosis y presencia de ácaros y piojos de aves.",
+    process: "Limpieza y desinfección de áreas afectadas, e instalación de barreras físicas de disuasión.",
+    prevention: "Evitar fuentes de alimentación y sellado de huecos en techos o cornisas.",
+    icon: BirdIcon,
+    image: "https://images.unsplash.com/photo-1549480017-d76466a4b7e8?auto=format&fit=crop&q=80&w=800",
+    features: ["Sistemas No Letales", "Protección de Fachadas", "Limpieza Profunda", "Garantía de Resultados"]
   }
 ];
 
 export const RESIDENTIAL_PESTS = [
   {
     name: "Cucarachas",
+    slug: "eliminacion-de-cucarachas",
     environment: "Alacenas y Baños",
     description: "Eliminación garantizada de Blatella germánica y americana en áreas críticas.",
     image: "/services/cucaracha.webp",
@@ -286,13 +387,15 @@ export const RESIDENTIAL_PESTS = [
   },
   {
     name: "Hormigas",
+    slug: "control-de-hormigas",
     environment: "Cocinas y Patios",
     description: "Localización y erradicación de colonias de raíz, evitando que regresen a tu hogar.",
     image: "/services/hormigas.jpg",
-    icon: SprayCanIcon
+    icon: AntIcon
   },
   {
     name: "Termitas",
+    slug: "control-de-termitas",
     environment: "Estructuras de Madera",
     description: "Protección estructural con barreras antitermita de larga duración y tratamiento profundo.",
     image: "/services/termitas.webp",
@@ -300,6 +403,7 @@ export const RESIDENTIAL_PESTS = [
   },
   {
     name: "Chinches",
+    slug: "control-de-chinches",
     environment: "Recámaras y Colchones",
     description: "Protocolo de choque inmediato con vapor y nebulización residual para erradicar chinches.",
     image: "/images/chinches_bedroom_1776661359500.png",
@@ -307,6 +411,7 @@ export const RESIDENTIAL_PESTS = [
   },
   {
     name: "Roedores / Ratones",
+    slug: "control-de-roedores",
     environment: "Áticos y Perímetros",
     description: "Sistemas de cebado y trampeo profesional para ratas y ratones con estaciones de seguridad.",
     image: "/services/roedores.webp",
@@ -314,38 +419,59 @@ export const RESIDENTIAL_PESTS = [
   },
   {
     name: "Pulgas",
+    slug: "control-de-pulgas",
     environment: "Alfombras y Mascotas",
     description: "Protección integral para tu hogar y mascotas, rompiendo el ciclo de reproducción.",
     image: "/services/pulgas.webp",
-    icon: SprayCanIcon
+    icon: FleaIcon
   },
   {
     name: "Avispas",
+    slug: "control-de-avispas",
     environment: "Techos y Jardines",
     description: "Retirada segura de panales y control preventivo para tus áreas exteriores.",
     image: "/services/Avispa_-_Wikipedia,_la_enciclopedia_libre_es.jpg",
-    icon: ShieldPestIcon
+    icon: WaspIcon
   },
   {
     name: "Garrapatas",
+    slug: "control-de-garrapatas",
     environment: "Jardines y Mascotas",
     description: "Desinfección total de áreas críticas para proteger a tu familia y animales de compañía.",
     image: "/services/garrapatas y acaros.webp",
-    icon: ShieldPestIcon
+    icon: TickIcon
   },
   {
     name: "Mosquitos",
+    slug: "control-de-mosquitos",
     environment: "Exteriores y Terrazas",
     description: "Nebulización perimetral y tratamiento de criaderos para disfrutar de tu patio sin riesgos.",
     image: "/services/mosquitos.webp",
-    icon: ShieldPestIcon
+    icon: MosquitoIcon
   },
   {
     name: "Alacranes",
+    slug: "control-de-alacranes",
     environment: "Patios y Esquinas",
     description: "Barrera impenetrable contra alacranes en regiones cálidas y zonas de riesgo.",
     image: "/services/alacranes.webp",
     icon: ShieldPestIcon
+  },
+  {
+    name: "Arañas",
+    slug: "control-de-aranas",
+    environment: "Rincones y Techos",
+    description: "Eliminación de arañas venenosas y limpieza de telarañas en áreas de difícil acceso.",
+    image: "https://images.unsplash.com/photo-1533658925330-333061328905?auto=format&fit=crop&q=80&w=800",
+    icon: SpiderIcon
+  },
+  {
+    name: "Aves y Palomas",
+    slug: "control-de-aves-y-palomas",
+    environment: "Fachadas y Techos",
+    description: "Sistemas de disuasión no letales para proteger fachadas y techos de suciedad.",
+    image: "https://images.unsplash.com/photo-1549480017-d76466a4b7e8?auto=format&fit=crop&q=80&w=800",
+    icon: BirdIcon
   }
 ];
 
@@ -472,3 +598,142 @@ export const RESTAURANT_CLIENTS = {
     { name: "La Tequila León", address: "Plaza Mayor", coords: [-101.6960, 21.1520] }
   ]
 };
+
+export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: '1',
+    slug: 'control-plagas-invierno',
+    title: "Guía Completa: Control de Plagas en Invierno en México",
+    excerpt: "No bajes la guardia: muchas plagas buscan refugio en tu hogar durante los meses fríos. Aprende cómo protegerte.",
+    content: `
+      <p>Cuando las temperaturas bajan, solemos pensar que las plagas desaparecen. Sin embargo, en México, el invierno es una época crítica donde insectos y roedores buscan el calor y la comida de nuestros hogares.</p>
+      
+      <img src="/articulos/articulo1.jpg" alt="Control de plagas en invierno" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+
+      <h2>¿Por qué las plagas entran en invierno?</h2>
+      <p>A diferencia de lo que se cree, la mayoría de las plagas no mueren con el frío, sino que entran en un estado de baja actividad o buscan refugios térmicos. Tu casa, con su calefacción y despensa llena, es el refugio ideal.</p>
+      
+      <ul>
+        <li><strong>Roedores:</strong> Buscan grietas para anidar cerca de fuentes de calor.</li>
+        <li><strong>Cucarachas:</strong> Se refugian detrás de electrodomésticos que generan calor constante.</li>
+        <li><strong>Chinches:</strong> El movimiento de maletas y ropa de invierno puede facilitar su propagación.</li>
+      </ul>
+
+      <h3>Consejos para prevenir invasiones invernales</h3>
+      <p>1. Sella grietas y hendiduras en puertas y ventanas. Un ratón puede pasar por un agujero del tamaño de una moneda de diez centavos.</p>
+      <p>2. Mantén la leña y escombros alejados de los muros de la casa.</p>
+      <p>3. Revisa las cajas de decoraciones navideñas antes de meterlas a casa.</p>
+
+      <p>En <strong>Big Cat</strong>, contamos con protocolos específicos para la temporada invernal que garantizan una barrera protectora duradera.</p>
+    `,
+    featured_image: "/articulos/articulo1.jpg",
+    image: "/articulos/articulo1.jpg",
+    date: "15 Nov, 2026",
+    published_at: "2026-11-15T10:00:00Z",
+    author: "Ing. Ricardo Salinas",
+    category: "Prevención",
+    meta_description: "Aprende cómo prevenir la entrada de plagas a tu hogar durante el invierno. Consejos expertos de Big Cat Control de Plagas.",
+    keywords: ["plagas invierno", "control roedores", "fumigacion mexico", "consejos fumigacion"]
+  },
+  {
+    id: '2',
+    slug: 'hormigas-invadiendo-hogar',
+    title: "¿Hormigas en la cocina? Por qué aparecen y cómo eliminarlas",
+    excerpt: "Las hormigas pueden parecer inofensivas, pero su presencia indica vulnerabilidades en tu higiene y sellado.",
+    content: `
+      <p>Las hormigas son una de las plagas más persistentes y frustrantes. Una sola exploradora que encuentre una migaja de azúcar puede guiar a cientos de compañeras a tu cocina en cuestión de minutos.</p>
+
+      <img src="/articulos/articulo2.jpg" alt="Hormigas en el hogar" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+
+      <h2>El comportamiento de la colonia</h2>
+      <p>Entender a las hormigas es la clave para eliminarlas. No basta con matar a las que ves; hay que atacar el corazón de la colonia: la reina.</p>
+      
+      <p>En México, las especies más comunes en áreas urbanas son la hormiga argentina y la hormiga loca. Ambas son extremadamente adaptables y crean redes de nidos interconectados.</p>
+
+      <h3>Errores comunes al combatir hormigas</h3>
+      <ul>
+        <li><strong>Usar insecticidas de aerosol:</strong> Solo matan a las obreras de la superficie, provocando que la colonia se estrese y se divida (efecto rebote).</li>
+        <li><strong>Limpiar con cloro:</strong> Elimina el rastro de feromonas temporalmente, pero no soluciona el nido de origen.</li>
+      </ul>
+
+      <p>Nuestros métodos en <strong>Big Cat</strong> utilizan cebos de transferencia que las obreras llevan voluntariamente al nido, erradicando la plaga de raíz sin contaminar tus alimentos.</p>
+    `,
+    featured_image: "/articulos/articulo2.jpg",
+    image: "/articulos/articulo2.jpg",
+    date: "10 Mar, 2026",
+    published_at: "2026-03-10T09:00:00Z",
+    author: "Biól. Ana Karen Martínez",
+    category: "Hogar",
+    meta_description: "Descubre las causas de las invasiones de hormigas en el hogar y las mejores estrategias profesionales para eliminarlas definitivamente.",
+    keywords: ["eliminar hormigas", "hormigas cocina", "cebos hormigas", "plagas domesticas"]
+  },
+  {
+    id: '3',
+    slug: 'otono-cucarachas-casas',
+    title: "Otoño: La Temporada Alta de Cucarachas en México",
+    excerpt: "La humedad del otoño y el fin de las lluvias crean el ambiente perfecto para la proliferación de cucarachas.",
+    content: `
+      <p>El otoño en México trae consigo cambios de humedad que obligan a las cucarachas a buscar nuevos territorios. Es en esta época cuando las llamadas al servicio técnico aumentan drásticamente.</p>
+
+      <img src="/articulos/articulo3.jpg" alt="Cucarachas en otoño" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+
+      <h2>¿Por qué el otoño es peligroso?</h2>
+      <p>Las cucarachas americanas (las grandes voladoras) suelen habitar en drenajes. Con las variaciones de presión y temperatura del otoño, tienden a subir a las superficies y entrar a las casas por coladeras y registros.</p>
+
+      <p>Por otro lado, la cucaracha germánica (pequeña de cocina) acelera su ciclo de reproducción para asegurar la supervivencia de la colonia antes de que el frío más intenso llegue.</p>
+
+      <h3>Puntos críticos que debes revisar</h3>
+      <ol>
+        <li><strong>Coladeras:</strong> Asegúrate de que tengan trampa de agua o rejillas de seguridad.</li>
+        <li><strong>Detrás del refrigerador:</strong> El compresor es el lugar favorito para anidar.</li>
+        <li><strong>Bajo el fregadero:</strong> Cualquier fuga mínima es agua suficiente para una colonia entera.</li>
+      </ol>
+
+      <p>En <strong>Big Cat</strong> aplicamos geles de alta tecnología que aprovechan el comportamiento social de las cucarachas para lograr un control total en menos de 48 horas.</p>
+    `,
+    featured_image: "/articulos/articulo3.jpg",
+    image: "/articulos/articulo3.jpg",
+    date: "20 Sep, 2026",
+    published_at: "2026-09-20T11:30:00Z",
+    author: "Ing. Ricardo Salinas",
+    category: "Temporada",
+    meta_description: "Por qué las cucarachas aumentan en otoño y qué puedes hacer para proteger tu propiedad. Guía de Big Cat México.",
+    keywords: ["cucarachas otoño", "fumigar cucarachas", "plagas mexico", "prevencion plagas"]
+  },
+  {
+    id: '4',
+    slug: 'insectos-comunes-mexico',
+    title: "Los 5 Insectos más comunes en los hogares Mexicanos",
+    excerpt: "Conoce a tus enemigos: desde el alacrán hasta la chinche de cama. Identificarlos es el primer paso.",
+    content: `
+      <p>México tiene una biodiversidad asombrosa, pero esa misma riqueza se traduce en una gran variedad de insectos que pueden convertirse en plagas domésticas en cuestión de días.</p>
+
+      <img src="/articulos/articulo4.jpg" alt="Insectos comunes México" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+
+      <h2>1. La Cucaracha Germánica</h2>
+      <p>Es la reina de las cocinas. Su capacidad de resistencia a insecticidas comunes la hace un desafío para cualquier propietario.</p>
+
+      <h2>2. El Alacrán (Centruroides)</h2>
+      <p>Especialmente común en el centro y occidente del país. Su picadura requiere atención médica inmediata, sobre todo en niños.</p>
+
+      <h2>3. La Hormiga de Pavimento</h2>
+      <p>Aparece en grietas de banquetas y muros, invadiendo despensas en busca de carbohidratos y proteínas.</p>
+
+      <h2>4. La Chinche de Cama</h2>
+      <p>Ha resurgido con fuerza debido al turismo global. Se oculta en costuras de colchones y viaja en el equipaje.</p>
+
+      <h2>5. La Araña Violinista</h2>
+      <p>De hábitos nocturnos y tímidos, pero su veneno es necrótico. Suele esconderse en lugares oscuros y poco transitados como bodegas.</p>
+
+      <p>No permitas que estos visitantes se adueñen de tu tranquilidad. En <strong>Big Cat</strong> tenemos un experto para cada una de estas amenazas.</p>
+    `,
+    featured_image: "/articulos/articulo4.jpg",
+    image: "/articulos/articulo4.jpg",
+    date: "05 Ene, 2026",
+    published_at: "2026-01-05T08:00:00Z",
+    author: "Biól. Ana Karen Martínez",
+    category: "Educación",
+    meta_description: "Identifica las plagas más comunes en México y conoce los riesgos asociados a cada una. Información experta de Big Cat.",
+    keywords: ["plagas comunes mexico", "alacranes", "chinches de cama", "araña violinista"]
+  }
+];

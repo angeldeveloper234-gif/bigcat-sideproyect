@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/images/hero.png" 
+          src="/images/hero.webp" 
           alt="Servicio profesional de control de plagas y fumigación residencial Big Cat" 
           className="w-full h-full object-cover"
         />
@@ -39,8 +39,7 @@ const Hero: React.FC = () => {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-7xl xl:text-7xl font-semibold leading-[1.1] tracking-tighter text-brand-dark"
             >
-              Control Total de <br />
-              <span className="text-brand-red">Plagas</span> Nacional.
+              <span className="text-brand-red">Big Cat:</span> Control Total de Plagas Nacional.
             </motion.h1>
             
             <motion.p 

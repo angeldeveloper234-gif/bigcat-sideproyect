@@ -6,36 +6,21 @@ import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { BlogPost } from '../../types';
 
+import { BLOG_POSTS } from '../../constants';
+
 const BlogArchivePage: React.FC = () => {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [posts] = useState<BlogPost[]>(BLOG_POSTS);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchPosts();
   }, []);
-
-  const fetchPosts = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('posts')
-        .select('*')
-        .order('published_at', { ascending: false });
-
-      if (error) throw error;
-      setPosts(data || []);
-    } catch (error) {
-      console.error('Error fetching posts:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <main className="relative pt-32 pb-24 bg-white min-h-screen">
       <Helmet>
         <title>Blog de Fumigación y Control de Plagas | Big Cat</title>
-        <meta name="description" content="Descubre consejos expertos, noticias y guías sobre el control de plagas. Mantén tu hogar libre de insectos y roedores con la información de Big Cat Fumigaciones." />
+        <meta name="description" content="Descubre consejos expertos, noticias y guías sobre el control de plagas. Mantén tu hogar libre de insectos y roedores con la información de Big Cat." />
         <meta name="keywords" content="blog control de plagas, fumigacion tips, prevenir plagas, blog big cat" />
         <meta property="og:title" content="Blog de Fumigación y Control de Plagas | Big Cat" />
         <meta property="og:description" content="Descubre consejos expertos, noticias y guías sobre el control de plagas." />
