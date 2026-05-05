@@ -4,7 +4,6 @@ import Hero from '../../components/Hero';
 import TrustBar from '../../components/TrustBar';
 import AboutUs from '../../components/AboutUs';
 
-import EnvironmentalAdaptation from '../../components/EnvironmentalAdaptation';
 import QuoteSection from '../../components/QuoteSection';
 import CostCalculator from '../../components/CostCalculator';
 
@@ -41,7 +40,7 @@ const Home: React.FC = () => {
 
             
             {/* 3. Interest (The Problem we solve) */}
-            <EnvironmentalAdaptation />
+
             
             {/* 4. Desire (Lead Magnets & Proof) */}
             <QuoteSection />

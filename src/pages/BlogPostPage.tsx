@@ -6,7 +6,7 @@ import { Calendar, User, ChevronRight, ArrowLeft, Loader2 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { BlogPost } from '../../types';
 
-import { BLOG_POSTS } from '../../constants';
+import { BLOG_POSTS, formatBlogDate } from '../../constants';
 
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -146,11 +146,7 @@ const BlogPostPage: React.FC = () => {
               <div className="flex items-center gap-2">
                 <Calendar size={18} className="text-brand-red" />
                 <span className="text-xs font-normal uppercase tracking-wider">
-                  {new Date(post.published_at).toLocaleDateString('es-MX', {
-                    day: 'numeric',
-                    month: 'long',
-                    year: 'numeric'
-                  })}
+                  {formatBlogDate(post.published_at)}
                 </span>
               </div>
               <div className="flex items-center gap-2">

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { BlogPost } from '../../types';
 
-import { BLOG_POSTS } from '../../constants';
+import { BLOG_POSTS, formatBlogDate } from '../../constants';
 
 const BlogArchivePage: React.FC = () => {
   const [posts] = useState<BlogPost[]>(BLOG_POSTS);
@@ -88,11 +88,7 @@ const BlogArchivePage: React.FC = () => {
                       <div className="flex items-center gap-1.5">
                         <Calendar size={14} className="text-brand-red" />
                         <span className="text-[10px] font-normal uppercase">
-                          {new Date(post.published_at).toLocaleDateString('es-MX', {
-                            day: 'numeric',
-                            month: 'short',
-                            year: 'numeric'
-                          })}
+                          {formatBlogDate(post.published_at)}
                         </span>
                       </div>
                       <div className="flex items-center gap-1.5">

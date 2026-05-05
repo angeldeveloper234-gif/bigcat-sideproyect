@@ -2,9 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { BLOG_POSTS } from '../src/data/blogPosts';
+import { BLOG_POSTS, formatBlogDate } from '../constants';
 
 const Blog: React.FC = () => {
+
   return (
     <section id="blog" className="py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -39,7 +40,7 @@ const Blog: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {BLOG_POSTS.map((post, idx) => (
+          {BLOG_POSTS.slice(0, 4).map((post, idx) => (
             <motion.article
               key={post.id}
               initial={{ opacity: 0, y: 20 }}
@@ -51,7 +52,7 @@ const Blog: React.FC = () => {
               <Link to={`/blog/${post.slug}`} className="block">
                 <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden mb-6 shadow-lg shadow-black/5">
                   <img 
-                    src={post.image} 
+                    src={post.featured_image} 
                     alt={post.title} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
@@ -66,7 +67,7 @@ const Blog: React.FC = () => {
                   <div className="flex items-center gap-4 text-gray-400">
                     <div className="flex items-center gap-1.5">
                       <Calendar size={14} className="text-brand-red" />
-                      <span className="text-[10px] font-normal uppercase">{post.date}</span>
+                      <span className="text-[10px] font-normal uppercase">{formatBlogDate(post.published_at)}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <User size={14} className="text-brand-red" />
@@ -101,7 +102,7 @@ const Blog: React.FC = () => {
            </div>
 
            <div className="text-[10px] font-normal text-gray-400 uppercase tracking-[0.2em]">
-             Página 1 de 1 — Mostrando {BLOG_POSTS.length} artículos
+             Página 1 de 1 — Mostrando {Math.min(BLOG_POSTS.length, 4)} artículos
            </div>
         </div>
       </div>

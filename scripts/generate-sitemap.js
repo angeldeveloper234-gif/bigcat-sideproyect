@@ -1,33 +1,11 @@
-import { createClient } from '@supabase/supabase-js';
 import fs from 'fs';
 import path from 'path';
 
-// Manual .env parser to avoid extra dependencies
-const envPath = path.join(process.cwd(), '.env');
-if (fs.existsSync(envPath)) {
-  const envConfig = fs.readFileSync(envPath, 'utf-8');
-  envConfig.split('\n').forEach(line => {
-    const [key, ...value] = line.split('=');
-    if (key && value) {
-      process.env[key.trim()] = value.join('=').trim();
-    }
-  });
-}
-
-const supabaseUrl = process.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = process.env.VITE_SUPABASE_ANON_KEY;
-const siteUrl = 'https://bigcat.mx'; // Actualizar con la URL real
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('Faltan las variables de entorno de Supabase.');
-  process.exit(1);
-}
-
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+const siteUrl = 'https://bigcat.mx';
 
 async function generateSitemap() {
   try {
-    // Páginas estáticas
+    // 1. Static Pages
     const staticPages = [
       '',
       '/nosotros',
@@ -36,29 +14,72 @@ async function generateSitemap() {
       '/blog'
     ];
 
-    // Obtener posts de Supabase
-    const { data: posts, error } = await supabase
-      .from('posts')
-      .select('slug, published_at')
-      .order('published_at', { ascending: false });
+    // 2. Services (Slugs from constants.ts)
+    const serviceSlugs = [
+      'control-de-plagas-comercial',
+      'eliminacion-de-cucarachas',
+      'control-de-hormigas',
+      'control-de-termitas',
+      'control-de-chinches',
+      'control-de-roedores',
+      'control-de-pulgas',
+      'control-de-avispas',
+      'control-de-garrapatas',
+      'control-de-mosquitos',
+      'control-de-alacranes',
+      'control-de-aranas',
+      'control-de-aves-y-palomas'
+    ];
 
-    if (error) throw error;
+    // 3. Locations (Slugs from constants.ts BRANCHES)
+    const locationSlugs = [
+      'guadalajara', 'leon', 'queretaro', 'cdmx', 'monterrey', 
+      'puebla', 'tijuana', 'merida', 'sanluis', 'aguascalientes', 
+      'hermosillo', 'mexicali', 'culiacan', 'juarez'
+    ];
+
+    // 4. Blog Posts (Slugs from constants.ts BLOG_POSTS)
+    const blogSlugs = [
+      'control-plagas-invierno',
+      'hormigas-invadiendo-hogar',
+      'otono-cucarachas-casas',
+      'insectos-comunes-mexico'
+    ];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Pages -->
   ${staticPages.map(page => `
   <url>
     <loc>${siteUrl}${page}</loc>
     <changefreq>monthly</changefreq>
     <priority>${page === '' ? '1.0' : '0.8'}</priority>
-  </url>`).join('')}
-  ${posts.map(post => `
+  </url>`).join('').trim()}
+
+  <!-- Services -->
+  ${serviceSlugs.map(slug => `
   <url>
-    <loc>${siteUrl}/blog/${post.slug}</loc>
-    <lastmod>${new Date(post.published_at).toISOString().split('T')[0]}</lastmod>
+    <loc>${siteUrl}/servicios/${slug}</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>`).join('').trim()}
+
+  <!-- Sedes -->
+  ${locationSlugs.map(slug => `
+  <url>
+    <loc>${siteUrl}/sedes/${slug}</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`).join('').trim()}
+
+  <!-- Blog Posts -->
+  ${blogSlugs.map(slug => `
+  <url>
+    <loc>${siteUrl}/blog/${slug}</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-  </url>`).join('')}
+  </url>`).join('').trim()}
 </urlset>`;
 
     fs.writeFileSync(path.join(process.cwd(), 'public', 'sitemap.xml'), sitemap);
