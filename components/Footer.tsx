@@ -77,7 +77,15 @@ const Footer: React.FC = () => {
 
         <div className="pt-12 pb-24 text-center">
           <p className="text-brand-red font-medium text-xs tracking-[0.5em] uppercase transition-all hover:tracking-[0.8em] duration-700">
-            HECHO POR ANGEL DESIGN STUDIO
+            Hecho por{' '}
+            <a 
+              href="https://www.angelstudio.design/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:opacity-80 transition-opacity"
+            >
+              Angel Design Studio
+            </a>
           </p>
         </div>
       </div>

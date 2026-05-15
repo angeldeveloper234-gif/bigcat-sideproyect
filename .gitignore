@@ -12,8 +12,8 @@ dist
 dist-ssr
 *.local
 
+# NO SE SUBE LA CARPETA DE EJEMPLO
 ejemplo
-
 
 # Editor directories and files
 .vscode/*
