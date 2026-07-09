@@ -12,18 +12,65 @@ const ServicePage: React.FC = () => {
 
     if (!service) return <Navigate to="/" replace />;
 
+    const url = `https://bigcat.mx/servicios/${service.slug}`;
+    const image = service.image?.startsWith('http') ? service.image : `https://bigcat.mx${service.image}`;
+    const description = `Eliminación experta de ${service.name}. ${service.description} Productos 100% seguros, certificados COFEPRIS y resultados garantizados.`;
+    const keywords = [
+        service.name.toLowerCase(),
+        `control de ${service.name.toLowerCase()}`,
+        `fumigación ${service.name.toLowerCase()}`,
+        `eliminar ${service.name.toLowerCase()}`,
+        'control de plagas méxico',
+        'fumigación profesional',
+    ].join(', ');
+
+    // Schema.org — Service
+    const serviceSchema = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": `Control de plagas: ${service.name}`,
+        "name": `${service.name} | Big Cat - Control de Plagas`,
+        "description": description,
+        "url": url,
+        "image": image,
+        "areaServed": { "@type": "Country", "name": "México" },
+        "provider": {
+            "@type": "PestControlService",
+            "name": "Big Cat - Control de Plagas",
+            "telephone": "+528111150958",
+            "url": "https://bigcat.mx/"
+        }
+    };
+
+    // Schema.org — Breadcrumb
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://bigcat.mx/" },
+            { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://bigcat.mx/#servicios" },
+            { "@type": "ListItem", "position": 3, "name": service.name, "item": url }
+        ]
+    };
+
     return (
         <div className="pt-20 bg-white min-h-screen">
             <Helmet>
-                <title>{service.name} | Big Cat - Control de Plagas</title>
-                <meta name="description" content={`Eliminación experta de ${service.name}. ${service.description} Productos 100% seguros y resultados garantizados.`} />
-                <link rel="canonical" href={`https://bigcat.mx/servicios/${service.slug}`} />
+                <title>{service.name} en México | Control y Fumigación | Big Cat</title>
+                <meta name="description" content={description} />
+                <meta name="keywords" content={keywords} />
+                <link rel="canonical" href={url} />
                 <meta property="og:title" content={`${service.name} | Big Cat - Control de Plagas`} />
                 <meta property="og:description" content={service.description} />
                 <meta property="og:type" content="article" />
-                <meta property="og:url" content={`https://bigcat.mx/servicios/${service.slug}`} />
-                <meta property="og:image" content={`https://bigcat.mx${service.image}`} />
+                <meta property="og:locale" content="es_MX" />
+                <meta property="og:url" content={url} />
+                <meta property="og:image" content={image} />
                 <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={`${service.name} | Big Cat - Control de Plagas`} />
+                <meta name="twitter:description" content={service.description} />
+                <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+                <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
             </Helmet>
             {/* Hero Section */}
             <header className="relative h-[60vh] flex items-center overflow-hidden">

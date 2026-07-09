@@ -40,13 +40,15 @@ const Blog: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {BLOG_POSTS.slice(0, 4).map((post, idx) => (
+          {[...BLOG_POSTS]
+            .sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime())
+            .map((post, idx) => (
             <motion.article
               key={post.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
+              transition={{ delay: Math.min(idx * 0.05, 0.5) }}
               className="group cursor-pointer"
             >
               <Link to={`/blog/${post.slug}`} className="block">
@@ -102,7 +104,7 @@ const Blog: React.FC = () => {
            </div>
 
            <div className="text-[10px] font-normal text-gray-400 uppercase tracking-[0.2em]">
-             Página 1 de 1 — Mostrando {Math.min(BLOG_POSTS.length, 4)} artículos
+             Mostrando {BLOG_POSTS.length} artículos
            </div>
         </div>
       </div>

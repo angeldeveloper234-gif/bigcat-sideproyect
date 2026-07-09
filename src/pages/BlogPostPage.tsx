@@ -44,13 +44,20 @@ const BlogPostPage: React.FC = () => {
       "name": post.author
     },
     "datePublished": post.published_at,
-    "image": post.featured_image,
+    "dateModified": post.published_at,
+    "image": post.featured_image?.startsWith('http')
+      ? post.featured_image
+      : `https://bigcat.mx${post.featured_image}`,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://bigcat.mx/blog/${post.slug}`
+    },
     "publisher": {
       "@type": "Organization",
       "name": "Big Cat - Control de Plagas",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://bigcat.mx/logo.png" // Replace with actual logo URL
+        "url": "https://bigcat.mx/logo/BIG CAT - Control de plagas.png"
       }
     }
   };

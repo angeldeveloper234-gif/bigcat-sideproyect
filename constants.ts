@@ -410,7 +410,7 @@ export const PESTS_LIST = [
     process: "Inspección detallada, diagnóstico de vulnerabilidades, implementación de barreras físicas y químicas, y monitoreo continuo.",
     prevention: "Manejo adecuado de residuos, sellado de grietas y capacitación del personal sobre higiene.",
     icon: CommercialPestIcon,
-    image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800",
+    image: "/images/cocina.webp",
     features: ["Normativa COFEPRIS", "Sectores Diversos", "Atención DISCRETA", "PCP Internacional"]
   },
   {
@@ -657,7 +657,7 @@ export const RESIDENTIAL_PESTS = [
     slug: "control-de-aranas",
     environment: "Rincones y Techos",
     description: "Eliminación de arañas venenosas y limpieza de telarañas en áreas de difícil acceso.",
-    image: "https://images.unsplash.com/photo-1533658925330-333061328905?auto=format&fit=crop&q=80&w=800",
+    image: "/services/arañas.webp",
     icon: SpiderIcon
   },
   {

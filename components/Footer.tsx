@@ -1,5 +1,5 @@
 import React from 'react';
-import { NAV_LINKS, LOGO_LIGHT, LOGO_DARK } from '../constants';
+import { NAV_LINKS, LOGO_LIGHT, LOGO_DARK, BRANCHES } from '../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -66,6 +66,23 @@ const Footer: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Cobertura por ciudad — enlazado interno a todas las sedes (SEO local) */}
+        <div className="pt-16 pb-16 border-b border-gray-100">
+          <h4 className="text-brand-red font-semibold uppercase tracking-[0.2em] text-[10px] mb-8">Control de Plagas por Ciudad</h4>
+          <nav aria-label="Cobertura por ciudad" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-4 text-sm font-medium text-gray-500">
+            {BRANCHES.map((branch) => (
+              <a
+                key={branch.id}
+                href={`/sedes/${branch.id}`}
+                className="hover:text-brand-red transition-colors flex items-center gap-2 group"
+              >
+                <div className="w-0 h-px bg-brand-red group-hover:w-4 transition-all" />
+                Control de Plagas en {branch.shortName || branch.name}
+              </a>
+            ))}
+          </nav>
         </div>
 
         <div className="pt-12 pb-12 flex flex-col md:flex-row justify-between items-center gap-8 border-b border-gray-50">

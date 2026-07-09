@@ -13,6 +13,7 @@ import LocationPage from './src/pages/LocationPage';
 
 import BlogArchivePage from './src/pages/BlogArchivePage';
 import BlogPostPage from './src/pages/BlogPostPage';
+import NotFound from './src/pages/NotFound';
 
 const ScrollToHash: React.FC = () => {
   const { hash } = useLocation();
@@ -75,6 +76,7 @@ const App: React.FC = () => {
               <Route path="/reseñas" element={<Reviews />} />
               <Route path="/blog" element={<BlogArchivePage />} />
               <Route path="/blog/:slug" element={<BlogPostPage />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />
