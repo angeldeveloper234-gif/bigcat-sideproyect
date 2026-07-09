@@ -5,6 +5,8 @@ const siteUrl = 'https://bigcat.mx';
 
 async function generateSitemap() {
   try {
+    const today = new Date().toISOString().split('T')[0];
+
     // 1. Static Pages
     const staticPages = [
       '',
@@ -32,10 +34,16 @@ async function generateSitemap() {
     ];
 
     // 3. Locations (Slugs from constants.ts BRANCHES)
-    const locationSlugs = [
-      'guadalajara', 'leon', 'queretaro', 'cdmx', 'monterrey', 
-      'puebla', 'tijuana', 'merida', 'sanluis', 'aguascalientes', 
-      'hermosillo', 'mexicali', 'culiacan', 'juarez'
+    // Ciudades PRIORITARIAS (foco SEO del cliente) → mayor prioridad en sitemap
+    const prioritySlugs = [
+      'monterrey', 'san-pedro-garza-garcia', 'queretaro', 'san-juan-del-rio',
+      'san-miguel-de-allende', 'saltillo', 'torreon', 'reynosa',
+      'tampico', 'matamoros', 'guadalajara'
+    ];
+    // Resto de sedes (cobertura nacional)
+    const otherSlugs = [
+      'leon', 'cdmx', 'puebla', 'tijuana', 'merida', 'sanluis',
+      'aguascalientes', 'hermosillo', 'mexicali', 'culiacan', 'juarez'
     ];
 
     // 4. Blog Posts (Slugs from constants.ts BLOG_POSTS)
@@ -64,12 +72,22 @@ async function generateSitemap() {
     <priority>0.9</priority>
   </url>`).join('').trim()}
 
-  <!-- Sedes -->
-  ${locationSlugs.map(slug => `
+  <!-- Sedes PRIORITARIAS (ciudades foco del cliente) -->
+  ${prioritySlugs.map(slug => `
   <url>
     <loc>${siteUrl}/sedes/${slug}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>`).join('').trim()}
+
+  <!-- Sedes (cobertura nacional) -->
+  ${otherSlugs.map(slug => `
+  <url>
+    <loc>${siteUrl}/sedes/${slug}</loc>
+    <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>`).join('').trim()}
 
   <!-- Blog Posts -->

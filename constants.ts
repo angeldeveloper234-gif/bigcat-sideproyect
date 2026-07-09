@@ -52,52 +52,231 @@ export interface Branch {
   coords: [number, number];
   range?: string;
   zipCodes?: string[];
+  /** Estado (para SEO local y schema): "Nuevo León", "Coahuila", etc. */
+  state?: string;
+  /** Nombre corto de la ciudad sin abreviatura de estado (para títulos SEO). */
+  shortName?: string;
+  /** Ciudad foco prioritaria del cliente (mayor peso en sitemap/interlinkado). */
+  priority?: boolean;
+  /** Párrafo introductorio ÚNICO por ciudad (evita contenido duplicado). */
+  intro?: string;
+  /** Colonias / zonas atendidas (relevancia hiperlocal). */
+  neighborhoods?: string[];
+  /** Plagas más frecuentes en la ciudad (contenido local real). */
+  commonPests?: string[];
+  /** Nota estacional/clima local que influye en las plagas. */
+  seasonalNote?: string;
 }
 
 export const BRANCHES: Branch[] = [
+  // ===================================================================
+  // CIUDADES PRIORITARIAS (foco SEO del cliente) — se listan primero
+  // Estados foco: Nuevo León, Coahuila, Jalisco, Querétaro (+ Tamaulipas, Gto.)
+  // ===================================================================
+  {
+    id: 'monterrey',
+    name: "Monterrey, N.L.",
+    shortName: "Monterrey",
+    state: "Nuevo León",
+    phone: "81 11150958",
+    address: "Rio Mississippi 44-I, Del Valle",
+    coords: [-100.3161, 25.6866],
+    range: "64000 - 66299",
+    zipCodes: ["64000", "64720", "64830", "64988", "66220", "66269"],
+    priority: true,
+    intro: "Somos la empresa de control de plagas de referencia en Monterrey y su Zona Metropolitana. Con base operativa en San Pedro Garza García, damos respuesta el mismo día a hogares, restaurantes e industrias del área regia, adaptando cada protocolo al clima semiárido y a las plagas urbanas más agresivas del norte de México.",
+    neighborhoods: ["Del Valle", "Centro", "Contry", "Cumbres", "Mitras", "Obispado", "San Jerónimo", "Valle Oriente"],
+    commonPests: ["Cucarachas", "Alacranes", "Roedores", "Hormigas", "Mosquitos"],
+    seasonalNote: "El calor extremo del verano regio dispara la actividad de cucarachas y alacranes; en Big Cat reforzamos las barreras perimetrales de mayo a septiembre."
+  },
+  {
+    id: 'san-pedro-garza-garcia',
+    name: "San Pedro Garza García, N.L.",
+    shortName: "San Pedro Garza García",
+    state: "Nuevo León",
+    phone: "81 11150958",
+    address: "Rio Mississippi 44-I, Del Valle",
+    coords: [-100.4028, 25.6588],
+    range: "66200 - 66290",
+    zipCodes: ["66220", "66230", "66240", "66250", "66260", "66270"],
+    priority: true,
+    intro: "En San Pedro Garza García —el municipio con el mayor nivel de vida de México— operamos con protocolos discretos de alto estándar para residencias premium, corporativos y restaurantes exclusivos. Nuestras oficinas se ubican aquí mismo, en Del Valle, lo que nos permite atención inmediata y confidencial en toda la zona.",
+    neighborhoods: ["Del Valle", "Valle Oriente", "Fuentes del Valle", "Colinas de San Jerónimo", "Zona Tec", "Vista Hermosa", "Chipinque"],
+    commonPests: ["Cucarachas", "Alacranes", "Hormigas", "Roedores", "Termitas"],
+    seasonalNote: "Las residencias de la falda de la Sierra Madre (Chipinque, Vista Hermosa) presentan mayor incidencia de alacranes; aplicamos barreras residuales de larga duración discretas."
+  },
+  {
+    id: 'queretaro',
+    name: "Querétaro, Qro.",
+    shortName: "Querétaro",
+    state: "Querétaro",
+    phone: "81 11150958",
+    address: "And. 5 de Mayo 39",
+    coords: [-100.3899, 20.5888],
+    range: "76000 - 76299",
+    zipCodes: ["76000", "76020", "76090", "76100", "76120", "76220"],
+    priority: true,
+    intro: "Querétaro es uno de los polos industriales y logísticos de mayor crecimiento del país, y con ese crecimiento llega la presión de plagas urbanas. Big Cat protege naves industriales, parques tecnológicos, restaurantes del Centro Histórico y fraccionamientos residenciales con manejo integrado certificado ante COFEPRIS.",
+    neighborhoods: ["Centro Histórico", "Juriquilla", "El Refugio", "Milenio III", "Álamos", "Jurica", "Zibatá"],
+    commonPests: ["Cucarachas", "Roedores", "Hormigas", "Termitas", "Mosquitos"],
+    seasonalNote: "La temporada de lluvias (junio-septiembre) incrementa mosquitos y hormigas en zonas como Juriquilla y El Refugio; ajustamos la nebulización perimetral en esos meses."
+  },
+  {
+    id: 'san-juan-del-rio',
+    name: "San Juan del Río, Qro.",
+    shortName: "San Juan del Río",
+    state: "Querétaro",
+    phone: "81 11150958",
+    address: "Av. Juárez Ote. 45, Centro",
+    coords: [-99.9962, 20.3897],
+    range: "76800 - 76806",
+    zipCodes: ["76800", "76802", "76804", "76806", "76807"],
+    priority: true,
+    intro: "En San Juan del Río, segundo municipio más importante de Querétaro y corredor industrial clave, brindamos control de plagas a la industria manufacturera, agroindustria, comercios y hogares. Nuestro servicio cumple con las auditorías de calidad e inocuidad que exigen las plantas de la región.",
+    neighborhoods: ["Centro", "Vista Hermosa", "La Estancia", "Banthí", "San Isidro", "Lomas de San Juan"],
+    commonPests: ["Roedores", "Cucarachas", "Moscas", "Hormigas", "Arañas"],
+    seasonalNote: "La cercanía con zonas agrícolas eleva la presión de roedores y moscas hacia naves y bodegas; implementamos estaciones de cebado perimetral inviolables."
+  },
+  {
+    id: 'san-miguel-de-allende',
+    name: "San Miguel de Allende, Gto.",
+    shortName: "San Miguel de Allende",
+    state: "Guanajuato",
+    phone: "81 11150958",
+    address: "Centro Histórico",
+    coords: [-100.7436, 20.9144],
+    range: "37700 - 37795",
+    zipCodes: ["37700", "37710", "37740", "37750", "37770"],
+    priority: true,
+    intro: "San Miguel de Allende, Patrimonio de la Humanidad y destino turístico de lujo, exige un control de plagas impecable y discreto para hoteles boutique, restaurantes de alta cocina, galerías y residencias coloniales. Big Cat protege sin dañar acabados históricos ni interrumpir la operación turística.",
+    neighborhoods: ["Centro Histórico", "San Antonio", "Guadiana", "Los Frailes", "Zona Dorada", "Balcones"],
+    commonPests: ["Alacranes", "Cucarachas", "Termitas", "Roedores", "Arañas"],
+    seasonalNote: "Las construcciones coloniales de piedra y madera son propensas a termitas y alacranes; usamos tratamientos de inyección discretos que respetan el patrimonio arquitectónico."
+  },
+  {
+    id: 'saltillo',
+    name: "Saltillo, Coah.",
+    shortName: "Saltillo",
+    state: "Coahuila",
+    phone: "81 11150958",
+    address: "Blvd. Venustiano Carranza 2400",
+    coords: [-100.9737, 25.4383],
+    range: "25000 - 25350",
+    zipCodes: ["25000", "25015", "25100", "25204", "25230", "25290"],
+    priority: true,
+    intro: "En Saltillo, capital de Coahuila y uno de los clústeres automotrices más importantes de América Latina, damos servicio a plantas industriales, proveedores del sector automotriz, comercios y hogares. Nuestros protocolos cumplen los estándares de inocuidad y seguridad que exige la industria manufacturera saltillense.",
+    neighborhoods: ["Centro", "República", "Saltillo 2000", "Los Pinos", "Rincón Colonial", "Valle Real"],
+    commonPests: ["Cucarachas", "Roedores", "Alacranes", "Hormigas", "Arañas"],
+    seasonalNote: "El clima seco de Saltillo favorece la entrada de alacranes y arañas a interiores; reforzamos sellado de accesos y barreras perimetrales en primavera-verano."
+  },
+  {
+    id: 'torreon',
+    name: "Torreón, Coah.",
+    shortName: "Torreón",
+    state: "Coahuila",
+    phone: "81 11150958",
+    address: "Blvd. Independencia 1500",
+    coords: [-103.4068, 25.5439],
+    range: "27000 - 27420",
+    zipCodes: ["27000", "27010", "27100", "27200", "27260", "27290"],
+    priority: true,
+    intro: "Torreón, corazón de La Laguna, combina un fuerte sector industrial, agroindustrial y comercial con un clima desértico que intensifica ciertas plagas. Big Cat atiende bodegas, restaurantes, comercios y residencias con manejo integrado de plagas certificado y garantía por escrito.",
+    neighborhoods: ["Centro", "Torreón Jardín", "San Isidro", "Los Ángeles", "Villa Florida", "Ampliación Los Ángeles"],
+    commonPests: ["Alacranes", "Cucarachas", "Roedores", "Moscas", "Mosquitos"],
+    seasonalNote: "El calor extremo lagunero eleva la presencia de alacranes y moscas; aplicamos programas intensivos de mayo a septiembre con seguimiento quincenal."
+  },
+  {
+    id: 'reynosa',
+    name: "Reynosa, Tamps.",
+    shortName: "Reynosa",
+    state: "Tamaulipas",
+    phone: "81 11150958",
+    address: "Blvd. Hidalgo 1200",
+    coords: [-98.2880, 26.0806],
+    range: "88500 - 88799",
+    zipCodes: ["88500", "88520", "88630", "88690", "88710", "88780"],
+    priority: true,
+    intro: "En Reynosa, uno de los principales polos maquiladores de la frontera norte, damos servicio de control de plagas a parques industriales, maquiladoras, comercios y hogares. El clima cálido y húmedo de la frontera exige un control constante de mosquitos, cucarachas y roedores, y Big Cat responde con protocolos de alta frecuencia.",
+    neighborhoods: ["Centro", "Las Fuentes", "Del Prado", "Aztlán", "Jarachina", "Valle Alto"],
+    commonPests: ["Mosquitos", "Cucarachas", "Roedores", "Moscas", "Hormigas"],
+    seasonalNote: "La humedad fronteriza y el riesgo de dengue hacen crítico el control de mosquitos; ofrecemos nebulización y tratamiento de criaderos durante toda la temporada cálida."
+  },
+  {
+    id: 'tampico',
+    name: "Tampico, Tamps.",
+    shortName: "Tampico",
+    state: "Tamaulipas",
+    phone: "81 11150958",
+    address: "Av. Hidalgo 4000",
+    coords: [-97.8686, 22.2553],
+    range: "89000 - 89370",
+    zipCodes: ["89000", "89100", "89140", "89200", "89308", "89360"],
+    priority: true,
+    intro: "Tampico, puerto histórico del Golfo, presenta una alta humedad y clima tropical que favorecen plagas como cucarachas, mosquitos y termitas. Big Cat protege comercios del centro, restaurantes de mariscos, hoteles de la zona conurbada (Tampico-Madero-Altamira) y residencias con soluciones adaptadas al ambiente costero.",
+    neighborhoods: ["Centro Histórico", "Zona Dorada", "Águila", "Universidad", "Flamboyanes", "Laguna de la Puerta"],
+    commonPests: ["Cucarachas", "Mosquitos", "Termitas", "Roedores", "Moscas"],
+    seasonalNote: "La humedad tropical del puerto mantiene alta la actividad de cucarachas y termitas todo el año; recomendamos programas de mantenimiento mensual en negocios."
+  },
+  {
+    id: 'matamoros',
+    name: "Matamoros, Tamps.",
+    shortName: "Matamoros",
+    state: "Tamaulipas",
+    phone: "81 11150958",
+    address: "Av. Lauro Villar 800",
+    coords: [-97.5027, 25.8690],
+    range: "87300 - 87599",
+    zipCodes: ["87300", "87340", "87370", "87450", "87490", "87560"],
+    priority: true,
+    intro: "En Matamoros, ciudad fronteriza y puerto industrial de Tamaulipas, atendemos maquiladoras, comercios, bodegas y hogares con control de plagas certificado. El clima cálido y la actividad logística fronteriza requieren un manejo riguroso de roedores, cucarachas y mosquitos que Big Cat garantiza por escrito.",
+    neighborhoods: ["Centro", "Jardín", "Victoria", "Fraccionamiento Los Encinos", "Valle Real", "Modulo 2000"],
+    commonPests: ["Roedores", "Mosquitos", "Cucarachas", "Moscas", "Hormigas"],
+    seasonalNote: "El tránsito de mercancías fronterizo incrementa el riesgo de roedores en bodegas; instalamos estaciones de monitoreo perimetral con reporte documentado para auditorías."
+  },
+
+  // ===================================================================
+  // RESTO DE SEDES (cobertura nacional)
+  // ===================================================================
   {
     id: 'guadalajara',
     name: "Guadalajara, Jal.",
+    shortName: "Guadalajara",
+    state: "Jalisco",
     phone: "81 11150958",
     address: "C. Miguel Lerdo de Tejada 2379",
     coords: [-103.4147, 20.7326],
-    range: "44100 - 45200"
+    range: "44100 - 45200",
+    priority: true,
+    intro: "Guadalajara, la Perla de Occidente y una de las mayores zonas metropolitanas del país, concentra una enorme actividad gastronómica, comercial e industrial. Big Cat ofrece control de plagas profesional para restaurantes de Chapultepec y Providencia, comercios del centro, industrias de El Salto y residencias en toda la ZMG.",
+    neighborhoods: ["Centro", "Providencia", "Chapultepec", "Zapopan", "Andares", "Tlaquepaque", "Americana"],
+    commonPests: ["Cucarachas", "Roedores", "Hormigas", "Mosquitos", "Termitas"],
+    seasonalNote: "La temporada de lluvias tapatía dispara mosquitos y hormigas; ajustamos los tratamientos perimetrales de junio a octubre."
   },
   {
     id: 'leon',
     name: "León, Gto.",
+    shortName: "León",
+    state: "Guanajuato",
     phone: "81 11150958",
     address: "Blvd. Campestre 1511",
     coords: [-101.68, 21.12],
     range: "37000 - 37999"
   },
   {
-    id: 'queretaro',
-    name: "Querétaro, Qro.",
-    phone: "81 11150958",
-    address: "And. 5 de Mayo 39",
-    coords: [-100.39, 20.59],
-    range: "76000 - 76299"
-  },
-  {
     id: 'cdmx',
     name: "Ciudad de México",
+    shortName: "Ciudad de México",
+    state: "Ciudad de México",
     phone: "81 11150958",
     address: "Tennyson 133, Polanco",
     coords: [-99.13, 19.43],
     range: "01000 - 16999"
   },
   {
-    id: 'monterrey',
-    name: "Monterrey, N.L.",
-    phone: "81 11150958",
-    address: "Rio Mississippi 44-I, Del Valle",
-    coords: [-100.31, 25.68],
-    range: "64000 - 66299"
-  },
-  {
     id: 'puebla',
     name: "Puebla, Pue.",
+    shortName: "Puebla",
+    state: "Puebla",
     phone: "81 11150958",
     address: "Av. Juárez 2902",
     coords: [-98.20, 19.04],
@@ -106,6 +285,8 @@ export const BRANCHES: Branch[] = [
   {
     id: 'tijuana',
     name: "Tijuana, B.C.",
+    shortName: "Tijuana",
+    state: "Baja California",
     phone: "81 11150958",
     address: "Blvd. Agua Caliente 10440",
     coords: [-117.03, 32.51],
@@ -114,6 +295,8 @@ export const BRANCHES: Branch[] = [
   {
     id: 'merida',
     name: "Mérida, Yuc.",
+    shortName: "Mérida",
+    state: "Yucatán",
     phone: "81 11150958",
     address: "Calle 60 491",
     coords: [-89.62, 20.96],
@@ -122,6 +305,8 @@ export const BRANCHES: Branch[] = [
   {
     id: 'sanluis',
     name: "San Luis Potosí",
+    shortName: "San Luis Potosí",
+    state: "San Luis Potosí",
     phone: "81 11150958",
     address: "Av. Venustiano Carranza 1000",
     coords: [-100.97, 22.15],
@@ -130,6 +315,8 @@ export const BRANCHES: Branch[] = [
   {
     id: 'aguascalientes',
     name: "Aguascalientes",
+    shortName: "Aguascalientes",
+    state: "Aguascalientes",
     phone: "81 11150958",
     address: "Av. Universidad 1001",
     coords: [-102.29, 21.88],
@@ -138,6 +325,8 @@ export const BRANCHES: Branch[] = [
   {
     id: 'hermosillo',
     name: "Hermosillo, Son.",
+    shortName: "Hermosillo",
+    state: "Sonora",
     phone: "81 11150958",
     address: "Blvd. Eusebio Kino 300",
     coords: [-110.96, 29.07],
@@ -146,6 +335,8 @@ export const BRANCHES: Branch[] = [
   {
     id: 'mexicali',
     name: "Mexicali, B.C.",
+    shortName: "Mexicali",
+    state: "Baja California",
     phone: "81 11150958",
     address: "Av. Madero 100",
     coords: [-115.45, 32.62],
@@ -154,6 +345,8 @@ export const BRANCHES: Branch[] = [
   {
     id: 'culiacan',
     name: "Culiacán, Sin.",
+    shortName: "Culiacán",
+    state: "Sinaloa",
     phone: "81 11150958",
     address: "Blvd. Pedro Infante 2500",
     coords: [-107.39, 24.80],
@@ -162,6 +355,8 @@ export const BRANCHES: Branch[] = [
   {
     id: 'juarez',
     name: "Cd. Juárez, Chih.",
+    shortName: "Ciudad Juárez",
+    state: "Chihuahua",
     phone: "81 11150958",
     address: "Av. Lincoln 1000",
     coords: [-106.48, 31.73],

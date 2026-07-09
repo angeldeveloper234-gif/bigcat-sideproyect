@@ -48,11 +48,15 @@ const App: React.FC = () => {
       "addressCountry": "MX"
     },
     "areaServed": [
-      "Guadalajara", "León", "Querétaro", "Ciudad de México", "Monterrey", "Puebla", "Tijuana", "Mérida", "San Luis Potosí", "Aguascalientes", "Hermosillo", "Mexicali", "Culiacán", "Cd. Juárez"
+      "Monterrey", "San Pedro Garza García", "Querétaro", "San Juan del Río", "San Miguel de Allende", "Saltillo", "Torreón", "Reynosa", "Tampico", "Matamoros", "Guadalajara", "León", "Ciudad de México", "Puebla", "Tijuana", "Mérida", "San Luis Potosí", "Aguascalientes", "Hermosillo", "Mexicali", "Culiacán", "Cd. Juárez"
     ],
     "openingHours": "Mo-Su 08:00-20:00",
     "image": "https://bigcat.mx/logo/BIG CAT - Control de plagas.png",
-    "priceRange": "$$"
+    "priceRange": "$$",
+    "sameAs": [
+      "https://web.facebook.com/profile.php?id=61561957291508",
+      "https://www.instagram.com/bigcat.mx/"
+    ]
   };
 
   return (
