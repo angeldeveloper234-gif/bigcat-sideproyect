@@ -6,8 +6,66 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && npm run sitemap",
+    "postbuild": "react-snap",
     "preview": "vite preview",
     "sitemap": "node scripts/generate-sitemap.js"
+  },
+  "reactSnap": {
+    "source": "dist",
+    "minifyHtml": {
+      "collapseWhitespace": false,
+      "removeComments": false
+    },
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
+    "include": [
+      "/",
+      "/nosotros",
+      "/faq",
+      "/reseñas",
+      "/blog",
+      "/servicios/control-de-plagas-comercial",
+      "/servicios/eliminacion-de-cucarachas",
+      "/servicios/control-de-hormigas",
+      "/servicios/control-de-termitas",
+      "/servicios/control-de-chinches",
+      "/servicios/control-de-roedores",
+      "/servicios/control-de-pulgas",
+      "/servicios/control-de-avispas",
+      "/servicios/control-de-garrapatas",
+      "/servicios/control-de-mosquitos",
+      "/servicios/control-de-alacranes",
+      "/servicios/control-de-aranas",
+      "/servicios/control-de-aves-y-palomas",
+      "/sedes/monterrey",
+      "/sedes/san-pedro-garza-garcia",
+      "/sedes/queretaro",
+      "/sedes/san-juan-del-rio",
+      "/sedes/san-miguel-de-allende",
+      "/sedes/saltillo",
+      "/sedes/torreon",
+      "/sedes/reynosa",
+      "/sedes/tampico",
+      "/sedes/matamoros",
+      "/sedes/guadalajara",
+      "/sedes/leon",
+      "/sedes/cdmx",
+      "/sedes/puebla",
+      "/sedes/tijuana",
+      "/sedes/merida",
+      "/sedes/sanluis",
+      "/sedes/aguascalientes",
+      "/sedes/hermosillo",
+      "/sedes/mexicali",
+      "/sedes/culiacan",
+      "/sedes/juarez",
+      "/blog/control-plagas-invierno",
+      "/blog/hormigas-invadiendo-hogar",
+      "/blog/otono-cucarachas-casas",
+      "/blog/insectos-comunes-mexico"
+    ]
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.93.1",
@@ -23,6 +81,10 @@
   "devDependencies": {
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
+    "autoprefixer": "^10.5.2",
+    "postcss": "^8.5.16",
+    "react-snap": "^1.23.0",
+    "tailwindcss": "^3.4.19",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }

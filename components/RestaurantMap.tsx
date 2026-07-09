@@ -180,6 +180,12 @@ const RestaurantMap: React.FC = () => {
 
     useEffect(() => {
         if (!mapContainer.current) return;
+        // Durante el prerender (react-snap) no inicializamos Mapbox: su Chromium
+        // no soporta FinalizationRegistry. En el cliente real sí se ejecuta.
+        if (typeof navigator !== 'undefined' && navigator.userAgent === 'ReactSnap') {
+            setIsLoading(false);
+            return;
+        }
         mapboxgl.accessToken = MAPBOX_TOKEN;
 
         mapRef.current = new mapboxgl.Map({
