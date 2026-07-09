@@ -9,7 +9,12 @@ import { BlogPost } from '../../types';
 import { BLOG_POSTS, formatBlogDate } from '../../constants';
 
 const BlogArchivePage: React.FC = () => {
-  const [posts] = useState<BlogPost[]>(BLOG_POSTS);
+  // Orden por fecha de publicación (más reciente primero) — señal de frescura SEO.
+  const [posts] = useState<BlogPost[]>(
+    [...BLOG_POSTS].sort(
+      (a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
+    )
+  );
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {

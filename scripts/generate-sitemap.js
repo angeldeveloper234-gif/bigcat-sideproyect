@@ -51,7 +51,15 @@ async function generateSitemap() {
       'control-plagas-invierno',
       'hormigas-invadiendo-hogar',
       'otono-cucarachas-casas',
-      'insectos-comunes-mexico'
+      'insectos-comunes-mexico',
+      'control-de-plagas-monterrey-calor',
+      'alacranes-norte-mexico-prevencion',
+      'como-elegir-empresa-control-de-plagas',
+      'control-de-plagas-restaurantes-cofepris',
+      'chinches-de-cama-deteccion-eliminacion',
+      'mosquitos-dengue-zonas-calidas',
+      'termitas-senales-riesgo-hogar',
+      'cuanto-cuesta-fumigacion-mexico-2026'
     ];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

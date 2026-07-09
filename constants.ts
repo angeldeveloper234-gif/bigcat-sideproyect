@@ -932,6 +932,305 @@ export const BLOG_POSTS = [
     category: "Noticias",
     meta_description: "Identifica las plagas más comunes en México y conoce los riesgos asociados a cada una. Información experta de Big Cat.",
     keywords: ["plagas comunes mexico", "alacranes", "chinches de cama", "araña violinista"]
+  },
+  {
+    id: '5',
+    slug: 'control-de-plagas-monterrey-calor',
+    title: "Control de plagas en Monterrey: por qué el calor extremo dispara las infestaciones",
+    excerpt: "El verano regio no solo es sofocante: es el escenario perfecto para que cucarachas, alacranes y roedores invadan tu hogar o negocio. Te explicamos por qué y cómo prevenirlo.",
+    content: `
+      <p>Si vives en <strong>Monterrey</strong> o su zona metropolitana, sabes que el verano no perdona. Pero más allá de las altas temperaturas, pocos saben que el calor extremo del área regia es uno de los principales detonantes de infestaciones de plagas en hogares, restaurantes e industrias.</p>
+
+      <img src="/services/cucaracha.webp" alt="Control de plagas en Monterrey durante el calor" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+
+      <h2>¿Por qué el calor de Monterrey atrae más plagas?</h2>
+      <p>Las plagas son organismos de sangre fría: su metabolismo se acelera con el calor. En una ciudad con veranos que superan los 40°C como Monterrey, esto se traduce en ciclos de reproducción más rápidos y una búsqueda desesperada de agua y sombra… dentro de tu casa.</p>
+      <ul>
+        <li><strong>Cucarachas:</strong> El calor acelera su reproducción y las empuja hacia cocinas y baños en busca de humedad. Conoce nuestro <a href="/servicios/eliminacion-de-cucarachas">servicio de eliminación de cucarachas</a>.</li>
+        <li><strong>Alacranes:</strong> Muy comunes en las faldas de la Sierra Madre (San Pedro, Chipinque). Buscan refugio fresco en interiores. Revisa el <a href="/servicios/control-de-alacranes">control de alacranes</a>.</li>
+        <li><strong>Roedores:</strong> El estrés hídrico los acerca a fuentes de agua domésticas. Aquí nuestro <a href="/servicios/control-de-roedores">control de roedores</a>.</li>
+      </ul>
+
+      <h3>Zonas de Monterrey con mayor incidencia</h3>
+      <p>En colonias como Del Valle, Cumbres, Contry y San Jerónimo registramos picos de actividad entre mayo y septiembre. Las viviendas cercanas a áreas verdes o a la sierra presentan mayor presión de alacranes.</p>
+
+      <h3>Cómo proteger tu propiedad este verano</h3>
+      <p>1. Sella grietas en muros y zócalos, especialmente en planta baja.<br/>
+      2. Elimina fugas y encharcamientos: el agua es el imán número uno.<br/>
+      3. Programa una barrera perimetral residual antes del pico de calor.</p>
+
+      <p>En <strong>Big Cat</strong> reforzamos los protocolos para el clima regio de mayo a septiembre. Conoce nuestra cobertura de <a href="/sedes/monterrey">control de plagas en Monterrey</a> y solicita una inspección gratuita.</p>
+    `,
+    featured_image: "/services/cucaracha.webp",
+    published_at: "2026-05-06T10:00:00Z",
+    author: "Alexander",
+    category: "Guía Local",
+    meta_description: "Descubre por qué el calor extremo de Monterrey dispara las plagas de cucarachas, alacranes y roedores, y cómo protegerte. Guía local de Big Cat Control de Plagas.",
+    keywords: ["control de plagas monterrey", "fumigación monterrey", "plagas calor", "cucarachas monterrey", "alacranes monterrey"]
+  },
+  {
+    id: '6',
+    slug: 'alacranes-norte-mexico-prevencion',
+    title: "Alacranes en el norte de México: guía de prevención para Coahuila y Nuevo León",
+    excerpt: "Saltillo, Torreón y Monterrey están entre las zonas con mayor presencia de alacranes. Aprende a identificar el riesgo y a mantener tu hogar seguro.",
+    content: `
+      <p>El alacrán es una de las plagas más temidas —y peligrosas— del norte de México. En estados como <strong>Coahuila</strong> y <strong>Nuevo León</strong>, su picadura representa un riesgo real de salud, sobre todo para niños, adultos mayores y mascotas.</p>
+
+      <img src="/services/alacranes.webp" alt="Prevención de alacranes en el norte de México" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+
+      <h2>¿Por qué hay tantos alacranes en el norte?</h2>
+      <p>El clima seco y cálido de ciudades como <a href="/sedes/saltillo">Saltillo</a>, <a href="/sedes/torreon">Torreón</a> y <a href="/sedes/monterrey">Monterrey</a> es el hábitat ideal para el <em>Centruroides</em>, el género de alacrán de importancia médica en México. Buscan refugio fresco durante el día y salen de noche a cazar.</p>
+
+      <h3>Puntos donde se esconden en casa</h3>
+      <ul>
+        <li>Grietas en muros y zócalos.</li>
+        <li>Detrás de cuadros, muebles y electrodomésticos.</li>
+        <li>Registros de drenaje, coladeras y cajas de luz.</li>
+        <li>Zapatos, ropa y toallas dejadas en el piso.</li>
+      </ul>
+
+      <h3>7 hábitos que reducen el riesgo</h3>
+      <p>1. Sacude ropa, zapatos y ropa de cama antes de usarlos.<br/>
+      2. Sella grietas y coloca guardapolvos en puertas exteriores.<br/>
+      3. Mantén patios libres de escombros, madera y macetas amontonadas.<br/>
+      4. Instala mosquiteros y protege coladeras.<br/>
+      5. Evita acumular cajas contra los muros.<br/>
+      6. Usa luz de vapor de sodio (amarilla) en exteriores: atrae menos insectos de los que se alimentan.<br/>
+      7. Aplica una <a href="/servicios/control-de-alacranes">barrera química residual profesional</a> en el perímetro.</p>
+
+      <h2>¿Qué hacer ante una picadura?</h2>
+      <p>Acude de inmediato al centro de salud más cercano. México cuenta con antídoto (faboterápico) gratuito en el sector público. No apliques remedios caseros.</p>
+
+      <p>En <strong>Big Cat</strong> aplicamos barreras residuales de larga duración, seguras para tu familia, diseñadas específicamente para el clima del norte. Solicita tu inspección en <a href="/sedes/saltillo">Saltillo</a>, <a href="/sedes/torreon">Torreón</a> o <a href="/sedes/monterrey">Monterrey</a>.</p>
+    `,
+    featured_image: "/services/alacranes.webp",
+    published_at: "2026-05-13T09:30:00Z",
+    author: "Alexander",
+    category: "Prevención",
+    meta_description: "Guía de prevención de alacranes en Coahuila y Nuevo León: dónde se esconden, cómo evitarlos y qué hacer ante una picadura. Consejos de Big Cat.",
+    keywords: ["alacranes", "control de alacranes", "alacranes saltillo", "alacranes torreón", "picadura de alacrán", "alacranes monterrey"]
+  },
+  {
+    id: '7',
+    slug: 'como-elegir-empresa-control-de-plagas',
+    title: "Cómo elegir una empresa de control de plagas en México: 7 puntos clave",
+    excerpt: "No todas las fumigadoras son iguales. Estos son los criterios que debes revisar antes de contratar para no tirar tu dinero (ni arriesgar tu salud).",
+    content: `
+      <p>Contratar control de plagas parece sencillo, pero elegir mal puede significar pagar por un servicio que no funciona —o peor, exponer a tu familia a productos mal aplicados. Esta es la guía definitiva para elegir una <strong>empresa de control de plagas</strong> confiable en México.</p>
+
+      <img src="/images/hero-home.webp" alt="Cómo elegir una empresa de control de plagas" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+
+      <h2>1. Registro y licencia ante COFEPRIS</h2>
+      <p>Toda empresa seria debe operar con productos y protocolos autorizados por la <strong>COFEPRIS</strong>. Si no pueden comprobarlo, desconfía.</p>
+
+      <h2>2. Técnicos capacitados y certificados</h2>
+      <p>El producto es solo la mitad del trabajo; la aplicación correcta es la otra mitad. Pregunta por la capacitación del personal.</p>
+
+      <h2>3. Diagnóstico antes que cotización</h2>
+      <p>Una buena empresa inspecciona antes de darte un precio. Las cotizaciones "a ciegas" suelen esconder sorpresas.</p>
+
+      <h2>4. Garantía por escrito</h2>
+      <p>Si el servicio es efectivo, la empresa lo respalda por escrito. En <strong>Big Cat</strong> entregamos garantía documentada en cada servicio.</p>
+
+      <h2>5. Productos seguros para niños y mascotas</h2>
+      <p>Busca métodos de bajo impacto como el <a href="/servicios/control-de-plagas-comercial">Manejo Integrado de Plagas (MIP)</a>, geles inodoros y nebulización controlada.</p>
+
+      <h2>6. Cobertura y tiempos de respuesta</h2>
+      <p>Una plaga no espera. Verifica que tengan presencia local y atención el mismo día en tu ciudad.</p>
+
+      <h2>7. Reseñas y experiencia comprobable</h2>
+      <p>Los años en el mercado y las reseñas reales importan. Big Cat cuenta con más de 29 años de experiencia respaldados por PCP Internacional.</p>
+
+      <p>¿Buscas un servicio que cumpla los 7 puntos? Conoce nuestra <a href="/nosotros">historia</a> y solicita una <a href="/#cotizacion">cotización gratuita</a>.</p>
+    `,
+    featured_image: "/images/hero-home.webp",
+    published_at: "2026-05-20T11:00:00Z",
+    author: "Alexander",
+    category: "Guía de Compra",
+    meta_description: "7 criterios clave para elegir una empresa de control de plagas confiable en México: COFEPRIS, garantía, seguridad y más. Guía experta de Big Cat.",
+    keywords: ["empresa control de plagas", "mejor fumigadora", "cofepris", "elegir fumigadora", "control de plagas confiable"]
+  },
+  {
+    id: '8',
+    slug: 'control-de-plagas-restaurantes-cofepris',
+    title: "Control de plagas para restaurantes: cumple con COFEPRIS y evita multas",
+    excerpt: "Una sola cucaracha puede cerrar tu restaurante. Descubre cómo un programa profesional protege tu reputación, tus clientes y tu licencia sanitaria.",
+    content: `
+      <p>En la industria restaurantera, la higiene no es negociable. Un incidente de plagas puede significar una multa, una clausura o —lo más costoso— la pérdida de la confianza de tus clientes en la era de las reseñas en línea.</p>
+
+      <img src="/images/cocina.webp" alt="Control de plagas para restaurantes y COFEPRIS" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+
+      <h2>¿Qué exige la normativa sanitaria en México?</h2>
+      <p>La <strong>COFEPRIS</strong> y las normas de inocuidad (como la NOM-251) exigen un programa documentado de control de plagas. Esto incluye bitácoras, mapas de estaciones de cebado, productos autorizados y personal capacitado.</p>
+
+      <h3>Riesgos de no tener un programa profesional</h3>
+      <ul>
+        <li>Multas y clausuras por parte de la autoridad sanitaria.</li>
+        <li>Contaminación de alimentos y riesgo de intoxicaciones.</li>
+        <li>Daño reputacional viral en redes y plataformas de reseñas.</li>
+        <li>Pérdida de certificaciones y contratos con cadenas.</li>
+      </ul>
+
+      <h2>Cómo funciona el Manejo Integrado de Plagas (MIP)</h2>
+      <p>Nuestro <a href="/servicios/control-de-plagas-comercial">programa comercial MIP</a> prioriza la prevención: inspección, sellado de accesos, monitoreo con estaciones inviolables y aplicación química solo cuando es necesaria. Todo documentado para tus auditorías.</p>
+
+      <h3>Plagas críticas en cocinas profesionales</h3>
+      <p>Las más frecuentes son <a href="/servicios/eliminacion-de-cucarachas">cucarachas</a>, <a href="/servicios/control-de-roedores">roedores</a> y moscas. Cada una requiere un abordaje distinto y discreto que no interrumpa tu operación.</p>
+
+      <p>En <strong>Big Cat</strong> protegemos a más de 300 restaurantes en México, desde Monterrey hasta Querétaro y la CDMX. Solicita una auditoría de vulnerabilidades sin costo para tu establecimiento.</p>
+    `,
+    featured_image: "/images/cocina.webp",
+    published_at: "2026-05-27T10:15:00Z",
+    author: "Alexander",
+    category: "Sector Comercial",
+    meta_description: "Guía de control de plagas para restaurantes en México: cumple con COFEPRIS y la NOM-251, evita multas y protege tu reputación. Programa MIP de Big Cat.",
+    keywords: ["control de plagas restaurantes", "fumigación comercial", "cofepris restaurantes", "inocuidad alimentaria", "nom-251"]
+  },
+  {
+    id: '9',
+    slug: 'chinches-de-cama-deteccion-eliminacion',
+    title: "Chinches de cama: cómo detectarlas a tiempo y eliminarlas por completo",
+    excerpt: "Las chinches de cama resurgieron con fuerza por el turismo. Aprende a reconocer las señales tempranas antes de que la infestación se salga de control.",
+    content: `
+      <p>Las <strong>chinches de cama</strong> son una de las plagas más difíciles de eliminar por cuenta propia. Se esconden, se reproducen rápido y viajan en el equipaje. Detectarlas a tiempo es la diferencia entre un tratamiento sencillo y una infestación costosa.</p>
+
+      <img src="/images/chinches_bedroom_1776661359500.png" alt="Detección y eliminación de chinches de cama" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+
+      <h2>5 señales de que tienes chinches</h2>
+      <ol>
+        <li><strong>Picaduras en línea o en zigzag</strong> al despertar, generalmente en brazos, cuello y piernas.</li>
+        <li><strong>Manchas oscuras</strong> (excremento) en costuras del colchón y base de la cama.</li>
+        <li><strong>Pequeñas manchas de sangre</strong> en las sábanas.</li>
+        <li><strong>Mudas de piel</strong> translúcidas cerca de los escondites.</li>
+        <li><strong>Olor dulzón y desagradable</strong> en infestaciones avanzadas.</li>
+      </ol>
+
+      <h2>¿Por qué no basta con los remedios caseros?</h2>
+      <p>Los insecticidas de aerosol dispersan la colonia y generan resistencia. Las chinches soportan largos periodos sin alimentarse y sus huevos son muy resistentes, por lo que un tratamiento incompleto casi garantiza el rebrote.</p>
+
+      <h3>El tratamiento profesional</h3>
+      <p>En <strong>Big Cat</strong> combinamos métodos de calor y nebulización dirigida para eliminar huevos y adultos. Conoce el <a href="/servicios/control-de-chinches">control de chinches de cama</a>. Es especialmente crítico en hoteles y hospedajes de destinos turísticos como <a href="/sedes/san-miguel-de-allende">San Miguel de Allende</a> y <a href="/sedes/queretaro">Querétaro</a>.</p>
+
+      <h3>Cómo prevenir su regreso</h3>
+      <p>Revisa tu equipaje tras viajar, usa fundas de colchón certificadas y evita comprar muebles usados sin inspección. Si viajas con frecuencia, inspecciona el cabecero y las costuras del colchón al llegar a cualquier hotel.</p>
+
+      <p>¿Sospechas de una infestación? Solicita una inspección discreta y profesional hoy mismo.</p>
+    `,
+    featured_image: "/images/chinches_bedroom_1776661359500.png",
+    published_at: "2026-06-03T09:00:00Z",
+    author: "Alexander",
+    category: "Guía de Especies",
+    meta_description: "Aprende a detectar chinches de cama a tiempo: señales, picaduras y por qué necesitas tratamiento profesional. Guía de eliminación de Big Cat.",
+    keywords: ["chinches de cama", "eliminar chinches", "chinches hotel", "picaduras de chinches", "señales de chinches"]
+  },
+  {
+    id: '10',
+    slug: 'mosquitos-dengue-zonas-calidas',
+    title: "Mosquitos y dengue: cómo protegerte en Tampico, Reynosa y zonas cálidas",
+    excerpt: "En las zonas cálidas y húmedas del país, el mosquito no solo molesta: transmite dengue, zika y chikungunya. Te decimos cómo cortar su ciclo.",
+    content: `
+      <p>En ciudades cálidas y húmedas como <a href="/sedes/tampico">Tampico</a>, <a href="/sedes/reynosa">Reynosa</a> y <a href="/sedes/matamoros">Matamoros</a>, el mosquito <em>Aedes aegypti</em> es más que una molestia: es el principal transmisor de <strong>dengue, zika y chikungunya</strong> en México.</p>
+
+      <img src="/services/mosquitos.webp" alt="Control de mosquitos y prevención de dengue" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+
+      <h2>El agua estancada es el enemigo</h2>
+      <p>El <em>Aedes</em> se reproduce en pequeñas acumulaciones de agua limpia. Un tapón de botella con agua puede convertirse en un criadero. Por eso el control empieza en casa.</p>
+
+      <h3>Revisa estos criaderos comunes</h3>
+      <ul>
+        <li>Platos de macetas y bebederos de mascotas.</li>
+        <li>Llantas, cubetas y juguetes en el patio.</li>
+        <li>Canaletas y azoteas con mal drenaje.</li>
+        <li>Tinacos y cisternas destapadas.</li>
+        <li>Floreros y agua de plantas.</li>
+      </ul>
+
+      <h2>Prevención en 3 pasos: lava, tapa, voltea</h2>
+      <p>1. <strong>Lava</strong> los recipientes que acumulan agua.<br/>
+      2. <strong>Tapa</strong> tinacos y depósitos.<br/>
+      3. <strong>Voltea</strong> o desecha objetos que junten agua.</p>
+
+      <h2>El control profesional marca la diferencia</h2>
+      <p>Cuando la población de mosquitos ya es alta, la nebulización perimetral y el tratamiento de criaderos son la solución más eficaz. Conoce nuestro <a href="/servicios/control-de-mosquitos">control de mosquitos</a>, ideal para negocios, escuelas y residencias en zonas de riesgo.</p>
+
+      <p>En <strong>Big Cat</strong> ofrecemos programas de temporada para la costa del Golfo y la frontera norte. Protege a tu familia antes del pico de lluvias.</p>
+    `,
+    featured_image: "/services/mosquitos.webp",
+    published_at: "2026-06-10T10:30:00Z",
+    author: "Alexander",
+    category: "Salud y Prevención",
+    meta_description: "Cómo protegerte de mosquitos y dengue en Tampico, Reynosa y zonas cálidas de México: elimina criaderos y conoce el control profesional de Big Cat.",
+    keywords: ["mosquitos", "control de mosquitos", "dengue mexico", "fumigación mosquitos tampico", "aedes aegypti"]
+  },
+  {
+    id: '11',
+    slug: 'termitas-senales-riesgo-hogar',
+    title: "Termitas: 6 señales de que están destruyendo tu casa (y cómo detenerlas)",
+    excerpt: "Las termitas trabajan en silencio y pueden comprometer la estructura de tu hogar antes de que las veas. Aprende a detectar el daño a tiempo.",
+    content: `
+      <p>Las <strong>termitas</strong> son conocidas como "el enemigo silencioso" por una buena razón: pueden devorar la madera de tu casa durante años sin que lo notes. Detectarlas a tiempo puede ahorrarte miles de pesos en reparaciones estructurales.</p>
+
+      <img src="/services/termitas.webp" alt="Señales de daño por termitas en el hogar" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+
+      <h2>6 señales de que tienes termitas</h2>
+      <ol>
+        <li><strong>Tubos de lodo</strong> en muros, cimientos o esquinas (túneles que construyen para desplazarse).</li>
+        <li><strong>Madera que suena hueca</strong> al golpearla.</li>
+        <li><strong>Alas desprendidas</strong> cerca de ventanas tras un vuelo de reproducción.</li>
+        <li><strong>Pintura abombada o agrietada</strong> sin causa aparente.</li>
+        <li><strong>Puertas y ventanas que se atoran</strong> por deformación de la madera.</li>
+        <li><strong>Polvo fino tipo aserrín</strong> (excremento de termita de madera seca).</li>
+      </ol>
+
+      <h2>Termitas subterráneas vs. de madera seca</h2>
+      <p>Las subterráneas viven en el suelo y suben por los cimientos; son las más destructivas. Las de madera seca colonizan muebles y vigas directamente. Cada una requiere un tratamiento distinto, por eso el diagnóstico profesional es esencial. Esto es especialmente relevante en construcciones históricas como las de <a href="/sedes/san-miguel-de-allende">San Miguel de Allende</a>.</p>
+
+      <h3>La solución profesional</h3>
+      <p>Nuestro <a href="/servicios/control-de-termitas">control de termitas</a> incluye barreras químicas en el suelo, inyección profunda en la madera afectada y tratamientos preventivos en pre-construcción, con garantía extendida.</p>
+
+      <p>Si detectaste una o más de estas señales, no esperes: el daño estructural avanza cada día. Solicita una inspección especializada con <strong>Big Cat</strong>.</p>
+    `,
+    featured_image: "/services/termitas.webp",
+    published_at: "2026-06-17T09:45:00Z",
+    author: "Alexander",
+    category: "Prevención",
+    meta_description: "6 señales de que tu casa tiene termitas y cómo detener el daño estructural. Guía experta de control de termitas de Big Cat México.",
+    keywords: ["termitas", "control de termitas", "daño de termitas", "señales de termitas", "fumigación termitas"]
+  },
+  {
+    id: '12',
+    slug: 'cuanto-cuesta-fumigacion-mexico-2026',
+    title: "¿Cuánto cuesta una fumigación en México en 2026? Precios y factores",
+    excerpt: "El costo de una fumigación depende de varios factores. Te explicamos qué influye en el precio para que puedas comparar y decidir con información real.",
+    content: `
+      <p>Una de las preguntas más frecuentes que recibimos es: <strong>¿cuánto cuesta una fumigación?</strong> La respuesta honesta es "depende", pero en este artículo te explicamos exactamente de qué depende para que puedas presupuestar con claridad en 2026.</p>
+
+      <img src="/images/hero-home.webp" alt="Cuánto cuesta una fumigación en México" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+
+      <h2>Factores que determinan el precio</h2>
+      <ul>
+        <li><strong>Tipo de plaga:</strong> No cuesta lo mismo un control de <a href="/servicios/eliminacion-de-cucarachas">cucarachas</a> que un tratamiento de <a href="/servicios/control-de-termitas">termitas</a> o <a href="/servicios/control-de-chinches">chinches</a>, que requieren equipo especializado.</li>
+        <li><strong>Tamaño del inmueble:</strong> Metros cuadrados y número de habitaciones.</li>
+        <li><strong>Nivel de infestación:</strong> Un problema incipiente es más barato que una plaga establecida.</li>
+        <li><strong>Tipo de propiedad:</strong> Residencial, comercial o industrial (los <a href="/servicios/control-de-plagas-comercial">programas comerciales</a> incluyen documentación para auditorías).</li>
+        <li><strong>Frecuencia:</strong> Servicio único vs. programa de mantenimiento periódico.</li>
+      </ul>
+
+      <h2>¿Por qué desconfiar de un precio "por teléfono"?</h2>
+      <p>Cualquier empresa seria necesita inspeccionar antes de dar un precio final. Una cotización a ciegas casi siempre esconde costos adicionales o un servicio insuficiente. En <strong>Big Cat</strong>, la inspección y cotización son <strong>gratuitas y sin compromiso</strong>.</p>
+
+      <h2>Barato puede salir caro</h2>
+      <p>Un servicio de bajo costo mal aplicado suele requerir repeticiones, exponer a tu familia a productos inadecuados y no resolver el problema de raíz. Fíjate en la garantía por escrito, la certificación COFEPRIS y la experiencia de la empresa —revisa nuestra guía sobre <a href="/blog/como-elegir-empresa-control-de-plagas">cómo elegir una empresa de control de plagas</a>.</p>
+
+      <h3>Obtén tu cotización real hoy</h3>
+      <p>La mejor forma de saber cuánto costará <em>tu</em> caso es una inspección profesional. Contáctanos y recibe un presupuesto claro, sin sorpresas, con garantía incluida.</p>
+    `,
+    featured_image: "/images/hero-home.webp",
+    published_at: "2026-06-24T11:15:00Z",
+    author: "Alexander",
+    category: "Guía de Precios",
+    meta_description: "¿Cuánto cuesta una fumigación en México en 2026? Descubre los factores que determinan el precio del control de plagas y cómo obtener una cotización real. Guía de Big Cat.",
+    keywords: ["cuánto cuesta fumigación", "precio control de plagas", "costo fumigación mexico", "tarifa fumigación 2026", "cotización fumigación"]
   }
 ];
 
