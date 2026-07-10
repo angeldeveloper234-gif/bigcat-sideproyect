@@ -56,13 +56,13 @@ const LocationPage: React.FC = () => {
             "name": cityShort,
             "containedInPlace": { "@type": "State", "name": stateName }
         },
+        // Negocio con área de servicio (Service Area Business): atendemos al cliente
+        // en su domicilio/negocio, por eso no se declara dirección de calle específica.
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": branch.address,
             "addressLocality": cityShort,
             "addressRegion": stateName,
-            "addressCountry": "MX",
-            ...(branch.zipCodes && branch.zipCodes[0] ? { "postalCode": branch.zipCodes[0] } : {})
+            "addressCountry": "MX"
         },
         "geo": {
             "@type": "GeoCoordinates",
@@ -84,7 +84,7 @@ const LocationPage: React.FC = () => {
         "@type": "BreadcrumbList",
         "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Inicio", "item": SITE },
-            { "@type": "ListItem", "position": 2, "name": "Sedes", "item": `${SITE}/#mapa` },
+            { "@type": "ListItem", "position": 2, "name": "Cobertura", "item": `${SITE}/#mapa` },
             { "@type": "ListItem", "position": 3, "name": cityShort, "item": url }
         ]
     };

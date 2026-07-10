@@ -166,7 +166,7 @@ const Header: React.FC = () => {
                 }}
                 className="w-full bg-brand-red text-white p-5 rounded-2xl font-semibold text-lg shadow-lg shadow-brand-red/30"
               >
-                Sucursales WhatsApp
+                Cobertura por Ciudad
               </button>
             </div>
           </div>

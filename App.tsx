@@ -40,12 +40,12 @@ const App: React.FC = () => {
     "alternateName": "Bigcat",
     "url": "https://bigcat.mx/",
     "telephone": "+528111150958",
+    // Service Area Business: atendemos al cliente en su domicilio/negocio en todo
+    // México, por eso no se declara una dirección de calle (sede) específica.
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Rio Mississippi 44-I, Del Valle",
       "addressLocality": "San Pedro Garza García",
       "addressRegion": "N.L.",
-      "postalCode": "66220",
       "addressCountry": "MX"
     },
     "areaServed": [

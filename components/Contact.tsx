@@ -63,10 +63,10 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div className="space-y-8">
-                    <ContactItem 
-                        icon={Phone} 
-                        title="Llamada Directa" 
-                        content="Ver Sucursales" 
+                    <ContactItem
+                        icon={Phone}
+                        title="Llamada Directa"
+                        content="Ver Cobertura por Ciudad"
                         onClick={handleOpenModal}
                     />
                     <ContactItem 
@@ -80,10 +80,10 @@ const Contact: React.FC = () => {
                         title="Disponibilidad" 
                         content={`${CONTACT_INFO.schedule} - Respuesta Inmediata`} 
                     />
-                    <ContactItem 
-                        icon={MapPin} 
-                        title="Base Operativa" 
-                        content={CONTACT_INFO.address} 
+                    <ContactItem
+                        icon={MapPin}
+                        title="Cobertura"
+                        content="Cobertura Nacional — Servicio de control de plagas en todo México"
                     />
                 </div>
             </div>

@@ -281,7 +281,7 @@ const RestaurantMap: React.FC = () => {
 
                 new mapboxgl.Marker({ element: el })
                     .setLngLat(branch.coords as [number, number])
-                    .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(`<h3 class="font-normal">${branch.name}</h3><p class="text-xs">${branch.address}</p>`))
+                    .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(`<h3 class="font-normal">${branch.name}</h3><p class="text-xs">Cobertura y servicio a domicilio</p>`))
                     .addTo(mapRef.current!);
             });
 
