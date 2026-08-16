@@ -9,8 +9,7 @@ import Contact from '../../components/Contact';
 import MapCoverage from '../../components/MapCoverage';
 
 const SITE = 'https://bigcat.mx';
-const PHONE_DIGITS = CONTACT_INFO.phone.replace(/\s+/g, '');
-const PHONE_E164 = `+52${PHONE_DIGITS}`;
+const PHONE_E164 = CONTACT_INFO.phoneE164;
 
 const LocationPage: React.FC = () => {
     const { city } = useParams<{ city: string }>();
@@ -181,7 +180,7 @@ const LocationPage: React.FC = () => {
 
                         <div className="mt-10 flex flex-wrap gap-4">
                             <a
-                                href={`https://wa.me/52${PHONE_DIGITS}?text=Hola,%20quiero%20una%20cotizaci%C3%B3n%20de%20control%20de%20plagas%20en%20${encodeURIComponent(cityShort)}`}
+                                href={`${CONTACT_INFO.whatsappHref}?text=Hola,%20quiero%20una%20cotizaci%C3%B3n%20de%20control%20de%20plagas%20en%20${encodeURIComponent(cityShort)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-3 bg-brand-primary hover:bg-red-600 px-8 py-4 rounded-xl font-medium transition-all shadow-lg shadow-brand-red/30"

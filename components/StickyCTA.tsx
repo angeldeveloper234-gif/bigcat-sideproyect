@@ -12,7 +12,7 @@ const StickyCTA: React.FC = () => {
                 className="bg-brand-dark/95 backdrop-blur-2xl border border-white/10 p-1.5 rounded-full shadow-3xl flex items-stretch gap-1.5"
             >
                 <a 
-                    href={`tel:${CONTACT_INFO.phone}`}
+                    href={CONTACT_INFO.phoneHref}
                     className="flex-1 flex flex-col items-center justify-center py-2.5 px-4 rounded-full bg-white/5 text-white hover:bg-white/10 transition-all border border-white/5 group"
                 >
                     <Phone size={18} className="text-brand-red mb-0.5 group-hover:scale-110 transition-transform" />

@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { PESTS_LIST } from '../../constants';
+import { PESTS_LIST, CONTACT_INFO } from '../../constants';
 import { CheckCircle2, AlertCircle, ShieldCheck, Microscope } from 'lucide-react';
 import Contact from '../../components/Contact';
 
@@ -37,7 +37,7 @@ const ServicePage: React.FC = () => {
         "provider": {
             "@type": "PestControlService",
             "name": "Big Cat - Control de Plagas",
-            "telephone": "+528111150958",
+            "telephone": CONTACT_INFO.phoneE164,
             "url": "https://bigcat.mx/"
         }
     };

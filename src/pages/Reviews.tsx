@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Star, Send } from 'lucide-react';
 import InfiniteReviewsTicker from '../../components/InfiniteReviewsTicker';
+import { CONTACT_INFO } from '../../constants';
 
 const Reviews: React.FC = () => {
     const [rating, setRating] = useState<number>(0);
@@ -32,7 +33,7 @@ const Reviews: React.FC = () => {
             `Mensaje: ${message}`
         );
 
-        window.location.href = `mailto:contacto@bigcat.mx?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:${CONTACT_INFO.email}?subject=${subject}&body=${body}`;
 
         setFormSubmitted(true);
     };

@@ -14,6 +14,7 @@ import LocationPage from './src/pages/LocationPage';
 import BlogArchivePage from './src/pages/BlogArchivePage';
 import BlogPostPage from './src/pages/BlogPostPage';
 import NotFound from './src/pages/NotFound';
+import { CONTACT_INFO } from './constants';
 
 const ScrollToHash: React.FC = () => {
   const { hash } = useLocation();
@@ -39,7 +40,7 @@ const App: React.FC = () => {
     "name": "Big Cat - Control de Plagas",
     "alternateName": "Bigcat",
     "url": "https://bigcat.mx/",
-    "telephone": "+528111150958",
+    "telephone": CONTACT_INFO.phoneE164,
     // Service Area Business: atendemos al cliente en su domicilio/negocio en todo
     // México, por eso no se declara una dirección de calle (sede) específica.
     "address": {

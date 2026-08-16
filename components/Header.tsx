@@ -82,7 +82,7 @@ const Header: React.FC = () => {
             {/* CTAs */}
             <div className="hidden md:flex items-center gap-4">
               <a
-                href={`tel:${CONTACT_INFO.phone}`}
+                href={CONTACT_INFO.phoneHref}
                 className={`flex items-center gap-2 font-semibold text-sm transition-colors text-brand-dark hover:text-brand-red`}
               >
                 <div className="w-8 h-8 rounded-full bg-brand-red/10 flex items-center justify-center">
@@ -153,7 +153,7 @@ const Header: React.FC = () => {
             ))}
             <div className="pt-6 border-t border-gray-100 space-y-4">
               <a
-                href={`tel:${CONTACT_INFO.phone}`}
+                href={CONTACT_INFO.phoneHref}
                 className="flex items-center justify-center gap-3 p-4 rounded-2xl bg-gray-50 text-brand-dark font-semibold"
               >
                 <Phone size={20} className="text-brand-red" />

@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { HelpCircle, ShieldCheck, Clock, Zap } from 'lucide-react';
+import { CONTACT_INFO } from '../../constants';
 
 const faqs = [
     {
@@ -71,7 +72,7 @@ const FAQPage: React.FC = () => {
                         <h2 className="text-3xl font-normal mb-6">¿Aún tienes dudas?</h2>
                         <p className="text-gray-400 mb-8 text-lg">Chatea con un experto ahora mismo y recibe asesoría personalizada.</p>
                         <a 
-                            href="https://wa.me/528111150958" 
+                            href={CONTACT_INFO.whatsappHref}
                             className="inline-block bg-brand-red hover:bg-red-600 text-white font-normal py-4 px-10 rounded-full transition-all transform hover:scale-105"
                         >
                             Contactar por WhatsApp
