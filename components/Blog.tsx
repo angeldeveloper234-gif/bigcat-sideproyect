@@ -28,7 +28,7 @@ const Blog: React.FC = () => {
             </p>
           </motion.div>
           
-          <Link to="/blog">
+          <Link to="/blog/">
             <motion.button
                whileHover={{ x: 5 }}
                className="flex items-center gap-2 text-brand-dark font-normal uppercase tracking-widest text-xs group"
@@ -51,7 +51,7 @@ const Blog: React.FC = () => {
               transition={{ delay: Math.min(idx * 0.05, 0.5) }}
               className="group cursor-pointer"
             >
-              <Link to={`/blog/${post.slug}`} className="block">
+              <Link to={`/blog/${post.slug}/`} className="block">
                 <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden mb-6 shadow-lg shadow-black/5">
                   <img 
                     src={post.featured_image} 
@@ -98,7 +98,7 @@ const Blog: React.FC = () => {
         {/* Pagination Simplified to Page 1 */}
         <div className="mt-20 pt-10 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8 text-center">
            <div className="flex items-center gap-2 mx-auto md:mx-0">
-              <Link to="/blog" className="w-12 h-12 flex items-center justify-center rounded-2xl bg-brand-red text-white shadow-lg shadow-brand-red/20 font-normal text-sm hover:bg-brand-dark transition-colors">
+              <Link to="/blog/" className="w-12 h-12 flex items-center justify-center rounded-2xl bg-brand-red text-white shadow-lg shadow-brand-red/20 font-normal text-sm hover:bg-brand-dark transition-colors">
                 1
               </Link>
            </div>

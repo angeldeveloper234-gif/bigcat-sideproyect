@@ -74,7 +74,7 @@ const BlogArchivePage: React.FC = () => {
                 transition={{ delay: idx * 0.1 }}
                 className="group"
               >
-                <Link to={`/blog/${post.slug}`} className="block">
+                <Link to={`/blog/${post.slug}/`} className="block">
                   <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden mb-6 shadow-lg shadow-black/5">
                     <img 
                       src={post.featured_image} 

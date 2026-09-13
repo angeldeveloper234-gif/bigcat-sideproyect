@@ -26,7 +26,7 @@ const NotFound: React.FC = () => {
                         <Home size={20} /> Volver al inicio
                     </Link>
                     <Link
-                        to="/blog"
+                        to="/blog/"
                         className="inline-flex items-center gap-3 bg-gray-100 hover:bg-gray-200 text-brand-dark px-8 py-4 rounded-xl font-medium transition-all"
                     >
                         <Search size={20} /> Ver el blog

@@ -56,13 +56,13 @@ const Footer: React.FC = () => {
             <div className="space-y-6">
               <h4 className="text-brand-red font-semibold uppercase tracking-[0.2em] text-[10px]">Nuestros Servicios</h4>
               <div className="flex flex-col gap-3 text-sm font-medium text-gray-500">
-                <a href="/servicios/control-de-plagas-comercial" className="hover:text-brand-red transition-colors">Control Comercial</a>
-                <a href="/servicios/eliminacion-de-cucarachas" className="hover:text-brand-red transition-colors">Cucarachas</a>
-                <a href="/servicios/control-de-hormigas" className="hover:text-brand-red transition-colors">Hormigas</a>
-                <a href="/servicios/control-de-termitas" className="hover:text-brand-red transition-colors">Termitas</a>
-                <a href="/servicios/control-de-chinches" className="hover:text-brand-red transition-colors">Chinches</a>
-                <a href="/servicios/control-de-roedores" className="hover:text-brand-red transition-colors">Roedores</a>
-                <a href="/servicios/control-de-alacranes" className="hover:text-brand-red transition-colors">Alacranes</a>
+                <a href="/servicios/control-de-plagas-comercial/" className="hover:text-brand-red transition-colors">Control Comercial</a>
+                <a href="/servicios/eliminacion-de-cucarachas/" className="hover:text-brand-red transition-colors">Cucarachas</a>
+                <a href="/servicios/control-de-hormigas/" className="hover:text-brand-red transition-colors">Hormigas</a>
+                <a href="/servicios/control-de-termitas/" className="hover:text-brand-red transition-colors">Termitas</a>
+                <a href="/servicios/control-de-chinches/" className="hover:text-brand-red transition-colors">Chinches</a>
+                <a href="/servicios/control-de-roedores/" className="hover:text-brand-red transition-colors">Roedores</a>
+                <a href="/servicios/control-de-alacranes/" className="hover:text-brand-red transition-colors">Alacranes</a>
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
             {BRANCHES.map((branch) => (
               <a
                 key={branch.id}
-                href={`/sedes/${branch.id}`}
+                href={`/sedes/${branch.id}/`}
                 className="hover:text-brand-red transition-colors flex items-center gap-2 group"
               >
                 <div className="w-0 h-px bg-brand-red group-hover:w-4 transition-all" />

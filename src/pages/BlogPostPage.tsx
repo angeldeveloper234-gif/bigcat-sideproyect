@@ -30,7 +30,7 @@ const BlogPostPage: React.FC = () => {
   }
 
   if (!post) {
-    return <Navigate to="/blog" replace />;
+    return <Navigate to="/blog/" replace />;
   }
 
   // Schema.org Structured Data (Article)
@@ -126,12 +126,12 @@ const BlogPostPage: React.FC = () => {
         <div className="flex flex-wrap items-center gap-2 text-[10px] font-normal uppercase tracking-widest text-gray-400 mb-8">
           <Link to="/" className="hover:text-brand-red transition-colors">Inicio</Link>
           <ChevronRight size={12} />
-          <Link to="/blog" className="hover:text-brand-red transition-colors">Blog</Link>
+          <Link to="/blog/" className="hover:text-brand-red transition-colors">Blog</Link>
           <ChevronRight size={12} />
           <span className="text-brand-red truncate max-w-[200px] md:max-w-xs">{post.title}</span>
         </div>
 
-        <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-normal uppercase tracking-widest text-gray-400 hover:text-brand-red transition-colors mb-8 group">
+        <Link to="/blog/" className="inline-flex items-center gap-2 text-sm font-normal uppercase tracking-widest text-gray-400 hover:text-brand-red transition-colors mb-8 group">
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
           Volver al Blog
         </Link>

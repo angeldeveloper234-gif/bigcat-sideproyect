@@ -1,7 +1,15 @@
 import fs from 'fs';
 import path from 'path';
 
-const siteUrl = 'https://bigcat.mx';
+/**
+ * El sitemap usa EXACTAMENTE la misma función que el canonical de cada página
+ * (src/lib/urls.ts). No es una copia: es el mismo archivo importado.
+ *
+ * Esto es lo que impide que el sitio se vuelva a fragmentar. Mientras las dos
+ * puntas salgan de `canonical()`, el canonical de una página y su entrada en
+ * el sitemap no pueden diferir — ni en la barra final, ni en la ñ de /reseñas.
+ */
+import { canonical } from '../src/lib/urls.ts';
 
 async function generateSitemap() {
   try {
@@ -67,7 +75,7 @@ async function generateSitemap() {
   <!-- Main Pages -->
   ${staticPages.map(page => `
   <url>
-    <loc>${siteUrl}${page}</loc>
+    <loc>${canonical(page || '/')}</loc>
     <changefreq>monthly</changefreq>
     <priority>${page === '' ? '1.0' : '0.8'}</priority>
   </url>`).join('').trim()}
@@ -75,7 +83,7 @@ async function generateSitemap() {
   <!-- Services -->
   ${serviceSlugs.map(slug => `
   <url>
-    <loc>${siteUrl}/servicios/${slug}</loc>
+    <loc>${canonical(`/servicios/${slug}`)}</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>`).join('').trim()}
@@ -83,7 +91,7 @@ async function generateSitemap() {
   <!-- Sedes PRIORITARIAS (ciudades foco del cliente) -->
   ${prioritySlugs.map(slug => `
   <url>
-    <loc>${siteUrl}/sedes/${slug}</loc>
+    <loc>${canonical(`/sedes/${slug}`)}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -92,7 +100,7 @@ async function generateSitemap() {
   <!-- Sedes (cobertura nacional) -->
   ${otherSlugs.map(slug => `
   <url>
-    <loc>${siteUrl}/sedes/${slug}</loc>
+    <loc>${canonical(`/sedes/${slug}`)}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -101,7 +109,7 @@ async function generateSitemap() {
   <!-- Blog Posts -->
   ${blogSlugs.map(slug => `
   <url>
-    <loc>${siteUrl}/blog/${slug}</loc>
+    <loc>${canonical(`/blog/${slug}`)}</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
