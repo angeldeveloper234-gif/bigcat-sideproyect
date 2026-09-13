@@ -51,10 +51,27 @@
   status = 301
   force = true
 
-# ── Comodin de SPA: SIEMPRE AL FINAL ────────────────────────────────────────
-# Sin `force`, asi no pisa los archivos que si existen: las 52 paginas
-# prerenderizadas por react-snap se sirven desde disco y no pasan por aca.
+# ── Lo que no existe, devuelve 404 ──────────────────────────────────────────
+#
+# ANTES: /* -> /index.html con status 200.
+#
+# Eso hacia que CUALQUIER URL inexistente devolviera el home con un 200.
+# Verificado en produccion el 13/09:
+#
+#   curl -o /dev/null -w "%{http_code}" https://bigcat.mx/esto-no-existe-12345
+#   200   <- y con el <title> del home
+#
+# No era solo /inicio: era todo el espacio de URLs del dominio. Para Google eso
+# es un soft 404, y cada enlace roto, cada URL vieja y cada direccion mal
+# tipeada se convertia en una copia mas del home compitiendo con el home.
+#
+# El cambio es seguro porque las 52 paginas estan prerenderizadas como archivo
+# (verificado: las 52 responden 200 desde disco) y esta regla no lleva `force`,
+# asi que no pisa ningun archivo existente. Solo atrapa lo que no existe.
+#
+# dist/404.html lo genera react-snap y ya trae <meta name="robots"
+# content="noindex, follow">.
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404
