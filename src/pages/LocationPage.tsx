@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { canonical, SITE } from '../lib/urls';
 import { motion } from 'framer-motion';
 import { BRANCHES, CONTACT_INFO } from '../../constants';
 import { MapPin, Phone, ShieldCheck, Clock, Award, Bug, Building2, CheckCircle2 } from 'lucide-react';
@@ -8,7 +9,6 @@ import Contact from '../../components/Contact';
 
 import MapCoverage from '../../components/MapCoverage';
 
-const SITE = 'https://bigcat.mx';
 const PHONE_E164 = CONTACT_INFO.phoneE164;
 
 const LocationPage: React.FC = () => {
@@ -19,7 +19,8 @@ const LocationPage: React.FC = () => {
 
     const cityShort = branch.shortName || branch.name;
     const stateName = branch.state || 'México';
-    const url = `${SITE}/sedes/${branch.id}`;
+    // Generado, nunca escrito: es la misma funcion que alimenta el sitemap.
+    const url = canonical(`/sedes/${branch.id}`);
 
     // Contenido local: usa datos únicos por ciudad con respaldo genérico.
     const intro = branch.intro ||

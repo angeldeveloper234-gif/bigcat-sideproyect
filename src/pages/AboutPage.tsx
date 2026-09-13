@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { canonical } from '../lib/urls';
 import { motion } from 'framer-motion';
 import { Target, Users, History } from 'lucide-react';
 
@@ -9,10 +10,10 @@ const AboutPage: React.FC = () => {
             <Helmet>
                 <title>Nosotros | Big Cat - Control de Plagas</title>
                 <meta name="description" content="Conoce la historia de Big Cat - Control de Plagas, parte de PCP Internacional. 29+ años protegiendo hogares y negocios en México con soluciones seguras." />
-                <link rel="canonical" href="https://bigcat.mx/nosotros" />
+                <link rel="canonical" href={canonical('/nosotros')} />
                 <meta property="og:title" content="Nosotros | Big Cat - Control de Plagas" />
                 <meta property="og:description" content="29+ años de experiencia en control de plagas profesional y seguro en todo México." />
-                <meta property="og:url" content="https://bigcat.mx/nosotros" />
+                <meta property="og:url" content={canonical('/nosotros')} />
                 <meta property="og:image" content="https://bigcat.mx/logo/BIG CAT - Control de plagas.png" />
                 <meta name="twitter:card" content="summary" />
             </Helmet>

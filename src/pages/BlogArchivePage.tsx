@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { canonical } from '../lib/urls';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, User, ChevronRight, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -27,6 +28,10 @@ const BlogArchivePage: React.FC = () => {
         <title>Blog de Fumigación y Control de Plagas | Big Cat</title>
         <meta name="description" content="Descubre consejos expertos, noticias y guías sobre el control de plagas. Mantén tu hogar libre de insectos y roedores con la información de Big Cat." />
         <meta name="keywords" content="blog control de plagas, fumigacion tips, prevenir plagas, blog big cat" />
+        {/* Esta pagina NO tenia canonical propio: heredaba el del home, que
+            la declaraba como una copia del home. Era la unica de las 52. */}
+        <link rel="canonical" href={canonical('/blog')} />
+        <meta property="og:url" content={canonical('/blog')} />
         <meta property="og:title" content="Blog de Fumigación y Control de Plagas | Big Cat" />
         <meta property="og:description" content="Descubre consejos expertos, noticias y guías sobre el control de plagas." />
         <meta property="og:type" content="website" />

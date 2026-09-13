@@ -16,7 +16,18 @@
   <title>Big Cat - Control de Plagas y Fumigación en Monterrey, Querétaro y Saltillo</title>
   <meta name="description" content="Big Cat - Control de Plagas: fumigación profesional en Monterrey, San Pedro Garza García, Querétaro, Saltillo, Torreón, Reynosa, Tampico y más. 29+ años de experiencia. Servicio el mismo día, certificado COFEPRIS y garantía por escrito." />
   <meta name="keywords" content="control de plagas Monterrey, fumigación Monterrey, control de plagas San Pedro Garza García, fumigación Querétaro, control de plagas Saltillo, fumigación Torreón, control de plagas Reynosa, fumigación Tampico, control de plagas Matamoros, control de plagas San Juan del Río, fumigación San Miguel de Allende, control de plagas Nuevo León, Coahuila, Tamaulipas, big cat, bigcat" />
-  <link rel="canonical" href="https://bigcat.mx/" />
+  <!--
+    NO VOLVER A PONER ACA NI EL CANONICAL NI EL og:url.
+
+    Estaban fijos en el home y react-helmet-async NO los borra: Helmet solo
+    administra las etiquetas que el mismo inserta (las marca con data-rh), asi
+    que las de este archivo sobrevivian al prerender. Resultado: las 52 paginas
+    servian DOS canonicals, el propio y el del home, y Google le estaba leyendo
+    a /sedes/monterrey/ que la pagina canonica era el home. Por eso 22 paginas
+    de ciudad vivian en la posicion 9 y no subian.
+
+    Cada pagina declara el suyo con canonical() de src/lib/urls.ts.
+  -->
   <meta name="author" content="Big Cat - Control de Plagas" />
   <meta name="geo.region" content="MX-NLE" />
   <meta name="geo.placename" content="Monterrey, San Pedro Garza García" />
@@ -26,7 +37,6 @@
   <meta property="og:site_name" content="Big Cat - Control de Plagas" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_MX" />
-  <meta property="og:url" content="https://bigcat.mx/" />
   <meta property="og:title" content="Big Cat - Control de Plagas y Fumigación Profesional en México" />
   <meta property="og:description" content="Fumigación profesional en Monterrey, Querétaro, Saltillo, Torreón, Reynosa, Tampico y más. 29+ años. Servicio el mismo día y garantía por escrito." />
   <meta property="og:image" content="https://bigcat.mx/logo/BIG CAT - Control de plagas.png" />

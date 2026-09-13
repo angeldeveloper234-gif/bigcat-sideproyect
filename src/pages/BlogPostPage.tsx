@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { canonical } from '../lib/urls';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, User, ChevronRight, ArrowLeft, Loader2 } from 'lucide-react';
@@ -95,14 +96,14 @@ const BlogPostPage: React.FC = () => {
         <title>{post.title} | Big Cat - Control de Plagas</title>
         <meta name="description" content={post.meta_description} />
         <meta name="keywords" content={post.keywords.join(',')} />
-        <link rel="canonical" href={`https://bigcat.mx/blog/${post.slug}`} />
+        <link rel="canonical" href={canonical(`/blog/${post.slug}`)} />
         
         {/* OpenGraph / Social Media */}
         <meta property="og:title" content={`${post.title} | Big Cat - Control de Plagas`} />
         <meta property="og:description" content={post.meta_description} />
         <meta property="og:image" content={post.featured_image} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://bigcat.mx/blog/${post.slug}`} />
+        <meta property="og:url" content={canonical(`/blog/${post.slug}`)} />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
