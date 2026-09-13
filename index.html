@@ -14,50 +14,9 @@
     gtag('config', 'G-05BP9YM1KM');
   </script>
   <title>Big Cat - Control de Plagas y Fumigación en Monterrey, Querétaro y Saltillo</title>
-  <!--
-    NO VOLVER A PONER ACA UNA description.
-
-    Estaba la del home y, igual que el canonical, react-helmet-async no la
-    borraba: las 52 paginas servian DOS descriptions y la del home iba primero.
-    Alguien que buscaba "fumigaciones saltillo" veia un texto generico nacional
-    que nombraba ocho ciudades. Ese era el CTR de 1,4%.
-
-    Cada pagina declara la suya. Ver src/lib/descriptions.ts.
-  -->
-  <!--
-    NO VOLVER A PONER ACA NI EL CANONICAL NI EL og:url.
-
-    Estaban fijos en el home y react-helmet-async NO los borra: Helmet solo
-    administra las etiquetas que el mismo inserta (las marca con data-rh), asi
-    que las de este archivo sobrevivian al prerender. Resultado: las 52 paginas
-    servian DOS canonicals, el propio y el del home, y Google le estaba leyendo
-    a /sedes/monterrey/ que la pagina canonica era el home. Por eso 22 paginas
-    de ciudad vivian en la posicion 9 y no subian.
-
-    Cada pagina declara el suyo con canonical() de src/lib/urls.ts.
-  -->
-  <!--
-    LAS METAS POR PAGINA NO VAN ACA. Ver el <Helmet> de valores por defecto en
-    App.tsx.
-
-    Estaban las del home fijas en este archivo y react-helmet-async NO las
-    borra: solo administra las que el mismo inserta (data-rh). Resultado
-    medido sobre las 52 paginas construidas:
-
-      og:title           duplicada en 52
-      og:description     duplicada en 52
-      twitter:card       duplicada en 51
-      og:image/og:type   duplicadas en 49
-      keywords           duplicada en 49
-      geo.* e ICBM       duplicadas en 22
-
-    Lo de geo era lo peor: las 30 paginas que NO son de ciudad heredaban las
-    coordenadas de Monterrey de este archivo. Un articulo del blog declaraba
-    una latitud.
-
-    Los valores por defecto viven ahora en un <Helmet> raiz, donde Helmet SI
-    sabe reemplazarlos cuando una pagina define el suyo.
-  -->
+  <!-- La description la declara cada pagina. Ver src/lib/descriptions.ts -->
+  <!-- El canonical y el og:url los declara cada pagina. Ver src/lib/urls.ts -->
+  <!-- Las metas por pagina van en el Helmet de App.tsx, no aca. Ver App.tsx -->
   <meta name="author" content="Big Cat - Control de Plagas" />
   <!-- Open Graph -->
   <link rel="icon" type="image/png" href="/logo/BIG CAT - Control de plagas.png" />
