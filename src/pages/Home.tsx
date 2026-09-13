@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { canonical } from '../lib/urls';
+import { descripcion } from '../lib/descriptions';
 import Hero from '../../components/Hero';
 import TrustBar from '../../components/TrustBar';
 import AboutUs from '../../components/AboutUs';
@@ -21,7 +22,9 @@ const Home: React.FC = () => {
         <main className="relative">
             <Helmet>
                 <title>Big Cat - Control de Plagas | Expertos en Fumigación en México</title>
-                <meta name="description" content="Big Cat - Control de Plagas: Servicios profesionales de fumigación en México con 29+ años de experiencia. Eliminación garantizada de cucarachas, termitas y más. ¡Cotiza hoy!" />
+                {/* La del home tambien sale de la lista literal: es la unica
+                    forma de que quien la cambie la cambie en un solo lugar. */}
+                <meta name="description" content={descripcion('/', '')} />
                 <meta name="keywords" content="big cat, bigcat, big cat control de plagas, fumigaciones en mexico, control de plagas residencial, fumigación profesional" />
                 <link rel="canonical" href={canonical('/')} />
                 <meta property="og:title" content="Big Cat - Control de Plagas | Expertos en Fumigación" />

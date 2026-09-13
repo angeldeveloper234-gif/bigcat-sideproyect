@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { canonical } from '../lib/urls';
+import { descripcion } from '../lib/descriptions';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, User, ChevronRight, ArrowLeft, Loader2 } from 'lucide-react';
@@ -94,7 +95,7 @@ const BlogPostPage: React.FC = () => {
     <main className="relative pt-32 pb-24 bg-white min-h-screen">
       <Helmet>
         <title>{post.title} | Big Cat - Control de Plagas</title>
-        <meta name="description" content={post.meta_description} />
+        <meta name="description" content={descripcion(`/blog/${post.slug}`, post.meta_description)} />
         <meta name="keywords" content={post.keywords.join(',')} />
         <link rel="canonical" href={canonical(`/blog/${post.slug}`)} />
         

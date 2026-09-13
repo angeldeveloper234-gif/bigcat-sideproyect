@@ -14,7 +14,16 @@
     gtag('config', 'G-05BP9YM1KM');
   </script>
   <title>Big Cat - Control de Plagas y Fumigación en Monterrey, Querétaro y Saltillo</title>
-  <meta name="description" content="Big Cat - Control de Plagas: fumigación profesional en Monterrey, San Pedro Garza García, Querétaro, Saltillo, Torreón, Reynosa, Tampico y más. 29+ años de experiencia. Servicio el mismo día, certificado COFEPRIS y garantía por escrito." />
+  <!--
+    NO VOLVER A PONER ACA UNA description.
+
+    Estaba la del home y, igual que el canonical, react-helmet-async no la
+    borraba: las 52 paginas servian DOS descriptions y la del home iba primero.
+    Alguien que buscaba "fumigaciones saltillo" veia un texto generico nacional
+    que nombraba ocho ciudades. Ese era el CTR de 1,4%.
+
+    Cada pagina declara la suya. Ver src/lib/descriptions.ts.
+  -->
   <meta name="keywords" content="control de plagas Monterrey, fumigación Monterrey, control de plagas San Pedro Garza García, fumigación Querétaro, control de plagas Saltillo, fumigación Torreón, control de plagas Reynosa, fumigación Tampico, control de plagas Matamoros, control de plagas San Juan del Río, fumigación San Miguel de Allende, control de plagas Nuevo León, Coahuila, Tamaulipas, big cat, bigcat" />
   <!--
     NO VOLVER A PONER ACA NI EL CANONICAL NI EL og:url.
