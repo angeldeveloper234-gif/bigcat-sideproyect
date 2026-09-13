@@ -2,6 +2,58 @@
   command = "npm run build"
   publish = "dist"
 
+# ═══════════════════════════════════════════════════════════════════════════
+#  EL ORDEN DE ESTAS REGLAS IMPORTA
+#  Netlify aplica la PRIMERA que coincide. El comodin de SPA va siempre
+#  ultimo: si sube, se come todo lo de abajo.
+# ═══════════════════════════════════════════════════════════════════════════
+
+# ── /inicio: un home duplicado ──────────────────────────────────────────────
+# Devolvia 200 con el contenido del home. Dos URLs distintas sirviendo la misma
+# pagina compiten entre si por las mismas busquedas de marca ("big cat",
+# "bigcat"), que son de donde viene casi todo el trafico que hoy convierte.
+# `force = true` porque el comodin de abajo tambien coincide con esta ruta.
+[[redirects]]
+  from = "/inicio"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/inicio/*"
+  to = "/"
+  status = 301
+  force = true
+
+# ── www -> dominio principal ────────────────────────────────────────────────
+# http://www.bigcat.mx/ junta 662 apariciones propias con 4 clics: son senales
+# que hoy se reparten entre dos hosts en vez de acumularse en uno. El canonical
+# de cada pagina ya apunta a https://bigcat.mx, pero un canonical es una
+# sugerencia; un 301 no lo es.
+[[redirects]]
+  from = "https://www.bigcat.mx/*"
+  to = "https://bigcat.mx/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.bigcat.mx/*"
+  to = "https://bigcat.mx/:splat"
+  status = 301
+  force = true
+
+# ── http -> https en el dominio principal ───────────────────────────────────
+# Netlify ya lo hace solo cuando el certificado esta activo. Se declara igual
+# para que la regla exista en el repo y no dependa de una casilla del panel.
+[[redirects]]
+  from = "http://bigcat.mx/*"
+  to = "https://bigcat.mx/:splat"
+  status = 301
+  force = true
+
+# ── Comodin de SPA: SIEMPRE AL FINAL ────────────────────────────────────────
+# Sin `force`, asi no pisa los archivos que si existen: las 52 paginas
+# prerenderizadas por react-snap se sirven desde disco y no pasan por aca.
 [[redirects]]
   from = "/*"
   to = "/index.html"
