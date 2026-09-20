@@ -68,7 +68,7 @@ const Services: React.FC = () => {
                     
                     <div className="mt-12 pt-8 border-t border-gray-100">
                         <Link 
-                           to={`/servicios/${pest.slug}`} 
+                           to={`/servicios/${pest.slug}/`} 
                            className="inline-flex items-center gap-4 font-normal text-sm uppercase tracking-widest text-brand-dark hover:text-brand-red transition-all group/btn"
                         >
                             Explorar Silo <ArrowRight size={20} className="group-hover/btn:translate-x-2 transition-transform" />
@@ -107,7 +107,7 @@ const Services: React.FC = () => {
             </div>
 
             <Link 
-              to="/nosotros" 
+              to="/nosotros/" 
               className="relative z-10 bg-brand-red hover:bg-red-600 text-white px-12 py-6 rounded-2xl font-normal text-sm uppercase tracking-[0.2em] transition-all shadow-2xl shadow-brand-red/30"
             >
                 Sobre Nosotros

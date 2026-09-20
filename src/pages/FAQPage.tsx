@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { canonical } from '../lib/urls';
 import { motion } from 'framer-motion';
 import { HelpCircle, ShieldCheck, Clock, Zap } from 'lucide-react';
 import { CONTACT_INFO } from '../../constants';
@@ -33,10 +34,10 @@ const FAQPage: React.FC = () => {
             <Helmet>
                 <title>Preguntas Frecuentes | Big Cat - Control de Plagas</title>
                 <meta name="description" content="¿Tienes dudas sobre fumigación? Consulta nuestras preguntas frecuentes sobre seguridad para mascotas, certificados COFEPRIS y efectividad de tratamientos." />
-                <link rel="canonical" href="https://bigcat.mx/faq" />
+                <link rel="canonical" href={canonical('/faq')} />
                 <meta property="og:title" content="Preguntas Frecuentes | Big Cat - Control de Plagas" />
                 <meta property="og:description" content="Resolvemos tus dudas sobre seguridad y efectividad en control de plagas." />
-                <meta property="og:url" content="https://bigcat.mx/faq" />
+                <meta property="og:url" content={canonical('/faq')} />
                 <meta name="twitter:card" content="summary" />
             </Helmet>
             <div className="container mx-auto px-6">

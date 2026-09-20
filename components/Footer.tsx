@@ -25,6 +25,47 @@ const Footer: React.FC = () => {
               <span className="text-brand-dark/70 text-[10px] font-medium uppercase tracking-widest mt-4">PCP Internacional & Big Cat - Control de Plagas™</span>
             </a>
 
+            {/*
+              EMPRESA ASOCIADA A PCP INTERNACIONAL.
+
+              El pie ya nombraba a PCP tres veces, pero en texto suelto: sin
+              logo y, sobre todo, SIN ENLACE. Para Google una marca nombrada y
+              no enlazada no conecta los dos sitios.
+
+              Hasta ahora la relación iba en una sola dirección:
+              pcpinternacional.com enlaza a Big Cat y a MosquitoMEX, y ninguno
+              de los dos le devolvía el enlace.
+
+              Va fuera del <a href="/"> de arriba a propósito: ese anchor
+              envuelve el logo y el lema, y un enlace dentro de otro enlace es
+              HTML inválido.
+            */}
+            <a
+              href="https://pcpinternacional.com"
+              target="_blank"
+              rel="noopener"
+              className="group flex items-center gap-6 rounded-xl border border-gray-200 p-6 max-w-lg hover:border-brand-red hover:shadow-md transition-all"
+            >
+              <img
+                src="/logo/pcp-internacional.png"
+                alt="PCP Internacional - Control de Plagas"
+                width={315}
+                height={192}
+                loading="lazy"
+                className="h-16 w-auto object-contain shrink-0 sm:h-20"
+              />
+              <span className="text-sm leading-relaxed text-gray-500">
+                <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-brand-red mb-1">
+                  Empresa asociada
+                </span>
+                Big Cat forma parte de la red de{' '}
+                <span className="font-bold text-brand-dark group-hover:text-brand-red transition-colors">
+                  PCP Internacional
+                </span>
+                , que capacita, certifica y respalda a sus empresas asociadas.
+              </span>
+            </a>
+
             <div className="flex gap-10 text-[10px] font-medium uppercase tracking-[0.3em]">
               <div className="flex flex-col gap-2">
                 <span className="text-brand-red font-medium">COFEPRIS</span>
@@ -56,13 +97,13 @@ const Footer: React.FC = () => {
             <div className="space-y-6">
               <h4 className="text-brand-red font-semibold uppercase tracking-[0.2em] text-[10px]">Nuestros Servicios</h4>
               <div className="flex flex-col gap-3 text-sm font-medium text-gray-500">
-                <a href="/servicios/control-de-plagas-comercial" className="hover:text-brand-red transition-colors">Control Comercial</a>
-                <a href="/servicios/eliminacion-de-cucarachas" className="hover:text-brand-red transition-colors">Cucarachas</a>
-                <a href="/servicios/control-de-hormigas" className="hover:text-brand-red transition-colors">Hormigas</a>
-                <a href="/servicios/control-de-termitas" className="hover:text-brand-red transition-colors">Termitas</a>
-                <a href="/servicios/control-de-chinches" className="hover:text-brand-red transition-colors">Chinches</a>
-                <a href="/servicios/control-de-roedores" className="hover:text-brand-red transition-colors">Roedores</a>
-                <a href="/servicios/control-de-alacranes" className="hover:text-brand-red transition-colors">Alacranes</a>
+                <a href="/servicios/control-de-plagas-comercial/" className="hover:text-brand-red transition-colors">Control Comercial</a>
+                <a href="/servicios/eliminacion-de-cucarachas/" className="hover:text-brand-red transition-colors">Cucarachas</a>
+                <a href="/servicios/control-de-hormigas/" className="hover:text-brand-red transition-colors">Hormigas</a>
+                <a href="/servicios/control-de-termitas/" className="hover:text-brand-red transition-colors">Termitas</a>
+                <a href="/servicios/control-de-chinches/" className="hover:text-brand-red transition-colors">Chinches</a>
+                <a href="/servicios/control-de-roedores/" className="hover:text-brand-red transition-colors">Roedores</a>
+                <a href="/servicios/control-de-alacranes/" className="hover:text-brand-red transition-colors">Alacranes</a>
               </div>
             </div>
           </div>
@@ -75,7 +116,7 @@ const Footer: React.FC = () => {
             {BRANCHES.map((branch) => (
               <a
                 key={branch.id}
-                href={`/sedes/${branch.id}`}
+                href={`/sedes/${branch.id}/`}
                 className="hover:text-brand-red transition-colors flex items-center gap-2 group"
               >
                 <div className="w-0 h-px bg-brand-red group-hover:w-4 transition-all" />

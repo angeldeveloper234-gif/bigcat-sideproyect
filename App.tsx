@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
@@ -63,6 +63,33 @@ const App: React.FC = () => {
 
   return (
     <HelmetProvider>
+      {/*
+        VALORES POR DEFECTO DEL SITIO.
+
+        Van acá y no en index.html por una razón concreta: Helmet solo puede
+        reemplazar las etiquetas que él mismo administra. Las que estaban
+        escritas a mano en index.html sobrevivían al prerender y se sumaban a
+        las de cada página, así que las 52 servían dos og:title, dos
+        og:description y dos twitter:card.
+
+        Desde acá, una página que declare lo suyo PISA este valor en vez de
+        duplicarlo, y una que no lo declare lo hereda. Es lo mismo que se
+        buscaba con index.html, pero funcionando.
+
+        Lo que NO está acá: geo.region, geo.placename, geo.position e ICBM.
+        Esos son de las 22 páginas de ciudad y de nadie más — como default
+        hacían que un artículo del blog declarara las coordenadas de Monterrey.
+      */}
+      <Helmet>
+        <meta property="og:site_name" content="Big Cat - Control de Plagas" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="es_MX" />
+        <meta property="og:image" content="https://bigcat.mx/logo/BIG CAT - Control de plagas.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://bigcat.mx/logo/BIG CAT - Control de plagas.png" />
+        <meta name="twitter:title" content="Big Cat - Control de Plagas y Fumigación en México" />
+        <meta name="twitter:description" content="Control de plagas y fumigación en México. Cotización sin costo." />
+      </Helmet>
       <Router>
         <ScrollToHash />
         <div className="min-h-screen bg-white font-sans text-brand-dark overflow-x-hidden">

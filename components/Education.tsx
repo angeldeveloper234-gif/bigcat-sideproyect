@@ -107,7 +107,7 @@ const Education: React.FC = () => {
 
                                 <div className="pt-8">
                                     <Link 
-                                        to="/faq"
+                                        to="/faq/"
                                         className="w-full bg-brand-red text-white py-6 rounded-2xl font-normal uppercase tracking-[0.2em] text-xs flex items-center justify-center gap-4 hover:bg-white hover:text-brand-dark transition-all shadow-2xl shadow-brand-red/20"
                                     >
                                         Centro de Ayuda <ArrowRight size={20} />

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { canonical } from '../lib/urls';
+import { descripcion } from '../lib/descriptions';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, User, ChevronRight, ArrowLeft, Loader2 } from 'lucide-react';
@@ -30,7 +32,7 @@ const BlogPostPage: React.FC = () => {
   }
 
   if (!post) {
-    return <Navigate to="/blog" replace />;
+    return <Navigate to="/blog/" replace />;
   }
 
   // Schema.org Structured Data (Article)
@@ -93,16 +95,16 @@ const BlogPostPage: React.FC = () => {
     <main className="relative pt-32 pb-24 bg-white min-h-screen">
       <Helmet>
         <title>{post.title} | Big Cat - Control de Plagas</title>
-        <meta name="description" content={post.meta_description} />
+        <meta name="description" content={descripcion(`/blog/${post.slug}`, post.meta_description)} />
         <meta name="keywords" content={post.keywords.join(',')} />
-        <link rel="canonical" href={`https://bigcat.mx/blog/${post.slug}`} />
+        <link rel="canonical" href={canonical(`/blog/${post.slug}`)} />
         
         {/* OpenGraph / Social Media */}
         <meta property="og:title" content={`${post.title} | Big Cat - Control de Plagas`} />
         <meta property="og:description" content={post.meta_description} />
         <meta property="og:image" content={post.featured_image} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://bigcat.mx/blog/${post.slug}`} />
+        <meta property="og:url" content={canonical(`/blog/${post.slug}`)} />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -126,12 +128,12 @@ const BlogPostPage: React.FC = () => {
         <div className="flex flex-wrap items-center gap-2 text-[10px] font-normal uppercase tracking-widest text-gray-400 mb-8">
           <Link to="/" className="hover:text-brand-red transition-colors">Inicio</Link>
           <ChevronRight size={12} />
-          <Link to="/blog" className="hover:text-brand-red transition-colors">Blog</Link>
+          <Link to="/blog/" className="hover:text-brand-red transition-colors">Blog</Link>
           <ChevronRight size={12} />
           <span className="text-brand-red truncate max-w-[200px] md:max-w-xs">{post.title}</span>
         </div>
 
-        <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-normal uppercase tracking-widest text-gray-400 hover:text-brand-red transition-colors mb-8 group">
+        <Link to="/blog/" className="inline-flex items-center gap-2 text-sm font-normal uppercase tracking-widest text-gray-400 hover:text-brand-red transition-colors mb-8 group">
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
           Volver al Blog
         </Link>

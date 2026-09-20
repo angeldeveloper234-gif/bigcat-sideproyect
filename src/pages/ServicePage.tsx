@@ -1,6 +1,8 @@
 import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { canonical } from '../lib/urls';
+import { descripcion, componer } from '../lib/descriptions';
 import { motion } from 'framer-motion';
 import { PESTS_LIST, CONTACT_INFO } from '../../constants';
 import { CheckCircle2, AlertCircle, ShieldCheck, Microscope } from 'lucide-react';
@@ -12,9 +14,16 @@ const ServicePage: React.FC = () => {
 
     if (!service) return <Navigate to="/" replace />;
 
-    const url = `https://bigcat.mx/servicios/${service.slug}`;
+    // Generado, nunca escrito: es la misma funcion que alimenta el sitemap.
+    const url = canonical(`/servicios/${service.slug}`);
     const image = service.image?.startsWith('http') ? service.image : `https://bigcat.mx${service.image}`;
-    const description = `Eliminación experta de ${service.name}. ${service.description} Productos 100% seguros, certificados COFEPRIS y resultados garantizados.`;
+    // Respaldo generado a partir del nombre y la descripcion reales del
+    // servicio. Sin "100% seguros" ni COFEPRIS: son afirmaciones sin
+    // verificar que venian de la description del home.
+    const description = descripcion(
+        `/servicios/${service.slug}`,
+        componer(`${service.name} en México para casa y negocio. ${service.description}`)
+    );
     const keywords = [
         service.name.toLowerCase(),
         `control de ${service.name.toLowerCase()}`,

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { canonical } from '../lib/urls';
 import { Star, Send } from 'lucide-react';
 import InfiniteReviewsTicker from '../../components/InfiniteReviewsTicker';
 import { CONTACT_INFO } from '../../constants';
@@ -43,10 +44,10 @@ const Reviews: React.FC = () => {
             <Helmet>
                 <title>Reseñas y Opiniones | Big Cat - Control de Plagas</title>
                 <meta name="description" content="Lee las opiniones de nuestros clientes satisfechos. Descubre por qué somos la mejor opción para el control de plagas en México con resultados garantizados." />
-                <link rel="canonical" href="https://bigcat.mx/reseñas" />
+                <link rel="canonical" href={canonical('/reseñas')} />
                 <meta property="og:title" content="Reseñas y Opiniones | Big Cat - Control de Plagas" />
                 <meta property="og:description" content="Conoce la experiencia de nuestros clientes con nuestros servicios de fumigación." />
-                <meta property="og:url" content="https://bigcat.mx/reseñas" />
+                <meta property="og:url" content={canonical('/reseñas')} />
                 <meta name="twitter:card" content="summary" />
             </Helmet>
             {/* SECTION 1: FUNNEL */}
