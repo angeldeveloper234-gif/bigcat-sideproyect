@@ -25,6 +25,47 @@ const Footer: React.FC = () => {
               <span className="text-brand-dark/70 text-[10px] font-medium uppercase tracking-widest mt-4">PCP Internacional & Big Cat - Control de Plagas™</span>
             </a>
 
+            {/*
+              EMPRESA ASOCIADA A PCP INTERNACIONAL.
+
+              El pie ya nombraba a PCP tres veces, pero en texto suelto: sin
+              logo y, sobre todo, SIN ENLACE. Para Google una marca nombrada y
+              no enlazada no conecta los dos sitios.
+
+              Hasta ahora la relación iba en una sola dirección:
+              pcpinternacional.com enlaza a Big Cat y a MosquitoMEX, y ninguno
+              de los dos le devolvía el enlace.
+
+              Va fuera del <a href="/"> de arriba a propósito: ese anchor
+              envuelve el logo y el lema, y un enlace dentro de otro enlace es
+              HTML inválido.
+            */}
+            <a
+              href="https://pcpinternacional.com"
+              target="_blank"
+              rel="noopener"
+              className="group flex items-center gap-5 rounded-xl border border-gray-200 p-5 max-w-md hover:border-brand-red transition-colors"
+            >
+              <img
+                src="/logo/pcp-internacional.png"
+                alt="PCP Internacional - Control de Plagas"
+                width={315}
+                height={192}
+                loading="lazy"
+                className="h-12 w-auto object-contain shrink-0"
+              />
+              <span className="text-sm leading-relaxed text-gray-500">
+                <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-brand-red mb-1">
+                  Empresa asociada
+                </span>
+                Big Cat forma parte de la red de{' '}
+                <span className="font-bold text-brand-dark group-hover:text-brand-red transition-colors">
+                  PCP Internacional
+                </span>
+                , que capacita, certifica y respalda a sus empresas asociadas.
+              </span>
+            </a>
+
             <div className="flex gap-10 text-[10px] font-medium uppercase tracking-[0.3em]">
               <div className="flex flex-col gap-2">
                 <span className="text-brand-red font-medium">COFEPRIS</span>
