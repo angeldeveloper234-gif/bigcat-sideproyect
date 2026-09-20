@@ -92,6 +92,60 @@ const Footer: React.FC = () => {
                     {link.label}
                   </a>
                 ))}
+
+                {/*
+                  PÁGINAS QUE NO RECIBÍAN NI UN ENLACE INTERNO.
+
+                  Verificado en producción el 20/09: desde el home de bigcat.mx
+                  había CERO enlaces a /reseñas/, /faq/ y /nosotros/, y a
+                  /reseñas/ no la enlazaba ninguna página del sitio — existía
+                  sólo en el router. Una página que el propio sitio no enlaza
+                  es una página que Google entiende que no importa, y no la
+                  posiciona.
+
+                  El "Nosotros" de NAV_LINKS no cuenta: apunta a '/#nosotros',
+                  que es un ancla del home, no la página /nosotros/. Son dos
+                  URLs distintas y sólo una existe como página.
+
+                  Se agregan acá y no en el menú de arriba porque el pie sale
+                  en las 52 páginas: así las cuatro reciben enlaces desde todo
+                  el sitio sin tocar la navegación principal.
+
+                  El último es el artículo de precios. No es un enlace
+                  decorativo: es la única página del sitio que responde
+                  "cuánto cuesta una fumigación" (193 apariciones en 3 meses,
+                  posición 8,4) y hasta ahora recibía sólo 2 enlaces internos,
+                  los dos automáticos — el carrusel del home y el listado del
+                  blog. Ninguna página la enlazaba a propósito.
+                */}
+                <a href="/nosotros/" className="hover:text-brand-red transition-colors flex items-center gap-2 group">
+                  <div className="w-0 h-px bg-brand-red group-hover:w-4 transition-all" />
+                  Quiénes somos
+                </a>
+                <a href="/faq/" className="hover:text-brand-red transition-colors flex items-center gap-2 group">
+                  <div className="w-0 h-px bg-brand-red group-hover:w-4 transition-all" />
+                  Preguntas frecuentes
+                </a>
+                {/*
+                  La ñ va CODIFICADA en el href, igual que en el canonical y en
+                  el sitemap. No es un capricho: el archivo que sirve esta
+                  página vive en /rese%C3%B1as/, y pedir la forma sin codificar
+                  devuelve 404. Las tres puntas tienen que decir el mismo
+                  string — es la misma regla que usa canonical() en
+                  src/lib/urls.ts.
+                */}
+                <a href="/rese%C3%B1as/" className="hover:text-brand-red transition-colors flex items-center gap-2 group">
+                  <div className="w-0 h-px bg-brand-red group-hover:w-4 transition-all" />
+                  Reseñas de clientes
+                </a>
+                <a href="/blog/" className="hover:text-brand-red transition-colors flex items-center gap-2 group">
+                  <div className="w-0 h-px bg-brand-red group-hover:w-4 transition-all" />
+                  Blog
+                </a>
+                <a href="/blog/cuanto-cuesta-fumigacion-mexico-2026/" className="hover:text-brand-red transition-colors flex items-center gap-2 group">
+                  <div className="w-0 h-px bg-brand-red group-hover:w-4 transition-all" />
+                  ¿Cuánto cuesta una fumigación?
+                </a>
               </nav>
             </div>
             <div className="space-y-6">
