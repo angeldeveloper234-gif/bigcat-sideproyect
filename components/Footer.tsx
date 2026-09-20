@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
               href="https://pcpinternacional.com"
               target="_blank"
               rel="noopener"
-              className="group flex items-center gap-5 rounded-xl border border-gray-200 p-5 max-w-md hover:border-brand-red transition-colors"
+              className="group flex items-center gap-6 rounded-xl border border-gray-200 p-6 max-w-lg hover:border-brand-red hover:shadow-md transition-all"
             >
               <img
                 src="/logo/pcp-internacional.png"
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
                 width={315}
                 height={192}
                 loading="lazy"
-                className="h-12 w-auto object-contain shrink-0"
+                className="h-16 w-auto object-contain shrink-0 sm:h-20"
               />
               <span className="text-sm leading-relaxed text-gray-500">
                 <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-brand-red mb-1">
