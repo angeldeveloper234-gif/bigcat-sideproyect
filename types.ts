@@ -53,5 +53,7 @@ export interface BlogPost {
   category: string;
   meta_description: string;
   keywords: string[];
+  /** Slug de /servicios/{slug}/ que se enlaza al final del artículo. */
+  servicioRelacionado?: string;
 }
 

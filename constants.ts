@@ -1,5 +1,7 @@
 // All icons are now custom SVG components from PestIcons.tsx
 import { ServiceItem, Testimonial, NavLink, MethodItem } from './types';
+import { TELEFONO, TEL_HREF, PCP, whatsappUrl } from './src/lib/contacto';
+import { BRANCHES, TOTAL_SEDES, MAS_DE_CIUDADES } from './src/data/sedes';
 import {
   CommercialPestIcon,
   CockroachIcon,
@@ -26,19 +28,22 @@ export const COLORS = {
   white: '#FFFFFF'
 };
 
+// El número sale de src/lib/contacto.ts: es la única constante de teléfono y
+// WhatsApp del sitio. Acá solo se reexpone con los nombres que ya usaban los
+// componentes.
 export const CONTACT_INFO = {
   name: "Big Cat - Control de Plagas",
-  motherCompany: "PCP Internacional",
+  motherCompany: PCP.nombre,
   since: 1995,
   experience: "29+",
-  phone: "81 1475 3426",
-  whatsapp: "81 1475 3426",
+  phone: TELEFONO.display,
+  whatsapp: TELEFONO.display,
   // Formato E.164 — usar siempre en href="tel:" y en el "telephone" de JSON-LD.
-  phoneE164: "+528114753426",
-  phoneHref: "tel:+528114753426",
-  whatsappHref: "https://wa.me/528114753426",
+  phoneE164: TELEFONO.e164,
+  phoneHref: TEL_HREF,
+  whatsappHref: whatsappUrl(),
   email: "bigcatmexico@gmail.com",
-  address: "Cobertura Nacional — Servicio de control de plagas en todo México",
+  address: `${TOTAL_SEDES} sedes y servicio en más de ${MAS_DE_CIUDADES} ciudades de México`,
   schedule: "Servicio Profesional de Control de Plagas | Big Cat",
   description: "Somos una familia de empresas que prioriza un servicio amigable, rápido y efectivo, e invertimos en el crecimiento y bienestar de nuestro equipo.",
   facebook: "https://web.facebook.com/profile.php?id=61561957291508",
@@ -48,325 +53,10 @@ export const CONTACT_INFO = {
 export const LOGO_LIGHT = "/logo/BIG CAT - Control de plagas.png";
 export const LOGO_DARK = "/logo/BIG CAT - Control de plagas.png";
 
-export interface Branch {
-  id: string;
-  name: string;
-  phone: string;
-  address: string;
-  coords: [number, number];
-  range?: string;
-  zipCodes?: string[];
-  /** Estado (para SEO local y schema): "Nuevo León", "Coahuila", etc. */
-  state?: string;
-  /** Nombre corto de la ciudad sin abreviatura de estado (para títulos SEO). */
-  shortName?: string;
-  /** Ciudad foco prioritaria del cliente (mayor peso en sitemap/interlinkado). */
-  priority?: boolean;
-  /** Párrafo introductorio ÚNICO por ciudad (evita contenido duplicado). */
-  intro?: string;
-  /** Colonias / zonas atendidas (relevancia hiperlocal). */
-  neighborhoods?: string[];
-  /** Plagas más frecuentes en la ciudad (contenido local real). */
-  commonPests?: string[];
-  /** Nota estacional/clima local que influye en las plagas. */
-  seasonalNote?: string;
-}
-
-export const BRANCHES: Branch[] = [
-  // ===================================================================
-  // CIUDADES PRIORITARIAS (foco SEO del cliente) — se listan primero
-  // Estados foco: Nuevo León, Coahuila, Jalisco, Querétaro (+ Tamaulipas, Gto.)
-  // ===================================================================
-  {
-    id: 'monterrey',
-    name: "Monterrey, N.L.",
-    shortName: "Monterrey",
-    state: "Nuevo León",
-    phone: CONTACT_INFO.phone,
-    address: "Cobertura y servicio a domicilio",
-    coords: [-100.3161, 25.6866],
-    range: "64000 - 66299",
-    zipCodes: ["64000", "64720", "64830", "64988", "66220", "66269"],
-    priority: true,
-    intro: "Somos la empresa de control de plagas de referencia en Monterrey y su Zona Metropolitana. Damos respuesta el mismo día a hogares, restaurantes e industrias de toda el área regia, adaptando cada protocolo al clima semiárido y a las plagas urbanas más agresivas del norte de México.",
-    neighborhoods: ["Del Valle", "Centro", "Contry", "Cumbres", "Mitras", "Obispado", "San Jerónimo", "Valle Oriente"],
-    commonPests: ["Cucarachas", "Alacranes", "Roedores", "Hormigas", "Mosquitos"],
-    seasonalNote: "El calor extremo del verano regio dispara la actividad de cucarachas y alacranes; en Big Cat reforzamos las barreras perimetrales de mayo a septiembre."
-  },
-  {
-    id: 'san-pedro-garza-garcia',
-    name: "San Pedro Garza García, N.L.",
-    shortName: "San Pedro Garza García",
-    state: "Nuevo León",
-    phone: CONTACT_INFO.phone,
-    address: "Cobertura y servicio a domicilio",
-    coords: [-100.4028, 25.6588],
-    range: "66200 - 66290",
-    zipCodes: ["66220", "66230", "66240", "66250", "66260", "66270"],
-    priority: true,
-    intro: "En San Pedro Garza García —el municipio con el mayor nivel de vida de México— operamos con protocolos discretos de alto estándar para residencias premium, corporativos y restaurantes exclusivos. Brindamos atención inmediata y confidencial en toda la zona, con cobertura completa en cada colonia del municipio.",
-    neighborhoods: ["Del Valle", "Valle Oriente", "Fuentes del Valle", "Colinas de San Jerónimo", "Zona Tec", "Vista Hermosa", "Chipinque"],
-    commonPests: ["Cucarachas", "Alacranes", "Hormigas", "Roedores", "Termitas"],
-    seasonalNote: "Las residencias de la falda de la Sierra Madre (Chipinque, Vista Hermosa) presentan mayor incidencia de alacranes; aplicamos barreras residuales de larga duración discretas."
-  },
-  {
-    id: 'queretaro',
-    name: "Querétaro, Qro.",
-    shortName: "Querétaro",
-    state: "Querétaro",
-    phone: CONTACT_INFO.phone,
-    address: "And. 5 de Mayo 39",
-    coords: [-100.3899, 20.5888],
-    range: "76000 - 76299",
-    zipCodes: ["76000", "76020", "76090", "76100", "76120", "76220"],
-    priority: true,
-    intro: "Querétaro es uno de los polos industriales y logísticos de mayor crecimiento del país, y con ese crecimiento llega la presión de plagas urbanas. Big Cat protege naves industriales, parques tecnológicos, restaurantes del Centro Histórico y fraccionamientos residenciales con manejo integrado certificado ante COFEPRIS.",
-    neighborhoods: ["Centro Histórico", "Juriquilla", "El Refugio", "Milenio III", "Álamos", "Jurica", "Zibatá"],
-    commonPests: ["Cucarachas", "Roedores", "Hormigas", "Termitas", "Mosquitos"],
-    seasonalNote: "La temporada de lluvias (junio-septiembre) incrementa mosquitos y hormigas en zonas como Juriquilla y El Refugio; ajustamos la nebulización perimetral en esos meses."
-  },
-  {
-    id: 'san-juan-del-rio',
-    name: "San Juan del Río, Qro.",
-    shortName: "San Juan del Río",
-    state: "Querétaro",
-    phone: CONTACT_INFO.phone,
-    address: "Av. Juárez Ote. 45, Centro",
-    coords: [-99.9962, 20.3897],
-    range: "76800 - 76806",
-    zipCodes: ["76800", "76802", "76804", "76806", "76807"],
-    priority: true,
-    intro: "En San Juan del Río, segundo municipio más importante de Querétaro y corredor industrial clave, brindamos control de plagas a la industria manufacturera, agroindustria, comercios y hogares. Nuestro servicio cumple con las auditorías de calidad e inocuidad que exigen las plantas de la región.",
-    neighborhoods: ["Centro", "Vista Hermosa", "La Estancia", "Banthí", "San Isidro", "Lomas de San Juan"],
-    commonPests: ["Roedores", "Cucarachas", "Moscas", "Hormigas", "Arañas"],
-    seasonalNote: "La cercanía con zonas agrícolas eleva la presión de roedores y moscas hacia naves y bodegas; implementamos estaciones de cebado perimetral inviolables."
-  },
-  {
-    id: 'san-miguel-de-allende',
-    name: "San Miguel de Allende, Gto.",
-    shortName: "San Miguel de Allende",
-    state: "Guanajuato",
-    phone: CONTACT_INFO.phone,
-    address: "Centro Histórico",
-    coords: [-100.7436, 20.9144],
-    range: "37700 - 37795",
-    zipCodes: ["37700", "37710", "37740", "37750", "37770"],
-    priority: true,
-    intro: "San Miguel de Allende, Patrimonio de la Humanidad y destino turístico de lujo, exige un control de plagas impecable y discreto para hoteles boutique, restaurantes de alta cocina, galerías y residencias coloniales. Big Cat protege sin dañar acabados históricos ni interrumpir la operación turística.",
-    neighborhoods: ["Centro Histórico", "San Antonio", "Guadiana", "Los Frailes", "Zona Dorada", "Balcones"],
-    commonPests: ["Alacranes", "Cucarachas", "Termitas", "Roedores", "Arañas"],
-    seasonalNote: "Las construcciones coloniales de piedra y madera son propensas a termitas y alacranes; usamos tratamientos de inyección discretos que respetan el patrimonio arquitectónico."
-  },
-  {
-    id: 'saltillo',
-    name: "Saltillo, Coah.",
-    shortName: "Saltillo",
-    state: "Coahuila",
-    phone: CONTACT_INFO.phone,
-    address: "Blvd. Venustiano Carranza 2400",
-    coords: [-100.9737, 25.4383],
-    range: "25000 - 25350",
-    zipCodes: ["25000", "25015", "25100", "25204", "25230", "25290"],
-    priority: true,
-    intro: "En Saltillo, capital de Coahuila y uno de los clústeres automotrices más importantes de América Latina, damos servicio a plantas industriales, proveedores del sector automotriz, comercios y hogares. Nuestros protocolos cumplen los estándares de inocuidad y seguridad que exige la industria manufacturera saltillense.",
-    neighborhoods: ["Centro", "República", "Saltillo 2000", "Los Pinos", "Rincón Colonial", "Valle Real"],
-    commonPests: ["Cucarachas", "Roedores", "Alacranes", "Hormigas", "Arañas"],
-    seasonalNote: "El clima seco de Saltillo favorece la entrada de alacranes y arañas a interiores; reforzamos sellado de accesos y barreras perimetrales en primavera-verano."
-  },
-  {
-    id: 'torreon',
-    name: "Torreón, Coah.",
-    shortName: "Torreón",
-    state: "Coahuila",
-    phone: CONTACT_INFO.phone,
-    address: "Blvd. Independencia 1500",
-    coords: [-103.4068, 25.5439],
-    range: "27000 - 27420",
-    zipCodes: ["27000", "27010", "27100", "27200", "27260", "27290"],
-    priority: true,
-    intro: "Torreón, corazón de La Laguna, combina un fuerte sector industrial, agroindustrial y comercial con un clima desértico que intensifica ciertas plagas. Big Cat atiende bodegas, restaurantes, comercios y residencias con manejo integrado de plagas certificado y garantía por escrito.",
-    neighborhoods: ["Centro", "Torreón Jardín", "San Isidro", "Los Ángeles", "Villa Florida", "Ampliación Los Ángeles"],
-    commonPests: ["Alacranes", "Cucarachas", "Roedores", "Moscas", "Mosquitos"],
-    seasonalNote: "El calor extremo lagunero eleva la presencia de alacranes y moscas; aplicamos programas intensivos de mayo a septiembre con seguimiento quincenal."
-  },
-  {
-    id: 'reynosa',
-    name: "Reynosa, Tamps.",
-    shortName: "Reynosa",
-    state: "Tamaulipas",
-    phone: CONTACT_INFO.phone,
-    address: "Blvd. Hidalgo 1200",
-    coords: [-98.2880, 26.0806],
-    range: "88500 - 88799",
-    zipCodes: ["88500", "88520", "88630", "88690", "88710", "88780"],
-    priority: true,
-    intro: "En Reynosa, uno de los principales polos maquiladores de la frontera norte, damos servicio de control de plagas a parques industriales, maquiladoras, comercios y hogares. El clima cálido y húmedo de la frontera exige un control constante de mosquitos, cucarachas y roedores, y Big Cat responde con protocolos de alta frecuencia.",
-    neighborhoods: ["Centro", "Las Fuentes", "Del Prado", "Aztlán", "Jarachina", "Valle Alto"],
-    commonPests: ["Mosquitos", "Cucarachas", "Roedores", "Moscas", "Hormigas"],
-    seasonalNote: "La humedad fronteriza y el riesgo de dengue hacen crítico el control de mosquitos; ofrecemos nebulización y tratamiento de criaderos durante toda la temporada cálida."
-  },
-  {
-    id: 'tampico',
-    name: "Tampico, Tamps.",
-    shortName: "Tampico",
-    state: "Tamaulipas",
-    phone: CONTACT_INFO.phone,
-    address: "Av. Hidalgo 4000",
-    coords: [-97.8686, 22.2553],
-    range: "89000 - 89370",
-    zipCodes: ["89000", "89100", "89140", "89200", "89308", "89360"],
-    priority: true,
-    intro: "Tampico, puerto histórico del Golfo, presenta una alta humedad y clima tropical que favorecen plagas como cucarachas, mosquitos y termitas. Big Cat protege comercios del centro, restaurantes de mariscos, hoteles de la zona conurbada (Tampico-Madero-Altamira) y residencias con soluciones adaptadas al ambiente costero.",
-    neighborhoods: ["Centro Histórico", "Zona Dorada", "Águila", "Universidad", "Flamboyanes", "Laguna de la Puerta"],
-    commonPests: ["Cucarachas", "Mosquitos", "Termitas", "Roedores", "Moscas"],
-    seasonalNote: "La humedad tropical del puerto mantiene alta la actividad de cucarachas y termitas todo el año; recomendamos programas de mantenimiento mensual en negocios."
-  },
-  {
-    id: 'matamoros',
-    name: "Matamoros, Tamps.",
-    shortName: "Matamoros",
-    state: "Tamaulipas",
-    phone: CONTACT_INFO.phone,
-    address: "Av. Lauro Villar 800",
-    coords: [-97.5027, 25.8690],
-    range: "87300 - 87599",
-    zipCodes: ["87300", "87340", "87370", "87450", "87490", "87560"],
-    priority: true,
-    intro: "En Matamoros, ciudad fronteriza y puerto industrial de Tamaulipas, atendemos maquiladoras, comercios, bodegas y hogares con control de plagas certificado. El clima cálido y la actividad logística fronteriza requieren un manejo riguroso de roedores, cucarachas y mosquitos que Big Cat garantiza por escrito.",
-    neighborhoods: ["Centro", "Jardín", "Victoria", "Fraccionamiento Los Encinos", "Valle Real", "Modulo 2000"],
-    commonPests: ["Roedores", "Mosquitos", "Cucarachas", "Moscas", "Hormigas"],
-    seasonalNote: "El tránsito de mercancías fronterizo incrementa el riesgo de roedores en bodegas; instalamos estaciones de monitoreo perimetral con reporte documentado para auditorías."
-  },
-
-  // ===================================================================
-  // RESTO DE SEDES (cobertura nacional)
-  // ===================================================================
-  {
-    id: 'guadalajara',
-    name: "Guadalajara, Jal.",
-    shortName: "Guadalajara",
-    state: "Jalisco",
-    phone: CONTACT_INFO.phone,
-    address: "C. Miguel Lerdo de Tejada 2379",
-    coords: [-103.4147, 20.7326],
-    range: "44100 - 45200",
-    priority: true,
-    intro: "Guadalajara, la Perla de Occidente y una de las mayores zonas metropolitanas del país, concentra una enorme actividad gastronómica, comercial e industrial. Big Cat ofrece control de plagas profesional para restaurantes de Chapultepec y Providencia, comercios del centro, industrias de El Salto y residencias en toda la ZMG.",
-    neighborhoods: ["Centro", "Providencia", "Chapultepec", "Zapopan", "Andares", "Tlaquepaque", "Americana"],
-    commonPests: ["Cucarachas", "Roedores", "Hormigas", "Mosquitos", "Termitas"],
-    seasonalNote: "La temporada de lluvias tapatía dispara mosquitos y hormigas; ajustamos los tratamientos perimetrales de junio a octubre."
-  },
-  {
-    id: 'leon',
-    name: "León, Gto.",
-    shortName: "León",
-    state: "Guanajuato",
-    phone: CONTACT_INFO.phone,
-    address: "Blvd. Campestre 1511",
-    coords: [-101.68, 21.12],
-    range: "37000 - 37999"
-  },
-  {
-    id: 'cdmx',
-    name: "Ciudad de México",
-    shortName: "Ciudad de México",
-    state: "Ciudad de México",
-    phone: CONTACT_INFO.phone,
-    address: "Tennyson 133, Polanco",
-    coords: [-99.13, 19.43],
-    range: "01000 - 16999"
-  },
-  {
-    id: 'puebla',
-    name: "Puebla, Pue.",
-    shortName: "Puebla",
-    state: "Puebla",
-    phone: CONTACT_INFO.phone,
-    address: "Av. Juárez 2902",
-    coords: [-98.20, 19.04],
-    range: "72000 - 72999"
-  },
-  {
-    id: 'tijuana',
-    name: "Tijuana, B.C.",
-    shortName: "Tijuana",
-    state: "Baja California",
-    phone: CONTACT_INFO.phone,
-    address: "Blvd. Agua Caliente 10440",
-    coords: [-117.03, 32.51],
-    range: "22000 - 22999"
-  },
-  {
-    id: 'merida',
-    name: "Mérida, Yuc.",
-    shortName: "Mérida",
-    state: "Yucatán",
-    phone: CONTACT_INFO.phone,
-    address: "Calle 60 491",
-    coords: [-89.62, 20.96],
-    range: "97000 - 97314"
-  },
-  {
-    id: 'sanluis',
-    name: "San Luis Potosí",
-    shortName: "San Luis Potosí",
-    state: "San Luis Potosí",
-    phone: CONTACT_INFO.phone,
-    address: "Av. Venustiano Carranza 1000",
-    coords: [-100.97, 22.15],
-    range: "78000 - 78499"
-  },
-  {
-    id: 'aguascalientes',
-    name: "Aguascalientes",
-    shortName: "Aguascalientes",
-    state: "Aguascalientes",
-    phone: CONTACT_INFO.phone,
-    address: "Av. Universidad 1001",
-    coords: [-102.29, 21.88],
-    range: "20000 - 20999"
-  },
-  {
-    id: 'hermosillo',
-    name: "Hermosillo, Son.",
-    shortName: "Hermosillo",
-    state: "Sonora",
-    phone: CONTACT_INFO.phone,
-    address: "Blvd. Eusebio Kino 300",
-    coords: [-110.96, 29.07],
-    range: "83000 - 83299"
-  },
-  {
-    id: 'mexicali',
-    name: "Mexicali, B.C.",
-    shortName: "Mexicali",
-    state: "Baja California",
-    phone: CONTACT_INFO.phone,
-    address: "Av. Madero 100",
-    coords: [-115.45, 32.62],
-    range: "21000 - 21399"
-  },
-  {
-    id: 'culiacan',
-    name: "Culiacán, Sin.",
-    shortName: "Culiacán",
-    state: "Sinaloa",
-    phone: CONTACT_INFO.phone,
-    address: "Blvd. Pedro Infante 2500",
-    coords: [-107.39, 24.80],
-    range: "80000 - 80299"
-  },
-  {
-    id: 'juarez',
-    name: "Cd. Juárez, Chih.",
-    shortName: "Ciudad Juárez",
-    state: "Chihuahua",
-    phone: CONTACT_INFO.phone,
-    address: "Av. Lincoln 1000",
-    coords: [-106.48, 31.73],
-    range: "32000 - 32699"
-  }
-];
+// Las sedes viven en src/data/sedes.ts: es el archivo donde se cargan
+// dirección, horario, mapa y reseñas de cada una.
+export { BRANCHES, TOTAL_SEDES, MAS_DE_CIUDADES };
+export type { Branch } from './src/data/sedes';
 
 
 export const NAV_LINKS: NavLink[] = [
@@ -393,11 +83,18 @@ export const NAV_LINKS: NavLink[] = [
   },
   {
     label: 'Ubicaciones',
-    href: '/#mapa',
-    children: BRANCHES.map(branch => ({
-      label: branch.name,
-      href: `/#mapa`
-    }))
+    href: '/sedes/',
+    // Las sedes físicas, una por una; los otros dos niveles, como grupo
+    // (son demasiadas ciudades para un desplegable).
+    children: [
+      ...BRANCHES.filter(branch => branch.tipo === 'sede').map(branch => ({
+        label: `Sede ${branch.shortName}`,
+        href: `/sedes/${branch.id}/`
+      })),
+      { label: 'Ciudades con servicio', href: '/cobertura/#servicio' },
+      { label: 'Red de aliados', href: '/cobertura/#aliados' },
+      { label: 'Todas las ubicaciones', href: '/sedes/' }
+    ]
   },
   { label: 'Contacto', href: '/#contacto' },
 ];
@@ -727,13 +424,7 @@ export const TESTIMONIALS: Testimonial[] = [
   }
 ];
 
-export const COVERAGE_AREAS = [
-  "Guadalajara",
-  "León",
-  "Querétaro",
-  "Ciudad de México (CDMX)",
-  "Monterrey"
-];
+export const COVERAGE_AREAS = BRANCHES.map(branch => branch.shortName);
 
 export const RESTAURANT_CLIENTS = {
   guadalajara: [
@@ -812,6 +503,7 @@ export const BLOG_POSTS = [
   {
     id: '1',
     slug: 'control-plagas-invierno',
+    servicioRelacionado: 'control-de-roedores',
     title: "Por qué el control de plagas en invierno es más importante de lo que crees",
     excerpt: "Las plagas de invierno no descansan. Descubre por qué el control de plagas estacional durante los meses fríos es clave para prevenir...",
     content: `
@@ -845,6 +537,7 @@ export const BLOG_POSTS = [
   {
     id: '2',
     slug: 'hormigas-invadiendo-hogar',
+    servicioRelacionado: 'control-de-hormigas',
     title: "¿Hormigas invadiendo tu hogar? Por qué nunca parecen irse del todo",
     excerpt: "Si pensaste que el fin del verano significaba el fin de las hormigas, piénsalo de nuevo. A diferencia de otras regiones...",
     content: `
@@ -875,6 +568,7 @@ export const BLOG_POSTS = [
   {
     id: '3',
     slug: 'otono-cucarachas-casas',
+    servicioRelacionado: 'eliminacion-de-cucarachas',
     title: "El otoño no detiene a las cucarachas: Por qué invaden casas en esta época",
     excerpt: "A medida que el clima se enfría, podrías esperar que las plagas se tomen un descanso, pero las cucarachas no juegan bajo las...",
     content: `
@@ -906,6 +600,7 @@ export const BLOG_POSTS = [
   {
     id: '4',
     slug: 'insectos-comunes-mexico',
+    servicioRelacionado: 'eliminacion-de-cucarachas',
     title: "Insectos y plagas comunes: Qué vigilar durante todo el año en México",
     excerpt: "El clima templado de México es un paraíso, pero lamentablemente es igual de atractivo para las plagas. Conoce qué...",
     content: `
@@ -940,6 +635,7 @@ export const BLOG_POSTS = [
   {
     id: '5',
     slug: 'control-de-plagas-monterrey-calor',
+    servicioRelacionado: 'eliminacion-de-cucarachas',
     title: "Control de plagas en Monterrey: por qué el calor extremo dispara las infestaciones",
     excerpt: "El verano regio no solo es sofocante: es el escenario perfecto para que cucarachas, alacranes y roedores invadan tu hogar o negocio. Te explicamos por qué y cómo prevenirlo.",
     content: `
@@ -975,6 +671,7 @@ export const BLOG_POSTS = [
   {
     id: '6',
     slug: 'alacranes-norte-mexico-prevencion',
+    servicioRelacionado: 'control-de-alacranes',
     title: "Alacranes en el norte de México: guía de prevención para Coahuila y Nuevo León",
     excerpt: "Saltillo, Torreón y Monterrey están entre las zonas con mayor presencia de alacranes. Aprende a identificar el riesgo y a mantener tu hogar seguro.",
     content: `
@@ -1000,12 +697,12 @@ export const BLOG_POSTS = [
       4. Instala mosquiteros y protege coladeras.<br/>
       5. Evita acumular cajas contra los muros.<br/>
       6. Usa luz de vapor de sodio (amarilla) en exteriores: atrae menos insectos de los que se alimentan.<br/>
-      7. Aplica una <a href="/servicios/control-de-alacranes/">barrera química residual profesional</a> en el perímetro.</p>
+      7. Aplica una barrera química residual profesional en el perímetro: es lo que hace nuestro <a href="/servicios/control-de-alacranes/">servicio de control de alacranes</a>.</p>
 
       <h2>¿Qué hacer ante una picadura?</h2>
       <p>Acude de inmediato al centro de salud más cercano. México cuenta con antídoto (faboterápico) gratuito en el sector público. No apliques remedios caseros.</p>
 
-      <p>En <strong>Big Cat</strong> aplicamos barreras residuales de larga duración, seguras para tu familia, diseñadas específicamente para el clima del norte. Solicita tu inspección en <a href="/sedes/saltillo/">Saltillo</a>, <a href="/sedes/torreon/">Torreón</a> o <a href="/sedes/monterrey/">Monterrey</a>.</p>
+      <p>En <strong>Big Cat</strong> aplicamos barreras residuales de larga duración, seguras para tu familia, diseñadas específicamente para el clima del norte. Solicita tu inspección: <a href="/sedes/monterrey/">fumigación en Monterrey</a>, <a href="/sedes/saltillo/">fumigación en Saltillo</a> o <a href="/sedes/torreon/">fumigación en Torreón</a>.</p>
     `,
     featured_image: "/services/alacranes.webp",
     published_at: "2026-05-13T09:30:00Z",
@@ -1017,6 +714,7 @@ export const BLOG_POSTS = [
   {
     id: '7',
     slug: 'como-elegir-empresa-control-de-plagas',
+    servicioRelacionado: 'control-de-plagas-comercial',
     title: "Cómo elegir una empresa de control de plagas en México: 7 puntos clave",
     excerpt: "No todas las fumigadoras son iguales. Estos son los criterios que debes revisar antes de contratar para no tirar tu dinero (ni arriesgar tu salud).",
     content: `
@@ -1057,6 +755,7 @@ export const BLOG_POSTS = [
   {
     id: '8',
     slug: 'control-de-plagas-restaurantes-cofepris',
+    servicioRelacionado: 'control-de-plagas-comercial',
     title: "Control de plagas para restaurantes: cumple con COFEPRIS y evita multas",
     excerpt: "Una sola cucaracha puede cerrar tu restaurante. Descubre cómo un programa profesional protege tu reputación, tus clientes y tu licencia sanitaria.",
     content: `
@@ -1093,6 +792,7 @@ export const BLOG_POSTS = [
   {
     id: '9',
     slug: 'chinches-de-cama-deteccion-eliminacion',
+    servicioRelacionado: 'control-de-chinches',
     title: "Chinches de cama: cómo detectarlas a tiempo y eliminarlas por completo",
     excerpt: "Las chinches de cama resurgieron con fuerza por el turismo. Aprende a reconocer las señales tempranas antes de que la infestación se salga de control.",
     content: `
@@ -1130,6 +830,7 @@ export const BLOG_POSTS = [
   {
     id: '10',
     slug: 'mosquitos-dengue-zonas-calidas',
+    servicioRelacionado: 'control-de-mosquitos',
     title: "Mosquitos y dengue: cómo protegerte en Tampico, Reynosa y zonas cálidas",
     excerpt: "En las zonas cálidas y húmedas del país, el mosquito no solo molesta: transmite dengue, zika y chikungunya. Te decimos cómo cortar su ciclo.",
     content: `
@@ -1169,6 +870,7 @@ export const BLOG_POSTS = [
   {
     id: '11',
     slug: 'termitas-senales-riesgo-hogar',
+    servicioRelacionado: 'control-de-termitas',
     title: "Termitas: 6 señales de que están destruyendo tu casa (y cómo detenerlas)",
     excerpt: "Las termitas trabajan en silencio y pueden comprometer la estructura de tu hogar antes de que las veas. Aprende a detectar el daño a tiempo.",
     content: `
@@ -1204,6 +906,7 @@ export const BLOG_POSTS = [
   {
     id: '12',
     slug: 'cuanto-cuesta-fumigacion-mexico-2026',
+    servicioRelacionado: 'eliminacion-de-cucarachas',
     title: "¿Cuánto cuesta una fumigación en México en 2026? Precios y factores",
     excerpt: "El costo de una fumigación depende de varios factores. Te explicamos qué influye en el precio para que puedas comparar y decidir con información real.",
     content: `

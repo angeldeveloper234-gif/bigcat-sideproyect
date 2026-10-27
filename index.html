@@ -20,42 +20,9 @@
   <meta name="author" content="Big Cat - Control de Plagas" />
   <!-- Open Graph -->
   <link rel="icon" type="image/png" href="/logo/BIG CAT - Control de plagas.png" />
-  <!-- JSON-LD estático (visible para crawlers sin JS: Google, ChatGPT, Perplexity, AI Overviews) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": ["PestControlService", "LocalBusiness"],
-    "name": "Big Cat - Control de Plagas",
-    "alternateName": "Bigcat",
-    "url": "https://bigcat.mx/",
-    "telephone": "+528114753426",
-    "priceRange": "$$",
-    "image": "https://bigcat.mx/logo/BIG CAT - Control de plagas.png",
-    "description": "Servicios profesionales de fumigación y control de plagas con más de 29 años de experiencia en México. Cobertura en Nuevo León, Coahuila, Jalisco, Querétaro, Tamaulipas y más.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "San Pedro Garza García",
-      "addressRegion": "Nuevo León",
-      "addressCountry": "MX"
-    },
-    "geo": { "@type": "GeoCoordinates", "latitude": 25.6588, "longitude": -100.4028 },
-    "areaServed": [
-      "Monterrey", "San Pedro Garza García", "Querétaro", "San Juan del Río",
-      "San Miguel de Allende", "Saltillo", "Torreón", "Reynosa", "Tampico",
-      "Matamoros", "Guadalajara"
-    ],
-    "openingHoursSpecification": [{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-      "opens": "08:00",
-      "closes": "20:00"
-    }],
-    "sameAs": [
-      "https://web.facebook.com/profile.php?id=61561957291508",
-      "https://www.instagram.com/bigcat.mx/"
-    ]
-  }
-  </script>
+  <!-- El JSON-LD lo declara cada página (Organization en la home, LocalBusiness
+       en cada sede). Ver src/lib/schema.ts. React-snap lo deja en el HTML
+       prerenderizado, así que los crawlers sin JS lo ven igual. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" as="style">

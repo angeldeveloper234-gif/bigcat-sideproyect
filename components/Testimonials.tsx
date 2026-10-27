@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, ShieldCheck, Calendar, Quote } from 'lucide-react';
-import { CONTACT_INFO } from '../constants';
+import { MENSAJES, whatsappUrl } from '../src/lib/contacto';
 
 const QuoteIcon = ({ className }: { className?: string }) => (
     <div className={`w-4 h-4 bg-brand-red rounded-full flex items-center justify-center ${className}`}>
@@ -123,17 +123,25 @@ const Ticker = ({ reviews, speed = 40, reverse = false }: { reviews: any[], spee
             transition={{ duration: speed, repeat: Infinity, ease: "linear" }}
             className="flex gap-4 w-max absolute"
         >
-            {[...reviews, ...reviews, ...reviews, ...reviews, ...reviews, ...reviews].map((review, idx) => (
-                <TestimonialCard key={`${review.id}-${idx}`} review={review} />
+            {/* Cada reseña va una sola vez. La segunda pasada es solo para que
+                la cinta no se corte al girar: no se lee ni se indexa. */}
+            {reviews.map((review) => (
+                <TestimonialCard key={review.id} review={review} />
             ))}
+            <div className="flex gap-4" aria-hidden="true" data-nosnippet>
+                {reviews.map((review) => (
+                    <TestimonialCard key={`${review.id}-copia`} review={review} />
+                ))}
+            </div>
         </motion.div>
     </div>
 );
 
 const Testimonials: React.FC = () => {
+    // Dos filas, cada reseña en una sola. La tercera fila repetía las
+    // reseñas 3 a 6, que ya estaban en las dos primeras.
     const row1 = MIXED_REVIEWS.slice(0, 4);
     const row2 = MIXED_REVIEWS.slice(4, 8);
-    const row3 = [...MIXED_REVIEWS.slice(2, 6)];
 
     return (
         <section id="testimonios" className="py-32 bg-white overflow-hidden">
@@ -153,7 +161,6 @@ const Testimonials: React.FC = () => {
                             </p>
                             <Ticker reviews={row1} speed={50} />
                             <Ticker reviews={row2} speed={60} reverse />
-                            <Ticker reviews={row3} speed={55} />
                         </div>
                     </div>
 
@@ -202,7 +209,9 @@ const Testimonials: React.FC = () => {
 
                         <div className="pt-4">
                             <a 
-                                href={`https://wa.me/52${CONTACT_INFO.whatsapp.replace(/\s/g, '')}`}
+                                href={whatsappUrl(MENSAJES.general)}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center px-10 py-5 bg-brand-red text-white font-normal uppercase tracking-widest text-xs rounded-xl hover:bg-brand-dark transition-all duration-500 shadow-xl shadow-brand-red/30 transform hover:-translate-y-1"
                             >
                                 SABER MÁS

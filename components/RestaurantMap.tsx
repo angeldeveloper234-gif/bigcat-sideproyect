@@ -3,7 +3,12 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { Target, ShieldCheck, Home, MapPin, Zap, Clock, ChevronRight, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BRANCHES } from '../constants';
+import { BRANCHES as TODAS } from '../constants';
+
+// El mapa dibuja zonas de atención de 30 minutos: solo tiene sentido donde
+// damos el servicio nosotros (sedes y ciudades con servicio), no en las
+// ciudades que atiende la red de aliados.
+const BRANCHES = TODAS.filter(branch => branch.tipo !== 'aliados');
 
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
@@ -321,7 +326,7 @@ const RestaurantMap: React.FC = () => {
                                 transition={{ duration: 0.8 }}
                             >
                                 <span className="inline-flex items-center gap-2 bg-brand-red/10 border border-brand-red/20 px-4 py-1.5 rounded-full text-brand-red text-[10px] font-medium uppercase tracking-[0.2em] mb-6">
-                                    <Target size={14} /> Red Nacional de Control de Plagas
+                                    <Target size={14} /> Sedes Big Cat
                                 </span>
                                 <h2 className="text-4xl lg:text-7xl font-semibold text-brand-dark tracking-tighter leading-[0.85] mb-8">
                                     Cobertura <br />
@@ -395,7 +400,7 @@ const RestaurantMap: React.FC = () => {
                                             transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
                                             className="w-20 h-20 border-2 border-brand-red/30 border-t-brand-red rounded-full"
                                         />
-                                        <p className="text-white/30 font-normal text-[10px] uppercase tracking-[0.4em] animate-pulse">Iniciando Red Nacional</p>
+                                        <p className="text-white/30 font-normal text-[10px] uppercase tracking-[0.4em] animate-pulse">Cargando sedes</p>
                                     </div>
                                 </div>
                             )}
@@ -413,7 +418,7 @@ const RestaurantMap: React.FC = () => {
                                     </div>
                                     <div>
                                         <p className="text-xl font-semibold leading-none tracking-tighter uppercase">{activeCity.name}</p>
-                                        <p className="text-[9px] font-medium uppercase tracking-[0.2em] text-brand-red mt-1 opacity-60">{activeCity.address}</p>
+                                        <p className="text-[9px] font-medium uppercase tracking-[0.2em] text-brand-red mt-1 opacity-60">{activeCity.state}</p>
                                     </div>
                                 </motion.div>
                             </div>

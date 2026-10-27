@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calculator, Zap, ArrowRight } from 'lucide-react';
-import { CONTACT_INFO } from '../constants';
+import { MENSAJES, whatsappUrl } from '../src/lib/contacto';
 
 const CostCalculator: React.FC = () => {
     const [sqm, setSqm] = useState(0);
@@ -20,8 +20,8 @@ const CostCalculator: React.FC = () => {
     const estimate = sqm * basePrices[pestType];
 
     const generateWhatsAppLink = () => {
-        const message = `Hola, me interesa una cotización de fumigación. Mi casa es de approx ${sqm}m² y tengo un problema con ${pestType}. El cotizador me dio un estimado de $${estimate.toLocaleString()} MXN.`;
-        return `https://wa.me/52${CONTACT_INFO.phone.replace(/\s+/g, '')}?text=${encodeURIComponent(message)}`;
+        const message = `${MENSAJES.general} Mi casa es de aprox. ${sqm}m² y tengo un problema con ${pestType}. El cotizador me dio un estimado de $${estimate.toLocaleString()} MXN.`;
+        return whatsappUrl(message);
     };
 
     return (

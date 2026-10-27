@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, ShieldCheck, Zap } from 'lucide-react';
-import { CONTACT_INFO, BRANCHES } from '../constants';
+import { BRANCHES } from '../constants';
+import { TIPOS, ciudadesDeTipo } from '../src/data/sedes';
+import { MENSAJES, whatsappUrl } from '../src/lib/contacto';
+import { trackEvent } from '../src/lib/analytics';
 
 const QuoteSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -15,15 +18,18 @@ const QuoteSection: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    const whatsappNumber = CONTACT_INFO.whatsapp.replace(/\s+/g, '');
-    const message = `*Nueva Solicitud de Cotización - Big Cat*%0A%0A` +
-      `*Nombre:* ${formData.nombre}%0A` +
-      `*Teléfono:* ${formData.telefono}%0A` +
-      `*Email:* ${formData.email}%0A` +
-      `*Ciudad:* ${formData.ciudad}%0A` +
+    // Va en la home: el mensaje empieza con la frase general que lee el bot.
+    const message = `${MENSAJES.general}\n\n` +
+      `*Nueva Solicitud de Cotización - Big Cat*\n` +
+      `*Nombre:* ${formData.nombre}\n` +
+      `*Teléfono:* ${formData.telefono}\n` +
+      `*Email:* ${formData.email}\n` +
+      `*Ciudad:* ${formData.ciudad}\n` +
       `*Mensaje:* ${formData.mensaje}`;
 
-    window.open(`https://wa.me/52${whatsappNumber}?text=${message}`, '_blank');
+    window.open(whatsappUrl(message), '_blank');
+    const sede = BRANCHES.find(b => b.name === formData.ciudad);
+    trackEvent('generate_lead', { form_name: 'cotizacion', city: sede?.id ?? '' });
   };
 
   return (
@@ -136,9 +142,14 @@ const QuoteSection: React.FC = () => {
                                 onChange={(e) => setFormData({...formData, ciudad: e.target.value})}
                             >
                                 <option value="">¿En qué ciudad te encuentras?</option>
-                                {BRANCHES.map(city => (
-                                    <option key={city.id} value={city.name}>{city.name}</option>
+                                {TIPOS.map(({ tipo, titulo }) => (
+                                    <optgroup key={tipo} label={titulo}>
+                                        {ciudadesDeTipo(tipo).map(city => (
+                                            <option key={city.id} value={city.name}>{city.name}</option>
+                                        ))}
+                                    </optgroup>
                                 ))}
+                                <option value="Otra ciudad">Otra ciudad</option>
                             </select>
                             <textarea
                                 placeholder="¿Qué problema tienes en casa? (Hormigas, Cucarachas, etc.)"

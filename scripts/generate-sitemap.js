@@ -10,6 +10,9 @@ import path from 'path';
  * el sitemap no pueden diferir — ni en la barra final, ni en la ñ de /reseñas.
  */
 import { canonical } from '../src/lib/urls.ts';
+// Las ciudades salen de los mismos datos que las páginas: agregar una ciudad
+// en src/data/sedes.ts la agrega acá sin tocar este archivo.
+import { BRANCHES } from '../src/data/sedes.ts';
 
 async function generateSitemap() {
   try {
@@ -21,7 +24,9 @@ async function generateSitemap() {
       '/nosotros',
       '/faq',
       '/reseñas',
-      '/blog'
+      '/blog',
+      '/sedes',
+      '/cobertura'
     ];
 
     // 2. Services (Slugs from constants.ts)
@@ -41,18 +46,10 @@ async function generateSitemap() {
       'control-de-aves-y-palomas'
     ];
 
-    // 3. Locations (Slugs from constants.ts BRANCHES)
-    // Ciudades PRIORITARIAS (foco SEO del cliente) → mayor prioridad en sitemap
-    const prioritySlugs = [
-      'monterrey', 'san-pedro-garza-garcia', 'queretaro', 'san-juan-del-rio',
-      'san-miguel-de-allende', 'saltillo', 'torreon', 'reynosa',
-      'tampico', 'matamoros', 'guadalajara'
-    ];
-    // Resto de sedes (cobertura nacional)
-    const otherSlugs = [
-      'leon', 'cdmx', 'puebla', 'tijuana', 'merida', 'sanluis',
-      'aguascalientes', 'hermosillo', 'mexicali', 'culiacan', 'juarez'
-    ];
+    // 3. Ciudades: sedes y ciudades con servicio primero (prioridad 0.9),
+    //    red de aliados después (0.7).
+    const prioritySlugs = BRANCHES.filter(c => c.tipo !== 'aliados').map(c => c.id);
+    const otherSlugs = BRANCHES.filter(c => c.tipo === 'aliados').map(c => c.id);
 
     // 4. Blog Posts (Slugs from constants.ts BLOG_POSTS)
     const blogSlugs = [
@@ -88,7 +85,7 @@ async function generateSitemap() {
     <priority>0.9</priority>
   </url>`).join('').trim()}
 
-  <!-- Sedes PRIORITARIAS (ciudades foco del cliente) -->
+  <!-- Sedes y ciudades con servicio -->
   ${prioritySlugs.map(slug => `
   <url>
     <loc>${canonical(`/sedes/${slug}`)}</loc>
@@ -97,7 +94,7 @@ async function generateSitemap() {
     <priority>0.9</priority>
   </url>`).join('').trim()}
 
-  <!-- Sedes (cobertura nacional) -->
+  <!-- Ciudades de la red de aliados -->
   ${otherSlugs.map(slug => `
   <url>
     <loc>${canonical(`/sedes/${slug}`)}</loc>

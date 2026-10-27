@@ -1,5 +1,6 @@
 import React from 'react';
-import { NAV_LINKS, LOGO_LIGHT, LOGO_DARK, BRANCHES } from '../constants';
+import { NAV_LINKS, LOGO_LIGHT, LOGO_DARK } from '../constants';
+import { TIPOS, ciudadesDeTipo } from '../src/data/sedes';
 
 const Footer: React.FC = () => {
   return (
@@ -142,6 +143,10 @@ const Footer: React.FC = () => {
                   <div className="w-0 h-px bg-brand-red group-hover:w-4 transition-all" />
                   Blog
                 </a>
+                <a href="/cobertura/" className="hover:text-brand-red transition-colors flex items-center gap-2 group">
+                  <div className="w-0 h-px bg-brand-red group-hover:w-4 transition-all" />
+                  Cobertura
+                </a>
                 <a href="/blog/cuanto-cuesta-fumigacion-mexico-2026/" className="hover:text-brand-red transition-colors flex items-center gap-2 group">
                   <div className="w-0 h-px bg-brand-red group-hover:w-4 transition-all" />
                   ¿Cuánto cuesta una fumigación?
@@ -163,21 +168,30 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Cobertura por ciudad — enlazado interno a todas las sedes (SEO local) */}
+        {/* Cobertura por ciudad — enlazado interno a todas las ciudades, por nivel */}
         <div className="pt-16 pb-16 border-b border-gray-100">
-          <h4 className="text-brand-red font-semibold uppercase tracking-[0.2em] text-[10px] mb-8">Control de Plagas por Ciudad</h4>
-          <nav aria-label="Cobertura por ciudad" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-4 text-sm font-medium text-gray-500">
-            {BRANCHES.map((branch) => (
-              <a
-                key={branch.id}
-                href={`/sedes/${branch.id}/`}
-                className="hover:text-brand-red transition-colors flex items-center gap-2 group"
-              >
-                <div className="w-0 h-px bg-brand-red group-hover:w-4 transition-all" />
-                Control de Plagas en {branch.shortName || branch.name}
-              </a>
+          <div className="grid md:grid-cols-3 gap-12">
+            {TIPOS.map(({ tipo, titulo }) => (
+              <nav key={tipo} aria-label={titulo}>
+                <h4 className="text-brand-red font-semibold uppercase tracking-[0.2em] text-[10px] mb-6">{titulo}</h4>
+                <div className="flex flex-col gap-3 text-sm font-medium text-gray-500">
+                  {ciudadesDeTipo(tipo).map((ciudad) => (
+                    <a
+                      key={ciudad.id}
+                      href={`/sedes/${ciudad.id}/`}
+                      className="hover:text-brand-red transition-colors flex items-center gap-2 group"
+                    >
+                      <div className="w-0 h-px bg-brand-red group-hover:w-4 transition-all" />
+                      Fumigación en {ciudad.shortName}
+                    </a>
+                  ))}
+                </div>
+              </nav>
             ))}
-          </nav>
+          </div>
+          <p className="mt-10 text-sm text-gray-500">
+            ¿No ves tu ciudad? <a href="/cobertura/" className="text-brand-red font-medium hover:underline">Cobertura: ¿dónde damos servicio?</a>
+          </p>
         </div>
 
         <div className="pt-12 pb-12 flex flex-col md:flex-row justify-between items-center gap-8 border-b border-gray-50">

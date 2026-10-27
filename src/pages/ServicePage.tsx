@@ -3,6 +3,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { canonical } from '../lib/urls';
 import { descripcion, componer } from '../lib/descriptions';
+import { breadcrumbSchema as migas } from '../lib/schema';
 import { motion } from 'framer-motion';
 import { PESTS_LIST, CONTACT_INFO } from '../../constants';
 import { CheckCircle2, AlertCircle, ShieldCheck, Microscope } from 'lucide-react';
@@ -47,20 +48,12 @@ const ServicePage: React.FC = () => {
             "@type": "PestControlService",
             "name": "Big Cat - Control de Plagas",
             "telephone": CONTACT_INFO.phoneE164,
-            "url": "https://bigcat.mx/"
+            "url": canonical('/')
         }
     };
 
     // Schema.org — Breadcrumb
-    const breadcrumbSchema = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://bigcat.mx/" },
-            { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://bigcat.mx/#servicios" },
-            { "@type": "ListItem", "position": 3, "name": service.name, "item": url }
-        ]
-    };
+    const breadcrumbSchema = migas([['Inicio', '/'], [service.name, `/servicios/${service.slug}/`]]);
 
     return (
         <div className="pt-20 bg-white min-h-screen">

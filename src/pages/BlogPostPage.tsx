@@ -8,7 +8,9 @@ import { Calendar, User, ChevronRight, ArrowLeft, Loader2 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { BlogPost } from '../../types';
 
-import { BLOG_POSTS, formatBlogDate } from '../../constants';
+import { BLOG_POSTS, PESTS_LIST, formatBlogDate } from '../../constants';
+import { breadcrumbSchema } from '../lib/schema';
+import SedesLinks from '../../components/SedesLinks';
 
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -52,44 +54,22 @@ const BlogPostPage: React.FC = () => {
       : `https://bigcat.mx${post.featured_image}`,
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://bigcat.mx/blog/${post.slug}`
+      "@id": canonical(`/blog/${post.slug}`)
     },
     "publisher": {
       "@type": "Organization",
       "name": "Big Cat - Control de Plagas",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://bigcat.mx/logo/BIG CAT - Control de plagas.png"
+        "url": "https://bigcat.mx/logo/BIG%20CAT%20-%20Control%20de%20plagas.png"
       }
     }
   };
 
   // Schema.org BreadcrumbList
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Inicio",
-        "item": "https://bigcat.mx/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Blog",
-        "item": "https://bigcat.mx/blog"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": post.title,
-        "item": `https://bigcat.mx/blog/${post.slug}`
-      }
-    ]
-  };
+  const breadcrumbLd = breadcrumbSchema([['Inicio', '/'], ['Blog', '/blog/'], [post.title, `/blog/${post.slug}/`]]);
 
+  const servicio = PESTS_LIST.find(p => p.slug === post.servicioRelacionado);
 
   return (
     <main className="relative pt-32 pb-24 bg-white min-h-screen">
@@ -189,6 +169,21 @@ const BlogPostPage: React.FC = () => {
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
         
+        {/* Servicio relacionado: cada artículo enlaza al menos a un servicio */}
+        {servicio && (
+          <Link
+            to={`/servicios/${servicio.slug}/`}
+            className="mt-16 flex items-center justify-between gap-6 p-8 rounded-[2rem] border border-brand-red/20 bg-brand-red/5 hover:bg-brand-red/10 transition-colors group"
+          >
+            <span>
+              <span className="block text-[10px] font-normal uppercase tracking-[0.2em] text-brand-red mb-2">Servicio relacionado</span>
+              <span className="text-2xl font-normal text-brand-dark">{servicio.name}</span>
+              <span className="block text-gray-500 mt-1">{servicio.description}</span>
+            </span>
+            <ChevronRight className="text-brand-red shrink-0 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        )}
+
         {/* CTA */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -205,6 +200,8 @@ const BlogPostPage: React.FC = () => {
             </Link>
           </div>
         </motion.div>
+
+        <SedesLinks variante="bloque" titulo="Sedes" />
       </article>
     </main>
   );

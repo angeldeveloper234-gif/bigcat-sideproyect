@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { canonical } from '../lib/urls';
 import { descripcion } from '../lib/descriptions';
+import { organizationSchema } from '../lib/schema';
 import Hero from '../../components/Hero';
 import TrustBar from '../../components/TrustBar';
 import AboutUs from '../../components/AboutUs';
@@ -13,6 +14,7 @@ import CostCalculator from '../../components/CostCalculator';
 import Testimonials from '../../components/Testimonials';
 import RestaurantMap from '../../components/RestaurantMap';
 import Blog from '../../components/Blog';
+import SedesLinks from '../../components/SedesLinks';
 
 import Contact from '../../components/Contact';
 import StickyCTA from '../../components/StickyCTA';
@@ -28,13 +30,14 @@ const Home: React.FC = () => {
                 <meta name="keywords" content="big cat, bigcat, big cat control de plagas, fumigaciones en mexico, control de plagas residencial, fumigación profesional" />
                 <link rel="canonical" href={canonical('/')} />
                 <meta property="og:title" content="Big Cat - Control de Plagas | Expertos en Fumigación" />
-                <meta property="og:description" content="Protege tu hogar y negocio con Big Cat. Servicios certificados por COFEPRIS con resultados garantizados." />
+                <meta property="og:description" content={descripcion('/', '')} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={canonical('/')} />
                 <meta property="og:image" content="https://bigcat.mx/logo/BIG CAT - Control de plagas.png" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Big Cat - Control de Plagas | Expertos en Fumigación" />
-                <meta name="twitter:description" content="Protege tu hogar y negocio con Big Cat. Resultados garantizados en todo México." />
+                <meta name="twitter:description" content={descripcion('/', '')} />
+                <script type="application/ld+json">{JSON.stringify(organizationSchema())}</script>
             </Helmet>
             {/* 1. Attention & CTA */}
             <Hero />
@@ -55,6 +58,7 @@ const Home: React.FC = () => {
             {/* 5. Action & Footprint */}
 
             <RestaurantMap />
+            <SedesLinks />
             <Blog />
             <Contact />
             <StickyCTA />
