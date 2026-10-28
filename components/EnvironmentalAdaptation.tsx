@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Info, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { RESIDENTIAL_PESTS, CONTACT_INFO } from '../constants';
+import { Link } from 'react-router-dom';
+import { RESIDENTIAL_PESTS, TOTAL_SEDES, MAS_DE_CIUDADES } from '../constants';
+import { MENSAJES, whatsappUrl } from '../src/lib/contacto';
 
 // Swiper styles
 import 'swiper/css';
@@ -92,7 +94,7 @@ const EnvironmentalAdaptation: React.FC = () => {
                     <div className="p-8 flex-grow flex flex-col justify-between bg-white relative z-20">
                       <div className="mb-6">
                         <h3 className="text-2xl font-semibold text-brand-dark leading-tight mb-3 group-hover:text-brand-red transition-colors">
-                          {pest.name}
+                          <Link to={`/servicios/${pest.slug}/`}>{pest.name}</Link>
                         </h3>
                         <p className="text-sm text-gray-400 font-normal leading-relaxed">
                           {pest.description}
@@ -100,8 +102,14 @@ const EnvironmentalAdaptation: React.FC = () => {
                       </div>
                       
                       <div className="flex flex-wrap gap-3">
+                        <Link
+                          to={`/servicios/${pest.slug}/`}
+                          className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-brand-dark bg-gray-100 px-4 py-2.5 rounded-full hover:bg-brand-dark hover:text-white transition-all duration-300"
+                        >
+                          Ver servicio
+                        </Link>
                         <a 
-                          href={`https://wa.me/52${CONTACT_INFO.phone.replace(/\s+/g, '')}?text=Hola,%20me%20interesa%20una%20cotizaci%C3%B3n%20para%20${encodeURIComponent(pest.name)}`}
+                          href={whatsappUrl(MENSAJES.general)}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-brand-red bg-brand-red/5 px-4 py-2.5 rounded-full hover:bg-brand-red hover:text-white transition-all duration-300 border border-brand-red/10"
@@ -128,7 +136,7 @@ const EnvironmentalAdaptation: React.FC = () => {
           <div className="flex-grow">
             <p className="text-2xl font-semibold text-brand-dark mb-2">Cobertura Residencial Directa</p>
             <p className="text-gray-500 font-normal leading-relaxed max-w-3xl">
-              Operamos con equipos tácticos distribuidos en las <span className="text-brand-red font-medium">15 ciudades clave de México</span>. Sanidad domiciliaria especializada con los más altos estándares de seguridad para tu familia.
+              Damos servicio desde nuestras <Link to="/sedes/" className="text-brand-red font-medium hover:underline">{TOTAL_SEDES} sedes y en más de {MAS_DE_CIUDADES} ciudades</Link> del norte y centro de México. Sanidad domiciliaria especializada con los más altos estándares de seguridad para tu familia.
             </p>
           </div>
         </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, MessageCircle, Calendar } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
+import { MENSAJES, whatsappUrl } from '../src/lib/contacto';
 
 const StickyCTA: React.FC = () => {
     return (
@@ -20,7 +21,9 @@ const StickyCTA: React.FC = () => {
                 </a>
 
                 <a 
-                    href={`https://wa.me/52${CONTACT_INFO.whatsapp.replace(/\s+/g, '')}`}
+                    href={whatsappUrl(MENSAJES.general)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex-[2] flex items-center justify-center gap-2 py-2.5 px-6 rounded-full bg-brand-red text-white shadow-lg shadow-brand-red/20 hover:bg-brand-red/90 transition-all active:scale-95"
                 >
                     <MessageCircle size={20} className="animate-pulse" />

@@ -14,7 +14,10 @@ import LocationPage from './src/pages/LocationPage';
 import BlogArchivePage from './src/pages/BlogArchivePage';
 import BlogPostPage from './src/pages/BlogPostPage';
 import NotFound from './src/pages/NotFound';
-import { CONTACT_INFO } from './constants';
+import SedesPage from './src/pages/SedesPage';
+import CoberturaPage from './src/pages/CoberturaPage';
+import AnalyticsListener from './components/AnalyticsListener';
+import WhatsappPanel from './components/WhatsappPanel';
 
 const ScrollToHash: React.FC = () => {
   const { hash } = useLocation();
@@ -34,33 +37,6 @@ const ScrollToHash: React.FC = () => {
 };
 
 const App: React.FC = () => {
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "PestControlService"],
-    "name": "Big Cat - Control de Plagas",
-    "alternateName": "Bigcat",
-    "url": "https://bigcat.mx/",
-    "telephone": CONTACT_INFO.phoneE164,
-    // Service Area Business: atendemos al cliente en su domicilio/negocio en todo
-    // México, por eso no se declara una dirección de calle (sede) específica.
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "San Pedro Garza García",
-      "addressRegion": "N.L.",
-      "addressCountry": "MX"
-    },
-    "areaServed": [
-      "Monterrey", "San Pedro Garza García", "Querétaro", "San Juan del Río", "San Miguel de Allende", "Saltillo", "Torreón", "Reynosa", "Tampico", "Matamoros", "Guadalajara", "León", "Ciudad de México", "Puebla", "Tijuana", "Mérida", "San Luis Potosí", "Aguascalientes", "Hermosillo", "Mexicali", "Culiacán", "Cd. Juárez"
-    ],
-    "openingHours": "Mo-Su 08:00-20:00",
-    "image": "https://bigcat.mx/logo/BIG CAT - Control de plagas.png",
-    "priceRange": "$$",
-    "sameAs": [
-      "https://web.facebook.com/profile.php?id=61561957291508",
-      "https://www.instagram.com/bigcat.mx/"
-    ]
-  };
-
   return (
     <HelmetProvider>
       {/*
@@ -76,9 +52,11 @@ const App: React.FC = () => {
         duplicarlo, y una que no lo declare lo hereda. Es lo mismo que se
         buscaba con index.html, pero funcionando.
 
-        Lo que NO está acá: geo.region, geo.placename, geo.position e ICBM.
-        Esos son de las 22 páginas de ciudad y de nadie más — como default
-        hacían que un artículo del blog declarara las coordenadas de Monterrey.
+        Lo que NO está acá: geo.region y geo.placename (son de las páginas de
+        ciudad) ni el JSON-LD del negocio. El Organization va solo en la home y
+        cada sede declara su LocalBusiness (src/lib/schema.ts): un LocalBusiness
+        global se repetía en todas las páginas, con un horario y una lista de
+        ciudades que no estaban verificados.
       */}
       <Helmet>
         <meta property="og:site_name" content="Big Cat - Control de Plagas" />
@@ -92,6 +70,7 @@ const App: React.FC = () => {
       </Helmet>
       <Router>
         <ScrollToHash />
+        <AnalyticsListener />
         <div className="min-h-screen bg-white font-sans text-brand-dark overflow-x-hidden">
           <Header />
           <main>
@@ -100,7 +79,9 @@ const App: React.FC = () => {
               <Route path="/nosotros" element={<AboutPage />} />
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/servicios/:slug" element={<ServicePage />} />
+              <Route path="/sedes" element={<SedesPage />} />
               <Route path="/sedes/:city" element={<LocationPage />} />
+              <Route path="/cobertura" element={<CoberturaPage />} />
               <Route path="/reseñas" element={<Reviews />} />
               <Route path="/blog" element={<BlogArchivePage />} />
               <Route path="/blog/:slug" element={<BlogPostPage />} />
@@ -109,10 +90,8 @@ const App: React.FC = () => {
           </main>
           <Footer />
           <FloatingWhatsApp />
+          <WhatsappPanel />
         </div>
-        <script type="application/ld+json">
-          {JSON.stringify(schemaData)}
-        </script>
       </Router>
     </HelmetProvider>
   );

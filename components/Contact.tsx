@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { Phone, Mail, Clock, Send, MapPin, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { CONTACT_INFO } from '../constants';
 import LocationModal from './LocationModal';
+import { whatsappUrl } from '../src/lib/contacto';
+import { useWhatsapp } from '../src/lib/whatsappContexto';
+import { trackEvent } from '../src/lib/analytics';
 
 const Contact: React.FC = () => {
     const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const wa = useWhatsapp();
     
     // Form State
     const [formData, setFormData] = useState({
@@ -27,15 +32,16 @@ const Contact: React.FC = () => {
         e.preventDefault();
         setFormStatus('submitting');
 
-        const whatsappNumber = CONTACT_INFO.whatsapp.replace(/\s+/g, '');
-        const message = `*Nueva Solicitud de Diagnóstico - Big Cat*%0A%0A` +
-            `*Nombre:* ${formData.name}%0A` +
-            `*Teléfono:* ${formData.phone}%0A` +
-            `*Servicio:* ${formData.service}%0A` +
+        const message = `${wa.mensaje}\n\n` +
+            `*Nueva Solicitud de Diagnóstico - Big Cat*\n` +
+            `*Nombre:* ${formData.name}\n` +
+            `*Teléfono:* ${formData.phone}\n` +
+            `*Servicio:* ${formData.service}\n` +
             `*Detalles:* ${formData.message}`;
 
         // Open WhatsApp
-        window.open(`https://wa.me/52${whatsappNumber}?text=${message}`, '_blank');
+        window.open(whatsappUrl(message), '_blank');
+        trackEvent('generate_lead', { form_name: 'contacto', service: formData.service });
 
         // Show success message
         setTimeout(() => {
@@ -80,11 +86,17 @@ const Contact: React.FC = () => {
                         title="Disponibilidad" 
                         content={`${CONTACT_INFO.schedule} - Respuesta Inmediata`} 
                     />
-                    <ContactItem
-                        icon={MapPin}
-                        title="Cobertura"
-                        content="Cobertura Nacional — Servicio de control de plagas en todo México"
-                    />
+                    <div className="flex items-start gap-4 group">
+                        <div className="w-14 h-14 flex-none bg-white border border-gray-100 rounded-2xl flex items-center justify-center text-brand-dark group-hover:bg-brand-red group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-sm">
+                            <MapPin size={24} />
+                        </div>
+                        <div className="pt-1">
+                            <h4 className="font-semibold text-brand-dark text-lg">Cobertura</h4>
+                            <Link to="/sedes/" className="text-gray-500 hover:text-brand-red transition-colors font-medium">
+                                {CONTACT_INFO.address}
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
 

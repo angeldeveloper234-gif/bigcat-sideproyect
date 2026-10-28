@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { X, MapPin, MessageCircle, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { BRANCHES, CONTACT_INFO } from '../constants';
 import { supabase } from '../src/lib/supabase';
+import { mensajeCiudad, whatsappUrl } from '../src/lib/contacto';
+import { TIPOS, ciudadesDeTipo } from '../src/data/sedes';
 
 interface LocationModalProps {
   isOpen: boolean;
@@ -24,14 +27,11 @@ const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose }) => {
 
   if (!isVisible && !isOpen) return null;
 
-  const handleBranchClick = async (branch: typeof BRANCHES[0]) => {
-    // 1. Open WhatsApp immediately
-    const whatsappNumber = CONTACT_INFO.whatsapp.replace(/\s+/g, '');
-    const message = encodeURIComponent(`Hola! Vengo de la web de ${CONTACT_INFO.name}. Me interesa el servicio en la zona de ${branch.name}`);
-    const whatsappUrl = `https://wa.me/52${whatsappNumber}?text=${message}`;
-    window.open(whatsappUrl, '_blank');
-
-    // 2. Log attempt to Supabase transparently
+  // El enlace es un <a> real (no window.open) para que el listener de
+  // analítica lo mida como whatsapp_click, con la ciudad elegida en data-city.
+  // El mensaje es el de la página de esa sede: así el bot y el CRM reciben la
+  // ciudad del cliente con el mismo formato.
+  const logBranchClick = async (branch: typeof BRANCHES[0]) => {
     try {
       const { error } = await supabase
         .from('contact_attempts')
@@ -85,24 +85,40 @@ const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose }) => {
 
         {/* Branch List - Scrollable */}
         <div className="p-6 space-y-3 overflow-y-auto overscroll-contain">
-          {BRANCHES.map((branch) => (
-            <div
-              key={branch.id}
-              onClick={() => handleBranchClick(branch)}
-              className="group flex items-center justify-between p-4 rounded-2xl border-2 border-gray-50 hover:border-brand-red/30 hover:bg-red-50/50 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red group-hover:bg-brand-red group-hover:text-white transition-colors duration-300 shrink-0">
-                  <MapPin size={22} />
-                </div>
-                <div>
-                  <span className="block font-medium text-brand-dark text-lg group-hover:text-brand-red transition-colors">{branch.name}</span>
-                  <span className="text-xs text-brand-red font-medium bg-red-50 px-2 py-0.5 rounded-full group-hover:bg-brand-red group-hover:text-white transition-colors">Disponible Ahora</span>
-                </div>
-              </div>
-              <ChevronRight className="text-gray-300 group-hover:text-brand-red group-hover:translate-x-1 transition-all duration-300" size={20} />
+          {TIPOS.map(({ tipo, titulo }) => (
+            <div key={tipo} className="space-y-3">
+              <p className="pt-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-400">{titulo}</p>
+              {ciudadesDeTipo(tipo).map((branch) => (
+                <a
+                  key={branch.id}
+                  href={whatsappUrl(mensajeCiudad(branch))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-city={branch.id}
+                  onClick={() => logBranchClick(branch)}
+                  className="group flex items-center justify-between p-4 rounded-2xl border-2 border-gray-50 hover:border-brand-red/30 hover:bg-red-50/50 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red group-hover:bg-brand-red group-hover:text-white transition-colors duration-300 shrink-0">
+                      <MapPin size={22} />
+                    </div>
+                    <div>
+                      <span className="block font-medium text-brand-dark text-lg group-hover:text-brand-red transition-colors">{branch.name}</span>
+                      <span className="text-xs text-brand-red font-medium bg-red-50 px-2 py-0.5 rounded-full group-hover:bg-brand-red group-hover:text-white transition-colors">Cotizar por WhatsApp</span>
+                    </div>
+                  </div>
+                  <ChevronRight className="text-gray-300 group-hover:text-brand-red group-hover:translate-x-1 transition-all duration-300" size={20} />
+                </a>
+              ))}
             </div>
           ))}
+          <Link
+            to="/cobertura/"
+            onClick={onClose}
+            className="block text-center p-4 rounded-2xl text-sm font-medium text-gray-500 hover:text-brand-red transition-colors"
+          >
+            ¿Tu ciudad no está en la lista? Ver cobertura
+          </Link>
         </div>
 
         {/* Footer */}

@@ -1,4 +1,5 @@
 import { ruta } from './urls';
+import { BRANCHES, TOTAL_SEDES, MAS_DE_CIUDADES } from '../data/sedes';
 
 /**
  * DESCRIPTIONS POR PÁGINA
@@ -13,80 +14,35 @@ import { ruta } from './urls';
  *
  * DE DÓNDE SALEN ESTOS TEXTOS
  *
- * Los escribió el cliente y van LITERALES. No se reescriben, no se "mejoran"
- * y no se les agrega nada.
+ * Las de las sedes viven con el resto de los datos de cada sede, en
+ * src/data/sedes.ts (`metaDescription`): fumigación para casas y negocios,
+ * una zona o municipio y la cotización por WhatsApp, en 155 caracteres o
+ * menos y sin precios. Las demás están abajo.
  *
  * LO QUE NO DICEN, A PROPÓSITO
  *
  * Ninguna menciona "COFEPRIS", "29 años de experiencia", "garantía" ni
  * certificaciones. No es un olvido: esas afirmaciones estaban en la
- * description vieja del home sin verificar, y replicarlas sin confirmar en 22
- * páginas de ciudad era exactamente lo que no había que hacer. Si el cliente
- * las confirma, se agregan acá.
- *
- * El orden de las sedes es por apariciones perdidas en los últimos 3 meses:
- * las primeras seis son el 70% del problema.
+ * description vieja del home sin verificar, y replicarlas sin confirmar en
+ * todas las páginas de ciudad era exactamente lo que no había que hacer. Si el
+ * cliente las confirma, se agregan acá.
  */
 
-const SEDES: Record<string, string> = {
-    'monterrey':
-        'Fumigaciones y control de plagas en Monterrey y su área metropolitana. Cucarachas, ratas, alacranes y chinches. Cotización sin costo y servicio el mismo día.',
-    'hermosillo':
-        'Fumigaciones en Hermosillo: control de plagas para casa y negocio. Cucarachas, alacranes, ratas y mosquitos. Pida su cotización sin costo por teléfono o WhatsApp.',
-    'saltillo':
-        'Fumigaciones en Saltillo, Coahuila. Control de plagas residencial y comercial: cucarachas, roedores, alacranes y chinches. Cotización sin costo, atención el mismo día.',
-    'juarez':
-        'Fumigaciones en Ciudad Juárez: control de plagas para casa, oficina y negocio. Cucarachas, ratas, chinches y arañas. Cotización sin costo y visita el mismo día.',
-    'san-juan-del-rio':
-        'Fumigaciones en San Juan del Río, Querétaro. Control de plagas en casa y negocio: cucarachas, roedores, alacranes y termitas. Cotización sin costo.',
-    'queretaro':
-        'Fumigaciones en Querétaro: control de plagas residencial y comercial. Cucarachas, ratas, chinches y termitas. Cotización sin costo y servicio el mismo día.',
-    'san-miguel-de-allende':
-        'Fumigaciones en San Miguel de Allende. Control de plagas para casa, hotel y restaurante: cucarachas, roedores, alacranes y termitas. Cotización sin costo.',
-    'reynosa':
-        'Fumigaciones en Reynosa, Tamaulipas. Control de plagas en casa y negocio: cucarachas, ratas, mosquitos y chinches. Cotización sin costo, atención el mismo día.',
-    'tampico':
-        'Fumigaciones en Tampico y la zona conurbada. Control de plagas: cucarachas, roedores, mosquitos y termitas. Cotización sin costo y servicio el mismo día.',
-    'guadalajara':
-        'Fumigaciones en Guadalajara y su zona metropolitana. Control de plagas para casa y negocio: cucarachas, ratas, chinches y hormigas. Cotización sin costo.',
-    'matamoros':
-        'Fumigaciones en Matamoros, Tamaulipas. Control de plagas residencial y comercial: cucarachas, roedores, mosquitos y chinches. Cotización sin costo.',
-    'tijuana':
-        'Fumigaciones en Tijuana, Baja California. Control de plagas en casa y negocio: cucarachas, ratas, arañas y chinches. Cotización sin costo y visita el mismo día.',
-    'san-pedro-garza-garcia':
-        'Fumigaciones en San Pedro Garza García, Nuevo León. Control de plagas residencial y comercial: cucarachas, alacranes, ratas y chinches. Cotización sin costo.',
-    'mexicali':
-        'Fumigaciones en Mexicali, Baja California. Control de plagas para casa y negocio: cucarachas, ratas, arañas y mosquitos. Cotización sin costo.',
-    'puebla':
-        'Fumigaciones en Puebla: control de plagas residencial y comercial. Cucarachas, roedores, chinches y hormigas. Cotización sin costo y servicio el mismo día.',
-    'culiacan':
-        'Fumigaciones en Culiacán, Sinaloa. Control de plagas en casa y negocio: cucarachas, ratas, mosquitos y alacranes. Cotización sin costo.',
-    'aguascalientes':
-        'Fumigaciones en Aguascalientes: control de plagas para casa, oficina y negocio. Cucarachas, roedores, chinches y arañas. Cotización sin costo.',
-    'cdmx':
-        'Fumigaciones en Ciudad de México. Control de plagas residencial y comercial: cucarachas, ratas, chinches y hormigas. Cotización sin costo.',
-    'sanluis':
-        'Fumigaciones en San Luis Potosí. Control de plagas en casa y negocio: cucarachas, roedores, alacranes y termitas. Cotización sin costo.',
-    'torreon':
-        'Fumigaciones en Torreón, Coahuila. Control de plagas residencial y comercial: cucarachas, ratas, alacranes y chinches. Cotización sin costo.',
-    'leon':
-        'Fumigaciones en León, Guanajuato. Control de plagas para casa y negocio: cucarachas, roedores, chinches y hormigas. Cotización sin costo.',
-    'merida':
-        'Fumigaciones en Mérida, Yucatán. Control de plagas: cucarachas, mosquitos, termitas y roedores. Cotización sin costo y servicio el mismo día.',
-};
-
 /**
- * Las 28 descriptions literales, indexadas por ruta canónica.
+ * Las descriptions literales, indexadas por ruta canónica.
  * Las claves pasan por ruta() para que coincidan exactamente con la forma que
  * usan el canonical y el sitemap: con barra final.
  */
 export const DESCRIPCIONES: Record<string, string> = {
     [ruta('/')]:
-        'Big Cat, control de plagas y fumigación en México. Cobertura en Monterrey, Querétaro, Saltillo, Tampico, Hermosillo y 17 ciudades más. Cotización sin costo.',
+        `Big Cat: fumigación y control de plagas para casas y negocios. ${TOTAL_SEDES} sedes y servicio en más de ${MAS_DE_CIUDADES} ciudades del norte y centro de México. Cotiza gratis.`,
 
-    ...Object.fromEntries(
-        Object.entries(SEDES).map(([slug, texto]) => [ruta(`/sedes/${slug}`), texto])
-    ),
+    ...Object.fromEntries(BRANCHES.map(sede => [ruta(`/sedes/${sede.id}`), sede.metaDescription])),
+
+    [ruta('/sedes')]:
+        'Sedes, ciudades con servicio y red de aliados de Big Cat: fumigación y control de plagas para casas y negocios en México. Cotiza por WhatsApp.',
+    [ruta('/cobertura')]:
+        '¿Big Cat da servicio en tu ciudad? Sedes, ciudades con servicio y red de aliados. Empresas e industrias de todo México, con PCP Internacional.',
 
     [ruta('/servicios/control-de-aves-y-palomas')]:
         'Control de aves y palomas para naves industriales, bodegas y edificios. Redes, púas y sistemas de exclusión sin dañar a las aves. Cotización sin costo.',
@@ -121,8 +77,7 @@ export function descripcion(path: string, propia: string): string {
  * para el cierre.
  *
  * Solo se usa como RESPALDO, para las páginas que no están en la lista
- * literal de arriba. Los 28 textos del cliente no pasan por acá: van tal cual
- * los escribió, aunque alguno se pase de largo.
+ * literal de arriba. Los textos literales de arriba no pasan por acá.
  */
 export function componer(base: string, cierre = 'Cotización sin costo.', max = 158): string {
     const limite = max - cierre.length - 1;

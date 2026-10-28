@@ -3,7 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { canonical } from '../lib/urls';
 import { motion } from 'framer-motion';
 import { HelpCircle, ShieldCheck, Clock, Zap } from 'lucide-react';
-import { CONTACT_INFO } from '../../constants';
+import { MENSAJES, whatsappUrl } from '../lib/contacto';
+import { faqSchema } from '../lib/schema';
 
 const faqs = [
     {
@@ -39,6 +40,9 @@ const FAQPage: React.FC = () => {
                 <meta property="og:description" content="Resolvemos tus dudas sobre seguridad y efectividad en control de plagas." />
                 <meta property="og:url" content={canonical('/faq')} />
                 <meta name="twitter:card" content="summary" />
+                <script type="application/ld+json">
+                    {JSON.stringify(faqSchema(faqs.map(f => ({ q: f.question, a: f.answer }))))}
+                </script>
             </Helmet>
             <div className="container mx-auto px-6">
                 <div className="max-w-3xl mx-auto">
@@ -73,7 +77,9 @@ const FAQPage: React.FC = () => {
                         <h2 className="text-3xl font-normal mb-6">¿Aún tienes dudas?</h2>
                         <p className="text-gray-400 mb-8 text-lg">Chatea con un experto ahora mismo y recibe asesoría personalizada.</p>
                         <a 
-                            href={CONTACT_INFO.whatsappHref}
+                            href={whatsappUrl(MENSAJES.general)}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-block bg-brand-red hover:bg-red-600 text-white font-normal py-4 px-10 rounded-full transition-all transform hover:scale-105"
                         >
                             Contactar por WhatsApp

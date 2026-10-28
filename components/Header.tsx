@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, MessageCircle, Phone, ChevronDown } from 'lucide-react';
 import { CONTACT_INFO, LOGO_LIGHT, LOGO_DARK, NAV_LINKS } from '../constants';
 import LocationModal from './LocationModal';
+import { useWhatsapp } from '../src/lib/whatsappContexto';
+import { abrirPanelWhatsapp } from './WhatsappPanel';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +12,9 @@ const Header: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
+  // En sede, servicio o cobertura el mensaje de WhatsApp ya se conoce: el
+  // botón abre el chat directo. En el resto se elige la sede en el modal.
+  const wa = useWhatsapp();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -90,13 +95,27 @@ const Header: React.FC = () => {
                 </div>
                 {CONTACT_INFO.phone}
               </a>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="bg-brand-red hover:bg-brand-dark text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all transform hover:scale-105 shadow-xl shadow-brand-red/20 flex items-center gap-2"
-              >
-                <MessageCircle size={18} />
-                Agendar ahora
-              </button>
+              {wa.tipo === 'general' ? (
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="bg-brand-red hover:bg-brand-dark text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all transform hover:scale-105 shadow-xl shadow-brand-red/20 flex items-center gap-2"
+                >
+                  <MessageCircle size={18} />
+                  Agendar ahora
+                </button>
+              ) : (
+                <a
+                  href={wa.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-panel={wa.sede ? '' : undefined}
+                  onClick={wa.sede ? e => abrirPanelWhatsapp(e, wa.sede!) : undefined}
+                  className="bg-brand-red hover:bg-brand-dark text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all transform hover:scale-105 shadow-xl shadow-brand-red/20 flex items-center gap-2"
+                >
+                  <MessageCircle size={18} />
+                  Agendar ahora
+                </a>
+              )}
             </div>
 
             {/* Mobile Menu Toggle */}
@@ -159,15 +178,13 @@ const Header: React.FC = () => {
                 <Phone size={20} className="text-brand-red" />
                 {CONTACT_INFO.phone}
               </a>
-              <button
-                onClick={() => {
-                  setIsOpen(false);
-                  setIsModalOpen(true);
-                }}
-                className="w-full bg-brand-red text-white p-5 rounded-2xl font-semibold text-lg shadow-lg shadow-brand-red/30"
+              <Link
+                to="/sedes/"
+                onClick={() => setIsOpen(false)}
+                className="block text-center w-full bg-brand-red text-white p-5 rounded-2xl font-semibold text-lg shadow-lg shadow-brand-red/30"
               >
                 Cobertura por Ciudad
-              </button>
+              </Link>
             </div>
           </div>
         </div>

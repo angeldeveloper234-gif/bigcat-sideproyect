@@ -42,6 +42,33 @@
   status = 301
   force = true
 
+# ── bigcat.com.mx (con y sin www) -> dominio principal ──────────────────────
+# Para que estas reglas actúen, los dos dominios tienen que estar agregados al
+# sitio en Netlify (Domain management > Add domain alias).
+[[redirects]]
+  from = "https://bigcat.com.mx/*"
+  to = "https://bigcat.mx/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://bigcat.com.mx/*"
+  to = "https://bigcat.mx/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.bigcat.com.mx/*"
+  to = "https://bigcat.mx/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.bigcat.com.mx/*"
+  to = "https://bigcat.mx/:splat"
+  status = 301
+  force = true
+
 # ── http -> https en el dominio principal ───────────────────────────────────
 # Netlify ya lo hace solo cuando el certificado esta activo. Se declara igual
 # para que la regla exista en el repo y no dependa de una casilla del panel.
@@ -50,6 +77,28 @@
   to = "https://bigcat.mx/:splat"
   status = 301
   force = true
+
+# ── Slug con typo en el blog ────────────────────────────────────────────────
+[[redirects]]
+  from = "/blog/hormigas-invodiendo-hogar"
+  to = "/blog/hormigas-invadiendo-hogar/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/hormigas-invodiendo-hogar/"
+  to = "/blog/hormigas-invadiendo-hogar/"
+  status = 301
+  force = true
+
+# ── Barra final ─────────────────────────────────────────────────────────────
+# /sedes/monterrey -> /sedes/monterrey/ lo hace la edge function
+# netlify/edge-functions/barra-final.js, no una regla de acá: el motor de
+# redirects de Netlify ignora la barra final al comparar, así que una regla
+# "/x -> /x/" entra en bucle.
+[[edge_functions]]
+  path = "/*"
+  function = "barra-final"
 
 # ── Lo que no existe, devuelve 404 ──────────────────────────────────────────
 #
