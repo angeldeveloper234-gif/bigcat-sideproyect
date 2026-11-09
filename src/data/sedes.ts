@@ -27,7 +27,9 @@
  * declara en el JSON-LD. Al completarlo, aparece solo en el próximo deploy.
  *
  *   telefonoLocal teléfono de la sede, como se muestra: '81 1234 5678'. Si está
- *                vacío se usa el general. WhatsApp va SIEMPRE al número central.
+ *                vacío se usa el general.
+ *   whatsapp     número de WhatsApp de la ciudad, si lo atiende otra persona
+ *                (ver WHATSAPP_ZONA_QUERETARO más abajo). Vacío = el central.
  *   direccion    'Av. Ejemplo 123, Col. Centro, 64000 Monterrey, N.L.'
  *   horario      texto visible:       'Lunes a sábado de 8:00 a 19:00'
  *   horarioSchema formato schema.org:  ['Mo-Sa 08:00-19:00']
@@ -106,6 +108,11 @@ export interface Branch {
     seasonalNote?: string;
 
     // ── DATOS DE LA SEDE (los carga el dueño; vacío = bloque oculto) ────────
+    /**
+     * WhatsApp propio de la ciudad, con lada de país: '5244212345678'.
+     * Vacío o ausente = el número central (TELEFONO.whatsapp en contacto.ts).
+     */
+    whatsapp?: string;
     /** Teléfono local de la sede ('81 1234 5678'). Vacío = el general. */
     telefonoLocal: string;
     direccion: string;
@@ -126,6 +133,18 @@ const SIN_DATOS = {
     geo: null,
     resenas: [] as Resena[],
 };
+
+/**
+ * WHATSAPP DE LA ZONA QUERÉTARO (lo atiende Laura)
+ *
+ * Los WhatsApp de las páginas de Querétaro (que cubre Corregidora, El Marqués
+ * y Juriquilla), San Juan del Río y San Miguel de Allende van a este número.
+ * Mientras esté vacío, van al número central como el resto del sitio.
+ *
+ * Cómo cargarlo: 52 + los 10 dígitos, sin espacios ni +.
+ *   Ejemplo: el 442 123 4567 se escribe '524421234567'.
+ */
+const WHATSAPP_ZONA_QUERETARO = '';
 
 export const BRANCHES: Branch[] = [
     // ── Nuevo León ──────────────────────────────────────────────────────────
@@ -429,6 +448,7 @@ export const BRANCHES: Branch[] = [
     {
         id: 'queretaro',
         tipo: 'sede',
+        whatsapp: WHATSAPP_ZONA_QUERETARO,
         name: 'Querétaro, Qro.',
         shortName: 'Querétaro',
         state: 'Querétaro',
@@ -486,6 +506,7 @@ export const BRANCHES: Branch[] = [
     {
         id: 'san-juan-del-rio',
         tipo: 'servicio',
+        whatsapp: WHATSAPP_ZONA_QUERETARO,
         name: 'San Juan del Río, Qro.',
         shortName: 'San Juan del Río',
         state: 'Querétaro',
@@ -505,6 +526,7 @@ export const BRANCHES: Branch[] = [
     {
         id: 'san-miguel-de-allende',
         tipo: 'servicio',
+        whatsapp: WHATSAPP_ZONA_QUERETARO,
         name: 'San Miguel de Allende, Gto.',
         shortName: 'San Miguel de Allende',
         state: 'Guanajuato',

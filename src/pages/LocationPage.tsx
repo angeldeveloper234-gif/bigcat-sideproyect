@@ -6,7 +6,7 @@ import { descripcion, componer } from '../lib/descriptions';
 import { motion } from 'framer-motion';
 import { PESTS_LIST } from '../../constants';
 import { buscarSede, Branch, SERVICIO_POR_PLAGA } from '../data/sedes';
-import { TELEFONO, TEL_HREF, PCP, mensajeCiudad, whatsappUrl } from '../lib/contacto';
+import { TELEFONO, TEL_HREF, PCP, mensajeCiudad, numeroWhatsapp, whatsappUrl } from '../lib/contacto';
 import { localBusinessSchema, serviceAreaSchema, faqSchema, breadcrumbSchema } from '../lib/schema';
 import { MapPin, Phone, Clock, Bug, CheckCircle2, MessageCircle, Star, ArrowRight } from 'lucide-react';
 import NotFound from './NotFound';
@@ -151,9 +151,9 @@ const LocationPage: React.FC = () => {
 
     const ciudad = sede.shortName;
     const url = canonical(`/sedes/${sede.id}`);
-    const wa = whatsappUrl(mensajeCiudad(sede));
+    // WhatsApp propio de la ciudad si lo tiene (zona Querétaro); si no, el central.
+    const wa = whatsappUrl(mensajeCiudad(sede), numeroWhatsapp(sede));
     // Teléfono local de la sede si está cargado; si no, el general.
-    // El WhatsApp siempre va al número central.
     const telefono = sede.tipo === 'sede' && sede.telefonoLocal ? sede.telefonoLocal : TELEFONO.display;
     const telHref = sede.tipo === 'sede' && sede.telefonoLocal ? `tel:+52${sede.telefonoLocal.replace(/\D/g, '')}` : TEL_HREF;
     const esAliados = sede.tipo === 'aliados';
