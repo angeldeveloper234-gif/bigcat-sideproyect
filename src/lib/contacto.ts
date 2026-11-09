@@ -3,7 +3,10 @@
  * ════════════════════════════════════════════════════════════════════════════
  *
  * Todo el sitio arma sus enlaces de WhatsApp y de teléfono desde acá. Si el
- * número cambia, se cambia en `TELEFONO` y en ningún otro archivo.
+ * número central cambia, se cambia en `TELEFONO` y en ningún otro archivo.
+ *
+ * Una ciudad puede tener su propio WhatsApp (campo `whatsapp` en
+ * src/data/sedes.ts): sus páginas usan ese número y el resto, el central.
  *
  * LOS MENSAJES NO SE TOCAN
  *
@@ -74,9 +77,18 @@ export function mensajeCiudadDetallado(
     return mensaje;
 }
 
-/** Enlace a WhatsApp con el mensaje codificado. Sin mensaje, abre el chat vacío. */
-export function whatsappUrl(mensaje?: string): string {
-    const base = `https://wa.me/${TELEFONO.whatsapp}`;
+/** El número de WhatsApp de una ciudad: el propio si lo tiene, si no el central. */
+export function numeroWhatsapp(ciudad?: { whatsapp?: string }): string {
+    const propio = (ciudad?.whatsapp ?? '').replace(/\D/g, '');
+    return propio || TELEFONO.whatsapp;
+}
+
+/**
+ * Enlace a WhatsApp con el mensaje codificado. Sin mensaje, abre el chat vacío.
+ * `numero` solo para páginas de una ciudad: usar `numeroWhatsapp(ciudad)`.
+ */
+export function whatsappUrl(mensaje?: string, numero: string = TELEFONO.whatsapp): string {
+    const base = `https://wa.me/${numero}`;
     return mensaje ? `${base}?text=${encodeURIComponent(mensaje)}` : base;
 }
 

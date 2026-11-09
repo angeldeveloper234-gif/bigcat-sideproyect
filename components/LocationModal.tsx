@@ -3,7 +3,7 @@ import { X, MapPin, MessageCircle, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { BRANCHES, CONTACT_INFO } from '../constants';
 import { supabase } from '../src/lib/supabase';
-import { mensajeCiudad, whatsappUrl } from '../src/lib/contacto';
+import { mensajeCiudad, numeroWhatsapp, whatsappUrl } from '../src/lib/contacto';
 import { TIPOS, ciudadesDeTipo } from '../src/data/sedes';
 
 interface LocationModalProps {
@@ -91,7 +91,7 @@ const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose }) => {
               {ciudadesDeTipo(tipo).map((branch) => (
                 <a
                   key={branch.id}
-                  href={whatsappUrl(mensajeCiudad(branch))}
+                  href={whatsappUrl(mensajeCiudad(branch), numeroWhatsapp(branch))}
                   target="_blank"
                   rel="noopener noreferrer"
                   data-city={branch.id}
