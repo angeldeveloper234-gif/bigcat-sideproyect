@@ -11,6 +11,8 @@ import { localBusinessSchema, serviceAreaSchema, faqSchema, breadcrumbSchema } f
 import { MapPin, Phone, Clock, Bug, CheckCircle2, MessageCircle, Star, ArrowRight } from 'lucide-react';
 import NotFound from './NotFound';
 import { abrirPanelWhatsapp } from '../../components/WhatsappPanel';
+import { BLOG_POSTS } from '../../constants';
+import { CalendarDays, Building2 } from 'lucide-react';
 
 /**
  * PÁGINA DE CIUDAD — /sedes/{slug}/
@@ -100,6 +102,12 @@ function preguntasFrecuentes(sede: Branch, plagas: string[]): { q: string; a: st
         respuestaZonas = `Atendemos ${ciudad}, incluidas colonias como ${enumerar(sede.neighborhoods.slice(0, 5))}. Si no ves la tuya, pregúntanos por WhatsApp.`;
     }
 
+    // La temporada de la ciudad también va como pregunta: es de lo que más se
+    // busca ("¿cuándo hay más alacranes en…?") y la respuesta ya está escrita.
+    const preguntaTemporada = sede.temporada
+        ? [{ q: `¿En qué meses hay más plagas en ${ciudad}?`, a: sede.temporada }]
+        : [];
+
     return [
         {
             q: `¿Cuánto cuesta una fumigación en ${ciudad}?`,
@@ -109,6 +117,7 @@ function preguntasFrecuentes(sede: Branch, plagas: string[]): { q: string; a: st
             q: `¿Qué plagas atienden en ${ciudad}?`,
             a: `En ${ciudad} las consultas más frecuentes son por ${enumerar(plagas.map(p => p.toLowerCase()))}. También damos servicio de ${enumerar(otrosServicios)}.`,
         },
+        ...preguntaTemporada,
         {
             q: `¿En qué zonas de ${ciudad} dan servicio?`,
             a: respuestaZonas,
@@ -183,6 +192,7 @@ const LocationPage: React.FC = () => {
     // Dirección, horario y mapa existen solo en las sedes físicas.
     const tieneDatosSede = sede.tipo === 'sede' && Boolean(sede.direccion || sede.horario || sede.mapaEmbedUrl);
     const zonas = sede.municipios ?? [];
+    const guias = BLOG_POSTS.filter(p => p.content.includes(`/sedes/${sede.id}/`));
 
     return (
         <div className="pt-20 bg-white min-h-screen">
@@ -197,7 +207,7 @@ const LocationPage: React.FC = () => {
                 <meta property="og:url" content={url} />
                 <meta property="og:type" content="website" />
                 <meta property="og:locale" content="es_MX" />
-                <meta property="og:image" content={`${SITE}/logo/BIG CAT - Control de plagas.png`} />
+                <meta property="og:image" content={`${SITE}/logo/BIG%20CAT%20-%20Control%20de%20plagas.png`} />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={title} />
                 <meta name="twitter:description" content={description} />
@@ -387,6 +397,28 @@ const LocationPage: React.FC = () => {
 
 {!esAliados && (
 <>
+                {/* Temporada y tipos de inmueble: texto propio de cada ciudad */}
+                {(sede.temporada || sede.inmuebles) && (
+                    <section className="pt-20 grid lg:grid-cols-2 gap-10">
+                        {sede.temporada && (
+                            <div>
+                                <h2 className="flex items-start gap-3 text-2xl md:text-3xl font-normal text-brand-dark mb-4">
+                                    <CalendarDays className="text-brand-primary shrink-0 mt-1" /> Temporada de plagas en {ciudad}
+                                </h2>
+                                <p className="text-lg text-gray-600 leading-relaxed">{sede.temporada}</p>
+                            </div>
+                        )}
+                        {sede.inmuebles && (
+                            <div>
+                                <h2 className="flex items-start gap-3 text-2xl md:text-3xl font-normal text-brand-dark mb-4">
+                                    <Building2 className="text-brand-primary shrink-0 mt-1" /> Casas, negocios y bodegas en {ciudad}
+                                </h2>
+                                <p className="text-lg text-gray-600 leading-relaxed">{sede.inmuebles}</p>
+                            </div>
+                        )}
+                    </section>
+                )}
+
                 {/* 5. Zonas */}
                 {(zonas.length > 0 || (sede.neighborhoods?.length ?? 0) > 0) && (
                     <section className="pt-20">
@@ -465,7 +497,21 @@ const LocationPage: React.FC = () => {
 
 </>
 )}
-                                {/* 8. Preguntas frecuentes (coinciden con el FAQPage del <head>) */}
+                {/* Guías del blog que hablan de esta ciudad */}
+                {guias.length > 0 && (
+                    <section className="pt-20 max-w-4xl">
+                        <h2 className="text-3xl md:text-4xl font-normal text-brand-dark mb-6">Guías sobre plagas en {ciudad}</h2>
+                        <ul className="space-y-3">
+                            {guias.map(post => (
+                                <li key={post.slug}>
+                                    <Link to={`/blog/${post.slug}/`} className="text-lg text-brand-primary hover:underline">{post.title}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </section>
+                )}
+
+                {/* 8. Preguntas frecuentes (coinciden con el FAQPage del <head>) */}
                 <section className="pt-20 max-w-4xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-normal text-brand-dark mb-10 text-center">Preguntas frecuentes sobre fumigación en {ciudad}</h2>
                     <div className="space-y-4">

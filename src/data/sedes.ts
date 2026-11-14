@@ -98,6 +98,10 @@ export interface Branch {
     serviciosIntro?: string;
     /** Plagas frecuentes con texto propio. Si no hay, se usan `commonPests`. */
     plagas?: PlagaLocal[];
+    /** En qué meses hay más plagas en la ciudad. Va a "Temporada de plagas". */
+    temporada?: string;
+    /** Qué plaga es más común según el tipo de inmueble de la ciudad. */
+    inmuebles?: string;
     commonPests: string[];
     /** Municipios atendidos: van a "Zonas que atendemos" y al areaServed. */
     municipios?: Zona[];
@@ -177,6 +181,10 @@ export const BRANCHES: Branch[] = [
             },
         ],
         commonPests: ['Alacranes', 'Cucarachas', 'Roedores', 'Termitas', 'Mosquitos'],
+        temporada:
+            'En Monterrey la temporada fuerte de plagas va de mayo a septiembre, con el calor: es cuando más se piden fumigaciones contra alacranes y cucarachas. Septiembre suele ser el mes más lluvioso, y después de las lluvias suben los mosquitos y las cucarachas de drenaje. Con los frentes fríos del invierno, las ratas y los ratones buscan refugio dentro de casas y bodegas.',
+        inmuebles:
+            'En casas cercanas a los cerros y a lotes baldíos lo más común son los alacranes; en departamentos y edificios, las cucarachas que pasan por ductos y tuberías; en restaurantes y negocios de comida, cucarachas y roedores; y en bodegas y naves del área metropolitana, ratas y ratones.',
         municipios: [
             { nombre: 'Monterrey' },
             { nombre: 'San Pedro Garza García', sede: 'san-pedro-garza-garcia' },
@@ -206,6 +214,10 @@ export const BRANCHES: Branch[] = [
             'Damos servicio de fumigación en San Pedro Garza García como parte de la zona de nuestra sede Monterrey: casas, departamentos y negocios, de Valle Oriente a Chipinque. Cotiza por WhatsApp sin costo.',
         neighborhoods: ['Del Valle', 'Valle Oriente', 'Fuentes del Valle', 'Colinas de San Jerónimo', 'Zona Tec', 'Vista Hermosa', 'Chipinque'],
         commonPests: ['Cucarachas', 'Alacranes', 'Hormigas', 'Roedores', 'Termitas'],
+        temporada:
+            'En San Pedro Garza García los alacranes aparecen sobre todo de abril a octubre, con el calor, y más en las colonias pegadas a la Sierra Madre. Las lluvias de septiembre empujan a hormigas y cucarachas hacia dentro de las casas, y los vuelos de termitas se ven al inicio de la temporada de lluvias.',
+        inmuebles:
+            'En las casas con jardín de la falda de la sierra lo más frecuente son alacranes, hormigas y termitas en madera exterior. En los departamentos y torres de Valle Oriente, las cucarachas se mueven por ductos y cuartos de basura. En restaurantes y comercios se trabaja con gel y cebos, fuera del horario de servicio.',
         seasonalNote:
             'Las residencias de la falda de la Sierra Madre (Chipinque, Vista Hermosa) presentan mayor incidencia de alacranes; aplicamos barreras residuales de larga duración discretas.',
         ...SIN_DATOS,
@@ -260,6 +272,10 @@ export const BRANCHES: Branch[] = [
             },
         ],
         commonPests: ['Cucarachas', 'Alacranes', 'Roedores', 'Hormigas', 'Arañas'],
+        temporada:
+            'En Saltillo los alacranes y las cucarachas aumentan de abril a septiembre, cuando sube la temperatura. Las lluvias se concentran de junio a septiembre y es cuando más entran hormigas y arañas a las casas. El invierno es frío, con heladas, y en esos meses las ratas y los ratones buscan calor en bodegas, cocheras y techos.',
+        inmuebles:
+            'En casas con patio y en planta baja lo habitual son alacranes y arañas; en cocinas de casas y negocios de comida, cucarachas; y en bodegas y naves de Saltillo y Ramos Arizpe, ratas y ratones que entran por andenes y portones.',
         municipios: [{ nombre: 'Saltillo' }, { nombre: 'Ramos Arizpe' }, { nombre: 'Arteaga' }],
         ...SIN_DATOS,
     },
@@ -276,6 +292,10 @@ export const BRANCHES: Branch[] = [
             'Fumigación para casas y negocios en Torreón y La Laguna. Alacranes, cucarachas, ratas y moscas. Cotiza gratis tu servicio por WhatsApp.',
         neighborhoods: ['Centro', 'Torreón Jardín', 'San Isidro', 'Los Ángeles', 'Villa Florida', 'Ampliación Los Ángeles'],
         commonPests: ['Alacranes', 'Cucarachas', 'Roedores', 'Moscas', 'Mosquitos'],
+        temporada:
+            'En Torreón el calor extremo de mayo a septiembre es la temporada alta de alacranes, cucarachas y moscas. Llueve poco, pero las tormentas de verano sacan a los alacranes de sus refugios y los llevan hacia las casas. En invierno bajan los insectos y suben los reportes de ratas y ratones en bodegas.',
+        inmuebles:
+            'En casas de planta baja y con patio lo más común son los alacranes; en cocinas y negocios de comida, las cucarachas; y cerca de establos y zonas agrícolas de La Laguna, las moscas y los roedores.',
         seasonalNote:
             'El calor extremo lagunero eleva la presencia de alacranes y moscas; aplicamos programas intensivos de mayo a septiembre con seguimiento quincenal.',
         ...SIN_DATOS,
@@ -329,6 +349,10 @@ export const BRANCHES: Branch[] = [
             },
         ],
         commonPests: ['Mosquitos', 'Cucarachas', 'Roedores', 'Moscas', 'Hormigas'],
+        temporada:
+            'En Reynosa hay plagas casi todo el año por el clima cálido y húmedo. Los mosquitos aumentan de mayo a noviembre, con un pico después de las lluvias de septiembre, y las cucarachas y hormigas están más activas en los meses de calor. Los roedores buscan refugio en bodegas cuando llegan los nortes.',
+        inmuebles:
+            'En casas con patio lo más frecuente son mosquitos y hormigas; en restaurantes y negocios de comida, cucarachas y moscas; y en bodegas y naves, ratas y ratones que llegan con el movimiento de mercancía.',
         municipios: [{ nombre: 'Reynosa' }, { nombre: 'Río Bravo' }],
         ...SIN_DATOS,
     },
@@ -345,6 +369,10 @@ export const BRANCHES: Branch[] = [
             'Fumigación para casas y negocios en Tampico, Madero y Altamira. Cucarachas, mosquitos, termitas y ratas. Cotiza gratis tu servicio por WhatsApp.',
         neighborhoods: ['Centro Histórico', 'Zona Dorada', 'Águila', 'Universidad', 'Flamboyanes', 'Laguna de la Puerta'],
         commonPests: ['Cucarachas', 'Mosquitos', 'Termitas', 'Roedores', 'Moscas'],
+        temporada:
+            'En Tampico la humedad mantiene activas a las cucarachas y a las termitas todo el año. La temporada de lluvias, de junio a octubre, es la de más mosquitos, sobre todo en las colonias cercanas a lagunas y canales. Después de lluvias fuertes, las cucarachas de drenaje y los roedores suben hacia las casas.',
+        inmuebles:
+            'En casas y departamentos lo habitual son cucarachas y mosquitos; en construcciones con madera, las termitas, que avanzan rápido con la humedad; y en restaurantes, hoteles y negocios del puerto y de Ciudad Madero, cucarachas, moscas y roedores.',
         seasonalNote:
             'La humedad tropical del puerto mantiene alta la actividad de cucarachas y termitas todo el año; recomendamos programas de mantenimiento mensual en negocios.',
         ...SIN_DATOS,
@@ -362,6 +390,10 @@ export const BRANCHES: Branch[] = [
             'Fumigación para casas, negocios y bodegas en Matamoros, Tamaulipas. Ratas, mosquitos, cucarachas y moscas. Cotiza gratis tu servicio por WhatsApp.',
         neighborhoods: ['Centro', 'Jardín', 'Victoria', 'Fraccionamiento Los Encinos', 'Valle Real', 'Modulo 2000'],
         commonPests: ['Roedores', 'Mosquitos', 'Cucarachas', 'Moscas', 'Hormigas'],
+        temporada:
+            'En Matamoros los mosquitos aumentan de mayo a noviembre y tienen su pico después de las lluvias de septiembre y octubre. Las cucarachas y las moscas están más activas en los meses de calor. Los roedores son un problema de todo el año en bodegas, y entran más a las casas cuando llegan los nortes.',
+        inmuebles:
+            'En bodegas, naves y patios de carga lo más frecuente son ratas y ratones; en casas con patio, mosquitos y hormigas; y en negocios de comida, cucarachas y moscas.',
         seasonalNote:
             'El tránsito de mercancías fronterizo incrementa el riesgo de roedores en bodegas; instalamos estaciones de monitoreo perimetral con reporte documentado para auditorías.',
         ...SIN_DATOS,
@@ -415,6 +447,10 @@ export const BRANCHES: Branch[] = [
             },
         ],
         commonPests: ['Cucarachas', 'Roedores', 'Hormigas', 'Termitas', 'Mosquitos'],
+        temporada:
+            'En Guadalajara la temporada de lluvias, de junio a octubre, es la de más plagas: suben del drenaje las cucarachas, crecen los hormigueros, aparecen los mosquitos y salen los enjambres de termitas con las primeras lluvias. En los meses secos y calurosos de abril y mayo aumentan los alacranes, y en invierno las ratas y los ratones buscan refugio en bodegas y techos.',
+        inmuebles:
+            'En restaurantes, fondas y mercados lo más frecuente son cucarachas y roedores; en casas con jardín de Zapopan y Tlajomulco, hormigas, mosquitos y alacranes; en casas antiguas con vigas y puertas de madera, termitas; y en bodegas de Tlaquepaque y Tonalá, ratas y ratones.',
         municipios: [
             { nombre: 'Guadalajara' },
             { nombre: 'Zapopan' },
@@ -474,6 +510,10 @@ export const BRANCHES: Branch[] = [
             },
         ],
         commonPests: ['Cucarachas', 'Roedores', 'Hormigas', 'Termitas', 'Mosquitos'],
+        temporada:
+            'En Querétaro las lluvias de junio a septiembre son la temporada de hormigas, mosquitos y cucarachas de drenaje, y con las primeras lluvias salen los enjambres de termitas. En los meses secos y calurosos de abril y mayo aumentan los alacranes y las arañas. En invierno, las ratas y los ratones buscan refugio en bodegas y casas.',
+        inmuebles:
+            'En los fraccionamientos nuevos junto a terrenos abiertos lo habitual son roedores, alacranes y hormigas; en el Centro Histórico, cucarachas y termitas en construcciones antiguas; en restaurantes, cucarachas; y en bodegas y naves de los parques industriales, ratas y ratones.',
         municipios: [
             { nombre: 'Querétaro' },
             { nombre: 'Corregidora' },
@@ -496,6 +536,10 @@ export const BRANCHES: Branch[] = [
             'Fumigación para casas, negocios y naves en San Juan del Río, Querétaro. Ratas, cucarachas, moscas y hormigas. Cotiza gratis por WhatsApp.',
         neighborhoods: ['Centro', 'Vista Hermosa', 'La Estancia', 'Banthí', 'San Isidro', 'Lomas de San Juan'],
         commonPests: ['Roedores', 'Cucarachas', 'Moscas', 'Hormigas', 'Arañas'],
+        temporada:
+            'En San Juan del Río las lluvias de junio a septiembre traen más moscas, hormigas y cucarachas. En abril y mayo, con el calor seco, aparecen alacranes y arañas. Después de las cosechas y en invierno, los roedores se mueven del campo hacia naves, bodegas y casas.',
+        inmuebles:
+            'En naves y bodegas de la zona industrial lo más frecuente son ratas y ratones; en casas de fraccionamientos junto a parcelas, roedores, arañas y hormigas; y en restaurantes y negocios de comida, cucarachas y moscas.',
         seasonalNote:
             'La cercanía con zonas agrícolas eleva la presión de roedores y moscas hacia naves y bodegas; implementamos estaciones de cebado perimetral inviolables.',
         ...SIN_DATOS,
@@ -515,6 +559,10 @@ export const BRANCHES: Branch[] = [
             'Fumigación para casas, hoteles y negocios en San Miguel de Allende, del Centro Histórico a Los Frailes. Alacranes y termitas. Cotiza por WhatsApp.',
         neighborhoods: ['Centro Histórico', 'San Antonio', 'Guadiana', 'Los Frailes', 'Zona Dorada', 'Balcones'],
         commonPests: ['Alacranes', 'Cucarachas', 'Termitas', 'Roedores', 'Arañas'],
+        temporada:
+            'En San Miguel de Allende los alacranes aparecen sobre todo en los meses de calor, de abril a junio, antes de que se establezcan las lluvias. Con las primeras lluvias salen los enjambres de termitas, y de junio a septiembre aumentan las cucarachas y las hormigas.',
+        inmuebles:
+            'En las casas coloniales de piedra, adobe y madera del Centro lo más frecuente son alacranes y termitas en vigas y puertas. En hoteles, casas de huéspedes y rentas vacacionales se suman las chinches que llegan con el equipaje, y en restaurantes, las cucarachas y los roedores.',
         seasonalNote:
             'Las construcciones coloniales de piedra y madera son propensas a termitas y alacranes; usamos tratamientos de inyección discretos que respetan el patrimonio arquitectónico.',
         ...SIN_DATOS,
@@ -569,6 +617,10 @@ export const BRANCHES: Branch[] = [
             },
         ],
         commonPests: ['Cucarachas', 'Roedores', 'Chinches', 'Hormigas', 'Mosquitos'],
+        temporada:
+            'En la Ciudad de México la temporada de lluvias, de mayo a octubre, es la de más cucarachas de drenaje, mosquitos y hormigas; los aguaceros también inundan el drenaje y empujan a las ratas hacia la superficie. Las chinches de cama y la cucaracha alemana viven dentro de las casas y no tienen temporada. En invierno, los roedores buscan calor en edificios, locales y bodegas.',
+        inmuebles:
+            'En edificios y departamentos lo más frecuente son cucarachas y chinches que pasan de una vivienda a otra; en restaurantes, mercados y locales de comida, cucarachas y roedores; en casas con jardín o azotea, hormigas y mosquitos; y en hoteles y hostales, chinches de cama.',
         ...SIN_DATOS,
     },
 
@@ -584,6 +636,10 @@ export const BRANCHES: Branch[] = [
         metaDescription:
             'Damos servicio de fumigación a casas y negocios en San Luis Potosí y Soledad. Cucarachas, ratas, alacranes y termitas. Cotiza gratis por WhatsApp.',
         commonPests: ['Cucarachas', 'Roedores', 'Alacranes', 'Termitas'],
+        temporada:
+            'En San Luis Potosí el calor de abril y mayo es la temporada de alacranes. Las lluvias de junio a septiembre traen más cucarachas y hormigas, y con las primeras lluvias salen los enjambres de termitas. En invierno, las ratas y los ratones buscan refugio en bodegas y casas.',
+        inmuebles:
+            'En casas de planta baja lo más frecuente son alacranes y cucarachas; en construcciones antiguas del Centro Histórico, termitas en vigas y puertas; y en naves y bodegas de la zona industrial, ratas y ratones.',
         ...SIN_DATOS,
     },
     {
@@ -597,6 +653,10 @@ export const BRANCHES: Branch[] = [
         metaDescription:
             'Damos servicio de fumigación a casas, oficinas y negocios en Aguascalientes. Cucarachas, ratas, chinches y arañas. Cotiza gratis por WhatsApp.',
         commonPests: ['Cucarachas', 'Roedores', 'Chinches', 'Arañas'],
+        temporada:
+            'En Aguascalientes las lluvias de junio a septiembre son la temporada de cucarachas y hormigas. En los meses secos y calurosos de abril y mayo se ven más arañas y alacranes. Las chinches de cama no dependen del clima, y en invierno los roedores entran a bodegas y casas.',
+        inmuebles:
+            'En casas y departamentos lo más frecuente son cucarachas y arañas; en hoteles y casas de huéspedes, chinches de cama, sobre todo después de temporadas con muchos visitantes; y en oficinas, comercios y bodegas, cucarachas y roedores.',
         ...SIN_DATOS,
     },
     {
@@ -610,6 +670,10 @@ export const BRANCHES: Branch[] = [
         metaDescription:
             'Damos servicio de fumigación a casas y negocios en León, Guanajuato. Cucarachas, ratas, chinches y hormigas. Cotiza gratis tu servicio por WhatsApp.',
         commonPests: ['Cucarachas', 'Roedores', 'Chinches', 'Hormigas'],
+        temporada:
+            'En León las lluvias de junio a septiembre traen más cucarachas y hormigas. En abril y mayo, con el calor seco, aumentan los alacranes. Las chinches de cama aparecen todo el año, y en invierno las ratas y los ratones buscan refugio en bodegas y talleres.',
+        inmuebles:
+            'En bodegas, talleres y locales comerciales lo más frecuente son ratas y ratones; en restaurantes y negocios de comida, cucarachas; en hoteles, chinches de cama; y en casas con patio, hormigas.',
         ...SIN_DATOS,
     },
     {
@@ -622,6 +686,10 @@ export const BRANCHES: Branch[] = [
         metaDescription:
             'Damos servicio de fumigación a casas, hoteles y negocios en la ciudad de Guanajuato. Alacranes, cucarachas, ratas y termitas. Cotiza por WhatsApp.',
         commonPests: ['Alacranes', 'Cucarachas', 'Roedores', 'Termitas'],
+        temporada:
+            'En la ciudad de Guanajuato los alacranes aparecen sobre todo en los meses de calor, de abril a junio. Con las primeras lluvias salen los enjambres de termitas, y de junio a septiembre aumentan las cucarachas. En invierno, las ratas y los ratones buscan refugio dentro de las casas.',
+        inmuebles:
+            'En las casas antiguas de los callejones, con muros de piedra y vigas de madera, lo más frecuente son alacranes y termitas. En hoteles, hostales y casas de huéspedes se suman las cucarachas y los roedores, igual que en restaurantes y locales del centro.',
         ...SIN_DATOS,
     },
     {
@@ -634,6 +702,10 @@ export const BRANCHES: Branch[] = [
         metaDescription:
             'Damos servicio de fumigación a casas, negocios y bodegas en Lagos de Moreno, Jalisco. Cucarachas, ratas, alacranes y hormigas. Cotiza por WhatsApp.',
         commonPests: ['Cucarachas', 'Roedores', 'Alacranes', 'Hormigas'],
+        temporada:
+            'En Lagos de Moreno las lluvias de junio a septiembre traen más hormigas, moscas y cucarachas. En los meses secos y calurosos de abril y mayo aparecen los alacranes, y en invierno las ratas y los ratones buscan alimento y refugio en bodegas y casas.',
+        inmuebles:
+            'En bodegas, establos y negocios ligados al campo lo más frecuente son roedores y moscas; en casas de planta baja y con patio, alacranes y hormigas; y en cocinas de casas y negocios de comida, cucarachas.',
         ...SIN_DATOS,
     },
     {
@@ -646,6 +718,10 @@ export const BRANCHES: Branch[] = [
         metaDescription:
             'Damos servicio de fumigación a casas, hoteles y restaurantes en Puerto Vallarta. Cucarachas, mosquitos, termitas y ratas. Cotiza gratis por WhatsApp.',
         commonPests: ['Cucarachas', 'Mosquitos', 'Termitas', 'Roedores'],
+        temporada:
+            'En Puerto Vallarta el calor y la humedad mantienen activas a las cucarachas y a las termitas todo el año. La temporada de lluvias, de junio a octubre, es la de más mosquitos. Con las primeras lluvias salen también los enjambres de termitas.',
+        inmuebles:
+            'En hoteles, condominios y rentas vacacionales lo más frecuente son cucarachas, mosquitos y chinches que llegan con el equipaje; en restaurantes, cucarachas y roedores; y en casas con palapas, puertas y muebles de madera, termitas.',
         ...SIN_DATOS,
     },
 
