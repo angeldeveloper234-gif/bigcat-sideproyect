@@ -14,7 +14,7 @@ const AboutPage: React.FC = () => {
                 <meta property="og:title" content="Nosotros | Big Cat - Control de Plagas" />
                 <meta property="og:description" content="29+ años de experiencia en control de plagas profesional y seguro en todo México." />
                 <meta property="og:url" content={canonical('/nosotros')} />
-                <meta property="og:image" content="https://bigcat.mx/logo/BIG CAT - Control de plagas.png" />
+                <meta property="og:image" content="https://bigcat.mx/logo/BIG%20CAT%20-%20Control%20de%20plagas.png" />
                 <meta name="twitter:card" content="summary" />
             </Helmet>
             <div className="container mx-auto px-6">

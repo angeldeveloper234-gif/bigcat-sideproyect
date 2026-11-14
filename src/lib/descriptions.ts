@@ -44,13 +44,11 @@ export const DESCRIPCIONES: Record<string, string> = {
     [ruta('/cobertura')]:
         '¿Big Cat da servicio en tu ciudad? Sedes, ciudades con servicio y red de aliados. Empresas e industrias de todo México, con PCP Internacional.',
 
-    [ruta('/servicios/control-de-aves-y-palomas')]:
-        'Control de aves y palomas para naves industriales, bodegas y edificios. Redes, púas y sistemas de exclusión sin dañar a las aves. Cotización sin costo.',
-    [ruta('/servicios/control-de-avispas')]:
-        'Retiro de panales de avispas y avispones en casa y negocio, con equipo y protección profesional. Atención el mismo día. Cotización sin costo.',
+    // Las de los servicios viven con el resto de su contenido, en
+    // src/data/servicios.ts (`metaDescription`).
 
     [ruta('/blog/cuanto-cuesta-fumigacion-mexico-2026')]:
-        '¿Cuánto cuesta una fumigación en México en 2026? Rangos de precio por tipo de plaga y por metro cuadrado, y qué factores hacen subir o bajar el presupuesto.',
+        '¿Cuánto cuesta una fumigación en México en 2026? De qué depende el precio: plaga, tamaño, tipo de inmueble y nivel de infestación. Cotización sin costo.',
     [ruta('/blog/alacranes-norte-mexico-prevencion')]:
         'Alacranes en el norte de México: por qué aparecen en casa, en qué meses hay más, cómo prevenirlos y cuándo conviene llamar a un servicio profesional.',
     [ruta('/blog/insectos-comunes-mexico')]:

@@ -269,7 +269,9 @@ export const PESTS_LIST = [
     process: "Limpieza profunda y sanitización de áreas afectadas, e instalación profesional de barreras físicas de disuasión (púas, redes o postes y cables).",
     prevention: "Evitar dejar fuentes de alimentación en balcones, sellado de huecos en techos o cornisas y mantenimiento de limpieza en terrazas.",
     icon: BirdIcon,
-    image: "/services/palomas.jpg",
+    // Sin foto: /services/palomas.jpg nunca existió en el repo y la página
+    // mostraba una imagen rota. Con '' el encabezado queda sin foto de fondo.
+    image: "",
     features: ["Sistemas No Letales", "Protección de Fachadas", "Limpieza Profunda", "Garantía de Resultados"]
   }
 ];
@@ -505,6 +507,7 @@ export const BLOG_POSTS = [
   {
     id: '1',
     slug: 'control-plagas-invierno',
+    seoTitle: "Control de plagas en invierno: por qué importa | Big Cat",
     servicioRelacionado: 'control-de-roedores',
     title: "Por qué el control de plagas en invierno es más importante de lo que crees",
     excerpt: "Las plagas de invierno no descansan. Descubre por qué el control de plagas estacional durante los meses fríos es clave para prevenir...",
@@ -539,6 +542,7 @@ export const BLOG_POSTS = [
   {
     id: '2',
     slug: 'hormigas-invadiendo-hogar',
+    seoTitle: "Hormigas en casa: por qué nunca se van del todo | Big Cat",
     servicioRelacionado: 'control-de-hormigas',
     title: "¿Hormigas invadiendo tu hogar? Por qué nunca parecen irse del todo",
     excerpt: "Si pensaste que el fin del verano significaba el fin de las hormigas, piénsalo de nuevo. A diferencia de otras regiones...",
@@ -570,6 +574,7 @@ export const BLOG_POSTS = [
   {
     id: '3',
     slug: 'otono-cucarachas-casas',
+    seoTitle: "Cucarachas en otoño: por qué invaden las casas | Big Cat",
     servicioRelacionado: 'eliminacion-de-cucarachas',
     title: "El otoño no detiene a las cucarachas: Por qué invaden casas en esta época",
     excerpt: "A medida que el clima se enfría, podrías esperar que las plagas se tomen un descanso, pero las cucarachas no juegan bajo las...",
@@ -602,6 +607,7 @@ export const BLOG_POSTS = [
   {
     id: '4',
     slug: 'insectos-comunes-mexico',
+    seoTitle: "Insectos y plagas más comunes en México | Big Cat",
     servicioRelacionado: 'eliminacion-de-cucarachas',
     title: "Insectos y plagas comunes: Qué vigilar durante todo el año en México",
     excerpt: "El clima templado de México es un paraíso, pero lamentablemente es igual de atractivo para las plagas. Conoce qué...",
@@ -637,6 +643,7 @@ export const BLOG_POSTS = [
   {
     id: '5',
     slug: 'control-de-plagas-monterrey-calor',
+    seoTitle: "Control de plagas en Monterrey: calor y plagas | Big Cat",
     servicioRelacionado: 'eliminacion-de-cucarachas',
     title: "Control de plagas en Monterrey: por qué el calor extremo dispara las infestaciones",
     excerpt: "El verano regio no solo es sofocante: es el escenario perfecto para que cucarachas, alacranes y roedores invadan tu hogar o negocio. Te explicamos por qué y cómo prevenirlo.",
@@ -667,12 +674,13 @@ export const BLOG_POSTS = [
     published_at: "2026-05-06T10:00:00Z",
     author: "Alexander",
     category: "Guía Local",
-    meta_description: "Descubre por qué el calor extremo de Monterrey dispara las plagas de cucarachas, alacranes y roedores, y cómo protegerte. Guía local de Big Cat Control de Plagas.",
+    meta_description: "Por qué el calor extremo de Monterrey dispara las plagas de cucarachas, alacranes y roedores, y cómo proteger tu casa o negocio en verano.",
     keywords: ["control de plagas monterrey", "fumigación monterrey", "plagas calor", "cucarachas monterrey", "alacranes monterrey"]
   },
   {
     id: '6',
     slug: 'alacranes-norte-mexico-prevencion',
+    seoTitle: "Alacranes en el norte de México: prevención | Big Cat",
     servicioRelacionado: 'control-de-alacranes',
     title: "Alacranes en el norte de México: guía de prevención para Coahuila y Nuevo León",
     excerpt: "Saltillo, Torreón y Monterrey están entre las zonas con mayor presencia de alacranes. Aprende a identificar el riesgo y a mantener tu hogar seguro.",
@@ -716,6 +724,7 @@ export const BLOG_POSTS = [
   {
     id: '7',
     slug: 'como-elegir-empresa-control-de-plagas',
+    seoTitle: "Cómo elegir una empresa de control de plagas | Big Cat",
     servicioRelacionado: 'control-de-plagas-comercial',
     title: "Cómo elegir una empresa de control de plagas en México: 7 puntos clave",
     excerpt: "No todas las fumigadoras son iguales. Estos son los criterios que debes revisar antes de contratar para no tirar tu dinero (ni arriesgar tu salud).",
@@ -757,6 +766,7 @@ export const BLOG_POSTS = [
   {
     id: '8',
     slug: 'control-de-plagas-restaurantes-cofepris',
+    seoTitle: "Control de plagas para restaurantes y COFEPRIS | Big Cat",
     servicioRelacionado: 'control-de-plagas-comercial',
     title: "Control de plagas para restaurantes: cumple con COFEPRIS y evita multas",
     excerpt: "Una sola cucaracha puede cerrar tu restaurante. Descubre cómo un programa profesional protege tu reputación, tus clientes y tu licencia sanitaria.",
@@ -794,6 +804,7 @@ export const BLOG_POSTS = [
   {
     id: '9',
     slug: 'chinches-de-cama-deteccion-eliminacion',
+    seoTitle: "Chinches de cama: detectarlas y eliminarlas | Big Cat",
     servicioRelacionado: 'control-de-chinches',
     title: "Chinches de cama: cómo detectarlas a tiempo y eliminarlas por completo",
     excerpt: "Las chinches de cama resurgieron con fuerza por el turismo. Aprende a reconocer las señales tempranas antes de que la infestación se salga de control.",
@@ -832,6 +843,7 @@ export const BLOG_POSTS = [
   {
     id: '10',
     slug: 'mosquitos-dengue-zonas-calidas',
+    seoTitle: "Mosquitos y dengue: cómo protegerte | Big Cat",
     servicioRelacionado: 'control-de-mosquitos',
     title: "Mosquitos y dengue: cómo protegerte en Tampico, Reynosa y zonas cálidas",
     excerpt: "En las zonas cálidas y húmedas del país, el mosquito no solo molesta: transmite dengue, zika y chikungunya. Te decimos cómo cortar su ciclo.",
@@ -872,6 +884,7 @@ export const BLOG_POSTS = [
   {
     id: '11',
     slug: 'termitas-senales-riesgo-hogar',
+    seoTitle: "Termitas: 6 señales de daño en tu casa | Big Cat",
     servicioRelacionado: 'control-de-termitas',
     title: "Termitas: 6 señales de que están destruyendo tu casa (y cómo detenerlas)",
     excerpt: "Las termitas trabajan en silencio y pueden comprometer la estructura de tu hogar antes de que las veas. Aprende a detectar el daño a tiempo.",
@@ -908,6 +921,7 @@ export const BLOG_POSTS = [
   {
     id: '12',
     slug: 'cuanto-cuesta-fumigacion-mexico-2026',
+    seoTitle: "¿Cuánto cuesta una fumigación en México? (2026) | Big Cat",
     servicioRelacionado: 'eliminacion-de-cucarachas',
     title: "¿Cuánto cuesta una fumigación en México en 2026? Precios y factores",
     excerpt: "El costo de una fumigación depende de varios factores. Te explicamos qué influye en el precio para que puedas comparar y decidir con información real.",
