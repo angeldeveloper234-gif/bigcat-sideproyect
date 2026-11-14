@@ -45,6 +45,8 @@ export interface BlogPost {
   id: string;
   slug: string;
   title: string;
+  /** <title> de 60 caracteres o menos. Si falta, se usa `title`. */
+  seoTitle?: string;
   excerpt: string;
   content: string;
   featured_image: string;
