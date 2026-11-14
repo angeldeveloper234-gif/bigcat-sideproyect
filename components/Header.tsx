@@ -39,7 +39,9 @@ const Header: React.FC = () => {
               <div className="relative h-[88px] lg:h-[114px] flex items-center">
                 <img
                   src={LOGO_DARK}
-                  alt="Big Cat - Control de Plagas Logo"
+                  alt="Big Cat Control de Plagas"
+                  width={320}
+                  height={320}
                   className="h-full w-auto object-contain transition-transform group-hover:scale-105"
                 />
               </div>

@@ -16,6 +16,10 @@ const Hero: React.FC = () => {
         <img 
           src="/images/hero.webp" 
           alt="Servicio profesional de control de plagas y fumigación residencial Big Cat" 
+          width={1920}
+          height={1047}
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-white/20 backdrop-blur-[1px]" />

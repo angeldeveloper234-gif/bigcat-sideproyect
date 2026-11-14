@@ -16,7 +16,10 @@ const Footer: React.FC = () => {
               <div className="h-[120px] flex items-center mb-6">
                 <img
                   src={LOGO_DARK}
-                  alt="Big Cat - Control de Plagas Logo"
+                  alt="Big Cat Control de Plagas"
+                  width={320}
+                  height={320}
+                  loading="lazy"
                   className="h-full w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
                 />
               </div>

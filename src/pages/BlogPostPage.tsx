@@ -5,7 +5,6 @@ import { descripcion } from '../lib/descriptions';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, User, ChevronRight, ArrowLeft, Loader2 } from 'lucide-react';
-import { supabase } from '../lib/supabase';
 import { BlogPost } from '../../types';
 
 import { BLOG_POSTS, PESTS_LIST, formatBlogDate } from '../../constants';
