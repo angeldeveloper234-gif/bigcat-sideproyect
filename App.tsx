@@ -62,9 +62,9 @@ const App: React.FC = () => {
         <meta property="og:site_name" content="Big Cat - Control de Plagas" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="es_MX" />
-        <meta property="og:image" content="https://bigcat.mx/logo/BIG CAT - Control de plagas.png" />
+        <meta property="og:image" content="https://bigcat.mx/logo/BIG%20CAT%20-%20Control%20de%20plagas.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://bigcat.mx/logo/BIG CAT - Control de plagas.png" />
+        <meta name="twitter:image" content="https://bigcat.mx/logo/BIG%20CAT%20-%20Control%20de%20plagas.png" />
         <meta name="twitter:title" content="Big Cat - Control de Plagas y Fumigación en México" />
         <meta name="twitter:description" content="Control de plagas y fumigación en México. Cotización sin costo." />
       </Helmet>

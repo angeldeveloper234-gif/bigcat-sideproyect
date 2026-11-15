@@ -12,7 +12,7 @@ import QuoteSection from '../../components/QuoteSection';
 import CostCalculator from '../../components/CostCalculator';
 
 import Testimonials from '../../components/Testimonials';
-import RestaurantMap from '../../components/RestaurantMap';
+import MapaDiferido from '../../components/MapaDiferido';
 import Blog from '../../components/Blog';
 import SedesLinks from '../../components/SedesLinks';
 
@@ -23,19 +23,23 @@ const Home: React.FC = () => {
     return (
         <main className="relative">
             <Helmet>
-                <title>Big Cat - Control de Plagas | Expertos en Fumigación en México</title>
+                <title>Big Cat | Fumigación y control de plagas en México</title>
+                {/* La imagen del hero es el elemento más grande de la home (LCP):
+                    se precarga acá, y no en index.html, para que no se baje en
+                    las otras 55 páginas, que no la usan. */}
+                <link rel="preload" as="image" href="/images/hero.webp" />
                 {/* La del home tambien sale de la lista literal: es la unica
                     forma de que quien la cambie la cambie en un solo lugar. */}
                 <meta name="description" content={descripcion('/', '')} />
                 <meta name="keywords" content="big cat, bigcat, big cat control de plagas, fumigaciones en mexico, control de plagas residencial, fumigación profesional" />
                 <link rel="canonical" href={canonical('/')} />
-                <meta property="og:title" content="Big Cat - Control de Plagas | Expertos en Fumigación" />
+                <meta property="og:title" content="Big Cat | Fumigación y control de plagas en México" />
                 <meta property="og:description" content={descripcion('/', '')} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={canonical('/')} />
-                <meta property="og:image" content="https://bigcat.mx/logo/BIG CAT - Control de plagas.png" />
+                <meta property="og:image" content="https://bigcat.mx/logo/BIG%20CAT%20-%20Control%20de%20plagas.png" />
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Big Cat - Control de Plagas | Expertos en Fumigación" />
+                <meta name="twitter:title" content="Big Cat | Fumigación y control de plagas en México" />
                 <meta name="twitter:description" content={descripcion('/', '')} />
                 <script type="application/ld+json">{JSON.stringify(organizationSchema())}</script>
             </Helmet>
@@ -57,7 +61,7 @@ const Home: React.FC = () => {
             
             {/* 5. Action & Footprint */}
 
-            <RestaurantMap />
+            <MapaDiferido />
             <SedesLinks />
             <Blog />
             <Contact />

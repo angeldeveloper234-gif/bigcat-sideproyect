@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { canonical } from '../lib/urls';
 import { descripcion } from '../lib/descriptions';
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, User, ChevronRight, ArrowLeft, Loader2 } from 'lucide-react';
-import { supabase } from '../lib/supabase';
 import { BlogPost } from '../../types';
 
 import { BLOG_POSTS, PESTS_LIST, formatBlogDate } from '../../constants';
-import { breadcrumbSchema } from '../lib/schema';
+import { breadcrumbSchema, articuloSchema, urlAbsoluta } from '../lib/schema';
+import NotFound from './NotFound';
 import SedesLinks from '../../components/SedesLinks';
 
 const BlogPostPage: React.FC = () => {
@@ -34,37 +34,14 @@ const BlogPostPage: React.FC = () => {
   }
 
   if (!post) {
-    return <Navigate to="/blog/" replace />;
+    return <NotFound />;
   }
 
-  // Schema.org Structured Data (Article)
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.meta_description,
-    "author": {
-      "@type": "Person",
-      "name": post.author
-    },
-    "datePublished": post.published_at,
-    "dateModified": post.published_at,
-    "image": post.featured_image?.startsWith('http')
-      ? post.featured_image
-      : `https://bigcat.mx${post.featured_image}`,
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": canonical(`/blog/${post.slug}`)
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Big Cat - Control de Plagas",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://bigcat.mx/logo/BIG%20CAT%20-%20Control%20de%20plagas.png"
-      }
-    }
-  };
+  const descripcionPost = descripcion(`/blog/${post.slug}`, post.meta_description);
+  const imagen = urlAbsoluta(post.featured_image);
+  // <title> de 60 caracteres o menos: el título completo queda en el H1.
+  const title = post.seoTitle ?? post.title;
+  const jsonLd = articuloSchema({ ...post, description: descripcionPost, image: imagen });
 
   // Schema.org BreadcrumbList
   const breadcrumbLd = breadcrumbSchema([['Inicio', '/'], ['Blog', '/blog/'], [post.title, `/blog/${post.slug}/`]]);
@@ -74,23 +51,22 @@ const BlogPostPage: React.FC = () => {
   return (
     <main className="relative pt-32 pb-24 bg-white min-h-screen">
       <Helmet>
-        <title>{post.title} | Big Cat - Control de Plagas</title>
-        <meta name="description" content={descripcion(`/blog/${post.slug}`, post.meta_description)} />
-        <meta name="keywords" content={post.keywords.join(',')} />
+        <title>{title}</title>
+        <meta name="description" content={descripcionPost} />
         <link rel="canonical" href={canonical(`/blog/${post.slug}`)} />
         
         {/* OpenGraph / Social Media */}
-        <meta property="og:title" content={`${post.title} | Big Cat - Control de Plagas`} />
-        <meta property="og:description" content={post.meta_description} />
-        <meta property="og:image" content={post.featured_image} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={descripcionPost} />
+        <meta property="og:image" content={imagen} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={canonical(`/blog/${post.slug}`)} />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${post.title} | Big Cat - Control de Plagas`} />
-        <meta name="twitter:description" content={post.meta_description} />
-        <meta name="twitter:image" content={post.featured_image} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={descripcionPost} />
+        <meta name="twitter:image" content={imagen} />
 
         {/* JSON-LD Article */}
         <script type="application/ld+json">

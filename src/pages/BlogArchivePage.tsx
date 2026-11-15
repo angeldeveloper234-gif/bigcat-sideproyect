@@ -4,7 +4,6 @@ import { canonical } from '../lib/urls';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, User, ChevronRight, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { supabase } from '../lib/supabase';
 import { BlogPost } from '../../types';
 
 import { BLOG_POSTS, formatBlogDate } from '../../constants';

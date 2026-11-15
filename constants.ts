@@ -50,8 +50,10 @@ export const CONTACT_INFO = {
   instagram: "https://www.instagram.com/bigcat.mx/"
 };
 
-export const LOGO_LIGHT = "/logo/BIG CAT - Control de plagas.png";
-export const LOGO_DARK = "/logo/BIG CAT - Control de plagas.png";
+// Versión chica (320 px, 25 kB) para el encabezado y el pie. El PNG original
+// de 800 px (210 kB) se sigue usando en og:image, favicon y JSON-LD.
+export const LOGO_LIGHT = "/logo/bigcat-logo.webp";
+export const LOGO_DARK = "/logo/bigcat-logo.webp";
 
 // Las sedes viven en src/data/sedes.ts: es el archivo donde se cargan
 // dirección, horario, mapa y reseñas de cada una.
@@ -163,7 +165,7 @@ export const PESTS_LIST = [
     process: "Desarmado de mobiliario, nebulización dirigida y sellado de grietas.",
     prevention: "Inspección de equipaje tras viajes y fundas protectoras certificadas.",
     icon: BedBugHotelIcon,
-    image: "/images/chinches_bedroom_1776661359500.png",
+    image: "/images/chinches-recamara.webp",
     features: ["Eliminación inmediata", "Sin residuos tóxicos", "Atención nacional", "Seguro para familias"]
   },
   {
@@ -189,7 +191,7 @@ export const PESTS_LIST = [
     process: "Inspección de senderos de forrajeo, localización de hormigueros, aplicación de cebos de transferencia y sellado de puntos de entrada críticos.",
     prevention: "Limpieza profunda de residuos dulces, sellado de grietas en muros, manejo adecuado de basura y eliminación de humedad excesiva.",
     icon: AntIcon,
-    image: "/services/hormigas.jpg",
+    image: "/services/hormigas.webp",
     features: ["Eliminación de Reina", "Cebos no tóxicos", "Sin olor", "Garantía de Satisfacción"]
   },
   {
@@ -215,7 +217,7 @@ export const PESTS_LIST = [
     process: "Localización precisa de nidos en aleros, techos o vegetación, aplicación dirigida de espuma paralizante y retiro físico seguro del panal.",
     prevention: "Sellado de cavidades en paredes exteriores, revisión periódica de techos durante primavera y evitar acumulación de basura dulce.",
     icon: WaspIcon,
-    image: "/services/Avispa_-_Wikipedia,_la_enciclopedia_libre_es.jpg",
+    image: "/services/avispas.webp",
     features: ["Retiro Seguro", "Equipo Especializado", "Sin Riesgos", "Atención Urgente"]
   },
   {
@@ -267,7 +269,9 @@ export const PESTS_LIST = [
     process: "Limpieza profunda y sanitización de áreas afectadas, e instalación profesional de barreras físicas de disuasión (púas, redes o postes y cables).",
     prevention: "Evitar dejar fuentes de alimentación en balcones, sellado de huecos en techos o cornisas y mantenimiento de limpieza en terrazas.",
     icon: BirdIcon,
-    image: "/services/palomas.jpg",
+    // Sin foto: /services/palomas.jpg nunca existió en el repo y la página
+    // mostraba una imagen rota. Con '' el encabezado queda sin foto de fondo.
+    image: "",
     features: ["Sistemas No Letales", "Protección de Fachadas", "Limpieza Profunda", "Garantía de Resultados"]
   }
 ];
@@ -286,7 +290,7 @@ export const RESIDENTIAL_PESTS = [
     slug: "control-de-hormigas",
     environment: "Cocinas y Patios",
     description: "Localización y erradicación de colonias de raíz, evitando que regresen a tu hogar.",
-    image: "/services/hormigas.jpg",
+    image: "/services/hormigas.webp",
     icon: AntIcon
   },
   {
@@ -302,7 +306,7 @@ export const RESIDENTIAL_PESTS = [
     slug: "control-de-chinches",
     environment: "Recámaras y Colchones",
     description: "Protocolo de choque inmediato con vapor y nebulización residual para erradicar chinches.",
-    image: "/images/chinches_bedroom_1776661359500.png",
+    image: "/images/chinches-recamara.webp",
     icon: BedBugHotelIcon
   },
   {
@@ -326,7 +330,7 @@ export const RESIDENTIAL_PESTS = [
     slug: "control-de-avispas",
     environment: "Techos y Jardines",
     description: "Retirada segura de panales y control preventivo para tus áreas exteriores.",
-    image: "/services/Avispa_-_Wikipedia,_la_enciclopedia_libre_es.jpg",
+    image: "/services/avispas.webp",
     icon: WaspIcon
   },
   {
@@ -503,13 +507,14 @@ export const BLOG_POSTS = [
   {
     id: '1',
     slug: 'control-plagas-invierno',
+    seoTitle: "Control de plagas en invierno: por qué importa | Big Cat",
     servicioRelacionado: 'control-de-roedores',
     title: "Por qué el control de plagas en invierno es más importante de lo que crees",
     excerpt: "Las plagas de invierno no descansan. Descubre por qué el control de plagas estacional durante los meses fríos es clave para prevenir...",
     content: `
       <p>Cuando las temperaturas bajan, solemos pensar que las plagas desaparecen. Sin embargo, en México, el invierno es una época crítica donde insectos y roedores buscan el calor y la comida de nuestros hogares.</p>
       
-      <img src="/articulos/articulo1.jpg" alt="Control de plagas en invierno" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+      <img src="/articulos/articulo1.webp" alt="Control de plagas en invierno" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
 
       <h2>¿Por qué las plagas entran en invierno?</h2>
       <p>A diferencia de lo que se cree, la mayoría de las plagas no mueren con el frío, sino que entran en un estado de baja actividad o buscan refugios térmicos. Tu casa, con su calefacción y despensa llena, es el refugio ideal.</p>
@@ -527,7 +532,7 @@ export const BLOG_POSTS = [
 
       <p>En <strong>Big Cat</strong>, contamos con protocolos específicos para la temporada invernal que garantizan una barrera protectora duradera.</p>
     `,
-    featured_image: "/articulos/articulo1.jpg",
+    featured_image: "/articulos/articulo1.webp",
     published_at: "2026-04-27T10:00:00Z",
     author: "Alexander",
     category: "Tips y Trucos",
@@ -537,13 +542,14 @@ export const BLOG_POSTS = [
   {
     id: '2',
     slug: 'hormigas-invadiendo-hogar',
+    seoTitle: "Hormigas en casa: por qué nunca se van del todo | Big Cat",
     servicioRelacionado: 'control-de-hormigas',
     title: "¿Hormigas invadiendo tu hogar? Por qué nunca parecen irse del todo",
     excerpt: "Si pensaste que el fin del verano significaba el fin de las hormigas, piénsalo de nuevo. A diferencia de otras regiones...",
     content: `
       <p>Las hormigas son una de las plagas más persistentes y frustrantes. Una sola exploradora que encuentre una migaja de azúcar puede guiar a cientos de compañeras a tu cocina en cuestión de minutos.</p>
 
-      <img src="/articulos/articulo2.jpg" alt="Hormigas en el hogar" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+      <img src="/articulos/articulo2.webp" alt="Hormigas en el hogar" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
 
       <h2>El comportamiento de la colonia</h2>
       <p>Entender a las hormigas es la clave para eliminarlas. No basta con matar a las que ves; hay que atacar el corazón de la colonia: la reina.</p>
@@ -558,7 +564,7 @@ export const BLOG_POSTS = [
 
       <p>Nuestros métodos en <strong>Big Cat</strong> utilizan cebos de transferencia que las obreras llevan voluntariamente al nido, erradicando la plaga de raíz sin contaminar tus alimentos.</p>
     `,
-    featured_image: "/articulos/articulo2.jpg",
+    featured_image: "/articulos/articulo2.webp",
     published_at: "2026-04-27T09:00:00Z",
     author: "Alexander",
     category: "Guía de Especies",
@@ -568,13 +574,14 @@ export const BLOG_POSTS = [
   {
     id: '3',
     slug: 'otono-cucarachas-casas',
+    seoTitle: "Cucarachas en otoño: por qué invaden las casas | Big Cat",
     servicioRelacionado: 'eliminacion-de-cucarachas',
     title: "El otoño no detiene a las cucarachas: Por qué invaden casas en esta época",
     excerpt: "A medida que el clima se enfría, podrías esperar que las plagas se tomen un descanso, pero las cucarachas no juegan bajo las...",
     content: `
       <p>El otoño en México trae consigo cambios de humedad que obligan a las cucarachas a buscar nuevos territorios. Es en esta época cuando las llamadas al servicio técnico aumentan drásticamente.</p>
 
-      <img src="/articulos/articulo3.jpg" alt="Cucarachas en otoño" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+      <img src="/articulos/articulo3.webp" alt="Cucarachas en otoño" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
 
       <h2>¿Por qué el otoño es peligroso?</h2>
       <p>Las cucarachas americanas (las grandes voladoras) suelen habitar en drenajes. Con las variaciones de presión y temperatura del otoño, tienden a subir a las superficies y entrar a las casas por coladeras y registros.</p>
@@ -590,7 +597,7 @@ export const BLOG_POSTS = [
 
       <p>En <strong>Big Cat</strong> aplicamos geles de alta tecnología que aprovechan el comportamiento social de las cucarachas para lograr un control total en menos de 48 horas.</p>
     `,
-    featured_image: "/articulos/articulo3.jpg",
+    featured_image: "/articulos/articulo3.webp",
     published_at: "2026-04-27T11:30:00Z",
     author: "Alexander",
     category: "Prevención",
@@ -600,13 +607,14 @@ export const BLOG_POSTS = [
   {
     id: '4',
     slug: 'insectos-comunes-mexico',
+    seoTitle: "Insectos y plagas más comunes en México | Big Cat",
     servicioRelacionado: 'eliminacion-de-cucarachas',
     title: "Insectos y plagas comunes: Qué vigilar durante todo el año en México",
     excerpt: "El clima templado de México es un paraíso, pero lamentablemente es igual de atractivo para las plagas. Conoce qué...",
     content: `
       <p>México tiene una biodiversidad asombrosa, pero esa misma riqueza se traduce en una gran variedad de insectos que pueden convertirse en plagas domésticas en cuestión de días.</p>
 
-      <img src="/articulos/articulo4.jpg" alt="Insectos comunes México" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+      <img src="/articulos/articulo4.webp" alt="Insectos comunes México" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
 
       <h2>1. La Cucaracha Germánica</h2>
       <p>Es la reina de las cocinas. Su capacidad de resistencia a insecticidas comunes la hace un desafío para cualquier propietario.</p>
@@ -625,7 +633,7 @@ export const BLOG_POSTS = [
 
       <p>No permitas que estos visitantes se adueñen de tu tranquilidad. En <strong>Big Cat</strong> tenemos un experto para cada una de estas amenazas.</p>
     `,
-    featured_image: "/articulos/articulo4.jpg",
+    featured_image: "/articulos/articulo4.webp",
     published_at: "2026-04-27T08:00:00Z",
     author: "Alexander",
     category: "Noticias",
@@ -635,6 +643,7 @@ export const BLOG_POSTS = [
   {
     id: '5',
     slug: 'control-de-plagas-monterrey-calor',
+    seoTitle: "Control de plagas en Monterrey: calor y plagas | Big Cat",
     servicioRelacionado: 'eliminacion-de-cucarachas',
     title: "Control de plagas en Monterrey: por qué el calor extremo dispara las infestaciones",
     excerpt: "El verano regio no solo es sofocante: es el escenario perfecto para que cucarachas, alacranes y roedores invadan tu hogar o negocio. Te explicamos por qué y cómo prevenirlo.",
@@ -665,12 +674,13 @@ export const BLOG_POSTS = [
     published_at: "2026-05-06T10:00:00Z",
     author: "Alexander",
     category: "Guía Local",
-    meta_description: "Descubre por qué el calor extremo de Monterrey dispara las plagas de cucarachas, alacranes y roedores, y cómo protegerte. Guía local de Big Cat Control de Plagas.",
+    meta_description: "Por qué el calor extremo de Monterrey dispara las plagas de cucarachas, alacranes y roedores, y cómo proteger tu casa o negocio en verano.",
     keywords: ["control de plagas monterrey", "fumigación monterrey", "plagas calor", "cucarachas monterrey", "alacranes monterrey"]
   },
   {
     id: '6',
     slug: 'alacranes-norte-mexico-prevencion',
+    seoTitle: "Alacranes en el norte de México: prevención | Big Cat",
     servicioRelacionado: 'control-de-alacranes',
     title: "Alacranes en el norte de México: guía de prevención para Coahuila y Nuevo León",
     excerpt: "Saltillo, Torreón y Monterrey están entre las zonas con mayor presencia de alacranes. Aprende a identificar el riesgo y a mantener tu hogar seguro.",
@@ -714,6 +724,7 @@ export const BLOG_POSTS = [
   {
     id: '7',
     slug: 'como-elegir-empresa-control-de-plagas',
+    seoTitle: "Cómo elegir una empresa de control de plagas | Big Cat",
     servicioRelacionado: 'control-de-plagas-comercial',
     title: "Cómo elegir una empresa de control de plagas en México: 7 puntos clave",
     excerpt: "No todas las fumigadoras son iguales. Estos son los criterios que debes revisar antes de contratar para no tirar tu dinero (ni arriesgar tu salud).",
@@ -755,6 +766,7 @@ export const BLOG_POSTS = [
   {
     id: '8',
     slug: 'control-de-plagas-restaurantes-cofepris',
+    seoTitle: "Control de plagas para restaurantes y COFEPRIS | Big Cat",
     servicioRelacionado: 'control-de-plagas-comercial',
     title: "Control de plagas para restaurantes: cumple con COFEPRIS y evita multas",
     excerpt: "Una sola cucaracha puede cerrar tu restaurante. Descubre cómo un programa profesional protege tu reputación, tus clientes y tu licencia sanitaria.",
@@ -792,13 +804,14 @@ export const BLOG_POSTS = [
   {
     id: '9',
     slug: 'chinches-de-cama-deteccion-eliminacion',
+    seoTitle: "Chinches de cama: detectarlas y eliminarlas | Big Cat",
     servicioRelacionado: 'control-de-chinches',
     title: "Chinches de cama: cómo detectarlas a tiempo y eliminarlas por completo",
     excerpt: "Las chinches de cama resurgieron con fuerza por el turismo. Aprende a reconocer las señales tempranas antes de que la infestación se salga de control.",
     content: `
       <p>Las <strong>chinches de cama</strong> son una de las plagas más difíciles de eliminar por cuenta propia. Se esconden, se reproducen rápido y viajan en el equipaje. Detectarlas a tiempo es la diferencia entre un tratamiento sencillo y una infestación costosa.</p>
 
-      <img src="/images/chinches_bedroom_1776661359500.png" alt="Detección y eliminación de chinches de cama" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
+      <img src="/images/chinches-recamara.webp" alt="Detección y eliminación de chinches de cama" style="width: 100%; border-radius: 12px; margin: 24px 0;" />
 
       <h2>5 señales de que tienes chinches</h2>
       <ol>
@@ -820,7 +833,7 @@ export const BLOG_POSTS = [
 
       <p>¿Sospechas de una infestación? Solicita una inspección discreta y profesional hoy mismo.</p>
     `,
-    featured_image: "/images/chinches_bedroom_1776661359500.png",
+    featured_image: "/images/chinches-recamara.webp",
     published_at: "2026-06-03T09:00:00Z",
     author: "Alexander",
     category: "Guía de Especies",
@@ -830,6 +843,7 @@ export const BLOG_POSTS = [
   {
     id: '10',
     slug: 'mosquitos-dengue-zonas-calidas',
+    seoTitle: "Mosquitos y dengue: cómo protegerte | Big Cat",
     servicioRelacionado: 'control-de-mosquitos',
     title: "Mosquitos y dengue: cómo protegerte en Tampico, Reynosa y zonas cálidas",
     excerpt: "En las zonas cálidas y húmedas del país, el mosquito no solo molesta: transmite dengue, zika y chikungunya. Te decimos cómo cortar su ciclo.",
@@ -870,6 +884,7 @@ export const BLOG_POSTS = [
   {
     id: '11',
     slug: 'termitas-senales-riesgo-hogar',
+    seoTitle: "Termitas: 6 señales de daño en tu casa | Big Cat",
     servicioRelacionado: 'control-de-termitas',
     title: "Termitas: 6 señales de que están destruyendo tu casa (y cómo detenerlas)",
     excerpt: "Las termitas trabajan en silencio y pueden comprometer la estructura de tu hogar antes de que las veas. Aprende a detectar el daño a tiempo.",
@@ -906,6 +921,7 @@ export const BLOG_POSTS = [
   {
     id: '12',
     slug: 'cuanto-cuesta-fumigacion-mexico-2026',
+    seoTitle: "¿Cuánto cuesta una fumigación en México? (2026) | Big Cat",
     servicioRelacionado: 'eliminacion-de-cucarachas',
     title: "¿Cuánto cuesta una fumigación en México en 2026? Precios y factores",
     excerpt: "El costo de una fumigación depende de varios factores. Te explicamos qué influye en el precio para que puedas comparar y decidir con información real.",

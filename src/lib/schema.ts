@@ -1,6 +1,6 @@
 import { canonical, SITE } from './urls';
 import { PCP, TELEFONO } from './contacto';
-import { Branch } from '../data/sedes';
+import { Branch, BRANCHES } from '../data/sedes';
 
 /**
  * JSON-LD del sitio. Igual que el canonical, las URLs salen de `canonical()`
@@ -109,6 +109,68 @@ export function serviceAreaSchema(ciudad: Branch) {
         },
     };
 }
+
+/** Referencia corta a la Organization de la home (mismo @id). */
+const PROVEEDOR = {
+    '@type': 'Organization',
+    '@id': `${canonical('/')}#organization`,
+    name: 'Big Cat Control de Plagas',
+    url: canonical('/'),
+    telephone: TELEFONO.e164,
+};
+
+/**
+ * Service de una página de servicio. `areaServed` son las ciudades donde el
+ * servicio lo da Big Cat (sedes y ciudades con servicio); las de la red de
+ * aliados no van, porque ahí el trabajo lo hace otra empresa.
+ */
+export function servicioSchema(servicio: { slug: string; nombre: string; descripcion: string; imagen?: string }) {
+    const url = canonical(`/servicios/${servicio.slug}`);
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        '@id': `${url}#service`,
+        name: servicio.nombre,
+        serviceType: 'Control de plagas',
+        description: servicio.descripcion,
+        url,
+        ...(servicio.imagen ? { image: servicio.imagen } : {}),
+        areaServed: BRANCHES.filter(c => c.tipo !== 'aliados').map(c => ({ '@type': 'City', name: c.shortName })),
+        provider: PROVEEDOR,
+    };
+}
+
+/** BlogPosting de un artículo. La imagen y las URLs van siempre absolutas. */
+export function articuloSchema(post: { slug: string; title: string; description: string; image: string; published_at: string; author: string }) {
+    const url = canonical(`/blog/${post.slug}`);
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        '@id': `${url}#article`,
+        headline: post.title,
+        description: post.description,
+        image: post.image,
+        datePublished: post.published_at,
+        dateModified: post.published_at,
+        inLanguage: 'es-MX',
+        author: { '@type': 'Person', name: post.author },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+        publisher: {
+            '@type': 'Organization',
+            '@id': `${canonical('/')}#organization`,
+            name: 'Big Cat Control de Plagas',
+            url: canonical('/'),
+            logo: { '@type': 'ImageObject', url: LOGO },
+        },
+    };
+}
+
+/** URL absoluta de una imagen del sitio (codifica espacios y ñ). */
+export function urlAbsoluta(src: string): string {
+    return src.startsWith('http') ? src : `${SITE}${encodeURI(src)}`;
+}
+
+export const LOGO_URL = LOGO;
 
 export function faqSchema(faqs: { q: string; a: string }[]) {
     return {

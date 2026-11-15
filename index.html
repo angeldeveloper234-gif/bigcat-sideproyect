@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="theme-color" content="#E53935" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-05BP9YM1KM"></script>
@@ -13,7 +14,7 @@
 
     gtag('config', 'G-05BP9YM1KM');
   </script>
-  <title>Big Cat - Control de Plagas y Fumigación en Monterrey, Querétaro y Saltillo</title>
+  <title>Big Cat | Fumigación y control de plagas en México</title>
   <!-- La description la declara cada pagina. Ver src/lib/descriptions.ts -->
   <!-- El canonical y el og:url los declara cada pagina. Ver src/lib/urls.ts -->
   <!-- Las metas por pagina van en el Helmet de App.tsx, no aca. Ver App.tsx -->
@@ -25,10 +26,10 @@
        prerenderizado, así que los crawlers sin JS lo ven igual. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" as="style">
-  <link rel="preload" href="/images/hero.png" as="image">
+  <!-- Solo Montserrat y solo los pesos que el sitio usa (300 a 700). Antes se
+       pedían también 800, 900 y la familia Outfit, que ningún componente usa. -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
 
 </head>
