@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { X, MessageCircle } from 'lucide-react';
 import { Branch } from '../src/data/sedes';
-import { TIPOS_CLIENTE, PLAGAS_PANEL, mensajeCiudadDetallado, whatsappUrl } from '../src/lib/contacto';
+import { TIPOS_CLIENTE, PLAGAS_PANEL, mensajeCiudadDetallado, numeroWhatsapp, whatsappUrl } from '../src/lib/contacto';
 
 /**
  * MINI FORMULARIO ANTES DE ABRIR WHATSAPP (páginas de ciudad)
@@ -89,7 +89,7 @@ const WhatsappPanel: React.FC = () => {
                 </div>
 
                 <a
-                    href={whatsappUrl(mensaje)}
+                    href={whatsappUrl(mensaje, numeroWhatsapp(ciudad))}
                     target="_blank"
                     rel="noopener noreferrer"
                     data-city={ciudad.id}
