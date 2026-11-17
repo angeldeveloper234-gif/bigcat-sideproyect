@@ -522,6 +522,9 @@ export const BRANCHES: Branch[] = [
             { nombre: 'San Juan del Río', sede: 'san-juan-del-rio' },
         ],
         ...SIN_DATOS,
+        direccion: 'Ramiro de Maeztu 10, 76150 Querétaro, Qro.',
+        horario: 'Lunes a viernes de 8:00 a 17:30 y sábado de 8:00 a 13:00',
+        horarioSchema: ['Mo-Fr 08:00-17:30', 'Sa 08:00-13:00'],
     },
     {
         id: 'san-juan-del-rio',
