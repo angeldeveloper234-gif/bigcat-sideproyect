@@ -42,6 +42,7 @@ const LARGO_MAXIMO_TITLE = 60;
 
 /** `Fumigaciones en {Ciudad} | Control de Plagas – Big Cat`, sin pasar de 60. */
 export function tituloSede(sede: Branch): string {
+    if (sede.seoTitle) return sede.seoTitle;
     const ciudad = sede.tituloCiudad ?? sede.shortName;
     const completo = `Fumigaciones en ${ciudad} | Control de Plagas – Big Cat`;
     return completo.length <= LARGO_MAXIMO_TITLE ? completo : `Fumigaciones en ${ciudad} | Control de Plagas`;
