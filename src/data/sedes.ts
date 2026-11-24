@@ -84,6 +84,11 @@ export interface Branch {
     shortName: string;
     /** Nombre corto SOLO para el <title> cuando el largo no entra en 60 caracteres. */
     tituloCiudad?: string;
+    /**
+     * <title> completo escrito a mano. Solo para sedes donde Search Console
+     * mostró que el título genérico rinde poco (muchas apariciones, pocos clics).
+     */
+    seoTitle?: string;
     state: string;
     /** Centro de la ciudad, para mapas decorativos. NO es la dirección de la sede. */
     coords: [number, number];
@@ -142,8 +147,11 @@ export const BRANCHES: Branch[] = [
         coords: [-100.3161, 25.6866],
         range: '64000 - 66299',
         zipCodes: ['64000', '64720', '64830', '64988', '66220', '66269'],
+        // Search Console (28 días al 24/11): 2.111 apariciones y 3 clics. La
+        // búsqueda principal es "control de plagas en monterrey", no "fumigaciones".
+        seoTitle: 'Control de Plagas y Fumigación en Monterrey | Big Cat',
         metaDescription:
-            'Fumigación para casas y negocios en Monterrey, San Nicolás, Guadalupe y Apodaca. Alacranes, cucarachas, ratas y termitas. Cotiza gratis por WhatsApp.',
+            'Control de plagas y fumigación en Monterrey, San Nicolás, Guadalupe y Apodaca: alacranes, cucarachas, ratas y termitas. Cotiza gratis por WhatsApp.',
         intro:
             'Fumigaciones para casas, departamentos y negocios en Monterrey y su área metropolitana. Cuéntanos por WhatsApp qué plaga tienes y te mandamos la cotización sin costo.',
         serviciosIntro:
@@ -204,6 +212,9 @@ export const BRANCHES: Branch[] = [
         name: 'San Pedro Garza García, N.L.',
         shortName: 'San Pedro Garza García',
         tituloCiudad: 'San Pedro',
+        // "San Pedro" solo es ambiguo (hay varios en México): 917 apariciones en
+        // el puesto 3 y 1 clic. El nombre completo deja claro que es este.
+        seoTitle: 'Fumigación en San Pedro Garza García, N.L. | Big Cat',
         state: 'Nuevo León',
         coords: [-100.4028, 25.6588],
         range: '66200 - 66290',
