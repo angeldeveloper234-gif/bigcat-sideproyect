@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { PESTS_LIST } from '../../constants';
 import { buscarSede, Branch } from '../data/sedes';
-import { MENSAJES, mensajeCiudad, whatsappUrl } from './contacto';
+import { MENSAJES, mensajeCiudad, numeroWhatsapp, whatsappUrl } from './contacto';
 
 export interface ContextoWhatsapp {
     /** De qué tipo de página sale el mensaje. */
@@ -28,7 +28,7 @@ export function contextoWhatsapp(pathname: string): ContextoWhatsapp {
         const sede = buscarSede(slug);
         if (sede) {
             const mensaje = mensajeCiudad(sede);
-            return { tipo: 'sede', mensaje, url: whatsappUrl(mensaje), city: sede.id, sede };
+            return { tipo: 'sede', mensaje, url: whatsappUrl(mensaje, numeroWhatsapp(sede)), city: sede.id, sede };
         }
     }
     if (seccion === 'servicios') {
